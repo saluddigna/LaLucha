@@ -1,0 +1,48 @@
+#principal{
+  height: auto;
+}
+/* Banner */
+.bannerPonElPecho{
+  background-color: palevioletred;
+  margin: 0px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+}
+.imgBanner{
+  height: 300px;
+  background-color: hotpink;
+  width: 68.2%;
+  p{
+    text-align: center;
+    padding-top: 7%;
+    font-size: 50px
+  }
+}
+/* Navbar */
+.barraNav{
+  background-color: #F05876;
+  display: flex;
+  justify-content: center;
+  
+}
+.opcNav{
+  flex: 0 1 auto;
+  height: 80px;
+  width: 17%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #FFFFFF;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+.opcNav:first-of-type{
+  border-left: 1px solid #FFFFFF;
+}
+.opcNav.active{
+  background-color: #B54B60;
+  cursor: inherit;
+}
+/* ---------------Secciones------------- */
