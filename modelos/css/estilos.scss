@@ -155,7 +155,7 @@
   background-color:#F05876;
   border: 2px solid #F05876;
 }
-.btn-ubica:active,{
+.btn-ubica:active{
   color: #Fff;
   background-color:#eb607c;
   border: 2px solid #eb607c;
@@ -224,4 +224,38 @@
   width: 33%;
   font-weight: bold;
   font-size: 16px;
+}
+/* ----------Ingresar-------- */
+/*---- LogIn-----*/
+.regresar{
+  margin-left: -10px;
+  font-size: 16px;
+  color: #0074D9;
+
+}
+.olvide{
+  font-size: 12px;
+  float: right;
+  color: #0074D9;
+}
+.btn-pink{
+  color: #fff;
+  background-color: #F0577B;
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
+/*----------------- MOVIL -----------------*/
+@media only screen and (max-width: 500px) {
+  #infoCita{
+    order: 99;
+  }
+  .movilOrden{
+    display: flex;
+    flex-direction: column;
+  }
 }
