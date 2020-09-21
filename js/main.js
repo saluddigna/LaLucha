@@ -8,6 +8,7 @@ $(document).ready(function () {
 function seccion(nav){
   if(nav==1){
     $('#seccion').load('../modelos/cita.html');
+    
     removerClaseNav();
     $("#btnRegistro").addClass("active");
   }else if(nav==2){
