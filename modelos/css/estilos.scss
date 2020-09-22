@@ -17,6 +17,9 @@
 .align-center{
   align-items: center;
 }
+.flex-1-1{
+  flex: 1 1 auto;
+}
 /* Textos*/
 .text-bold{
   font-weight: bold;
@@ -36,9 +39,24 @@
 .text-20{
   font-size: 20px;
 }
+.text-pink{
+  color: #F0577B;
+}
+.totalP{
+  width: 100%;
+  text-align: right;
+  border-top:1px dashed #616161;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+#totalP{
+  font-weight: normal;
+}
 /* Banner */
 .bannerPonElPecho{
-  background-color: palevioletred;
+  background-image: url('../../images/banner-masto-en-150-web.png');
+  background-repeat: no-repeat;
+  background-position-x: center;
   margin: 0px;
   height: 300px;
   display: flex;
@@ -143,19 +161,19 @@
 .masto-cita.active{
   background-color: #E45F7D;
 }
-.btn-ubica{
+.btn-pink-outline{
   width: 100%;
   color: #F05876;
   font-weight: bold;
   border: 2px solid #F05876;
   height: 40px;
 }
-.btn-ubica:hover,.btn-ubica:focus{
+.btn-pink-outline:hover,.btn-pink-outline:focus{
   color: #Fff;
   background-color:#F05876;
   border: 2px solid #F05876;
 }
-.btn-ubica:active{
+.btn-pink-outline:active{
   color: #Fff;
   background-color:#eb607c;
   border: 2px solid #eb607c;
@@ -228,6 +246,47 @@
 .rayas{
   border-color: #c0c0c0;
 }
+/* Pagar */
+.pkts{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 6px;
+  display: flex;
+  padding: 10px;
+  margin: 15px 0;
+  height: fit-content;
+}
+.precioPKT{
+  position: absolute;
+  right: 60px;
+  font-size: 18px;
+  text-align: right;
+  font-weight: bold;
+}
+.descripcionPKT{
+  width: 84%;
+}
+.infoPKT{
+  padding: 0px 15px 0px 30px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.imgPKT{
+  border-radius: 5px;
+  height: 140px;
+}
+.resumenCita{
+  background: #FAFAFA 0% 0% no-repeat padding-box;
+  border: 1px solid #AFAFAF;
+  border-radius: 5px;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+.tablaCita{
+  width: 100%;
+}
 /* ----------Ingresar-------- */
 /*---- LogIn-----*/
 .regresar{
@@ -249,16 +308,32 @@
   font-size: 18px;
   font-weight: bold;
 }
-
-
-
-/*----------------- MOVIL -----------------*/
-@media only screen and (max-width: 500px) {
+/*----------------- TABLET -----------------*/
+@media only screen and (max-width: 1000px) {
   #infoCita{
-    order: 99;
+    order: 10;
   }
   .movilOrden{
     display: flex;
     flex-direction: column;
+  }
+  .bannerPonElPecho{
+    background-image: url('../../images/banner-masto-en-150-tablet.png');
+    background-color: #F0BDBD;
+  }
+}
+
+/*----------------- MOVIL -----------------*/
+@media only screen and (max-width: 500px) {
+  #infoCita{
+    order: 10;
+  }
+  .movilOrden{
+    display: flex;
+    flex-direction: column;
+  }
+  .bannerPonElPecho{
+    background-image: url('../../images/banner-masto-en-150-movil.png');
+    background-color: #F0BDBD;
   }
 }

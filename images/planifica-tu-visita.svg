@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="31" height="38" viewBox="0 0 31 38">
+  <g id="planifica-tu-visita" transform="translate(-420.605 -443.167)">
+    <g id="Rectángulo_3518" data-name="Rectángulo 3518" transform="translate(420.605 443.167)" fill="none" stroke="#616161" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+      <rect width="31" height="38" rx="6" stroke="none"/>
+      <rect x="0.75" y="0.75" width="29.5" height="36.5" rx="5.25" fill="none"/>
+    </g>
+    <g id="Rectángulo_3519" data-name="Rectángulo 3519" transform="translate(424.435 463.492)" fill="#616161" stroke="#616161" stroke-width="1">
+      <rect width="23.566" height="2.033" rx="1.016" stroke="none"/>
+      <rect x="0.5" y="0.5" width="22.566" height="1.033" rx="0.516" fill="none"/>
+    </g>
+    <g id="Rectángulo_3524" data-name="Rectángulo 3524" transform="translate(436.512 447.585)" fill="#616161" stroke="#616161" stroke-width="1">
+      <rect width="11.488" height="1.865" rx="0.932" stroke="none"/>
+      <rect x="0.5" y="0.5" width="10.488" height="0.865" rx="0.432" fill="none"/>
+    </g>
+    <path id="Trazado_12348" data-name="Trazado 12348" d="M5.99-2.222c.562.288,1.728.8,1.728.8l2.623-3.771a1.578,1.578,0,0,1,1.874-.488,1.778,1.778,0,0,1,.25,2.262L10.091.118s-1,1.785-2.665,1.253A15.89,15.89,0,0,1,5.1.484,1.582,1.582,0,0,1,4.033-1.645,1.3,1.3,0,0,1,5.99-2.222Z" transform="translate(421.092 452.965)" fill="#fac2bf"/>
+    <g id="Rectángulo_3520" data-name="Rectángulo 3520" transform="translate(424.435 468.795)" fill="#616161" stroke="#616161" stroke-width="1">
+      <rect width="23.566" height="2.033" rx="1.016" stroke="none"/>
+      <rect x="0.5" y="0.5" width="22.566" height="1.033" rx="0.516" fill="none"/>
+    </g>
+    <g id="Rectángulo_3523" data-name="Rectángulo 3523" transform="translate(434.745 452.888)" fill="#616161" stroke="#616161" stroke-width="1">
+      <rect width="13.256" height="2.033" rx="1.016" stroke="none"/>
+      <rect x="0.5" y="0.5" width="12.256" height="1.033" rx="0.516" fill="none"/>
+    </g>
+    <g id="Rectángulo_3521" data-name="Rectángulo 3521" transform="translate(424.435 474.097)" fill="#616161" stroke="#616161" stroke-width="1">
+      <rect width="23.566" height="2.033" rx="1.016" stroke="none"/>
+      <rect x="0.5" y="0.5" width="22.566" height="1.033" rx="0.516" fill="none"/>
+    </g>
+    <g id="Rectángulo_3522" data-name="Rectángulo 3522" transform="translate(424.435 458.19)" fill="#616161" stroke="#616161" stroke-width="1">
+      <rect width="23.566" height="1.865" rx="0.932" stroke="none"/>
+      <rect x="0.5" y="0.5" width="22.566" height="0.865" rx="0.432" fill="none"/>
+    </g>
+  </g>
+</svg>
