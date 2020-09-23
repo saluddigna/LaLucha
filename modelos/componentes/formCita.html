@@ -4,12 +4,12 @@
     <span class="text-bold text-16">¡Solicita tu Mastografía a precio especial!</span>
     <div class="d-flex row">
       <div class="masto-cita active">
-        <p class="text-center">ICO</p>
+        <p class="text-center"><img src="./images/mastografia-en-150.svg" alt=""></p>
         <p class="text-center text-bold text-18">Mastografía a sólo $150</p>
-        <p class="text-center">Este estudio se realiza a partir de los 40 años</p>
+        <p class="text-center text-12">Este estudio se realiza a partir de los 40 años</p>
       </div>
       <div class="masto-cita">
-        <p class="text-center">ICO</p>
+        <p class="text-center"><img src="./images/mastografía-sin-costo.svg" alt=""></p>
         <p class="text-center text-bold text-18">Espera un beneficio este 19 de Octubre</p>
         <p class="text-center text-16 text-bold">Faltan</p>
         <p class="text-center text-16 text-bold">01:00 horas</p>
@@ -22,19 +22,31 @@
     <button type="button" class="btn btn-default btn-pink-outline ">Ubicar automáticamente</button>
     <div class="d-flex row">
       <div class="combobox">
-        <input class="" type="text" name="" id="" placeholder="Estado">
+        <div class="cajas-texto">
+          <input type="text" class="input-sd" >
+          <span class="floating-label">Estado</span>
+        </div>
       </div>
       <div class="combobox">
-        <input class="" type="text" name="" id="" placeholder="Clínica">
+        <div class="cajas-texto">
+          <input type="text" class="input-sd" >
+          <span class="floating-label">Clínica</span>
+        </div>
       </div>
     </div>
     <p class="text-bold text-16">¿Cuándo deseas realizar tu Mastografía?</p>
     <div class="d-flex row">
       <div class="combobox">
-        <input class="" type="date" name="" id="" placeholder="Fecha">
+        <div class="cajas-texto">
+          <input type="text" class="input-sd" >
+          <span class="floating-label">Fecha</span>
+        </div>
       </div>
       <div class="combobox">
-        <input class="" type="datetime" name="" id="" placeholder="Hora">
+        <div class="cajas-texto">
+          <input type="text" class="input-sd" >
+          <span class="floating-label">Hora</span>
+        </div>
       </div>
     </div>
     <div class="my-10">
@@ -42,25 +54,49 @@
     </div>
     <p class="text-bold text-16">Datos del paciente (Idénticos a tu identificación oficial)</p>
     <div class="row datos-px">
-      <input type="text" name="" id="" placeholder="Nombre(s)">
-      <input type="text" name="" id="" placeholder="Apellido Paterno">
-      <input type="text" name="" id="" placeholder="Apellido Materno">
+      <div class="cajas-texto">
+        <input type="text" class="input-sd" id="cita_nombre" name="correo-electronico">
+        <span class="floating-label">Nombre</span>
+      </div>
+      <div class="cajas-texto">
+        <input type="text" class="input-sd" >
+        <span class="floating-label">Apellido paterno</span>
+      </div>
+      <div class="cajas-texto">
+        <input type="text" class="input-sd" >
+        <span class="floating-label">Apellido materno</span>
+      </div>
+      <div class="cajas-texto">
+        <input type="date" class="input-sd valido" >
+        <span class="floating-label">Fecha de nacimiento</span>
+      </div>
     </div>
     <div class="d-flex row doble">
       <div id="fem" class="btn-sexo active">Mujer</div>
       <div id="mas" class="btn-sexo">Hombre</div>
     </div>
     <div class="row datos-px">
-      <input type="tel" name="" id="" placeholder="Teléfono">
-      <input type="email" name="" id="" placeholder="Correo electrónico">
-      <input type="password" name="" id="" placeholder="Apellido Materno">
+      <div class="cajas-texto">
+        <input type="text" class="input-sd" >
+        <span class="floating-label">Teléfono</span>
+      </div>
+      <div class="cajas-texto">
+        <input type="email" class="input-sd" >
+        <span class="floating-label">Correo electrónico</span>
+      </div>
     </div>
     <div class="d-flex row doble">
       <div class="combobox">
-        <input class="" type="password" name="" id="" placeholder="Password">
+        <div class="cajas-texto">
+          <input type="text" class="input-sd" >
+          <span class="floating-label">Contraseña</span>
+        </div>
       </div>
       <div class="combobox">
-        <input class="" type="password" name="" id="" placeholder="Password">
+        <div class="cajas-texto">
+          <input type="text" class="input-sd" >
+          <span class="floating-label">Repetir contraseña</span>
+        </div>
       </div>
     </div>
   </div>

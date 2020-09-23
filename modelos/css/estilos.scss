@@ -27,6 +27,9 @@
 .text-center{
   text-align: center;
 }
+.text-12{
+  font-size: 12px;
+}
 .text-14{
   font-size: 14px;
 }
@@ -51,6 +54,100 @@
 }
 #totalP{
   font-weight: normal;
+}
+/* INPUTS */
+.cajas-texto{
+  position: relative;
+  width: 100%;
+  margin-top: 0px;
+}
+
+.error-input.mostrar-error{
+  color: #FF5C17;
+  height: 20px;
+}
+
+.error-input{
+height: 0;
+color: transparent;
+transition: 0.3s all;
+}
+
+.cajas-texto input{
+  width: 100%;
+  height: 45px;
+  border-radius: 4px;
+  border: 1px solid #E2BBBA;
+  padding: 8px 15px;
+  outline: none;
+}
+
+.cajas-texto input:focus{
+  border-color: #F05876;
+  color: #F05876;
+}
+
+.cajas-texto span.floating-label{
+  position: absolute;
+  pointer-events: none;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  transition: 0.2s ease all;
+  color: #afafaf;
+}
+
+.cajas-texto i.icono-eye-2,
+.cajas-texto i.icono-eye{
+  position: absolute;
+  cursor: pointer;
+  top: 30%;
+  right: 15px;
+  color: #afafaf;
+}
+
+.cajas-texto i.icono-eye-2:before,
+.cajas-texto i.icono-eye:before{
+  margin: 0;
+}
+
+.cajas-texto input:focus ~ .floating-label{
+  top: 10px !important;
+  opacity: 1 !important;
+  color: #F05876 !important;
+  background-color: #fff;
+  padding: 0 3px;
+  z-index: 2;
+}
+.combobox .cajas-texto input:focus ~ .floating-label, .combobox .valido ~ .floating-label, .combobox .error ~ .floating-label{
+  top: 0px!important;
+}
+input.valido{
+  border-color: #E6A2B0;
+}
+
+input.error{
+  border-color: #FF5C17;
+  color: #FF5C17;
+}
+
+.valido ~ .floating-label{
+  top: 10px !important;
+  opacity: 1 !important;
+  color: #616161 !important;
+  background-color: #fff;
+  padding: 0 3px;
+  z-index: 2;
+}
+
+.error ~ .floating-label{
+  top: 10px !important;
+  opacity: 1 !important;
+  color: #FF5C17 !important;
+  background-color: #fff;
+  padding: 0 3px;
+  z-index: 2;
 }
 /* Banner */
 .bannerPonElPecho{
@@ -98,6 +195,9 @@
 .opcNav.active{
   background-color: #B54B60;
   cursor: inherit;
+}
+.icoNav{
+  margin: 10px;
 }
 /* ---------------Secciones------------- */
 .seccion{
@@ -157,6 +257,13 @@
   color: white;
   margin: 10px 15px;
   width: 50%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  p{
+    margin-bottom: 5px;
+  }
 }
 .masto-cita.active{
   background-color: #E45F7D;

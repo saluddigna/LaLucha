@@ -2,6 +2,7 @@ $(document).ready(function () {
   $('#banner').load('../modelos/banner.html');
   $('#nav').load('../modelos/navbar.html');
   $('#seccion').load('../modelos/cita.html');
+
   
 });
 
@@ -31,3 +32,4 @@ function removerClaseNav(){
   $("#btnPxBeneficiados").removeClass("active");
   $("#btnLogIn").removeClass("active");
 }
+
