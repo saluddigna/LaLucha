@@ -4,6 +4,7 @@ $(document).ready(function () {
   $('#seccion').load('../modelos/cita.html');
 
   
+  
 });
 
 function seccion(nav){
@@ -33,3 +34,6 @@ function removerClaseNav(){
   $("#btnLogIn").removeClass("active");
 }
 
+$(document).on("click", ".movilNav", function(){
+  $("#movilNav").toggleClass("d-flex");
+})

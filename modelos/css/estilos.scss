@@ -176,6 +176,10 @@ input.error{
   justify-content: center;
   
 }
+.movilNav{
+  display: none;
+}
+
 .opcNav{
   flex: 0 1 auto;
   height: 80px;
@@ -415,6 +419,16 @@ input.error{
   font-size: 18px;
   font-weight: bold;
 }
+
+
+
+
+/* ----------Revista-------- */
+.areaRevista{
+  background-color: #323232;
+  height: 50vh;
+  width: 100%;
+}
 /*----------------- TABLET -----------------*/
 @media only screen and (max-width: 1000px) {
   #infoCita{
@@ -432,6 +446,52 @@ input.error{
 
 /*----------------- MOVIL -----------------*/
 @media only screen and (max-width: 500px) {
+  .barraNav{
+    display: none;
+  }
+  .movilNav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F05876;
+    height: 52px;
+    font-size: 16px;
+    color: white;
+  }
+  .movilMenu{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #F05876;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    padding: 10px;  
+  }
+  .renglon{
+    display: flex;
+    flex-direction: row;
+    .opcMovil{
+      width: 165px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .opcMovil:first-of-type{
+      border-right: 1px solid white;
+    }
+    .opcMovil:last-of-type{
+      border-left: 1px solid white;
+    }
+  }
+  .renglon:first-of-type{
+    border-bottom: 1px solid white;
+  }
+  .renglon:last-of-type{
+    border-top: 1px solid white;
+  }
   #infoCita{
     order: 10;
   }
