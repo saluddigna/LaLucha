@@ -44,12 +44,12 @@ $(document).ready(function () {
 
   });
 
-function realizarCita(tipo){
-    if(tipo){
-        getValues();
-        $('#citas').load('./modelos/componentes/pago.html');
-    }
-};
+// function realizarCita(tipo){
+//     if(tipo){
+//         getValues();
+//         $('#citas').load('./modelos/componentes/pago.html');
+//     }
+// };
 
 function getValues(){
     global.data.Nombre=$('#cita_nombre').val();
