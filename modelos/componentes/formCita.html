@@ -22,17 +22,19 @@
     <button type="button" class="btn btn-default btn-pink-outline " id="btnObtenerUbicacion">Ubicar automáticamente</button>
     <div class="d-flex row">
       <div class="combobox">
-        <div class="">
-          <select id="selectEstado">
+        <div class="cajas-texto">
+          <select id="selectEstado" class="input-sd valido">
             <option hidden selected>Selecciona una opción</option>
           </select>
+          <span class="floating-label">Estado</span>
         </div>
       </div>
       <div class="combobox">
-        <div class="">
-          <select id="selectClinica">
+        <div class="cajas-texto">
+          <select id="selectClinica" class="input-sd valido">
             <option hidden selected>Selecciona una opción</option>
           </select>
+          <span class="floating-label">Clínica</span>
         </div>
       </div>
     </div>
@@ -42,13 +44,14 @@
         <div class="cajas-texto">
           <input type="date" class="input-sd valido" id="fechaCita" >
           <span class="floating-label">Fecha</span>
-          </div>
+        </div>
       </div>
       <div class="combobox">
-        <div class="">
-          <select id="selectHorario">
+        <div class="cajas-texto">
+          <select id="selectHorario" class="input-sd valido">
             <option hidden selected>Selecciona una opción</option>
           </select>
+          <span class="floating-label">Hora</span>
         </div>
       </div>
     </div>
