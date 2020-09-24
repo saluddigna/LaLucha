@@ -14,8 +14,8 @@ $(document).ready(function () {
 	})
 });
 
-function realizarCita(tipo){
-    if(tipo){
-        $('#citas').load('./modelos/componentes/pago.html');
-    }
-};
+// function realizarCita(tipo){
+//     if(tipo){
+//         $('#citas').load('./modelos/componentes/pago.html');
+//     }
+// };

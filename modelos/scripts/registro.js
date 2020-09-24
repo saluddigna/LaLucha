@@ -1,7 +1,8 @@
 global={};
+global.data=[]
 global.clinicas=[];
 global.estados=[];
-configUrl='http://b7a0f3b3928a.ngrok.io/';
+configUrl='https://ec98857ac7a5.ngrok.io/';
 sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo'
 //Main
 $(document).ready(function () {
@@ -24,9 +25,45 @@ $(document).ready(function () {
     $("#fechaCita").change(function(){
         getHorariosDisponibles();
     });
+
+
+    $('#fem').on('click',function(){ 
+        if (!$("#fem").hasClass("active")) {
+            $(this).addClass("active");
+            $("#mas").removeClass("active");
+        } 
+    });
+
+    
+    $('#mas').on('click',function(){ 
+        if (!$("#mas").hasClass("active")) {
+            $(this).addClass("active");
+            $("#fem").removeClass("active");
+        }
+    });
+
   });
 
+function realizarCita(tipo){
+    if(tipo){
+        getValues();
+        $('#citas').load('./modelos/componentes/pago.html');
+    }
+};
 
+function getValues(){
+    global.data.Nombre=$('#cita_nombre').val();
+    global.data.Paterno=$('#cita_app').val();
+    global.data.Materno=$('#cita_apm').val();
+    global.data.FechaNacimiento=$('#cita_fechaNacimiento').val();
+    global.data.IdSexo=$("#fem").hasClass("active") ? 1 : 2;
+    global.data.IdSucursal=parseInt($('#selectClinica').val());
+    global.data.IdEstado=parseInt($('#selectEstado').val());
+    global.data.CorreoElectronico=$('#cita_correo').val();
+    global.data.Telefono=$('#cita_telefono').val();
+    console.log(global.data);
+
+}
 
   
 //functions
