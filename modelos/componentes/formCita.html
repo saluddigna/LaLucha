@@ -19,18 +19,20 @@
       En este mes de octubre nos sumamos a la lucha contra el cáncer de mama. <b>Obtén tu Mastografía a $150 realizando tu pago en línea.</b> O si lo prefieres, puedes agregar el Paquete Mujer, el cual incluye Papanicolaou + Densitometría + Mastografía de $420 a $380.
     </p>
     <p class="text-bold text-16">Ubica la clínica más cercana y disponible para ti</p>
-    <button type="button" class="btn btn-default btn-pink-outline ">Ubicar automáticamente</button>
+    <button type="button" class="btn btn-default btn-pink-outline " id="btnObtenerUbicacion">Ubicar automáticamente</button>
     <div class="d-flex row">
       <div class="combobox">
-        <div class="cajas-texto">
-          <input type="text" class="input-sd" >
-          <span class="floating-label">Estado</span>
+        <div class="">
+          <select id="selectEstado">
+            <option hidden selected>Selecciona una opción</option>
+          </select>
         </div>
       </div>
       <div class="combobox">
-        <div class="cajas-texto">
-          <input type="text" class="input-sd" >
-          <span class="floating-label">Clínica</span>
+        <div class="">
+          <select id="selectClinica">
+            <option hidden selected>Selecciona una opción</option>
+          </select>
         </div>
       </div>
     </div>
@@ -38,14 +40,15 @@
     <div class="d-flex row">
       <div class="combobox">
         <div class="cajas-texto">
-          <input type="text" class="input-sd" >
+          <input type="date" class="input-sd valido" id="fechaCita" >
           <span class="floating-label">Fecha</span>
-        </div>
+          </div>
       </div>
       <div class="combobox">
-        <div class="cajas-texto">
-          <input type="text" class="input-sd" >
-          <span class="floating-label">Hora</span>
+        <div class="">
+          <select id="selectHorario">
+            <option hidden selected>Selecciona una opción</option>
+          </select>
         </div>
       </div>
     </div>
@@ -59,15 +62,15 @@
         <span class="floating-label">Nombre</span>
       </div>
       <div class="cajas-texto">
-        <input type="text" class="input-sd" >
+        <input type="text" class="input-sd" id="cita_app" >
         <span class="floating-label">Apellido paterno</span>
       </div>
       <div class="cajas-texto">
-        <input type="text" class="input-sd" >
+        <input type="text" class="input-sd" id="cita_apm">
         <span class="floating-label">Apellido materno</span>
       </div>
       <div class="cajas-texto">
-        <input type="date" class="input-sd valido" >
+        <input type="date" class="input-sd valido" id=cita_fechaNacimiento>
         <span class="floating-label">Fecha de nacimiento</span>
       </div>
     </div>
@@ -85,7 +88,7 @@
         <span class="floating-label">Correo electrónico</span>
       </div>
     </div>
-    <div class="d-flex row doble">
+    <!-- <div class="d-flex row doble">
       <div class="combobox">
         <div class="cajas-texto">
           <input type="text" class="input-sd" >
@@ -98,7 +101,7 @@
           <span class="floating-label">Repetir contraseña</span>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
   <div class="paginador">
     <div id="pag" class="pagina">
@@ -107,3 +110,4 @@
     <button class="btn btn-primary btn-seguir" onclick="realizarCita(1)">Continuar ></button>
   </div>
 </div>
+<script src="./modelos/scripts/registro.js"></script>
