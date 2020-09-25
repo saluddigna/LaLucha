@@ -37,3 +37,8 @@ function removerClaseNav(){
 $(document).on("click", ".movilNav", function(){
   $("#movilNav").toggleClass("d-flex");
 })
+
+function irPerfil(parametro) {
+	$('#seccion').load('./modelos/perfil.html');
+	console.log(parametro);
+}
