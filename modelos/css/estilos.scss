@@ -231,11 +231,51 @@ input.error{
   justify-content: center;
   align-items: center;
 }
-.FAQ{
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  box-shadow: 0px 3px 6px #00000045;
-  border-radius: 4px;
+.FAQs {
+  padding: 20px 15px;
+}
+.FAQs .encabezado {
+  font-size: 20px;
+  color: #616161;
+  font-weight: 600;
+  text-align: left;
+  padding-left: 15px;
+}
+.FAQs ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  margin-top: 20px;
+}
+.FAQs ul li {
+  background: #fff;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 6px #00000045;
+  overflow: hidden;
+  transition: all .3s;
+  position: relative;
   padding: 15px;
+  border-radius: 4px;
+}
+.FAQs .preguntas-titulo {
+  font-size: 23px;
+  color: #616161;
+  font-weight: 600;
+  cursor: pointer;
+}
+.preguntas-titulo p {
+  width: 90%;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+.preguntas-titulo i {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  color: #118c86;
+}
+.preguntas-cuerpo{
+  padding: 10px 10px 10px 0;
 }
 .masto{
   font-size: 20px;
@@ -247,6 +287,50 @@ input.error{
   color: #616161;
   font-size: 18px;
   font-weight: bold;
+}
+.protocolo {
+  background-color: #fff;
+  padding: 20px 28px;
+  border-radius: 4px;
+  width: 100%;
+}
+.protocolo ul {
+  list-style: none;
+  padding: 0;
+  color: #616161;
+  font-size: 24px;
+  margin-top: 20px;
+}
+.protocolo ul li {
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+  height: auto;
+  padding: 10px 0;
+  align-items: center;
+}
+.protocolo ul li:last-child {
+  border-color: transparent;
+}
+.item-protocolo {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  cursor: pointer;
+}
+.caja-icono {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.caja-icono img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+.protocolo ul li i {
+  font-size: 20px;
+  color: #118c86;
 }
 /* Form Cita */
 .card.form{
@@ -435,6 +519,78 @@ input.error{
   background-color: #323232;
   height: 50vh;
   width: 100%;
+}
+.border-bottom{
+  border-bottom: 2px solid #E5E5E5;
+}
+.tablaBeneficiarios{
+  width: 100%;
+  
+  tr{
+    height: 50px;
+  }
+}
+
+.buscador{
+  width: 100%;
+  display:flex;
+  border: 1px solid #AFAFAF;
+  border-radius: 4px;
+  align-items: center;
+  padding-left: 10px;
+}
+.buscardor:focus-within{
+  border: 2px solid #afafaf;
+}
+.buscar{
+  height: 40px;
+  flex: 1 1 auto;
+  border: 0px;
+}
+.buscar:focus{
+  outline-width: 0px!important;
+}
+.lupa{
+  padding: 10px;
+}
+.contenedorTablaBeneficiarios{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+}
+.pxBeneficiado{
+  background-color: white;
+  height: 50px;
+  display: flex;
+  position: relative;
+  bottom: 2px;
+  img{
+    position: relative;
+    top: 2px;
+  }
+
+}
+.p-l-1{
+  padding-left: 10px;
+}
+#tuplasBeneficiarios{
+  height: 50%;
+}
+.paginador{
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 3px 6px #0000001A;
+  border-radius: 4px;
+  align-items: center;
+  padding: 20px;
+  p{
+    margin: 0;
+  }
+  i{
+    margin: 10px;
+  }
 }
 /*----------------- TABLET -----------------*/
 @media only screen and (max-width: 1000px) {
