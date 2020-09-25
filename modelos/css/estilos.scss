@@ -20,6 +20,12 @@
 .flex-1-1{
   flex: 1 1 auto;
 }
+.flex-row{
+  flex-direction: row;
+}
+.flex-column{
+  flex-direction: column;
+}
 /* Textos*/
 .text-bold{
   font-weight: bold;
@@ -28,19 +34,19 @@
   text-align: center;
 }
 .text-12{
-  font-size: 12px;
+  font-size: 12px!important;
 }
 .text-14{
-  font-size: 14px;
+  font-size: 14px!important;
 }
 .text-16{
-  font-size: 16px;
+  font-size: 16px!important;
 }
 .text-18{
-  font-size: 18px;
+  font-size: 18px!important;
 }
 .text-20{
-  font-size: 20px;
+  font-size: 20px!important;
 }
 .text-pink{
   color: #F0577B;
@@ -523,6 +529,7 @@ input.error{
 .border-bottom{
   border-bottom: 2px solid #E5E5E5;
 }
+/* ----------Paciente Beneficiado-------- */
 .tablaBeneficiarios{
   width: 100%;
   
@@ -590,6 +597,89 @@ input.error{
   }
   i{
     margin: 10px;
+  }
+}
+/*-----------Perfil-----------*/
+.p-x-15{
+  padding: 0 15px 0 15px;
+}
+.mediaCard{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 10px #00000029;
+  border-radius: 0px 0px 10px 10px;
+  margin: 0;
+  height: auto;
+  padding: 1.8rem;
+}
+.headerPerfil{
+  letter-spacing: 0px;
+  color: #E56078;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+}
+.col-sm-6 .masto{
+  font-size: 16px;
+  line-height: 25px;
+}
+.faqPerfil{
+  padding: 10px;
+}
+.bannerLentes{
+  width: 100%;
+  border-radius: 10px;
+  height: 150px;
+}
+.cerrarSesion{
+  text-align: right;
+}
+.miPerfil{
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+.salir{
+  width: 100%;
+  text-align: end;
+}
+.infoPerfil{
+  ul{
+    line-height: 30px;
+    li{
+      list-style: none;
+    }
+  }
+}
+.ma-10{
+  margin: 10px;
+}
+.tuFolio{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 10px #00000026;
+  border: 2px dashed #95989A;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px;
+}
+.folio{
+  color: #CF787D;
+  font-size: 26px;
+}
+.fValido{
+  color:#AFAFAF;
+  font-size: 14px;
+}
+.reagendar{
+  font-size: 14px;
+  margin-top: 10px;
+}
+.w-50{
+  width: 49%;
+}
+.instrucciones{
+  p{
+    margin: 10px 0;
+    line-height: 23px;
   }
 }
 /*----------------- TABLET -----------------*/
