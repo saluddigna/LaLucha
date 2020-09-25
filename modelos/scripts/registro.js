@@ -2,18 +2,20 @@ global={};
 global.data=[]
 global.clinicas=[];
 global.estados=[];
-configUrl='https://ec98857ac7a5.ngrok.io/';
+global.dataClinica=[];
+configUrl='https://57bf000357b4.ngrok.io/';
 sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo'
 //Main
 $(document).ready(function () {
     global.clinicas=getClinicas();
     global.estados=getEstados();
 
+    console.log(global.estados);
     var optionsAsString = "<option hidden selected>Selecciona una opción</option>";
     for(var i = 0; i < global.estados.length; i++) {
-        optionsAsString += "<option value='" + global.estados[i].Id + "'>" + global.estados[i].Descripcion + "</option>";
+        optionsAsString += "<option value='"+global.estados[i].Id+"'>" + global.estados[i].Descripcion + "</option>";
     }
-    $('#selectEstado').empty().append( optionsAsString );
+    $('#selectEstado').empty().append(optionsAsString );
     $('#btnObtenerUbicacion').click(function () {
         getUbicacion();
     });
@@ -61,8 +63,10 @@ function getValues(){
     global.data.IdEstado=parseInt($('#selectEstado').val());
     global.data.CorreoElectronico=$('#cita_correo').val();
     global.data.Telefono=$('#cita_telefono').val();
-    console.log(global.data);
-
+    // global.dataClinica=$('#selectClinica').attr('data-clinica');
+    global.dataClinica = $(':selected', '#selectClinica').attr("data-clinica-name");
+    console.log(global.dataClinica)
+    //return global.data;
 }
 
   
@@ -85,7 +89,7 @@ function getClinicasByEstado(){
     var clinicasFilter=global.clinicas.filter(x=>x.IdEstado==filter);
     var optionsAsString = "<option hidden selected>Selecciona una opción</option>";
     for(var i = 0; i < clinicasFilter.length; i++) {
-        optionsAsString += "<option value='" + clinicasFilter[i].IdSucursal + "'>" + clinicasFilter[i].Nombre + "</option>";
+        optionsAsString += "<option value='" + clinicasFilter[i].IdSucursal +"' data-clinica-name='"+clinicasFilter[i].Nombre+"'>" + clinicasFilter[i].Nombre + "</option>";
     }
     $('#selectClinica').empty().append( optionsAsString );
 }

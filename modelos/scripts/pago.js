@@ -6,8 +6,14 @@ function agregarPKT(){
 };
 
 $(document).ready(function () {
-
+  var dataConfirmacion=global.data;
+  $('#nombrePX').text(dataConfirmacion.Nombre+' '+dataConfirmacion.Paterno+' '+dataConfirmacion.Materno);  
+  $('#fechaNacPX').text(dataConfirmacion.FechaNacimiento);  
+  $('#telefonoPX').text(dataConfirmacion.Telefono);  
+  $('#correoPX').text(dataConfirmacion.CorreoElectronico);  
+  $('#clinicaPX').text(global.dataClinica);  
 });
+
 
 function getTokenConekta(){
   Conekta.setPublicKey("key_MpzazUMfWjk6XKS55qnEnNQ");
