@@ -1,3 +1,11 @@
+global={};
+global.data=[]
+global.clinicas=[];
+global.estados=[];
+global.dataClinica=[];
+configUrl='https://57bf000357b4.ngrok.io/';
+sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
+
 $(document).ready(function () {
   $('#banner').load('../modelos/banner.html');
   $('#nav').load('../modelos/navbar.html');
