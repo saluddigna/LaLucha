@@ -520,6 +520,78 @@ input.error{
   height: 50vh;
   width: 100%;
 }
+.border-bottom{
+  border-bottom: 2px solid #E5E5E5;
+}
+.tablaBeneficiarios{
+  width: 100%;
+  
+  tr{
+    height: 50px;
+  }
+}
+
+.buscador{
+  width: 100%;
+  display:flex;
+  border: 1px solid #AFAFAF;
+  border-radius: 4px;
+  align-items: center;
+  padding-left: 10px;
+}
+.buscardor:focus-within{
+  border: 2px solid #afafaf;
+}
+.buscar{
+  height: 40px;
+  flex: 1 1 auto;
+  border: 0px;
+}
+.buscar:focus{
+  outline-width: 0px!important;
+}
+.lupa{
+  padding: 10px;
+}
+.contenedorTablaBeneficiarios{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 90px;
+}
+.pxBeneficiado{
+  background-color: white;
+  height: 50px;
+  display: flex;
+  position: relative;
+  bottom: 2px;
+  img{
+    position: relative;
+    top: 2px;
+  }
+
+}
+.p-l-1{
+  padding-left: 10px;
+}
+#tuplasBeneficiarios{
+  height: 50%;
+}
+.paginador{
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 3px 6px #0000001A;
+  border-radius: 4px;
+  align-items: center;
+  padding: 20px;
+  p{
+    margin: 0;
+  }
+  i{
+    margin: 10px;
+  }
+}
 /*----------------- TABLET -----------------*/
 @media only screen and (max-width: 1000px) {
   #infoCita{

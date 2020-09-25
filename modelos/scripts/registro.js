@@ -2,7 +2,7 @@ global={};
 global.data=[]
 global.clinicas=[];
 global.estados=[];
-configUrl='https://ec98857ac7a5.ngrok.io/';
+configUrl='https://57bf000357b4.ngrok.io/';
 sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo'
 //Main
 $(document).ready(function () {
