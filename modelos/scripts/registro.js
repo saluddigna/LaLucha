@@ -245,44 +245,75 @@ function saveValuesPaquetes(){
 
   
 //functions
+
+
+function quitarPKT(pkt){
+    if(pkt==1){
+        $("#pktPapa").toggle("d-none");
+        $("#addPKT").prop("disabled", false);
+        togglePapa=false;
+    }else{
+        $("#pktMujer").toggle("d-none");
+        $("#addPapa").prop("disabled", false);
+        togglePkt=false;
+
+    }
+};
 var togglePapa=false;
 function agregarPapa(){
-    // console.log($("#fechaCitaPapa_pkt1").val(),$("#selectHorarioPapa_pkt1").val());
-    if(togglePapa==false) {
-        $("#pktPapa").toggle("d-none");
-        togglePapa=true;
-    }       
-    else if($("#fechaCitaPapa_pkt1").val()!="" && $("#selectHorarioPapa_pkt1").val()!=""){
-        $('#btnAgregarPapa').prop('disabled', true);
-        // $("#pktPapa").toggle("d-none");
-    }
-    else{
-        alert('Debes Seleccionar Fecha y Hora para tu estudio');
-    }
-    
-  };
+    $("#pktPapa").toggle("d-none");
+    $("#addPKT").prop("disabled", true);
+    togglePapa=true;
+    togglePkt=false;
+};
 
-  var togglePkt=false;
-  function agregarPKT(){
-    if(togglePkt==false) {
-        $("#pktMujer").toggle("d-none");
-        togglePkt=true;
-    }else if($("#fechaCitaPapa_pkt2").val()!="" && $("#selectHorarioPapa_pkt2").val()!="" && $("#fechaCitaDensi_pkt2").val()!="" && $("#selectHorarioDensi_pkt2").val()!=""){
-        if(togglePapa){
-            $("#fechaCitaPapa_pkt1").val("");
-            $("#selectHorarioPapa_pkt1").val("");
-            $("#pktPapa").toggle("d-none");
-            togglePapa=false;
-            $('#btnAgregarPapa').prop('disabled', true);
-            $('#btnAgregarPkt').prop('disabled', true);
-        }
-        else{
-            $('#btnAgregarPkt').prop('disabled', true);
-        }
-    }else{
-        alert('Debes Seleccionar Fecha y Hora para tus estudios');
-    }
-  };
+var togglePkt=false;
+function agregarPKT(){
+    $("#pktMujer").toggle("d-none");
+    $("#addPapa").prop("disabled", true);
+    togglePapa=false;
+    togglePkt=true;
+};
+
+
+// var togglePapa=false;
+// function agregarPapa(){
+//     if(togglePapa==false) {
+//         $("#pktPapa").toggle("d-none");
+//         togglePapa=true;
+//     }       
+//     else if($("#fechaCitaPapa_pkt1").val()!="" && $("#selectHorarioPapa_pkt1").val()!=""){
+//         $('#btnAgregarPapa').prop('disabled', true);
+//     }
+//     else{
+//         alert('Debes Seleccionar Fecha y Hora para tu estudio');
+//     }
+    
+//   };
+
+
+  
+//   var togglePkt=false;
+//   function agregarPKT(){
+//     if(togglePkt==false) {
+//         $("#pktMujer").toggle("d-none");
+//         togglePkt=true;
+//     }else if($("#fechaCitaPapa_pkt2").val()!="" && $("#selectHorarioPapa_pkt2").val()!="" && $("#fechaCitaDensi_pkt2").val()!="" && $("#selectHorarioDensi_pkt2").val()!=""){
+//         if(togglePapa){
+//             $("#fechaCitaPapa_pkt1").val("");
+//             $("#selectHorarioPapa_pkt1").val("");
+//             $("#pktPapa").toggle("d-none");
+//             togglePapa=false;
+//             $('#btnAgregarPapa').prop('disabled', true);
+//             $('#btnAgregarPkt').prop('disabled', true);
+//         }
+//         else{
+//             $('#btnAgregarPkt').prop('disabled', true);
+//         }
+//     }else{
+//         alert('Debes Seleccionar Fecha y Hora para tus estudios');
+//     }
+//   };
   
 
 async function getHorariosDisponibles(body,selector){
