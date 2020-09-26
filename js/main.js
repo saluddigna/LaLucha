@@ -17,7 +17,7 @@ sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 $(document).ready(function () {
   $('#banner').load('../modelos/banner.html');
   $('#nav').load('../modelos/navbar.html');
-  $('#seccion').load('../modelos/cita.html');
+  $('#seccion').load('../modelos/logIn.html');
 
   
   
