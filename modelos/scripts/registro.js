@@ -1,4 +1,3 @@
-
 //Main
 
 function startCita(){
@@ -67,6 +66,9 @@ function startCita(){
                 $("#fem").removeClass("active");
             }
         }); 
+
+        $('#tiempoRestante').empty().append(moment().endOf('2020-10-19T09:00:00-06:00').fromNow());
+
 }
 
 async function loadValuesPacientes(){
@@ -126,12 +128,14 @@ async function loadValuesPaquetes(){
             console.log(global.data.cita.Estudios[1].IdHora)  
         }
     }
+    
     // else if(global.data.cita.Estudios.length==2){
     //     togglePapa=true;
     //     $("#pktPapa").toggle("d-none");
 
     // }
 }
+
 function formatPhoneNumber(input, format) {
     // Strip non-numeric characters
     var digits = input.replace(/\D/g, '');

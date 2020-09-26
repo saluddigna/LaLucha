@@ -1,5 +1,5 @@
-console.log('listo-pago');
 Conekta.setPublicKey(conektaKey);
+
 
 function startPago(){
   var dataConfirmacion=global.data;
@@ -47,4 +47,17 @@ var successResponseHandler = function(token) {
 
 var errorResponseHandler = function(error) {
   console.log(error,'error')
+  console.log(tokenParams)
+};
+
+function tipoPago(tipo){
+  if(tipo==2){
+    $("#pagoLinea").removeClass("active");
+    $("#pagoClinica").addClass("active");
+    $("#datosPagar").addClass("d-none");
+  }else{
+    $("#pagoLinea").addClass("active");
+    $("#pagoClinica").removeClass("active");
+    $("#datosPagar").removeClass("d-none");
+  }
 };
