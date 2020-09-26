@@ -375,9 +375,13 @@ input.error{
 }
 .btn-pink-outline:hover,.btn-pink-outline:focus{
   border: 2px solid #B54B60;
+  color: #B54B60;
+  background-color: white;
 }
 .btn-pink-outline:active{
   border: 2px solid #E6A2B0;
+  color: #E6A2B0;
+  background-color: white;
 }
 .combobox{
   width: 100%;
@@ -444,6 +448,9 @@ input.error{
   width: 33%;
   font-weight: bold;
   font-size: 16px;
+  background-color: #F0577B;
+  border: 0px solid;
+  color: white;
 }
 .btn-regresar{
   position: absolute;
@@ -464,10 +471,18 @@ input.error{
 }
 .precioPKT{
   position: absolute;
-  right: 60px;
-  font-size: 18px;
-  text-align: right;
-  font-weight: bold;
+    right: 4px;
+    font-size: 11px;
+    text-align: left;
+    background-color: #E6AAB6;
+    top: -10px;
+    width: 60px;
+    border-radius: 0px 0px 4px 4px;
+    color: white;
+    padding: 15px 5px 5px 5px;
+    b{
+      font-size: 18px;
+    }
 }
 .descripcionPKT{
   width: 84%;
@@ -477,10 +492,18 @@ input.error{
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
 }
 .imgPKT{
   border-radius: 5px;
   height: 140px;
+}
+.quitarPKT{
+  font-weight: bold;
+  font-size: 14px;
+  position: absolute;
+  bottom: 18px;
+  left: -136px;
 }
 .resumenCita{
   background: #FAFAFA 0% 0% no-repeat padding-box;
@@ -492,6 +515,25 @@ input.error{
 }
 .tablaCita{
   width: 100%;
+}
+.tipoPago.active{
+  background: #FFE6EB 0% 0% no-repeat padding-box;
+  border: 1px solid #E2BBBA;
+  border-radius: 4px;
+  width: 50%;
+  margin:15px;
+  cursor: inherit;;
+  p{
+    color:#CF787D
+  }
+}
+.tipoPago{
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 1px solid #E2BBBA;
+  border-radius: 4px;
+  width: 50%;
+  margin:15px;
+  cursor: pointer;
 }
 /* ----------Ingresar-------- */
 /*---- LogIn-----*/
@@ -514,11 +556,13 @@ input.error{
   font-size: 18px;
   font-weight: bold;
 }
-.btn-pink:active{
+.btn-pink:active, .btn-seguir:active{
   background-color: #E6A2B0;
+  color: white!important;
 }
-.btn-pink:focus, .btn-pink:hover{
+.btn-pink:focus, .btn-pink:hover, .btn-seguir:focus, .btn-seguir:hover{
   background-color:#B54B60;
+  color: white!important;
 }
 
 
@@ -558,7 +602,7 @@ input.error{
   flex: 1 1 auto;
   border: 0px;
 }
-.buscar:focus{
+.buscar:focus, .btn-pink:focus, .btn-pink-outline:focus{
   outline-width: 0px!important;
 }
 .lupa{
@@ -685,6 +729,11 @@ input.error{
     margin: 10px 0;
     line-height: 23px;
   }
+}
+.mapa{
+  background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/ubicacion-mapa.png');
+  height: 113px;
+  background-position: center;
 }
 /*----------------- TABLET -----------------*/
 @media only screen and (max-width: 1000px) {

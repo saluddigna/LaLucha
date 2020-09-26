@@ -1,128 +1,152 @@
- <span class="text-bold text-16">¡Solicita tu Mastografía a precio especial!</span>
-    <div class="d-flex row">
-      <div class="masto-cita active">
-        <p class="text-center"><img src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/mastografia-en-150.svg" alt=""></p>
-        <p class="text-center text-bold text-18">Mastografía a sólo $150</p>
-        <p class="text-center text-12">Este estudio se realiza a partir de los 40 años</p>
-      </div>
-      <div class="masto-cita">
-        <p class="text-center"><img src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/mastografía-sin-costo.svg" alt=""></p>
-        <p class="text-center text-bold text-18">Espera un beneficio este 19 de Octubre</p>
-        <p class="text-center text-16 text-bold">Faltan</p>
-        <p class="text-center text-16 text-bold">01:00 horas</p>
-      </div>
-    </div>
-    <p class="text-16">
-      En este mes de octubre nos sumamos a la lucha contra el cáncer de mama. <b>Obtén tu Mastografía a $150 realizando tu pago en línea.</b> O si lo prefieres, puedes agregar el Paquete Mujer, el cual incluye Papanicolaou + Densitometría + Mastografía de $420 a $380.
-    </p>
-    <p class="text-bold text-16">Ubica la clínica más cercana y disponible para ti</p>
-    <button type="button" class="btn btn-default btn-pink-outline " id="btnObtenerUbicacion">Ubicar automáticamente</button>
-    <div class="d-flex row">
-      <div class="combobox">
-        <div class="cajas-texto">
-          <select id="selectEstado" class="input-sd valido">
-            <option hidden selected>Selecciona una opción</option>
-          </select>
-          <span class="floating-label">Estado</span>
-        </div>
-      </div>
-      <div class="combobox">
-        <div class="cajas-texto">
-          <select id="selectClinica" class="input-sd valido">
-            <option hidden selected>Selecciona una opción</option>
-          </select>
-          <span class="floating-label">Clínica</span>
-        </div>
-      </div>
-    </div>
-    <p class="text-bold text-16">¿Cuándo deseas realizar tu Mastografía?</p>
-    <div class="d-flex row">
-      <div class="combobox">
-        <div class="cajas-texto">
-          <input type="date" class="input-sd valido" id="fechaCita" >
-          <span class="floating-label">Fecha</span>
-        </div>
-      </div>
-      <div class="combobox">
-        <div class="cajas-texto">
-          <select id="selectHorario" class="input-sd valido">
-            <option hidden selected>Selecciona una opción</option>
-          </select>
-          <span class="floating-label">Hora</span>
-        </div>
-      </div>
-    </div>
-    <div class="my-10">
-      <a class="linkPink" href="http://" target="_blank" rel="noopener noreferrer">Avísenme cuando tengan horarios disponibles.</a>
-    </div>
-
-    <hr class="rayas" size=1 width="95%">
-  <h5 class="text-16 text-bold">
-    No dejes pasar estos beneficios
-  </h5>
-  <div class="pkts">
-    <img class="imgPKT" src="https://via.placeholder.com/140" alt="dos muchachas">
-    <div class="infoPKT">
-      <b class="precioPKT">$300</b>
-      <b>¡Prevén aún más!</b>
-      <p class="flex-1-1">Mastografía + Papanicolaou</p>
-      <div class="d-none" id="pktPapa">
-        <b>Selecciona un horario:</b><br>
-        <b>Papanicolaou</b>
-        <div class="d-flex row">
-          <div class="combobox">
-            <p class="text-14 text-bold">Fecha</p>
-            <span id="citaFechaPapa">31-12-2020</span>
-          </div>
-          <div class="combobox">
-            <p class="text-14 text-bold">Hora</p>
-            <input class="" type="text" placeholder="1:30 P. M." >
-          </div>
-        </div>
-        
-      </div>
-      <button type="button" class="btn btn-default btn-pink-outline" onclick="agregarPapa()">Agregar</button>
+<span class="text-bold text-16">¡Solicita tu Mastografía a precio especial!</span>
+<div class="d-flex row">
+  <div class="masto-cita active">
+    <p class="text-center"><img src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/mastografia-en-150.svg" alt=""></p>
+    <p class="text-center text-bold text-18">Mastografía a sólo $150</p>
+    <p class="text-center text-12">Este estudio se realiza a partir de los 40 años</p>
+  </div>
+  <div class="masto-cita">
+    <p class="text-center"><img src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/mastografía-sin-costo.svg" alt=""></p>
+    <p class="text-center text-bold text-18">Espera un beneficio este 19 de Octubre</p>
+    <p class="text-center text-16 text-bold">Faltan</p>
+    <p class="text-center text-16 text-bold" id="tiempoRestante">01:00 horas</p>
+  </div>
+</div>
+<p class="text-16">
+  En este mes de octubre nos sumamos a la lucha contra el cáncer de mama.
+  <b>Obtén tu Mastografía a $150 realizando tu pago en línea.</b>
+  O si lo prefieres, puedes agregar el Paquete Mujer, el cual incluye Papanicolaou + Densitometría + Mastografía de $420 a $380.
+</p>
+<p class="text-bold text-16">Ubica la clínica más cercana y disponible para ti</p>
+<button type="button" class="btn btn-default btn-pink-outline " id="btnObtenerUbicacion">Ubicar automáticamente</button>
+<div class="d-flex row">
+  <div class="combobox">
+    <div class="cajas-texto">
+      <select id="selectEstado" class="input-sd valido">
+        <option hidden selected>Selecciona una opción</option>
+      </select>
+      <span class="floating-label">Estado</span>
     </div>
   </div>
-  <div class="pkts">
-    <img class="imgPKT" src="https://via.placeholder.com/140" alt="dos muchachas">
-    <div class="infoPKT">
-      <b class="precioPKT">$380</b>
-      <b>Protégete con el Paquete Mujer</b>
-      <p class="flex-1-1 descripcionPKT">Mastografía + Papanicolaou + Densitometría</p>
-      <div class="d-none" id="pktMujer">
-        <b>Selecciona un horario:</b><br>
-        <b>Papanicolaou</b>
-        <div class="d-flex row">
-          <div class="combobox">
-            <p class="text-14 text-bold">Fecha</p>
-            <span id="citaFechaPapa">31-12-2020</span>
-          </div>
-          <div class="combobox">
-            <p class="text-14 text-bold">Hora</p>
-            <input class="" type="text" placeholder="1:30 P. M." >
+  <div class="combobox">
+    <div class="cajas-texto">
+      <select id="selectClinica" class="input-sd valido">
+        <option hidden selected>Selecciona una opción</option>
+      </select>
+      <span class="floating-label">Clínica</span>
+    </div>
+  </div>
+</div>
+<p class="text-bold text-16">¿Cuándo deseas realizar tu Mastografía?</p>
+<div class="d-flex row">
+  <div class="combobox">
+    <div class="cajas-texto">
+      <input type="date" class="input-sd valido" id="fechaCita">
+      <span class="floating-label">Fecha</span>
+    </div>
+  </div>
+  <div class="combobox">
+    <div class="cajas-texto">
+      <select id="selectHorario" class="input-sd valido">
+        <option hidden selected>Selecciona una opción</option>
+      </select>
+      <span class="floating-label">Hora</span>
+    </div>
+  </div>
+</div>
+<div class="my-10">
+  <a class="linkPink" href="http://" target="_blank" rel="noopener noreferrer">Avísenme cuando tengan horarios disponibles.</a>
+</div>
+
+<hr class="rayas" size="1" width="95%">
+<h5 class="text-16 text-bold">
+  No dejes pasar estos beneficios
+</h5>
+<div class="pkts">
+  <img class="imgPKT" src="https://via.placeholder.com/140" alt="dos muchachas">
+  <div class="infoPKT">
+    <div class="precioPKT">
+      Total <br><b>$300</b>
+    </div> 
+    <b>¡Prevén aún más!</b>
+    <p class="flex-1-1">Por $150 pesos más agrega el <br> Papanicolaou</p>
+    <div class="d-none" id="pktPapa">
+      <span class="quitarPKT" onclick="quitarPKT(1)">Quitar paquete</span>
+      <b>Selecciona un horario:</b><br>
+      <b>Papanicolaou</b>
+      <div class="d-flex row">
+        <div class="combobox">
+          <div class="cajas-texto">
+            <input type="date" class="input-sd valido" id="fechaCita">
+            <span class="floating-label">Fecha</span>
           </div>
         </div>
-        <b>Densitometría</b>
-        <div class="d-flex row">
-          <div class="combobox">
-            <p class="text-14 text-bold">Fecha</p>
-            <span id="citaFechaPapa">31-12-2020</span>
-          </div>
-          <div class="combobox">
-            <p class="text-14 text-bold">Hora</p>
-            <input class="" type="text" placeholder="2:00 P. M." >
+        <div class="combobox">
+          <div class="cajas-texto">
+            <select id="selectHorario" class="input-sd valido">
+              <option hidden selected>Selecciona una opción</option>
+            </select>
+            <span class="floating-label">Hora</span>
           </div>
         </div>
       </div>
-      <button type="button" class="btn btn-default btn-pink-outline" onclick="agregarPKT()">Agregar</button>
+
     </div>
+    <button id="addPapa" type="button" class="btn btn-default btn-pink-outline" onclick="agregarPapa()">Agregar</button>
   </div>
+</div>
+<div class="pkts">
+  <img class="imgPKT" src="https://via.placeholder.com/140" alt="dos muchachas">
+  <div class="infoPKT">
+    <div class="precioPKT">
+      de $420 <br> a <b>$380</b>
+    </div> 
+    <b>Protégete con el Paquete Mujer</b>
+    <p class="flex-1-1 descripcionPKT">Mastografía + Papanicolaou + Densitometría</p>
+    <div class="d-none" id="pktMujer">
+      <span class="quitarPKT" onclick="quitarPKT(2)">Quitar paquete</span>
+      <b>Selecciona un horario:</b><br>
+      <b>Papanicolaou</b>
+      <div class="d-flex row">
+        <div class="combobox">
+          <div class="cajas-texto">
+            <input type="date" class="input-sd valido" id="fechaCita">
+            <span class="floating-label">Fecha</span>
+          </div>
+        </div>
+        <div class="combobox">
+          <div class="cajas-texto">
+            <select id="selectHorario" class="input-sd valido">
+              <option hidden selected>Selecciona una opción</option>
+            </select>
+            <span class="floating-label">Hora</span>
+          </div>
+        </div>
+      </div>
+      <b>Densitometría</b>
+      <div class="d-flex row">
+        <div class="combobox">
+          <div class="cajas-texto">
+            <input type="date" class="input-sd valido" id="fechaCita">
+            <span class="floating-label">Fecha</span>
+          </div>
+        </div>
+        <div class="combobox">
+          <div class="cajas-texto">
+            <select id="selectHorario" class="input-sd valido">
+              <option hidden selected>Selecciona una opción</option>
+            </select>
+            <span class="floating-label">Hora</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="addPKT" type="button" class="btn btn-default btn-pink-outline" onclick="agregarPKT()">Agregar</button>
+  </div>
+</div>
 
 
-  
-    
-    <!-- <div class="d-flex row doble">
+<!-- <div class="d-flex row doble">
       <div class="combobox">
         <div class="cajas-texto">
           <input type="text" class="input-sd" >
@@ -136,3 +160,5 @@
         </div>
       </div>
     </div> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js" integrity="sha512-Izh34nqeeR7/nwthfeE0SI3c8uhFSnqxV0sI9TvTcXiFJkMd6fB644O64BRq2P/LA/+7eRvCw4GmLsXksyTHBg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/locale/es-mx.min.js" integrity="sha512-Qy4cmZ6v7vnVEc0cn/BIj9q15eB98do4hMvu8xtc/H+v+YYpdpDrB35flHS3NPLbZUpe1npSYY/u+Gi3UB61vw==" crossorigin="anonymous"></script>

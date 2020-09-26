@@ -6,7 +6,8 @@ $(document).ready(function () {
   $("#formCita").load("./modelos/componentes/formCita.html", function () {
     paso = 1;
     setPaso();
-    cambioPaso()
+		cambioPaso();
+		//$("#citas").load("./modelos/componentes/pago.html");
   });
   $("#ingresar").load("./modelos/componentes/ingresar.html");
   $("#MiPerfil").load("./modelos/componentes/miPerfil.html");

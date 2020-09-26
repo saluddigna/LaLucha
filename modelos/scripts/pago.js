@@ -1,9 +1,4 @@
-function agregarPapa(){
-  $("#pktPapa").toggle("d-none");
-};
-function agregarPKT(){
-  $("#pktMujer").toggle("d-none");
-};
+
 
 $(document).ready(function () {
   var dataConfirmacion=global.data;
@@ -34,4 +29,16 @@ function getTokenConekta(){
     console.log(error)
   };
   console.log(tokenParams)
-}
+};
+
+function tipoPago(tipo){
+  if(tipo==2){
+    $("#pagoLinea").removeClass("active");
+    $("#pagoClinica").addClass("active");
+    $("#datosPagar").addClass("d-none");
+  }else{
+    $("#pagoLinea").addClass("active");
+    $("#pagoClinica").removeClass("active");
+    $("#datosPagar").removeClass("d-none");
+  }
+};

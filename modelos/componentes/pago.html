@@ -9,7 +9,7 @@
       <b>Datos paciente</b><br>
       <b>Nombre: </b><span id="nombrePX"></span><br>
       <b>Fecha de nacimiento: </b><span id="fechaNacPX"></span><br>
-      <b>Teléfono celular: </b><span id="telefonoPX"></span><br>
+      <b>Numero de Whatsapp: </b><span id="telefonoPX"></span><br>
       <b>Correo: </b><span id="correoPX"></span>
     </p>
   </div>
@@ -23,7 +23,15 @@
   </div>
 
   <hr class="rayas" size=1 width="95%">
-  <div class="pagar">
+  <div class="d-flex row">
+    <div id="pagoLinea" class="tipoPago active" onclick="tipoPago(1)">
+      <p class="text-center text-16">Pago en linea</p>
+    </div>
+    <div id="pagoClinica" class="tipoPago" onclick="tipoPago(2)">
+      <p class="text-center text-16">Pago en clínica</p>
+    </div>
+  </div>
+  <div id="datosPagar" class="pagar">
     <p class="text-bold text-16">Ingrese los datos de su tarjeta de crédito o débito</p>
     <div class="d-flex row">
       <div class="combobox">
@@ -53,7 +61,7 @@
     </div>
   </div>
   <hr class="rayas" size=1 width="95%">
-  <p class="text-bold text-16">Ingrese los datos de su tarjeta de crédito o débito</p>
+  <p class="text-bold text-16">Resumen de la cita</p>
   <div class="resumenCita">
     <table class="tablaCita">
       <thead class="titulos">

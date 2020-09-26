@@ -1,4 +1,3 @@
-
 //Main
 $(document).ready(function () {
     global.clinicas=getClinicas();
@@ -37,7 +36,8 @@ $(document).ready(function () {
             $("#fem").removeClass("active");
         }
     });
-
+    
+    $('#tiempoRestante').empty().append(moment().endOf('2020-10-19T09:00:00-06:00').fromNow());
   });
 
 // function realizarCita(tipo){
@@ -188,3 +188,20 @@ function getHorarios(body) {
     return arrHorarios.horarios[0].Horarios;
 };
 
+function quitarPKT(pkt){
+    if(pkt==1){
+        $("#pktPapa").toggle("d-none");
+        $("#addPKT").prop("disabled", false);
+    }else{
+        $("#pktMujer").toggle("d-none");
+        $("#addPapa").prop("disabled", false);
+    }
+};
+function agregarPapa(){
+    $("#pktPapa").toggle("d-none");
+    $("#addPKT").prop("disabled", true);
+};
+function agregarPKT(){
+    $("#pktMujer").toggle("d-none");
+    $("#addPapa").prop("disabled", true);
+};
