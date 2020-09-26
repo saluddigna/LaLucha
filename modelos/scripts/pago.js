@@ -112,11 +112,17 @@ var successResponseHandler = function(token) {
     conektaTokenId:""
   }
   global.perfil=Registro(global.data)
+  if(global.perfil.datosPaciente!=null){
+    alerta("Registro Correcto")
+  }else{
+    alerta('Error al registrar cita')
+  }
   
   console.log(JSON.stringify(global.perfil));
   };
 
 var errorResponseHandler = function(error) {
+  alerta('Error al registrar cita');
   console.log(error,'error')
   console.log(tokenParams)
 };
