@@ -1,9 +1,17 @@
 global={};
-global.data=[]
+global.data={}
+global.data.cita={};
+global.data.cita.Estudios=[];
 global.clinicas=[];
 global.estados=[];
 global.dataClinica=[];
-configUrl='https://57bf000357b4.ngrok.io/';
+mastografia=null;
+densitometria=null;
+papanicolao=null;
+idSesion="1dnni3hgu9iggbdktdlpfb19u4";
+conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
+
+configUrl='https://la-lucha-sd-beta.herokuapp.com/';
 sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 
 $(document).ready(function () {

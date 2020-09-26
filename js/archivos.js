@@ -11,7 +11,7 @@ $(document).ready(function () {
   $("#ingresar").load("./modelos/componentes/ingresar.html");
   $("#MiPerfil").load("./modelos/componentes/miPerfil.html");
   $(document).on("blur", ".cajas-texto .input-sd", function () {
-    console.log("Hola?");
+    // console.log("Hola?");
     if ($(this).val() != "") {
       $(this).addClass("valido");
     } else {
@@ -25,7 +25,9 @@ function seguientePaso() {
     paso++;
     setPaso();
     cambioPaso();
-  }  
+  }else if(paso==3){
+    saveValuesPago();
+  } 
 }
 
 function anteriorPaso() {
@@ -39,24 +41,29 @@ function anteriorPaso() {
 
 function setPaso() {
   var text = paso + " de 3";
-  console.log(text)
+  // console.log(text)
   $("#pag").text(text);
 }
 
 function cambioPaso(){
-  console.log(paso);
+  // console.log(paso);
   if(paso == 1) {
-    getValues();
-    console.log(global.data);
-    $("#citas").load("./modelos/componentes/citaPaquetes.html");
+    // getValues();
+    // console.log(global.data);
+    $("#citas").load("./modelos/componentes/citaPaquetes.html",function(){
+      global.clinicas=getClinicas();
+      global.estados=getEstados();
+      startCita();
+    });
   } 
   else if (paso == 2) {
-    getValues();
-    console.log(global.data);
+    saveValuesPaquetes();
+    // console.log(global.data);
     $("#citas").load("./modelos/componentes/citaPaciente.html");
   } else if (paso == 3) {
-    $("#citas").load("./modelos/componentes/pago.html");
-  }else if(paso==4){
-    getTokenConekta();
+    saveValuesPaciente();
+    $("#citas").load("./modelos/componentes/pago.html",function(){
+      startPago();
+    });
   }
 }

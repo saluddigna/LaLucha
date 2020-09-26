@@ -71,17 +71,23 @@
         <b>Papanicolaou</b>
         <div class="d-flex row">
           <div class="combobox">
-            <p class="text-14 text-bold">Fecha</p>
-            <span id="citaFechaPapa">31-12-2020</span>
+            <div class="cajas-texto">
+              <input type="date" class="input-sd valido" id="fechaCitaPapa_pkt1" >
+              <span class="floating-label">Fecha</span>
+            </div>
           </div>
           <div class="combobox">
-            <p class="text-14 text-bold">Hora</p>
-            <input class="" type="text" placeholder="1:30 P. M." >
+            <div class="cajas-texto">
+              <select id="selectHorarioPapa_pkt1" class="input-sd valido">
+                <option hidden selected>Selecciona una opción</option>
+              </select>
+              <span class="floating-label">Hora</span>
+            </div>
           </div>
         </div>
         
       </div>
-      <button type="button" class="btn btn-default btn-pink-outline" onclick="agregarPapa()">Agregar</button>
+      <button id="btnAgregarPapa" type="button" class="btn btn-default btn-pink-outline" onclick="agregarPapa()">Agregar</button>
     </div>
   </div>
   <div class="pkts">
@@ -95,27 +101,39 @@
         <b>Papanicolaou</b>
         <div class="d-flex row">
           <div class="combobox">
-            <p class="text-14 text-bold">Fecha</p>
-            <span id="citaFechaPapa">31-12-2020</span>
+            <div class="cajas-texto">
+              <input type="date" class="input-sd valido" id="fechaCitaPapa_pkt2" >
+              <span class="floating-label">Fecha</span>
+            </div>
           </div>
           <div class="combobox">
-            <p class="text-14 text-bold">Hora</p>
-            <input class="" type="text" placeholder="1:30 P. M." >
+            <div class="cajas-texto">
+              <select id="selectHorarioPapa_pkt2" class="input-sd valido">
+                <option hidden selected>Selecciona una opción</option>
+              </select>
+              <span class="floating-label">Hora</span>
+            </div>
           </div>
         </div>
         <b>Densitometría</b>
         <div class="d-flex row">
           <div class="combobox">
-            <p class="text-14 text-bold">Fecha</p>
-            <span id="citaFechaPapa">31-12-2020</span>
+            <div class="cajas-texto">
+              <input type="date" class="input-sd valido" id="fechaCitaDensi_pkt2" >
+              <span class="floating-label">Fecha</span>
+            </div>
           </div>
           <div class="combobox">
-            <p class="text-14 text-bold">Hora</p>
-            <input class="" type="text" placeholder="2:00 P. M." >
+            <div class="cajas-texto">
+              <select id="selectHorarioDensi_pkt2" class="input-sd valido">
+                <option hidden selected>Selecciona una opción</option>
+              </select>
+              <span class="floating-label">Hora</span>
+            </div>
           </div>
         </div>
       </div>
-      <button type="button" class="btn btn-default btn-pink-outline" onclick="agregarPKT()">Agregar</button>
+      <button id="btnAgregarPkt" type="button" class="btn btn-default btn-pink-outline" onclick="agregarPKT()">Agregar</button>
     </div>
   </div>
 
