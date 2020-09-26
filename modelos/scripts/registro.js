@@ -69,6 +69,80 @@ function startCita(){
         }); 
 }
 
+async function loadValuesPacientes(){
+    $('#cita_nombre').val(global.data.Nombre)
+    $('#cita_app').val(global.data.Paterno);
+    $('#cita_apm').val(global.data.Materno);
+    $('#cita_fechaNacimiento').val(global.data.FechaNacimiento);
+    // global.data.IdSexo=$("#fem").hasClass("active") ? 1 : 2;
+    $('#cita_correo').val(global.data.CorreoElectronico);
+    $('#cita_telefono').val(global.data.Telefono);
+    global.data.Password=null;
+}
+
+
+async function loadValuesPaquetes(){
+    console.log(global.data);
+    if(global.data.IdEstado && global.data.IdSucursal){
+        $('#selectEstado').val(global.data.IdEstado);
+        getClinicasByEstado();
+        $('#selectClinica').val(global.data.IdSucursal);
+        idSucursal=global.data.IdSucursal;
+    }
+    else{
+        return;
+    }
+    mastografia=getEstudio(3,idSucursal);
+    densitometria=getEstudio(1,idSucursal);
+    papanicolao=getEstudio(4,idSucursal);
+    
+    if(global.data.cita.Estudios[0]!=null){
+        $('#fechaCita').val(global.data.cita.Estudios[0].Fecha)
+        await getHorariosDisponibles({ListaHorarios:[{IdEstudio:3,IdSucursal:idSucursal,Fecha:global.data.cita.Estudios[0].Fecha,IdSubEstudioEncript:mastografia.data[0].Id}]},'#selectHorario');
+        $('#selectHorario').val(global.data.cita.Estudios[0].IdHora)
+        console.log(global.data.cita.Estudios[0].IdHora)    
+    }
+    
+    if(global.data.cita.Estudios.length==3){
+        togglePkt=true
+        $("#pktMujer").toggle("d-none");
+        $('#fechaCitaPapa_pkt2').val(global.data.cita.Estudios[1].Fecha)
+        await getHorariosDisponibles({ListaHorarios:[{IdEstudio:3,IdSucursal:idSucursal,Fecha:global.data.cita.Estudios[1].Fecha,IdSubEstudioEncript:papanicolao.data[0].Id}]} ,'#selectHorarioPapa_pkt2');
+        $('#selectHorarioPapa_pkt2').val(global.data.cita.Estudios[1].IdHora)
+        console.log(global.data.cita.Estudios[1].IdHora)  
+
+        $('#fechaCitaDensi_pkt2').val(global.data.cita.Estudios[2].Fecha)
+        await getHorariosDisponibles({ListaHorarios:[{IdEstudio:3,IdSucursal:idSucursal,Fecha:global.data.cita.Estudios[2].Fecha,IdSubEstudioEncript:densitometria.data[0].Id}]} ,'#selectHorarioDensi_pkt2');
+        $('#selectHorarioDensi_pkt2').val(global.data.cita.Estudios[2].IdHora)
+        console.log(global.data.cita.Estudios[2].IdHora)  
+    }
+    else{
+        if(global.data.cita.Estudios.length==2){
+            togglePapa=true
+            $("#pktPapa").toggle("d-none");
+            $('#fechaCitaPapa_pkt1').val(global.data.cita.Estudios[1].Fecha);
+            await getHorariosDisponibles({ListaHorarios:[{IdEstudio:3,IdSucursal:idSucursal,Fecha:global.data.cita.Estudios[1].Fecha,IdSubEstudioEncript:papanicolao.data[0].Id}]} ,'#selectHorarioPapa_pkt1');
+            $('#selectHorarioPapa_pkt1').val(global.data.cita.Estudios[1].IdHora)
+            console.log(global.data.cita.Estudios[1].IdHora)  
+        }
+    }
+    // else if(global.data.cita.Estudios.length==2){
+    //     togglePapa=true;
+    //     $("#pktPapa").toggle("d-none");
+
+    // }
+}
+function formatPhoneNumber(input, format) {
+    // Strip non-numeric characters
+    var digits = input.replace(/\D/g, '');
+
+    // Replace each "X" with the next digit
+    var count = 0;
+    return format.replace(/X/g, function() {
+        return digits.charAt(count++);
+    });
+}
+
 function saveValuesPaciente(){
     global.data.Nombre=$('#cita_nombre').val();
     global.data.Paterno=$('#cita_app').val();
@@ -207,13 +281,13 @@ function agregarPapa(){
   };
   
 
-function getHorariosDisponibles(body,selector){
+async function getHorariosDisponibles(body,selector){
     var horarios=getHorarios(body)
     var optionsAsString = "<option value='' hidden selected>Selecciona una opción</option>";
     for(var i = 0; i < horarios.length; i++) {
         optionsAsString += "<option value='" + horarios[i].Id + "' data-hora='"+horarios[i].Hora+"'>" + horarios[i].Hora + "</option>";
     }
-    $(selector).empty().append(optionsAsString);
+    await $(selector).empty().append(optionsAsString);
 }
 
 function getClinicasByEstado(){
