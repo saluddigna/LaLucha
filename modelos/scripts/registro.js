@@ -148,11 +148,12 @@ function formatPhoneNumber(input, format) {
 }
 
 function saveValuesPaciente(){
+
     global.data.Nombre=$('#cita_nombre').val();
     global.data.Paterno=$('#cita_app').val();
     global.data.Materno=$('#cita_apm').val();
     global.data.FechaNacimiento=$('#cita_fechaNacimiento').val();
-    global.data.IdSexo=$("#fem").hasClass("active") ? 1 : 2;
+    global.data.IdSexo=$("#fem").hasClass("active") ? "1" : "2";
     global.data.CorreoElectronico=$('#cita_correo').val();
     global.data.Telefono=$('#cita_telefono').val();
     global.data.Password=null;
@@ -161,19 +162,44 @@ function saveValuesPaciente(){
     global.data.cita.Paterno=global.data.Paterno;
     global.data.cita.Materno=global.data.Materno;
     global.data.cita.FechaNacimiento=global.data.FechaNacimiento;
-    global.data.cita.IdSexo=global.data.IdSexo;
+    global.data.cita.IdSexo=parseInt(global.data.IdSexo);
     global.data.cita.CorreoElectronico=global.data.CorreoElectronico;
     global.data.cita.TelefonoCelular=global.data.Telefono;
     global.data.cita.IdSession=idSesion;
-    global.data.cita.IdUsuario=0;
+    global.data.cita.IdUsuario=3373;
     global.data.cita.OrigenCita=15;
-    global.data.cita.IdSucursal=global.data.IdSucursal;
+    global.data.cita.IdSucursal=parseInt(global.data.IdSucursal);
 
         // global.dataClinica=$('#selectClinica').attr('data-clinica');
 }
+
+function validacionesPaquetes(){
+    if(global.data.IdSucursal==null || global.data.IdSucursal==""){
+        alerta("campo Clínica es requerido");
+        return false;
+    }
+    else if(global.data.IdEstado==null || global.data.IdEstado==""){
+        alerta("campo Estado Paterno es requerido");
+        return false;
+    }
+    else if(togglePapa){
+        if($("#fechaCitaPapa_pkt1").val()=="" || $("#selectHorarioPapa_pkt1").val()==""){
+            alerta("Fecha y Hora de tu cita requeridos");
+            return false;
+        }
+    }
+    else if(togglePkt){
+        if($("#fechaCitaPapa_pkt2").val()=="" || $("#selectHorarioPapa_pkt2").val()=="" || $("#fechaCitaDensi_pkt2").val()=="" || $("#selectHorarioDensi_pkt2").val()==""){
+        alerta("Fecha y Hora de tu citas requeridos");
+        return false;
+        }
+    }
+    return true;
+}
+
 function saveValuesPaquetes(){
-    global.data.IdSucursal=parseInt($('#selectClinica').val());
-    global.data.IdEstado=parseInt($('#selectEstado').val());
+    global.data.IdSucursal=$('#selectClinica').val();
+    global.data.IdEstado=$('#selectEstado').val();
     global.dataClinica = $(':selected', '#selectClinica').attr("data-clinica-name");
     global.data.cita.Estudios=[];
     var estudio=null;
@@ -182,11 +208,11 @@ function saveValuesPaquetes(){
         Fecha: $('#fechaCita').val(),
         Hora: $(':selected', '#selectHorario').attr("data-hora"),
         IdHora: parseInt($('#selectHorario').val()),
-        Id: mastografia.data[0].Id,
-        IdEstudio: mastografia.data[0].EstudioID,
+        Id: parseInt(mastografia.data[0].Id),
+        IdEstudio: parseInt(mastografia.data[0].EstudioID),
         Nombre: mastografia.data[0].Estudio,
         Descripcion: mastografia.data[0].Descripcion,
-        Precio: mastografia.data[0].Precio,
+        Precio: parseFloat(mastografia.data[0].Precio),
         Preparacion: mastografia.data[0].Preparacion,
         EstatusDescuento: true
     };
@@ -197,8 +223,8 @@ function saveValuesPaquetes(){
             Fecha: $('#fechaCitaPapa_pkt1').val(),
             Hora: $(':selected', '#selectHorarioPapa_pkt1').attr("data-hora"),
             IdHora: parseInt($('#selectHorarioPapa_pkt1').val()),
-            Id: papanicolao.data[0].Id,
-            IdEstudio: papanicolao.data[0].EstudioID,
+            Id: parseInt(papanicolao.data[0].Id),
+            IdEstudio: parseInt(papanicolao.data[0].EstudioID),
             Nombre: papanicolao.data[0].Estudio,
             Descripcion: papanicolao.data[0].Descripcion,
             Precio: papanicolao.data[0].Precio,
@@ -213,8 +239,8 @@ function saveValuesPaquetes(){
             Fecha: $('#fechaCitaPapa_pkt2').val(),
             Hora: $(':selected', '#selectHorarioPapa_pkt2').attr("data-hora"),
             IdHora: parseInt($('#selectHorarioPapa_pkt2').val()),
-            Id: papanicolao.data[0].Id,
-            IdEstudio: papanicolao.data[0].EstudioID,
+            Id: parseInt(papanicolao.data[0].Id),
+            IdEstudio: parseInt(papanicolao.data[0].EstudioID),
             Nombre: papanicolao.data[0].Estudio,
             Descripcion: papanicolao.data[0].Descripcion,
             Precio: papanicolao.data[0].Precio,
@@ -227,8 +253,8 @@ function saveValuesPaquetes(){
             Fecha: $('#fechaCitaDensi_pkt2').val(),
             Hora: $(':selected', '#selectHorarioDensi_pkt2').attr("data-hora"),
             IdHora: parseInt($('#selectHorarioDensi_pkt2').val()),
-            Id: densitometria.data[0].Id,
-            IdEstudio: densitometria.data[0].EstudioID,
+            Id: parseInt(densitometria.data[0].Id),
+            IdEstudio: parse(densitometria.data[0].EstudioID),
             Nombre: densitometria.data[0].Estudio,
             Descripcion: densitometria.data[0].Descripcion,
             Precio: densitometria.data[0].Precio,
@@ -314,7 +340,42 @@ function agregarPKT(){
 //         alert('Debes Seleccionar Fecha y Hora para tus estudios');
 //     }
 //   };
-  
+function alerta(msg){
+    alert(msg);
+}
+
+function validacionesDatosPaciente(){
+    if(global.data.cita.Nombre==null || global.data.cita.Nombre==""){
+        alerta("campo Nombre es requerido");
+        return false;
+    }
+    else if(global.data.cita.Paterno==null || global.data.cita.Paterno==""){
+        alerta("campo Apellido Paterno es requerido");
+        return false;
+    }
+    else if(global.data.cita.Materno==null || global.data.cita.Materno==""){
+        alerta("campo Apellido Materno es requerido");
+        return false;
+    }
+    else if(global.data.cita.FechaNacimiento==null || global.data.cita.FechaNacimiento==""){
+        alerta("campo Fecha de Nacimiento es requerido");
+        return false;
+    }
+    else if(global.data.cita.CorreoElectronico==null || global.data.cita.CorreoElectronico==""){
+        alerta("campo Correo Electronico es requerido");
+        return false;
+    }
+    else if(global.data.cita.TelefonoCelular==null || global.data.cita.TelefonoCelular==""){
+        alerta("campo Telefono Celular es requerido");
+        return false;
+    }
+    else if(global.data.cita.IdSucursal==null || global.data.cita.IdSucursal==""){
+        alerta("campo Clínica es requerido");
+        return false;
+    }
+    return true;
+
+}
 
 async function getHorariosDisponibles(body,selector){
     var horarios=getHorarios(body)

@@ -1,7 +1,6 @@
 //request
 function getClinicas() {
     var arrClinicas = [];
-
     $.ajax({
         type: 'GET',
         url: configUrl+'clinica/allClinicas',
@@ -16,7 +15,6 @@ function getClinicas() {
         error: function (jqXHR, textStatus, errorThrown) {
         }
     });
-
     return arrClinicas;
 };
 
@@ -61,8 +59,15 @@ function getHorarios(body) {
         }
     });
     // console.log(arrHorarios);
-    if(arrHorarios.estatus)
+    if(arrHorarios.estatus){
+        arrHorarios.horarios[0].Horarios.map(x=>
+        {
+            var index=x.Hora.indexOf("-");
+            x.Hora=x.Hora.substring(0,index);
+        }
+        )
         return arrHorarios.horarios[0].Horarios;
+    }
     else{
         alert(arrHorarios.mensaje);
         return [];
@@ -89,5 +94,29 @@ function getEstudio(idEstudio,idSucursal) {
     });
 
     return arrEstudio;
+};
+
+function Registro(data) {
+    var resp = [];
+    $.ajax({
+        type: 'POST',
+        url: configUrl+'registro',
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', sesion);
+        },
+        async: false,
+        success: function (response) {
+            resp=response;
+            console.log(resp);
+            // arrEstudio = response;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR,textStatus,errorThrown)
+        }
+    });
+    return resp;
 };
 

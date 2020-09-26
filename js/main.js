@@ -8,6 +8,8 @@ global.dataClinica=[];
 mastografia=null;
 densitometria=null;
 papanicolao=null;
+global.perfil={};
+
 idSesion="1dnni3hgu9iggbdktdlpfb19u4";
 conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
 

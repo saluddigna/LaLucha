@@ -22,11 +22,27 @@ $(document).ready(function () {
 });
 
 function seguientePaso() {
-  if(paso<3){
-    paso++;
-    setPaso();
-    cambioPaso_save();
-  }else if(paso==3){
+  if(paso==1){
+     saveValuesPaquetes()
+    var result=validacionesPaquetes();
+    console.log(result)
+    if (result){
+      paso++;
+      setPaso();
+      cambioPaso_save();
+    }
+  }
+  else if(paso==2){
+    saveValuesPaciente()
+    var result=validacionesDatosPaciente();
+    console.log(result)
+    if (result){
+      paso++;
+      setPaso();
+      cambioPaso_save();
+    }
+  }
+  else if(paso==3){
     saveValuesPago();
   } 
 }
@@ -53,7 +69,6 @@ function cambioPaso_save(){
     });
   } 
   else if (paso == 2) {
-    saveValuesPaquetes()
     $("#citas").load("./modelos/componentes/citaPaciente.html",function(){
       loadValuesPacientes();
     });
