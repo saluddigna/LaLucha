@@ -57,6 +57,8 @@ $(document).on("click", ".movilNav", function(){
 })
 
 function irPerfil(parametro) {
-	$('#seccion').load('./modelos/perfil.html');
+	$('#seccion').load('./modelos/perfil.html',function(){
+    // startPerfil();
+  });
 	console.log(parametro);
 }

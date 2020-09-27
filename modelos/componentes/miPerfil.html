@@ -5,11 +5,11 @@
       <img class="avatar" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/avatar-mujer.svg" alt="Perfil mujer">
       <div class="infoPerfil">
         <ul>
-          <li class="text-18"><i></i><span id="perfil-nombre">Ernesto Alonso Espinoza Ochoa</span></li>
-          <li class="text-16"><i></i><span id="perfil-correo">ealonso1996@hotmail.com</span></li>
-          <li class="text-16"><i></i><span id="perfil-sexo">Hombre</span></li>
-          <li class="text-16"><i></i><span id="perfil-fechaN">10/01/1996 - 24 años</span></li>
-          <li class="text-16"><i></i><span id="perfil-celular">(668) 105 13 32</span></li>
+          <li class="text-18"><i></i><span id="perfil-nombre"></span></li>
+          <li class="text-16"><i></i><span id="perfil-correo"></span></li>
+          <li class="text-16"><i></i><span id="perfil-sexo"></span></li>
+          <li class="text-16"><i></i><span id="perfil-fechaN"></span></li>
+          <li class="text-16"><i></i><span id="perfil-celular"></span></li>
         </ul>
       </div>
     </div>
@@ -19,22 +19,30 @@
     <div class="tuFolio">
       <p class="text-18 text-bold p-l-1">Tu folio</p>
       <div class="d-flex justify-center align-center flex-column">
-        <p id="perfil-paciente">Ernesto Alonso Espinoza Ochoa</p>
+        <p id="perfil-paciente"></p>
         <div class="d-flex flex-row" id="folios">
-          <div class="d-flex justify-center align-center flex-column ma-10">
-            <b class="text-16 estudio">Mastografía</b>
-            <b class="folio">150420911</b>
+          <div class="d-flex justify-center align-center flex-column ma-10" id="folios_masto">
+            <b class="text-16 estudio" id="folio_nombre_masto"></b>
+            <b class="folio" id="folio_masto"></b>
+          </div>
+          <div class="d-flex justify-center align-center flex-column ma-10" id="folios_papa">
+            <b class="text-16 estudio" id="folio_nombre_papa"></b>
+            <b class="folio" id="folio_papa"></b>
+          </div>
+          <div class="d-flex justify-center align-center flex-column ma-10" id="folios_densi">
+            <b class="text-16 estudio" id="folio_nombre_densi"></b>
+            <b class="folio" id="folio_densi"></b>
           </div>
         </div>
         <p class="fValido">El folio solo podrá hacerse válido el día de tu cita.</p>
         <div class="d-flex justify-center align-center flex-row">
-          <div class="d-flex justify-center align-center flex-column ma-10">
+          <!-- <div class="d-flex justify-center align-center flex-column ma-10">
             <b class="text-18">Tu cita:</b>
             <p class="text-16" id="perfil-fechaCita">31/Dic/2020 12:00 PM</p>
-          </div>
+          </div> -->
           <div class="d-flex justify-center align-center flex-column ma-10">
             <b class="text-18">Clínica:</b>
-            <p class="text-16" id="perfil-clinica">Los Mochis</p>
+            <p class="text-16" id="perfil-clinica"></p>
           </div>
         </div>
         <button class="btn btn-pink" >Descargar</button>
@@ -57,21 +65,16 @@
       <p class="text-16 w-50">
         <br>
         <b>Dirección:</b><br>
-        <span id="perfil-dirClinica">Santos Degollado #200 Colonia Centro, CP 81200 Los Mochis, Sinaloa</span><br>
+        <span id="perfil-dirClinica"></span><br>
         <br>
         <b>Teléfono:</b><br>
-        Teléfono <span id="perfil-telClinica">(668) 815 35 15</span><br>
+        Teléfono <span id="perfil-telClinica">Falta API Perfil</span><br>
         Whatsapp <a class="linkPink" href="https://salud-digna.site/WAresultadosLucha" target="_blank" rel="noopener noreferrer">(553) 956 67 29</a>
       </p>
       <p class="text-16 w-50">
         <br>
         <b>Horarios:</b><br>
-        <b>Lunes a Viernes</b><br>
-        <span>7:00 am a 7:00pm</span><br>
-        <b>Sábado</b><br>
-        <span>7:00 am a 5:00pm</span><br>
-        <b>Domingo</b><br>
-        <span>7:00 am a 2:00pm</span>
+        <span id="perfil-horario"></span><br>
       </p>
     </div>
     <div class="instrucciones">

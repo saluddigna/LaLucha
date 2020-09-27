@@ -120,3 +120,27 @@ function Registro(data) {
     return resp;
 };
 
+
+function LoginService(data) {
+    var resp = [];
+    $.ajax({
+        type: 'POST',
+        url: configUrl+'login',
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', sesion);
+        },
+        async: false,
+        success: function (response) {
+            resp=response;
+            console.log(resp);
+            // arrEstudio = response;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR,textStatus,errorThrown)
+        }
+    });
+    return resp;
+};

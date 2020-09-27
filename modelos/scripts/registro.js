@@ -254,14 +254,14 @@ function saveValuesPaquetes(){
             Hora: $(':selected', '#selectHorarioDensi_pkt2').attr("data-hora"),
             IdHora: parseInt($('#selectHorarioDensi_pkt2').val()),
             Id: parseInt(densitometria.data[0].Id),
-            IdEstudio: parse(densitometria.data[0].EstudioID),
+            IdEstudio: parseInt(densitometria.data[0].EstudioID),
             Nombre: densitometria.data[0].Estudio,
             Descripcion: densitometria.data[0].Descripcion,
             Precio: densitometria.data[0].Precio,
             Preparacion: densitometria.data[0].Preparacion,
             EstatusDescuento: true
         };
-        global.data.cita.Estudios.push(estudio);
+        // global.data.cita.Estudios.push(estudio);
     }
 
     console.log(global.data)

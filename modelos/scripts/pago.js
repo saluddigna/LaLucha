@@ -119,6 +119,9 @@ var successResponseHandler = function(token) {
   }
   
   console.log(JSON.stringify(global.perfil));
+  sessionStorage.clear()
+  sessionStorage.setItem('dataUser', JSON.stringify(global.perfil))
+  irPerfil("perfil");
   };
 
 var errorResponseHandler = function(error) {

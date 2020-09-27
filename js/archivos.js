@@ -11,7 +11,9 @@ $(document).ready(function () {
     cambioPaso_save();
   });
   $("#ingresar").load("./modelos/componentes/ingresar.html");
-  $("#MiPerfil").load("./modelos/componentes/miPerfil.html");
+  $("#MiPerfil").load("./modelos/componentes/miPerfil.html",function(){
+    startPerfil();
+  });
   $(document).on("blur", ".cajas-texto .input-sd", function () {
     if ($(this).val() != "") {
       $(this).addClass("valido");
