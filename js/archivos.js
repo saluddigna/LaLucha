@@ -27,7 +27,6 @@ function seguientePaso() {
   if(paso==1){
      saveValuesPaquetes()
     var result=validacionesPaquetes();
-    console.log(result)
     if (result){
       paso++;
       setPaso();
@@ -37,7 +36,6 @@ function seguientePaso() {
   else if(paso==2){
     saveValuesPaciente()
     var result=validacionesDatosPaciente();
-    console.log(result)
     if (result){
       paso++;
       setPaso();

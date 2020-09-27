@@ -9,6 +9,7 @@ mastografia=null;
 densitometria=null;
 papanicolao=null;
 global.perfil={};
+dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
 
 idSesion="1dnni3hgu9iggbdktdlpfb19u4";
 conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
@@ -19,7 +20,16 @@ sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 $(document).ready(function () {
   $('#banner').load('../modelos/banner.html');
   $('#nav').load('../modelos/navbar.html');
-  $('#seccion').load('../modelos/logIn.html');
+  console.log(dataUser);
+  if(!dataUser){
+    $('#seccion').load('../modelos/logIn.html',function(){
+      removerClaseNav();
+      $("#btnLogIn").addClass("active");
+    });
+  }
+  else{
+    irPerfil();
+  }
 
   
   
@@ -27,8 +37,7 @@ $(document).ready(function () {
 
 function seccion(nav){
   if(nav==1){
-    $('#seccion').load('../modelos/cita.html');
-    
+    $('#seccion').load('../modelos/cita.html'); 
     removerClaseNav();
     $("#btnRegistro").addClass("active");
   }else if(nav==2){
@@ -39,7 +48,17 @@ function seccion(nav){
     $('#seccion').load('../modelos/beneficiados.html');
     removerClaseNav();
     $("#btnPxBeneficiados").addClass("active");
-  }else{
+  }else if(nav==5){
+    if(!dataUser){
+      $('#seccion').load('../modelos/logIn.html',function(){
+        removerClaseNav();
+        $("#btnLogIn").addClass("active");
+      });
+    }
+    else
+      irPerfil();
+    }
+  else{
     $('#seccion').load('../modelos/logIn.html');
     removerClaseNav();
     $("#btnLogIn").addClass("active");
@@ -50,15 +69,17 @@ function removerClaseNav(){
   $("#btnRevista").removeClass("active");
   $("#btnPxBeneficiados").removeClass("active");
   $("#btnLogIn").removeClass("active");
+  $("#btnPerfil").removeClass("active");
+
 }
 
 $(document).on("click", ".movilNav", function(){
   $("#movilNav").toggleClass("d-flex");
 })
 
-function irPerfil(parametro) {
+function irPerfil(parametro) { 
 	$('#seccion').load('./modelos/perfil.html',function(){
-    // startPerfil();
+    removerClaseNav();
+    $("#btnPerfil").addClass("active");
   });
-	console.log(parametro);
 }

@@ -93,14 +93,12 @@ function saveValuesPago(){
     }
   };
   Conekta.Token.create(tokenParams, successResponseHandler, errorResponseHandler);
-  // console.log(tokenParams)
 }
 var successResponseHandler = function(token) {
   global.data.cita.EstatusLaboratorio=false;
   global.data.cita.CondicionFolios=1000;
   global.data.cita.TipoPago=3;
   global.data.cita.TextoDeSuma="Total por obtener tu cita en línea:";
-  // console.log(global.data);
 
   global.data.cita.DatosPago={
     Correo:global.data.CorreoElectronico,
@@ -114,20 +112,18 @@ var successResponseHandler = function(token) {
   global.perfil=Registro(global.data)
   if(global.perfil.datosPaciente!=null){
     alerta("Registro Correcto")
+    console.log(JSON.stringify(global.perfil));
+    sessionStorage.clear()
+    sessionStorage.setItem('dataUser', JSON.stringify(global.perfil))
+    irPerfil("perfil");
   }else{
-    alerta('Error al registrar cita')
+    alerta('Error al registrar cita, Intentalo mas tarde')
   }
-  
-  console.log(JSON.stringify(global.perfil));
-  sessionStorage.clear()
-  sessionStorage.setItem('dataUser', JSON.stringify(global.perfil))
-  irPerfil("perfil");
   };
 
 var errorResponseHandler = function(error) {
-  alerta('Error al registrar cita');
+  alerta('Error al registrar cita, Intentalo mas tarde')
   console.log(error,'error')
-  console.log(tokenParams)
 };
 
 function tipoPago(tipo){

@@ -58,7 +58,6 @@ function getHorarios(body) {
         error: function (jqXHR, textStatus, errorThrown) {
         }
     });
-    // console.log(arrHorarios);
     if(arrHorarios.estatus){
         arrHorarios.horarios[0].Horarios.map(x=>
         {
@@ -110,7 +109,6 @@ function Registro(data) {
         async: false,
         success: function (response) {
             resp=response;
-            console.log(resp);
             // arrEstudio = response;
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -135,7 +133,6 @@ function LoginService(data) {
         async: false,
         success: function (response) {
             resp=response;
-            console.log(resp);
             // arrEstudio = response;
         },
         error: function (jqXHR, textStatus, errorThrown) {

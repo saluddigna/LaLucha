@@ -28,3 +28,11 @@ function iniciarSesion(){
     alert("Error Usuario o Contraseña Incorrectos");
   }
 }
+
+function cerrarSesion(){
+  sessionStorage.clear();
+  $('#seccion').load('../modelos/logIn.html',function(){
+    removerClaseNav();
+    $("#btnLogIn").addClass("active");
+  });
+}
