@@ -54,10 +54,7 @@ function iniciarSesion(){
 
 function cerrarSesion(){
   sessionStorage.clear();
-  $('#seccion').load('../modelos/logIn.html',function(){
-    removerClaseNav();
-    $("#btnLogIn").addClass("active");
-  });
+  redirectLogin();
 }
 
 function cambiarPass(){

@@ -1,11 +1,8 @@
 function startPerfil(){
     var dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
     if(!dataUser){
-        $('#seccion').load('../modelos/logIn.html',function(){
-            removerClaseNav();
-            $("#btnLogIn").addClass("active");
-        });
-        return;
+        redirectLogin();
+        return
     }
 
     $('#perfil-nombre').text(dataUser.datosPaciente.Nombre +" "+dataUser.datosPaciente.Paterno+" "+dataUser.datosPaciente.Materno);  
@@ -46,15 +43,37 @@ function startPerfil(){
         $('#perfil-fechaCita-densi').text(dataUser.datosCita.estudios[2].fecha+" "+dataUser.datosCita.estudios[2].hora); 
     }
     
-    $('#perfil-clinica').text(dataUser.datosCita.nombreClinica); 
-    $('#perfil-dirClinica').text(dataUser.datosCita.direccion); 
+    $('#perfil-clinica').text(dataUser.datosCita.clinica.Nombre); 
+    $('#perfil-dirClinica').text(dataUser.datosCita.clinica.Direccion); 
 
     
-    // $('#perfil-telClinica').text(dataUser.datosCita.nombreClinica); 
-    // perfil-dirClinica
-    
-   
-    
+    $('#perfil-telClinica').text(dataUser.datosCita.clinica.Telefonos); 
+
+    $('#perfil-HorarioAtencion').text(dataUser.datosCita.clinica.HorarioAtencion); 
+
+    // $("#perfil-prep").empty();
+    // $("#perfil-prep").append(`<b class="text-18">Preparación:</b><br><br>`)
+    // $.each( dataUser.datosCita.estudios, function( key, value ) {
+    //     var item=`<p class="text-16"><b>`+value.descripcion+`:</b> `+value.preparacion+`</p>`
+    //     $("#perfil-prep").append(item)
+    //   });
+
+    showPreparaciones(); 
+}
+function showPreparaciones(){
+    if(dataUser.datosCita.estudios.length==1)
+    {
+        $("#preparacionPapa").addClass("d-none");         
+        $("#preparacionDensi").addClass("d-none");     
+    }else if(dataUser.datosCita.estudios.length==2)
+    {
+        $("#preparacionPapa").removeClass("d-none");         
+        $("#preparacionDensi").addClass("d-none");     
+    }else if(dataUser.datosCita.estudios.length==3)
+    {
+        $("#preparacionPapa").removeClass("d-none");         
+        $("#preparacionDensi").removeClass("d-none");     
+    }
 }
 function cancelarCita(){
     $("#tuFolio").addClass("d-none");

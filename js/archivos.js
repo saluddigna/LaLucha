@@ -23,19 +23,7 @@ $(document).ready(function () {
     setPaso();
     cambioPaso_save();
   });
-  $("#ingresar").load("./modelos/componentes/ingresar.html",function(){
-  console.log(getUrlParameter('recovery'));
-  if(getUrlParameter('recovery')!=null){
-      removerClaseNav();
-      $("#btnLogIn").addClass("active");
-      $("#contenedorLogIn").load("../modelos/componentes/nuevaPass.html",function(){
-        console.log('hola')
-      });
-    }
-  });
-  $("#MiPerfil").load("./modelos/componentes/miPerfil.html",function(){
-    startPerfil();
-  });
+
   $(document).on("blur", ".cajas-texto .input-sd", function () {
     if ($(this).val() != "") {
       $(this).addClass("valido");
@@ -119,4 +107,21 @@ function cambioPaso_notSave(){
       startPago();
     });
   }
+}
+function redirectLogin(){
+  $('#seccion').load('./modelos/logIn.html',function(){
+    $("#ingresar").load("./modelos/componentes/ingresar.html",function(){
+      console.log(getUrlParameter('recovery'));
+      if(getUrlParameter('recovery')!=null){
+          removerClaseNav();
+          $("#btnLogIn").addClass("active");
+          $("#contenedorLogIn").load("./modelos/componentes/nuevaPass.html",function(){
+            console.log('hola')
+          });
+        }
+      });
+    removerClaseNav();
+    $("#btnLogIn").addClass("active");
+  });
+
 }

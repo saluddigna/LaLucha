@@ -20,14 +20,12 @@ sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 $(document).ready(function () {
   $('#banner').load('../modelos/banner.html');
   $('#nav').load('../modelos/navbar.html');
+
   if(!dataUser){
-      $('#seccion').load('../modelos/logIn.html',function(){
-        removerClaseNav();
-        $("#btnLogIn").addClass("active");
-      });
+    seccion(1);
     }
     else{
-      irPerfil();
+      irPerfil()
     }
 });
 
@@ -45,21 +43,15 @@ function seccion(nav){
     removerClaseNav();
     $("#btnPxBeneficiados").addClass("active");
   }else if(nav==4){
-    console.log(dataUser)
     if(!dataUser){
-      $('#seccion').load('../modelos/logIn.html',function(){
-        removerClaseNav();
-        $("#btnLogIn").addClass("active");
-      });
+      redirectLogin();
     }
     else{
       irPerfil();
     }
   }
   else{
-    $('#seccion').load('../modelos/logIn.html');
-    removerClaseNav();
-    $("#btnLogIn").addClass("active");
+    redirectLogin();
   }
 }
 function removerClaseNav(){
@@ -76,9 +68,10 @@ $(document).on("click", ".movilNav", function(){
 
 function irPerfil(parametro) { 
 	$('#seccion').load('./modelos/perfil.html',function(){
+    $("#MiPerfil").load("./modelos/componentes/miPerfil.html",function(){
+      startPerfil();
+    });
     removerClaseNav();
     $("#btnLogIn").addClass("active");
   });
 }
-
-  // 
