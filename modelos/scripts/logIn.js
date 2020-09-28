@@ -9,8 +9,7 @@ function recuperada(){
   data={correoElectronico:$('#recuperar-correo').val()}
   var resp=recuperarContra(data)
   console.log(resp);
-
-  // $("#contenedorLogIn").load("./modelos/componentes/recuperada.html");
+  $("#contenedorLogIn").load("./modelos/componentes/recuperada.html");
 }
 function Login(){
     // $('#form-login').parsley({
@@ -61,4 +60,13 @@ function cerrarSesion(){
   });
 }
 
+function cambiarPass(){
+  data={
+      id: getUrlParameter('recovery'),
+      password: $('#recuperar-pass').val()
+  }
+  var resp=cambiarContra(data)
+  console.log(resp);
+  $("#contenedorLogIn").load("./modelos/componentes/nuevaPassListo.html");
+}
 

@@ -165,3 +165,26 @@ function recuperarContra(){
     return resp;
     
 }
+
+function cambiarContra(){
+    var resp = [];
+    $.ajax({
+        type: 'POST',
+        url: configUrl+'paciente/recuperar/segundopaso',
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', sesion);
+        },
+        async: false,
+        success: function (response) {
+            resp=response;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR,textStatus,errorThrown)
+        }
+    });
+    return resp;
+    
+}
