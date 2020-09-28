@@ -1,19 +1,20 @@
 <p class="text-bold text-16">Datos del paciente (Idénticos a tu identificación oficial)</p>
+  <div class="form" id="form-citaPaciente">
     <div class="row datos-px">
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_nombre">
+        <input type="text" class="input-sd" id="cita_nombre" data-parsley-required="true">
         <span class="floating-label">Nombre</span>
       </div>
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_app" >
+        <input type="text" class="input-sd" id="cita_app" data-parsley-required="true">
         <span class="floating-label">Apellido paterno</span>
       </div>
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_apm">
+        <input type="text" class="input-sd" id="cita_apm" >
         <span class="floating-label">Apellido materno</span>
       </div>
       <div class="cajas-texto">
-        <input type="date" class="input-sd valido" id=cita_fechaNacimiento>
+        <input type="date" class="input-sd valido" id=cita_fechaNacimiento data-parsley-required="true">
         <span class="floating-label">Fecha de nacimiento</span>
       </div>
     </div>
@@ -23,11 +24,13 @@
     </div>
     <div class="row datos-px">
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_telefono" >
+        <input type="number" class="input-sd" id="cita_telefono" data-parsley-required="true">
         <span class="floating-label">Teléfono</span>
       </div>
       <div class="cajas-texto">
-        <input type="email" class="input-sd" id="cita_correo" >
+        <input type="email" class="input-sd" id="cita_correo" data-parsley-required="true">
         <span class="floating-label">Correo electrónico</span>
       </div>
     </div>
+  </div>
+      

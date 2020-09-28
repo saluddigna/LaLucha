@@ -1,22 +1,24 @@
-<div class="card form">
-  <!-- <p class="text-center">ES TIEMPO DE MIRAR EN TU INTERIOR.svg</p> -->
-  <div class="d-block logIn" id="contenedorLogIn">
-    <!-- <button type="button" class="btn btn-link regresar"><- Regresar</button> -->
-    <h2 class="text-center text-bold">Ingresar a tu cuenta</h2>
-    <p class="text-16 mx-20">
-      Conoce las recomendaciones más importantes para obtener tu Mastografía y accede a tu folio.
-    </p>
-    <div class="row datos-px">
-      <div class="cajas-texto">
-        <input type="email" class="input-sd" id="login-correo" name="correo-electronico">
-        <span class="floating-label">Correo electrónico</span>
+<form id='form-login'>
+  <div class="card form">
+    <!-- <p class="text-center">ES TIEMPO DE MIRAR EN TU INTERIOR.svg</p> -->
+    <div class="d-block logIn" id="contenedorLogIn">
+      <!-- <button type="button" class="btn btn-link regresar"><- Regresar</button> -->
+      <h2 class="text-center text-bold">Ingresar a tu cuenta</h2>
+      <p class="text-16 mx-20">
+        Conoce las recomendaciones más importantes para obtener tu Mastografía y accede a tu folio.
+      </p>
+      <div class="row datos-px">
+        <div class="cajas-texto">
+          <input type="email" class="input-sd" id="login-correo" name="correo-electronico" data-parsley-required="true" >
+          <span class="floating-label">Correo electrónico</span>
+        </div>
+        <div class="cajas-texto">
+          <input type="password" class="input-sd" id="login-contrasena" name="password" data-parsley-required="true">
+          <span class="floating-label">Contraseña</span>
+        </div>
+        <button type="button" class="btn btn-link olvide" onclick="irOlvidar(1)">¿Has olvidado tu contraseña?</button>
       </div>
-      <div class="cajas-texto">
-        <input type=password" class="input-sd" id="login-contrasena" name="password">
-        <span class="floating-label">Contraseña</span>
-      </div>
-      <button type="button" class="btn btn-link olvide" onclick="irOlvidar(1)">¿Has olvidado tu contraseña?</button>
+      <button type="button" class="btn btn-pink" onclick="Login()" value="validate" id="submit-form">Iniciar sesión</button>
     </div>
-    <button class="btn btn-pink" onclick="iniciarSesion()" >Iniciar sesión</button>
   </div>
-</div>
+</form>

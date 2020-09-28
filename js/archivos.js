@@ -1,6 +1,19 @@
 var cita = 0;
 var paso = 0;
+var getUrlParameter = function getUrlParameter(sParam) {
+  var sPageURL = window.location.search.substring(1),
+      sURLVariables = sPageURL.split('&'),
+      sParameterName,
+      i;
 
+  for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+
+      if (sParameterName[0] === sParam) {
+          return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+      }
+  }
+};
 $(document).ready(function () {
   $("#infoCita").load("./modelos/componentes/infoCita.html", function () {});
   $("#formCita").load("./modelos/componentes/formCita.html", function () {
@@ -10,7 +23,16 @@ $(document).ready(function () {
     setPaso();
     cambioPaso_save();
   });
-  $("#ingresar").load("./modelos/componentes/ingresar.html");
+  $("#ingresar").load("./modelos/componentes/ingresar.html",function(){
+  console.log(getUrlParameter('recovery'));
+  if(getUrlParameter('recovery')!=null){
+      removerClaseNav();
+      $("#btnLogIn").addClass("active");
+      $("#contenedorLogIn").load("../modelos/componentes/nuevaPass.html",function(){
+        console.log('hola')
+      });
+    }
+  });
   $("#MiPerfil").load("./modelos/componentes/miPerfil.html",function(){
     startPerfil();
   });
@@ -25,9 +47,10 @@ $(document).ready(function () {
 
 function seguientePaso() {
   if(paso==1){
-     saveValuesPaquetes()
     var result=validacionesPaquetes();
+    console.log(result,'holaaaaaaaaaa')
     if (result){
+      saveValuesPaquetes()
       paso++;
       setPaso();
       cambioPaso_save();

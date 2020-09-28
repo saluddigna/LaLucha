@@ -22,16 +22,16 @@
 <div class="d-flex row">
   <div class="combobox">
     <div class="cajas-texto">
-      <select id="selectEstado" class="input-sd valido">
-        <option hidden selected>Selecciona una opción</option>
+      <select id="selectEstado" class="input-sd valido" data-parsley-min = "1"  >
+        <option hidden selected value="">Selecciona una opción</option>
       </select>
       <span class="floating-label">Estado</span>
     </div>
   </div>
   <div class="combobox">
     <div class="cajas-texto">
-      <select id="selectClinica" class="input-sd valido">
-        <option hidden selected>Selecciona una opción</option>
+      <select id="selectClinica" class="input-sd valido" data-parsley-min = "1"  >
+        <option hidden selected value="">Selecciona una opción</option>
       </select>
       <span class="floating-label">Clínica</span>
     </div>
@@ -41,14 +41,14 @@
 <div class="d-flex row">
   <div class="combobox">
     <div class="cajas-texto">
-      <input type="date" class="input-sd valido" id="fechaCita">
+      <input type="date" class="input-sd valido" id="fechaCita" data-parsley-required="true" >
       <span class="floating-label">Fecha</span>
     </div>
   </div>
   <div class="combobox">
     <div class="cajas-texto">
-      <select id="selectHorario" class="input-sd valido">
-        <option hidden selected>Selecciona una opción</option>
+      <select id="selectHorario" class="input-sd valido" data-parsley-min = "1" >
+        <option hidden selected value="">Selecciona una opción</option>
       </select>
       <span class="floating-label">Hora</span>
     </div>

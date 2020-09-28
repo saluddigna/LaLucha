@@ -141,3 +141,27 @@ function LoginService(data) {
     });
     return resp;
 };
+
+function recuperarContra(){
+    var resp = [];
+    $.ajax({
+        type: 'POST',
+        url: configUrl+'paciente/recuperar',
+        contentType: 'application/json',
+        data: JSON.stringify(data),
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', sesion);
+        },
+        async: false,
+        success: function (response) {
+            resp=response;
+            // arrEstudio = response;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR,textStatus,errorThrown)
+        }
+    });
+    return resp;
+    
+}

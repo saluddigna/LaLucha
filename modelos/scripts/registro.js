@@ -172,27 +172,34 @@ function saveValuesPaciente(){
 }
 
 function validacionesPaquetes(){
-    if(global.data.IdSucursal==null || global.data.IdSucursal==""){
-        alerta("campo Clínica es requerido");
-        return false;
+    $('#form-registro').parsley().validate();
+    if ($('#form-registro').parsley().isValid()) {
+      return true
+    } else {
+        console.log('not valid registro');
+        return false
     }
-    else if(global.data.IdEstado==null || global.data.IdEstado==""){
-        alerta("campo Estado Paterno es requerido");
-        return false;
-    }
-    else if(togglePapa){
-        if($("#fechaCitaPapa_pkt1").val()=="" || $("#selectHorarioPapa_pkt1").val()==""){
-            alerta("Fecha y Hora de tu cita requeridos");
-            return false;
-        }
-    }
-    else if(togglePkt){
-        if($("#fechaCitaPapa_pkt2").val()=="" || $("#selectHorarioPapa_pkt2").val()=="" || $("#fechaCitaDensi_pkt2").val()=="" || $("#selectHorarioDensi_pkt2").val()==""){
-        alerta("Fecha y Hora de tu citas requeridos");
-        return false;
-        }
-    }
-    return true;
+    // if(global.data.IdSucursal==null || global.data.IdSucursal==""){
+    //     alerta("campo Clínica es requerido");
+    //     return false;
+    // }
+    // else if(global.data.IdEstado==null || global.data.IdEstado==""){
+    //     alerta("campo Estado Paterno es requerido");
+    //     return false;
+    // }
+    // else if(togglePapa){
+    //     if($("#fechaCitaPapa_pkt1").val()=="" || $("#selectHorarioPapa_pkt1").val()==""){
+    //         alerta("Fecha y Hora de tu cita requeridos");
+    //         return false;
+    //     }
+    // }
+    // else if(togglePkt){
+    //     if($("#fechaCitaPapa_pkt2").val()=="" || $("#selectHorarioPapa_pkt2").val()=="" || $("#fechaCitaDensi_pkt2").val()=="" || $("#selectHorarioDensi_pkt2").val()==""){
+    //     alerta("Fecha y Hora de tu citas requeridos");
+    //     return false;
+    //     }
+    // }
+    // return true;
 }
 
 function saveValuesPaquetes(){

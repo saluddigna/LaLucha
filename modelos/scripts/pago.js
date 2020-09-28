@@ -46,32 +46,7 @@ function llenarTabla(){
     $('#totalP').text("$ 380.00");  
   }
 }
-
-function startPago(){
-  llenarTabla();
-  // $.each(global.data.cita.Estudios, function(index, value) {
-  //       var estudio = $("<td width='33%'>" +  value.Nombre + "</td>)");
-  //       var fecha = $("<td width='33%' align='center'>" + value.Fecha + "</td>)");
-  //       var precio = $("<td width='33%' align='right'>" + value.Precio + "</td>)");
-
-  //       $("#tuplas").append(estudio);
-  //       $("#tuplas").append(fecha);
-  //       $("#tuplas").append(location);
-  //       if(index=)
-  //       $("#tuplas").append(precio);
-
-  //       $("#tuplas").append("</tr>");  
-  // })
-
-// $.each(global.data.cita.Estudios, function(index, value) {
-//     var tr = $('<tr />');
-//     tr.append( $('<td />', {text : value.Nombre}) );
-//     tr.append( $('<td />', {text : value.Fecha}) );
-//     tr.append( $('<td />', {text : value.Precio}) );
-    
-//     $("#tablaCita").append(tr);
-// }); 
-
+function llenarInfo(){
   var dataConfirmacion=global.data;
   console.log(global.data)
   $('#nombrePX').text(dataConfirmacion.Nombre+' '+dataConfirmacion.Paterno+' '+dataConfirmacion.Materno);  
@@ -79,6 +54,10 @@ function startPago(){
   $('#telefonoPX').text(dataConfirmacion.Telefono);  
   $('#correoPX').text(dataConfirmacion.CorreoElectronico);  
   $('#clinicaPX').text(global.dataClinica);  
+}
+function startPago(){
+  llenarTabla();
+  llenarInfo();
 }
 
 
@@ -92,22 +71,65 @@ function saveValuesPago(){
       cvc: $('#ccv').val(),     
     }
   };
-  Conekta.Token.create(tokenParams, successResponseHandler, errorResponseHandler);
+  if(tipoPago==3){
+    Conekta.Token.create(tokenParams, successResponseHandler, errorResponseHandler);
+  }else{
+    registrarCita();
+  }
 }
 var successResponseHandler = function(token) {
+  registrarCita();
+  };
+
+
+
+var errorResponseHandler = function(error) {
+  alerta('Error al registrar cita, Intentalo mas tarde')
+  console.log(error,'error')
+};
+
+var tipoPago=3;
+function tipoPago(tipo){
+  if(tipo==2){
+    tipoPago=3;
+    $("#pagoLinea").removeClass("active");
+    $("#pagoClinica").addClass("active");
+    $("#datosPagar").addClass("d-none");
+  }else{
+    tipoPago=2;
+    $("#pagoLinea").addClass("active");
+    $("#pagoClinica").removeClass("active");
+    $("#datosPagar").removeClass("d-none");
+  }
+};
+
+function registrarCita(){
   global.data.cita.EstatusLaboratorio=false;
   global.data.cita.CondicionFolios=1000;
-  global.data.cita.TipoPago=3;
-  global.data.cita.TextoDeSuma="Total por obtener tu cita en línea:";
+  global.data.cita.TipoPago=tipoPago;
 
-  global.data.cita.DatosPago={
-    Correo:global.data.CorreoElectronico,
-    Nombre:$('#nameCard').val(),
-    Precio:0,
-    Referencia:"",
-    Telefono:global.data.Telefono,
-    Token:"tok_test_visa_4242",
-    conektaTokenId:""
+  if(tipoPago==3){
+    global.data.cita.TextoDeSuma="Total por obtener tu cita en línea";
+    global.data.cita.DatosPago={
+      Correo:global.data.CorreoElectronico,
+      Nombre:$('#nameCard').val(),
+      Precio:0,
+      Referencia:"",
+      Telefono:global.data.Telefono,
+      Token:"tok_test_visa_4242",
+      conektaTokenId:""
+    }
+  }else{
+    global.data.cita.TextoDeSuma="";
+    global.data.cita.DatosPago={
+      Correo: null,
+      Nombre:null,
+      Precio:null,
+      Referencia:null,
+      Telefono:null,
+      Token:null,
+      conektaTokenId:null
+    }
   }
   global.perfil=Registro(global.data)
   if(global.perfil.datosPaciente!=null){
@@ -119,21 +141,4 @@ var successResponseHandler = function(token) {
   }else{
     alerta('Error al registrar cita, Intentalo mas tarde')
   }
-  };
-
-var errorResponseHandler = function(error) {
-  alerta('Error al registrar cita, Intentalo mas tarde')
-  console.log(error,'error')
-};
-
-function tipoPago(tipo){
-  if(tipo==2){
-    $("#pagoLinea").removeClass("active");
-    $("#pagoClinica").addClass("active");
-    $("#datosPagar").addClass("d-none");
-  }else{
-    $("#pagoLinea").addClass("active");
-    $("#pagoClinica").removeClass("active");
-    $("#datosPagar").removeClass("d-none");
-  }
-};
+}
