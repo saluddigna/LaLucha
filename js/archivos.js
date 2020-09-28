@@ -16,7 +16,7 @@ $(document).ready(function () {
     global.estados=getEstados();
     paso = 1;
     setPaso();
-    cambioPaso_save();
+    cambioPaso();
   });
 
 
@@ -25,12 +25,11 @@ $(document).ready(function () {
 function seguientePaso() {
   if(paso==1){
     var result=validacionesPaquetes();
-    console.log(result,'holaaaaaaaaaa')
     if (result){
       saveValuesPaquetes()
       paso++;
       setPaso();
-      cambioPaso_save();
+      cambioPaso();
     }
   }
   else if(paso==2){
@@ -39,7 +38,7 @@ function seguientePaso() {
     if (result){
       paso++;
       setPaso();
-      cambioPaso_save();
+      cambioPaso();
     }
   }
   else if(paso==3){
@@ -51,7 +50,7 @@ function anteriorPaso() {
   if(paso>1){
     paso--;
     setPaso();
-    cambioPaso_notSave();
+    cambioPaso();
   }  
 }
 
@@ -61,12 +60,15 @@ function setPaso() {
   $("#pag").text(text);
 }
 
-function cambioPaso_save(){
+function cambioPaso(){
   if(paso == 1) {
     $("#citas").load('./modelos/componentes/citaPaquetes.html',function(){
+      $("#resumen_cita").load('./modelos/componentes/resumenCita.html',function(){
       startCita();
       loadValuesPaquetes();
+      startResumen()
     });
+  });
   } 
   else if (paso == 2) {
     $("#citas").load('./modelos/componentes/citaPaciente.html',function(){
@@ -80,20 +82,20 @@ function cambioPaso_save(){
   }
 }
 
-function cambioPaso_notSave(){
-  if(paso == 1) {
-    $("#citas").load('./modelos/componentes/citaPaquetes.html',function(){
-      startCita();
-      loadValuesPaquetes();
-    });
-  } 
-  else if (paso == 2) {
-    $("#citas").load('./modelos/componentes/citaPaciente.html',function(){
-      loadValuesPacientes();
-    });
-  } else if (paso == 3) {
-    $("#citas").load('./modelos/componentes/pago.html',function(){
-      startPago();
-    });
-  }
-}
+// function cambioPaso_notSave(){
+//   if(paso == 1) {
+//     $("#citas").load('./modelos/componentes/citaPaquetes.html',function(){
+//       startCita();
+//       loadValuesPaquetes();
+//     });
+//   } 
+//   else if (paso == 2) {
+//     $("#citas").load('./modelos/componentes/citaPaciente.html',function(){
+//       loadValuesPacientes();
+//     });
+//   } else if (paso == 3) {
+//     $("#citas").load('./modelos/componentes/pago.html',function(){
+//       startPago();
+//     });
+//   }
+// }
