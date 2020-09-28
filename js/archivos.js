@@ -1,20 +1,15 @@
 var cita = 0;
 var paso = 0;
-var getUrlParameter = function getUrlParameter(sParam) {
-  var sPageURL = window.location.search.substring(1),
-      sURLVariables = sPageURL.split('&'),
-      sParameterName,
-      i;
 
-  for (i = 0; i < sURLVariables.length; i++) {
-      sParameterName = sURLVariables[i].split('=');
-
-      if (sParameterName[0] === sParam) {
-          return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-      }
-  }
-};
 $(document).ready(function () {
+  $(document).on("blur", ".cajas-texto .input-sd", function () {
+    if ($(this).val() != "") {
+      $(this).addClass("valido");
+    } else {
+      $(this).removeClass("valido");
+    }
+  });
+  
   $("#infoCita").load("./modelos/componentes/infoCita.html", function () {});
   $("#formCita").load("./modelos/componentes/formCita.html", function () {
     global.clinicas=getClinicas();
@@ -24,13 +19,7 @@ $(document).ready(function () {
     cambioPaso_save();
   });
 
-  $(document).on("blur", ".cajas-texto .input-sd", function () {
-    if ($(this).val() != "") {
-      $(this).addClass("valido");
-    } else {
-      $(this).removeClass("valido");
-    }
-  });
+
 });
 
 function seguientePaso() {
@@ -107,21 +96,4 @@ function cambioPaso_notSave(){
       startPago();
     });
   }
-}
-function redirectLogin(){
-  $('#seccion').load('./modelos/logIn.html',function(){
-    $("#ingresar").load("./modelos/componentes/ingresar.html",function(){
-      console.log(getUrlParameter('recovery'));
-      if(getUrlParameter('recovery')!=null){
-          removerClaseNav();
-          $("#btnLogIn").addClass("active");
-          $("#contenedorLogIn").load("./modelos/componentes/nuevaPass.html",function(){
-            console.log('hola')
-          });
-        }
-      });
-    removerClaseNav();
-    $("#btnLogIn").addClass("active");
-  });
-
 }

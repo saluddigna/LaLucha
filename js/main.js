@@ -10,6 +10,21 @@ densitometria=null;
 papanicolao=null;
 global.perfil={};
 dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
+getUrlParameter = function getUrlParameter(sParam) {
+  var sPageURL = window.location.search.substring(1),
+      sURLVariables = sPageURL.split('&'),
+      sParameterName,
+      i;
+
+  for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+
+      if (sParameterName[0] === sParam) {
+          return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+      }
+  }
+};
+
 
 idSesion="1dnni3hgu9iggbdktdlpfb19u4";
 conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
@@ -21,7 +36,9 @@ $(document).ready(function () {
   $('#banner').load('../modelos/banner.html');
   $('#nav').load('../modelos/navbar.html');
 
-  if(!dataUser){
+  if(getUrlParameter('recovery')!=null){
+    redirectLogin();
+  }else if(!dataUser){
     seccion(1);
     }
     else{
@@ -71,6 +88,22 @@ function irPerfil(parametro) {
     $("#MiPerfil").load("./modelos/componentes/miPerfil.html",function(){
       startPerfil();
     });
+    removerClaseNav();
+    $("#btnLogIn").addClass("active");
+  });
+}
+function redirectLogin(){
+  $('#seccion').load('./modelos/logIn.html',function(){
+    $("#ingresar").load("./modelos/componentes/ingresar.html",function(){
+      console.log(getUrlParameter('recovery'));
+      if(getUrlParameter('recovery')!=null){
+          removerClaseNav();
+          $("#btnLogIn").addClass("active");
+          $("#contenedorLogIn").load("./modelos/componentes/nuevaPass.html",function(){
+            console.log('hola')
+          });
+        }
+      });
     removerClaseNav();
     $("#btnLogIn").addClass("active");
   });
