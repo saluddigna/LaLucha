@@ -742,6 +742,56 @@ input.error{
   height: 113px;
   background-position: center;
 }
+.tacha{
+  position: absolute;
+  right: 22px;
+  top: 15px;
+}
+.cancelarCita{
+  background: #FDF8F9 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 10px #00000026;
+  border-radius: 10px;
+  padding: 6rem 3rem;
+  margin: 20px;
+  position: relative;
+  .d-flex{
+    .d-flex {
+      .btn-pink-outline {
+        height: 50px;
+        font-size: 18px;
+      }
+      margin: 0 -15px;
+      .btn{
+        margin: 15px;
+      }
+    }
+    p{
+      padding:20px;
+    }
+  } 
+}
+.reagendarCita{
+  background: #FDF8F9 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 10px #00000026;
+  border-radius: 10px;
+  padding: 6rem 3rem;
+  margin: 20px;
+  position: relative;
+
+  .d-flex{
+    .btn-pink{
+      position: relative;
+      top: 30px;
+    }
+  }
+  
+}
+#reagendarAceptar{
+  .btn-pink{
+    position: relative;
+    top: 30px;
+  }
+}
 /*----------------- TABLET -----------------*/
 @media only screen and (max-width: 1000px) {
   #infoCita{

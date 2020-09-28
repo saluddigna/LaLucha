@@ -22,7 +22,7 @@ $(document).ready(function () {
   $('#nav').load('../modelos/navbar.html');
   console.log(dataUser);
   if(!dataUser){
-    $('#seccion').load('../modelos/logIn.html',function(){
+    $('#seccion').load('../modelos/perfil.html',function(){
       removerClaseNav();
       $("#btnLogIn").addClass("active");
     });

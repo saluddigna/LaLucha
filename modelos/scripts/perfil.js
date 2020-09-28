@@ -56,3 +56,24 @@ function startPerfil(){
    
     
 }
+function cancelarCita(){
+    $("#tuFolio").addClass("d-none");
+    $("#cancelarCita").removeClass("d-none");
+}
+function cerrarCancelar(){
+    $("#tuFolio").removeClass("d-none");
+    $("#cancelarCita").addClass("d-none");
+}
+function reagendarCita(){
+    $("#tuFolio").addClass("d-none");
+    $("#reagendarCita").removeClass("d-none");
+}
+function reagendar(){
+    $("#reagendarFechas").addClass("d-none");
+    $("#reagendarFechas").removeClass("d-flex");
+    $("#reagendarAceptar").removeClass("d-none");
+}
+function cerrarReagendar(){
+    $("#tuFolio").removeClass("d-none");
+    $("#reagendarCita").addClass("d-none");
+}
