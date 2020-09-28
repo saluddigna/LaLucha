@@ -33,8 +33,8 @@ configUrl='https://la-lucha-sd-beta.herokuapp.com/';
 sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 
 $(document).ready(function () {
-  $('#banner').load('../modelos/banner.html');
-  $('#nav').load('../modelos/navbar.html');
+  $('#banner').load('./modelos/banner.html');
+  $('#nav').load('./modelos/navbar.html');
 
   if(getUrlParameter('recovery')!=null){
     redirectLogin();
@@ -48,15 +48,15 @@ $(document).ready(function () {
 
 function seccion(nav){
   if(nav==1){
-    $('#seccion').load('../modelos/cita.html'); 
+    $('#seccion').load('./modelos/cita.html'); 
     removerClaseNav();
     $("#btnRegistro").addClass("active");
   }else if(nav==2){
-    $('#seccion').load('../modelos/revista.html');
+    $('#seccion').load('./modelos/revista.html');
     removerClaseNav();
     $("#btnRevista").addClass("active");
   }else if(nav==3){
-    $('#seccion').load('../modelos/beneficiados.html');
+    $('#seccion').load('./modelos/beneficiados.html');
     removerClaseNav();
     $("#btnPxBeneficiados").addClass("active");
   }else if(nav==4){
@@ -85,7 +85,7 @@ $(document).on("click", ".movilNav", function(){
 
 function irPerfil(parametro) { 
 	$('#seccion').load('./modelos/perfil.html',function(){
-    $("#MiPerfil").load("./modelos/componentes/miPerfil.html",function(){
+    $("#MiPerfil").load('./modelos/componentes/miPerfil.html',function(){
       startPerfil();
     });
     removerClaseNav();
@@ -94,12 +94,12 @@ function irPerfil(parametro) {
 }
 function redirectLogin(){
   $('#seccion').load('./modelos/logIn.html',function(){
-    $("#ingresar").load("./modelos/componentes/ingresar.html",function(){
+    $("#ingresar").load('./modelos/componentes/ingresar.html',function(){
       console.log(getUrlParameter('recovery'));
       if(getUrlParameter('recovery')!=null){
           removerClaseNav();
           $("#btnLogIn").addClass("active");
-          $("#contenedorLogIn").load("./modelos/componentes/nuevaPass.html",function(){
+          $("#contenedorLogIn").load('./modelos/componentes/nuevaPass.html',function(){
             console.log('hola')
           });
         }
@@ -111,14 +111,14 @@ function redirectLogin(){
 
 function olvidarContra(tipo){
   if(tipo){
-    $("#contenedorLogIn").load("./modelos/componentes/restablecer.html");
+    $("#contenedorLogIn").load('./modelos/componentes/restablecer.html');
   }else{
-    $("#ingresar").load("./modelos/componentes/ingresar.html");
+    $("#ingresar").load('./modelos/componentes/ingresar.html');
   }
 }
 function redirectRecuperada(){
-  $("#contenedorLogIn").load("./modelos/componentes/recuperada.html");
+  $("#contenedorLogIn").load('./modelos/componentes/recuperada.html');
 }
 function redirectCambiarContra(){
-  $("#contenedorLogIn").load("./modelos/componentes/nuevaPassListo.html");
+  $("#contenedorLogIn").load('./modelos/componentes/nuevaPassListo.html');
 }

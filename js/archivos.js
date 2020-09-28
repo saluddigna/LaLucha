@@ -10,8 +10,8 @@ $(document).ready(function () {
     }
   });
   
-  $("#infoCita").load("./modelos/componentes/infoCita.html", function () {});
-  $("#formCita").load("./modelos/componentes/formCita.html", function () {
+  $("#infoCita").load('./modelos/componentes/infoCita.html', function () {});
+  $("#formCita").load('./modelos/componentes/formCita.html', function () {
     global.clinicas=getClinicas();
     global.estados=getEstados();
     paso = 1;
@@ -63,18 +63,18 @@ function setPaso() {
 
 function cambioPaso_save(){
   if(paso == 1) {
-    $("#citas").load("./modelos/componentes/citaPaquetes.html",function(){
+    $("#citas").load('./modelos/componentes/citaPaquetes.html',function(){
       startCita();
       loadValuesPaquetes();
     });
   } 
   else if (paso == 2) {
-    $("#citas").load("./modelos/componentes/citaPaciente.html",function(){
+    $("#citas").load('./modelos/componentes/citaPaciente.html',function(){
       loadValuesPacientes();
     });
   } else if (paso == 3) {
     saveValuesPaciente();
-    $("#citas").load("./modelos/componentes/pago.html",function(){
+    $("#citas").load('./modelos/componentes/pago.html',function(){
       startPago();
     });
   }
@@ -82,17 +82,17 @@ function cambioPaso_save(){
 
 function cambioPaso_notSave(){
   if(paso == 1) {
-    $("#citas").load("./modelos/componentes/citaPaquetes.html",function(){
+    $("#citas").load('./modelos/componentes/citaPaquetes.html',function(){
       startCita();
       loadValuesPaquetes();
     });
   } 
   else if (paso == 2) {
-    $("#citas").load("./modelos/componentes/citaPaciente.html",function(){
+    $("#citas").load('./modelos/componentes/citaPaciente.html',function(){
       loadValuesPacientes();
     });
   } else if (paso == 3) {
-    $("#citas").load("./modelos/componentes/pago.html",function(){
+    $("#citas").load('./modelos/componentes/pago.html',function(){
       startPago();
     });
   }
