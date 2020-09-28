@@ -792,6 +792,42 @@ input.error{
     top: 30px;
   }
 }
+.hazloEnLinea{
+  height: 105px;
+  width: 100%;
+  background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-web.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.sumarEstudios{
+  background: #E2BBBA 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 6px;
+  height: 290px;
+  padding: 35px 32px 35px 33%;
+  margin-bottom: 10px;
+}
+.agregarEstudio{
+  display: flex;
+  flex-direction: column;
+  color: white;
+  height: 100%;
+  h3{
+    font-size: 26px;
+    margin-bottom: 0px;
+  }
+  p{
+    font-size: 22px;
+    flex: 1 1 auto;
+  }
+  span{
+    font-size: 32px;
+  }
+  button{
+    height: 40px;
+    font-size: 14px;
+  }
+}
 /*----------------- TABLET -----------------*/
 @media only screen and (max-width: 1000px) {
   #infoCita{
@@ -804,6 +840,9 @@ input.error{
   .bannerPonElPecho{
     background-image: url('../../images/banner-masto-en-150-tablet.png');
     background-color: #F0BDBD;
+  }
+  .hazloEnLinea{
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-tablet.png');
   }
 }
 
@@ -865,5 +904,31 @@ input.error{
   .bannerPonElPecho{
     background-image: url('../../images/banner-masto-en-150-movil.png');
     background-color: #F0BDBD;
+  }
+  .hazloEnLinea{
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-movil.png');
+  }
+  .card.noCardMovil {
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 15px 0px;
+    padding: 0;
+  }
+  .cardMovil{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 4px;
+    margin: 15px 0px;
+    padding: 20px;
+  }
+  .sumarEstudios{
+    padding: 15px;
+  }
+  .agregarEstudio{
+    text-align: right;
+    p{
+      padding-left: 50%;
+    }
   }
 }
