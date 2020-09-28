@@ -10,7 +10,7 @@ function llenarInfo(){
   $('#clinicaPX').text(global.dataClinica);  
 }
 function startPago(){
-  llenarTabla();
+  startResumen();
   llenarInfo();
 }
 
@@ -25,7 +25,7 @@ function saveValuesPago(){
       cvc: $('#ccv').val(),     
     }
   };
-  if(tipoPago==3){
+  if(tPago==3){
     Conekta.Token.create(tokenParams, successResponseHandler, errorResponseHandler);
   }else{
     registrarCita();
@@ -42,15 +42,15 @@ var errorResponseHandler = function(error) {
   console.log(error,'error')
 };
 
-var tipoPago=3;
+var tPago=3;
 function tipoPago(tipo){
   if(tipo==2){
-    tipoPago=3;
+    tPago=tipo;
     $("#pagoLinea").removeClass("active");
     $("#pagoClinica").addClass("active");
     $("#datosPagar").addClass("d-none");
   }else{
-    tipoPago=2;
+    tPago=tipo;
     $("#pagoLinea").addClass("active");
     $("#pagoClinica").removeClass("active");
     $("#datosPagar").removeClass("d-none");
@@ -60,9 +60,9 @@ function tipoPago(tipo){
 function registrarCita(){
   global.data.cita.EstatusLaboratorio=false;
   global.data.cita.CondicionFolios=1000;
-  global.data.cita.TipoPago=tipoPago;
+  global.data.cita.TipoPago=tPago;
 
-  if(tipoPago==3){
+  if(tPago==3){
     global.data.cita.TextoDeSuma="Total por obtener tu cita en línea";
     global.data.cita.DatosPago={
       Correo:global.data.CorreoElectronico,

@@ -77,8 +77,10 @@ function cambioPaso(){
   } else if (paso == 3) {
     saveValuesPaciente();
     $("#citas").load('./modelos/componentes/pago.html',function(){
+      $("#resumen_cita").load('./modelos/componentes/resumenCita.html',function(){
       startPago();
     });
+  });
   }
 }
 
