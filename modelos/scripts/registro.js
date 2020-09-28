@@ -95,9 +95,9 @@ function clearPkts(){
     $('#fechaCitaPapa_pkt2').val("")
     $('#fechaCitaDensi_pkt2').val("")
 
-    $('#selectHorarioPapa_pkt1').val("")
-    $('#selectHorarioPapa_pkt2').val("")
-    $('#selectHorarioDensi_pkt2').val("")
+    $('#selectHorarioPapa_pkt1').empty()
+    $('#selectHorarioPapa_pkt2').empty()
+    $('#selectHorarioDensi_pkt2').empty()
 
 }
 function clickFem(){

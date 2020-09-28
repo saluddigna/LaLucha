@@ -42,7 +42,9 @@ function seguientePaso() {
     }
   }
   else if(paso==3){
-    saveValuesPago();
+    var result=validacionesDatosPago();
+    if(result)
+      saveValuesPago();
   } 
 }
 

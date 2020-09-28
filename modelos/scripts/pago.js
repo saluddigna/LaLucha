@@ -96,3 +96,18 @@ function registrarCita(){
     alerta('Error al registrar cita, Intentalo mas tarde')
   }
 }
+
+function validacionesDatosPago(){
+  if(tPago==2){
+    $('#form-registro').parsley({
+        excluded: '.pagar input'//, .datos-paciente input, .datos-paciente select,.confirmacionDatos input,.confirmacionDatos select 
+    });
+  }
+  $('#form-registro').parsley().validate();
+  if ($('#form-registro').parsley().isValid()) {
+    return true
+  } else {
+      console.log('not valid registro');
+      return false
+  }
+}
