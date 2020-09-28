@@ -108,3 +108,17 @@ function redirectLogin(){
     $("#btnLogIn").addClass("active");
   });
 }
+
+function olvidarContra(tipo){
+  if(tipo){
+    $("#contenedorLogIn").load("./modelos/componentes/restablecer.html");
+  }else{
+    $("#ingresar").load("./modelos/componentes/ingresar.html");
+  }
+}
+function redirectRecuperada(){
+  $("#contenedorLogIn").load("./modelos/componentes/recuperada.html");
+}
+function redirectCambiarContra(){
+  $("#contenedorLogIn").load("./modelos/componentes/nuevaPassListo.html");
+}

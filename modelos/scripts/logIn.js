@@ -1,15 +1,10 @@
 function irOlvidar(tipo){
-  if(tipo){
-    $("#contenedorLogIn").load("./modelos/componentes/restablecer.html");
-  }else{
-    $("#ingresar").load("./modelos/componentes/ingresar.html");
-  }
+  olvidarContra(tipo);
 }
 function recuperada(){
   data={correoElectronico:$('#recuperar-correo').val()}
   var resp=recuperarContra(data)
-  console.log(resp);
-  $("#contenedorLogIn").load("./modelos/componentes/recuperada.html");
+  redirectRecuperada();
 }
 function Login(){
     // $('#form-login').parsley({
@@ -64,6 +59,6 @@ function cambiarPass(){
   }
   var resp=cambiarContra(data)
   console.log(resp);
-  $("#contenedorLogIn").load("./modelos/componentes/nuevaPassListo.html");
+  redirectCambiarContra();
 }
 
