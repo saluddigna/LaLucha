@@ -20,15 +20,15 @@ sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 $(document).ready(function () {
   $('#banner').load('../modelos/banner.html');
   $('#nav').load('../modelos/navbar.html');
- if(!dataUser){
-    $('#seccion').load('../modelos/logIn.html',function(){
-      removerClaseNav();
-      $("#btnLogIn").addClass("active");
-    });
-  }
-  else{
-    irPerfil();
-  }
+  if(!dataUser){
+      $('#seccion').load('../modelos/logIn.html',function(){
+        removerClaseNav();
+        $("#btnLogIn").addClass("active");
+      });
+    }
+    else{
+      irPerfil();
+    }
 });
 
 function seccion(nav){
@@ -44,16 +44,18 @@ function seccion(nav){
     $('#seccion').load('../modelos/beneficiados.html');
     removerClaseNav();
     $("#btnPxBeneficiados").addClass("active");
-  }else if(nav==5){
+  }else if(nav==4){
+    console.log(dataUser)
     if(!dataUser){
       $('#seccion').load('../modelos/logIn.html',function(){
         removerClaseNav();
         $("#btnLogIn").addClass("active");
       });
     }
-    else
+    else{
       irPerfil();
     }
+  }
   else{
     $('#seccion').load('../modelos/logIn.html');
     removerClaseNav();
@@ -65,7 +67,6 @@ function removerClaseNav(){
   $("#btnRevista").removeClass("active");
   $("#btnPxBeneficiados").removeClass("active");
   $("#btnLogIn").removeClass("active");
-  $("#btnPerfil").removeClass("active");
 
 }
 
@@ -76,7 +77,7 @@ $(document).on("click", ".movilNav", function(){
 function irPerfil(parametro) { 
 	$('#seccion').load('./modelos/perfil.html',function(){
     removerClaseNav();
-    $("#btnPerfil").addClass("active");
+    $("#btnLogIn").addClass("active");
   });
 }
 
