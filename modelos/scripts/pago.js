@@ -74,13 +74,13 @@ function registrarCita(token){
   global.data.cita.EstatusLaboratorio=false;
   global.data.cita.CondicionFolios=1000;
   global.data.cita.TipoPago=tPago;
-
+  var precio= global.data.cita.Estudios.length==1 ? 150.00 : global.data.cita.Estudios.length==2 ? 300.00 : 380.00;
   if(tPago==3){
       global.data.cita.TextoDeSuma="Total por obtener tu cita en línea";
       global.data.cita.DatosPago={
       Correo:global.data.CorreoElectronico,
       Nombre:$('#nameCard').val(),
-      Precio:parseFloat(($('#totalP').val()).substring(2,($('#totalP').val()).length)),
+      Precio: precio,
       Referencia:"",
       Telefono:global.data.Telefono,
       Token:token,
@@ -125,4 +125,18 @@ function validacionesDatosPago(){
       console.log('not valid registro');
       return false
   }
+}
+
+function clearGlobalData(){
+  global={};
+  global.data={}
+  global.data.cita={};
+  global.data.cita.Estudios=[];
+  global.clinicas=[];
+  global.estados=[];
+  global.dataClinica=[];
+  mastografia=null;
+  densitometria=null;
+  papanicolao=null;
+  global.perfil={};
 }

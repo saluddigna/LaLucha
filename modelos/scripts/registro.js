@@ -125,6 +125,9 @@ function clickMas(){
     $('#cita_correo').val(global.data.CorreoElectronico);
     $('#cita_telefono').val(global.data.Telefono);
     global.data.Password=null;
+    $(".cajas-texto .input-sd").addClass("valido");
+    
+
 }
 
 

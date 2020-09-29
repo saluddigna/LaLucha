@@ -1,7 +1,10 @@
 function startPerfil(){
     var dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
     console.log(dataUser);
-
+    if(!dataUser){
+        redirectLogin();
+        return
+    }
     var mastografia=getEstudio(3,dataUser.datosCita.clinica.IdSucursal);
     var densitometria=getEstudio(1,dataUser.datosCita.clinica.IdSucursal);
     var papanicolao=getEstudio(4,dataUser.datosCita.clinica.IdSucursal);
@@ -60,10 +63,7 @@ function startPerfil(){
     </div>`;
 
 
-    if(!dataUser){
-        redirectLogin();
-        return
-    }
+
 
     $('#perfil-nombre').text(dataUser.datosPaciente.Nombre +" "+dataUser.datosPaciente.Paterno+" "+dataUser.datosPaciente.Materno);  
     $('#perfil-correo').text(dataUser.datosPaciente.CorreoElectronico);  
@@ -204,8 +204,11 @@ function showPreparaciones(dataUser){
     }
 }
 function cancelarCita(){
+    $(this).scrollTop(300);
     $("#tuFolio").addClass("d-none");
     $("#cancelarCita").removeClass("d-none");
+    
+
 }
 function cerrarCancelar(){
     $("#tuFolio").removeClass("d-none");

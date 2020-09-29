@@ -129,16 +129,3 @@ function redirectCambiarContra(){
   $("#contenedorLogIn").load('./modelos/componentes/nuevaPassListo.html');
 }
 
-function clearGlobalData(){
-  global={};
-  global.data={}
-  global.data.cita={};
-  global.data.cita.Estudios=[];
-  global.clinicas=[];
-  global.estados=[];
-  global.dataClinica=[];
-  mastografia=null;
-  densitometria=null;
-  papanicolao=null;
-  global.perfil={};
-}
