@@ -4,6 +4,13 @@ $(document).ready(function () {
     Conekta.setPublicKey(conektaKey);
 })
 function llenarInfo(){
+  // $("#error-msg").text("");
+  quitarLoading();
+  $('#invalidCard').hide()
+  $('#invalidDate').hide()
+  $('#invalidCCV').hide()
+  $("#invalidName").hide()
+
   $(":input").inputmask();
   
 //
@@ -24,18 +31,46 @@ function startPago(){
   llenarInfo();
 }
 
-
+var tarjeta=false;
+var expirationDate=false;
+var validateCCV=false;
+function validateConekta(){
+  tarjeta=Conekta.card.validateNumber($('#numCard').val());
+  expirationDate=Conekta.card.validateExpirationDate( $('#mm').val(), $('#aaaa').val()); 
+  validateCCV=Conekta.card.validateCVC($('#ccv').val()); 
+  console.log(tarjeta,expirationDate,validateCCV)
+  if(!tarjeta)
+    $('#invalidCard').show()
+  else if(!expirationDate)
+    $('#invalidDate').show()
+  else if(!validateCCV)
+    $('#invalidCCV').show()
+  else{
+    $('#invalidCard').hide()
+    $('#invalidDate').hide()
+    $('#invalidCCV').hide()
+    return true
+  }
+  return false
+}
 function saveValuesPago(){
-  var tokenParams = {
-    card: {
-      number: $('#numCard').val(),
-      name: $('#nameCard').val(),
-      exp_year: $('#aaaa').val(),
-      exp_month: $('#mm').val(),
-      cvc: $('#ccv').val(),     
-    }
-  };
+  if(!validateConekta()){
+    return;
+  }
+
+  mostrarLoading();
+  $("#error-msg").text("");
   if(tPago==3){
+
+    var tokenParams = {
+      card: {
+        number: $('#numCard').val(),
+        name: $('#nameCard').val(),
+        exp_year: $('#aaaa').val(),
+        exp_month: $('#mm').val(),
+        cvc: $('#ccv').val(),     
+      }
+    };
     Conekta.Token.create(tokenParams, successResponseHandler, errorResponseHandler);
   }else{
     registrarCita();
@@ -44,14 +79,15 @@ function saveValuesPago(){
 
 
 var successResponseHandler = function(token) {
-  console.log(token)
+    console.log(token)
     registrarCita(token.id);
   };
 
 
 
 var errorResponseHandler = function(error) {
-  alerta('Error al registrar cita, Intentalo mas tarde')
+  $("#error-msg").text(error.message_to_purchaser);
+  // setTimeout(function() { quitarLoading(); }, 1500);
   console.log(error,'error')
 };
 
@@ -101,14 +137,16 @@ function registrarCita(token){
   global.perfil=Registro(global.data)
   console.log(JSON.stringify(global.data));
   if(global.perfil.datosPaciente!=null){
-    alerta("Registro Correcto")
+
     console.log(JSON.stringify(global.perfil));
     sessionStorage.clear()
     sessionStorage.setItem('dataUser', JSON.stringify(global.perfil))
     clearGlobalData();
-    irPerfil("perfil");
+    setTimeout(function() { irPerfil("perfil"); }, 2500);
+    
   }else{
-    alerta('Error al registrar cita, Intentalo mas tarde')
+    setTimeout(function() { quitarLoading(); }, 1500);
+    $("#error-msg").text(global.perfil);
   }
 }
 
@@ -117,6 +155,8 @@ function validacionesDatosPago(){
     $('#form-registro').parsley({
         excluded: '.pagar input'//, .datos-paciente input, .datos-paciente select,.confirmacionDatos input,.confirmacionDatos select 
     });
+  }else{
+    validateConekta();
   }
   $('#form-registro').parsley().validate();
   if ($('#form-registro').parsley().isValid()) {
@@ -139,4 +179,37 @@ function clearGlobalData(){
   densitometria=null;
   papanicolao=null;
   global.perfil={};
+}
+
+function quitarLoading(){
+   $("#pago-loading").hide()
+   $("#pago-datos").show();
+}
+ function mostrarLoading(){
+   $("#pago-loading").show()
+   $("#pago-datos").hide()
+}
+
+function sonLetras(texto){
+  var regex = /^[a-zA-Z ]+$/;
+  return regex.test(texto);
+}  
+function changeName(value){
+  if(!sonLetras(value))
+    $("#invalidName").show()
+  else
+    $("#invalidName").hide()
+}
+
+function changeCard(value){
+    $("#invalidCard").hide()
+}
+
+
+function changeDate(value){
+  $("#invalidDate").hide()
+}
+
+function changeCCV(value){
+  $("#invalidCCV").hide()
 }

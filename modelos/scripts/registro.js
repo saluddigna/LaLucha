@@ -334,12 +334,15 @@ function quitarPKT(pkt){
     if(pkt==1){
         $("#pktPapa").toggle("d-none");
         $("#addPKT").prop("disabled", false);
+        $("#addPapa").show()
+
         togglePapa=false;
         saveValuesPaquetes();
         startResumen();
     }else{
         $("#pktMujer").toggle("d-none");
         $("#addPapa").prop("disabled", false);
+        $("#addPKT").show()
         togglePkt=false;
         saveValuesPaquetes();
         startResumen();
@@ -348,6 +351,7 @@ function quitarPKT(pkt){
 };
 var togglePapa=false;
 function agregarPapa(){
+    $("#addPapa").hide()
     $("#pktPapa").toggle("d-none");
     $("#addPKT").prop("disabled", true);
     togglePapa=true;
@@ -358,6 +362,7 @@ var togglePkt=false;
 function agregarPKT(){
     $("#pktMujer").toggle("d-none");
     $("#addPapa").prop("disabled", true);
+    $("#addPKT").hide()
     togglePapa=false;
     togglePkt=true;
 };

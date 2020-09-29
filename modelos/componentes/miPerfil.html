@@ -57,7 +57,7 @@
       <div class="row d-flex flex-column">
         <p class="text-center text-18 text-bold">Lamentamos mucho que no puedas visitarnos. ¿Deseas cancelar tu cita?</p>
         <div class="flex-row d-flex">
-          <button class="btn btn-pink-outline">Sí</button>
+          <button class="btn btn-pink-outline" onclick="Cancelar()">Sí</button>
           <button class="btn btn-pink" onclick="cerrarCancelar()">No</button>
         </div>
       </div>
@@ -78,6 +78,11 @@
         <p class="text-16 text-center">
           Te esperamos 15 minutos antes de tu cita en clínica para realizar tu estudio.
         </p>
+        <p class="text-center mx-20"><img class="" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/Check.svg" alt="palomita"><br></p>
+        <button class="btn btn-pink" onclick="cerrarReagendar()">Aceptar</button>
+      </div>
+      <div id="cancelarAceptar" class="d-none">
+        <h4 class="text-center text-bold">Tu cita ha sido Cancelada</h4>
         <p class="text-center mx-20"><img class="" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/Check.svg" alt="palomita"><br></p>
         <button class="btn btn-pink" onclick="cerrarReagendar()">Aceptar</button>
       </div>

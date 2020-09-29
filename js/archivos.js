@@ -75,6 +75,7 @@ function cambioPaso(){
     $("#citas").load('./modelos/componentes/citaPaquetes.html',function(){
       $("#resumen_cita").load('./modelos/componentes/resumenCita.html',function(){
         $("#content-paquetes").hide();
+        $("#cita_regresar").hide();
         startCita();
         loadValuesPaquetes();
         startResumen()

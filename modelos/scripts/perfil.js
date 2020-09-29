@@ -4,6 +4,10 @@ function startPerfil(){
     if(!dataUser){
         redirectLogin();
         return
+    }else if(dataUser.length==0)
+    {
+        redirectLogin();
+        return
     }
     var mastografia=getEstudio(3,dataUser.datosCita.clinica.IdSucursal);
     var densitometria=getEstudio(1,dataUser.datosCita.clinica.IdSucursal);
@@ -314,4 +318,8 @@ function agregarPKT2(){
 }
 function pagarPKT(){
     rutaPagoCompletado();
+}
+
+function Cancelar(){
+    cancelarCita()
 }

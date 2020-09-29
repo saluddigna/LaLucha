@@ -112,7 +112,8 @@ function Registro(data) {
             // arrEstudio = response;
         },
         error: function (jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR,textStatus,errorThrown)
+            resp=jqXHR.responseJSON.msj;
+            console.log(jqXHR);
         }
     });
     return resp;
