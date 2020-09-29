@@ -85,7 +85,16 @@ function cambioPaso(){
   });
   }
 }
-
+function rutaAgregarPKT(){
+  $("#sumarEstudios").load('./modelos/componentes/agregarEstudio1.html', function () {});
+}
+function cerrarAgregarPKT(){
+  $("#sumarEstudios").load('./modelos/componentes/agregarEstudio0.html');
+  $("#sumarEstudios").removeClass("sumarPKT");
+}
+function rutaPagarPKT(){
+  $("#sumarEstudios").load('./modelos/componentes/agregarEstudio2.html', function () {});
+}
 // function cambioPaso_notSave(){
 //   if(paso == 1) {
 //     $("#citas").load('./modelos/componentes/citaPaquetes.html',function(){

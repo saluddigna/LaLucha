@@ -1,0 +1,36 @@
+<i onclick="cerrarAgregarPKT()" class="tacha">X</i>
+<p class="precioEstudio">$250</p>
+<p>
+  <b class="text-14">Aprovecha tu visita</b><br>
+  <span>y agrega Papanicolaou + Densitometría</span>
+</p>
+<p class="text-bold text-14">Ingresa los datos de su tarjeta de crédito o débito</p>
+<div class="d-flex row no-wrap">
+  <div class="inputCard">
+    <p class="text-12 text-bold">Nombre del titular en la tarjeta</p>
+    <input class="nameCard" type="text" name="" id="nameCard" placeholder="Paul Soto Robles" size="20" data-conekta="card[name]" data-parsley-required="true">
+  </div>
+  <div class="inputCard">
+    <p class="text-12 text-bold">Número de tarjeta</p>
+    <input class="numCard" type="number" name="" id="numCard" placeholder="5212 3456 7890 1234" size="20" data-conekta="card[number]" data-parsley-required="true">
+  </div>
+</div>
+<div class="d-flex row no-wrap">
+  <div class="inputCard">
+    <p class="text-12 text-bold">Mes de vencimiento</p>
+    <input class="nCard" type="number" name="" id="mm" placeholder="09" size="4" data-conekta="card[exp_year]" data-parsley-required="true">
+  </div>
+  <div class="inputCard">
+    <p class="text-12 text-bold">Año de vencimiento</p>
+    <input class="nCard" type="number" name="" id="aaaa" placeholder="2020" size="2" data-conekta="card[exp_month]" data-parsley-required="true">
+  </div>
+  <div class="inputCard">
+    <p class="text-12 text-bold">Código de seguridad</p>
+    <input class="nCard" type="number" name="" id="ccv" placeholder="123" size="4" data-conekta="card[cvc]" data-parsley-required="true">
+  </div>
+</div>
+<div class="finalNav pago">
+  <span class="btn-atras" onclick="rutaAgregarPKT()">< Selecciona horario</span>
+  <span class="btn-siguiente" onclick="pagarPKT()">Pagar ></span>
+</div>
+<script type="text/javascript" src="https://cdn.conekta.io/js/latest/conekta.js"></script>

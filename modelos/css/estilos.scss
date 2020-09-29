@@ -26,6 +26,9 @@
 .flex-column{
   flex-direction: column;
 }
+.no-wrap{
+  flex-wrap: nowrap!important;
+}
 /* Textos*/
 .text-bold{
   font-weight: bold;
@@ -806,6 +809,7 @@ input.error{
   height: 290px;
   padding: 35px 32px 35px 33%;
   margin-bottom: 10px;
+  position: relative;
 }
 .agregarEstudio{
   display: flex;
@@ -826,6 +830,114 @@ input.error{
   button{
     height: 40px;
     font-size: 14px;
+  }
+}
+.precioEstudio{
+  position: absolute;
+  top: 55px;
+  right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.finalNav{
+  display: block;
+  height: 30px;
+}
+.btn-siguiente{
+  color: #F05876;
+  font-weight: bold;
+  float: right;
+  margin: 10px 20px;
+  cursor: pointer
+}
+.btn-atras{
+  color: #F05876;
+  font-weight: bold;
+  float: left;
+  margin: 10px 0px;
+  cursor: pointer
+}
+.inputCard{
+  margin: 10px 20px;
+  input{
+    height: 40px;
+    border: 1px solid #E2BBBA;
+    border-radius: 4px;
+  }
+  input:focus{
+    outline: none;
+  }
+  p{
+    margin-left: 0px!important;
+  }
+}
+.nameCard, .numCard{
+  width: 216px;
+}
+.nCard{
+  width: 100%;
+}
+.finalNav.pago {
+  position: unset!important;
+}
+@media only screen and (min-width: 501px) {
+  .sumarEstudios.sumarPKT{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 6px;
+    height: 325px;
+    padding: 15px;
+    .d-flex{
+      flex-wrap: wrap;
+      p{
+        margin-left: 20px;
+        flex: 0 0 350px;
+        max-width: 350px;
+      }
+      .elegirHR, .fechaYhora{
+        position: relative;
+        left: 160px;
+        bottom: 75px;
+        width: 100%;
+      }
+      .fechaYhora .d-flex .combobox{
+        width: 33%;
+      }
+    }
+    .finalNav{
+      position: relative;
+      bottom: 74px;
+    }
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .sumarEstudios.sumarPKT{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 6px;
+    height: 325px;
+    padding: 15px;
+    .d-flex{
+      flex-wrap: wrap;
+      p{
+        margin-left: 20px;
+        flex: 0 0 300px;
+        max-width: 300px;
+      }
+      .elegirHR, .fechaYhora{
+        position: relative;
+        left: 160px;
+        bottom: 75px;
+        width: 100%;
+      }
+      .fechaYhora .d-flex .combobox{
+        width: 28%;
+      }
+    }
+    .finalNav{
+      position: relative;
+      bottom: 74px;
+    }
   }
 }
 /*----------------- TABLET -----------------*/
@@ -924,6 +1036,34 @@ input.error{
   }
   .sumarEstudios{
     padding: 15px;
+    
+  }
+  .sumarEstudios.sumarPKT{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 6px;
+    height: fit-content;
+    .d-flex{
+      flex-wrap: wrap;
+
+      img{
+        height: 50px;
+        flex: 0 0 50px;
+        margin-right: 25px;
+      }
+      p{
+        flex: 0 0 auto;
+        max-width: 300px;
+      }
+      b{
+        width: 100%;
+      }
+      .flechaYhora{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+    }
   }
   .agregarEstudio{
     text-align: right;
@@ -931,4 +1071,5 @@ input.error{
       padding-left: 50%;
     }
   }
+
 }

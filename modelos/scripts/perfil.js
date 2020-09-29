@@ -96,3 +96,13 @@ function cerrarReagendar(){
     $("#tuFolio").removeClass("d-none");
     $("#reagendarCita").addClass("d-none");
 }
+function agregarPKT(){
+    rutaAgregarPKT();
+    $("#sumarEstudios").addClass("sumarPKT");
+}
+function agregarPKT2(){
+    rutaPagarPKT();
+}
+function pagarPKT(){
+    rutaPagarPKT();
+}
