@@ -12,6 +12,7 @@ $(document).ready(function () {
   
   $("#infoCita").load('./modelos/componentes/infoCita.html', function () {});
   $("#formCita").load('./modelos/componentes/formCita.html', function () {
+    $("#cita_regresar").hide();
     global.clinicas=getClinicas();
     global.estados=getEstados();
     paso = 1;
@@ -26,6 +27,7 @@ function seguientePaso() {
   if(paso==1){
     var result=validacionesPaquetes();
     if (result){
+      $("#cita_regresar").show();
       saveValuesPaquetes()
       paso++;
       setPaso();
@@ -36,6 +38,7 @@ function seguientePaso() {
     saveValuesPaciente()
     var result=validacionesDatosPaciente();
     if (result){
+      $("#cita_regresar").show();
       paso++;
       setPaso();
       cambioPaso();
@@ -43,8 +46,10 @@ function seguientePaso() {
   }
   else if(paso==3){
     var result=validacionesDatosPago();
-    if(result)
+    if(result){
       saveValuesPago();
+      $("#cita_regresar").show();
+    }
   } 
 }
 
@@ -53,7 +58,9 @@ function anteriorPaso() {
     paso--;
     setPaso();
     cambioPaso();
-  }  
+  }else{
+    $("#cita_regresar").hide();
+  }
 }
 
 
@@ -63,12 +70,14 @@ function setPaso() {
 }
 
 function cambioPaso(){
+  top.location.href = '#top';
   if(paso == 1) {
     $("#citas").load('./modelos/componentes/citaPaquetes.html',function(){
       $("#resumen_cita").load('./modelos/componentes/resumenCita.html',function(){
-      startCita();
-      loadValuesPaquetes();
-      startResumen()
+        $("#content-paquetes").hide();
+        startCita();
+        loadValuesPaquetes();
+        startResumen()
     });
   });
   } 

@@ -1,6 +1,12 @@
-Conekta.setPublicKey(conektaKey);
 
+$(document).ready(function () {
+  if(Conekta)
+    Conekta.setPublicKey(conektaKey);
+})
 function llenarInfo(){
+  $(":input").inputmask();
+  
+//
   var dataConfirmacion=global.data;
   console.log(global.data)
   $('#nombrePX').text(dataConfirmacion.Nombre+' '+dataConfirmacion.Paterno+' '+dataConfirmacion.Materno);  
@@ -8,6 +14,10 @@ function llenarInfo(){
   $('#telefonoPX').text(dataConfirmacion.Telefono);  
   $('#correoPX').text(dataConfirmacion.CorreoElectronico);  
   $('#clinicaPX').text(global.dataClinica);  
+  if(global.data.cita.Estudios.length>1)
+    $("#pagoClinica").addClass("dis"); //disables
+  else
+    $("#pagoClinica").removeClass("dis"); //enables
 }
 function startPago(){
   startResumen();
@@ -31,8 +41,11 @@ function saveValuesPago(){
     registrarCita();
   }
 }
+
+
 var successResponseHandler = function(token) {
-  registrarCita();
+  console.log(token)
+    registrarCita(token.id);
   };
 
 
@@ -57,20 +70,20 @@ function tipoPago(tipo){
   }
 };
 
-function registrarCita(){
+function registrarCita(token){
   global.data.cita.EstatusLaboratorio=false;
   global.data.cita.CondicionFolios=1000;
   global.data.cita.TipoPago=tPago;
 
   if(tPago==3){
-    global.data.cita.TextoDeSuma="Total por obtener tu cita en línea";
-    global.data.cita.DatosPago={
+      global.data.cita.TextoDeSuma="Total por obtener tu cita en línea";
+      global.data.cita.DatosPago={
       Correo:global.data.CorreoElectronico,
       Nombre:$('#nameCard').val(),
-      Precio:0,
+      Precio:parseFloat(($('#totalP').val()).substring(2,($('#totalP').val()).length)),
       Referencia:"",
       Telefono:global.data.Telefono,
-      Token:"tok_test_visa_4242",
+      Token:token,
       conektaTokenId:""
     }
   }else{
@@ -86,11 +99,13 @@ function registrarCita(){
     }
   }
   global.perfil=Registro(global.data)
+  console.log(JSON.stringify(global.data));
   if(global.perfil.datosPaciente!=null){
     alerta("Registro Correcto")
     console.log(JSON.stringify(global.perfil));
     sessionStorage.clear()
     sessionStorage.setItem('dataUser', JSON.stringify(global.perfil))
+    clearGlobalData();
     irPerfil("perfil");
   }else{
     alerta('Error al registrar cita, Intentalo mas tarde')

@@ -52,6 +52,7 @@ function startCita(){
             // console.log('selectHorario')
             saveValuesPaquetes();
             startResumen();
+            $("#content-paquetes").show();
         });
 
         $("#selectHorarioPapa_pkt1").change(function(){
@@ -115,6 +116,7 @@ function clickMas(){
 }
 
  function loadValuesPacientes(){
+    $(":input").inputmask();
     $('#cita_nombre').val(global.data.Nombre)
     $('#cita_app').val(global.data.Paterno);
     $('#cita_apm').val(global.data.Materno);
@@ -144,6 +146,7 @@ function clickMas(){
         $('#fechaCita').val(global.data.cita.Estudios[0].Fecha)
          getHorariosDisponibles({ListaHorarios:[{IdEstudio:3,IdSucursal:parseInt(idSucursal),Fecha:global.data.cita.Estudios[0].Fecha,IdSubEstudioEncript:mastografia.data[0].Id}]},'#selectHorario');
         $('#selectHorario').val(global.data.cita.Estudios[0].IdHora)
+        $("#content-paquetes").show();
     }
     
     if(global.data.cita.Estudios.length==3){
@@ -164,12 +167,6 @@ function clickMas(){
             $('#selectHorarioPapa_pkt1').val(global.data.cita.Estudios[1].IdHora)
         }
     }
-    
-    // else if(global.data.cita.Estudios.length==2){
-    //     togglePapa=true;
-    //     $("#pktPapa").toggle("d-none");
-
-    // }
 }
 
 function formatPhoneNumber(input, format) {

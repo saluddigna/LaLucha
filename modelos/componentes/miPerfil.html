@@ -65,25 +65,12 @@
     <div id="reagendarCita" class="d-none reagendarCita">
       <i onclick="cerrarReagendar()" class="tacha">X</i>
       <div id="reagendarFechas" class="d-flex flex-column">
-        <p class="text-18 text-bold">¿Cuándo deseas realizar tu Mastografía?</p>
-        <p>Al reagendar tu cita debes acudir a <span id="perfil-clincaReagendar">[[Direccion de la clínica]]</span></p>
-        <div class="d-flex row">
-          <div class="combobox">
-            <div class="cajas-texto">
-              <input type="date" class="input-sd valido" id="">
-              <span class="floating-label">Fecha de tu cita</span>
-            </div>
-          </div>
-          <div class="combobox">
-            <div class="cajas-texto">
-              <select id="" class="input-sd valido">
-                <option hidden selected>Horarios disponibles</option>
-              </select>
-              <span class="floating-label">Hora de tu cita</span>
-            </div>
-          </div>
-        </div>
         
+        <p class="text-18 text-bold" id="reagendar-titulo"></p>
+        <p>Al reagendar tu cita debes acudir a <span id="perfil-clincaReagendar"></span></p>
+        <div id="reagendar-inputs">
+
+        </div>      
         <button class="btn btn-pink" onclick="reagendar()">Reagendar cita</button>
       </div>
       <div id="reagendarAceptar" class="d-none">

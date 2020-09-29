@@ -1,15 +1,25 @@
 global={};
-global.data={}
-global.data.cita={};
-global.data.cita.Estudios=[];
-global.clinicas=[];
-global.estados=[];
-global.dataClinica=[];
-mastografia=null;
-densitometria=null;
-papanicolao=null;
-global.perfil={};
+  global.data={}
+  global.data.cita={};
+  global.data.cita.Estudios=[];
+  global.clinicas=[];
+  global.estados=[];
+  global.dataClinica=[];
+  mastografia=null;
+  densitometria=null;
+  papanicolao=null;
+  global.perfil={};
+
 dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
+
+idSesion="1dnni3hgu9iggbdktdlpfb19u4";
+conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
+
+configUrl='https://la-lucha-sd-beta.herokuapp.com/';
+sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
+
+
+
 getUrlParameter = function getUrlParameter(sParam) {
   var sPageURL = window.location.search.substring(1),
       sURLVariables = sPageURL.split('&'),
@@ -25,12 +35,6 @@ getUrlParameter = function getUrlParameter(sParam) {
   }
 };
 
-
-idSesion="1dnni3hgu9iggbdktdlpfb19u4";
-conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
-
-configUrl='https://la-lucha-sd-beta.herokuapp.com/';
-sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 
 $(document).ready(function () {
   $('#banner').load('./modelos/banner.html');
@@ -86,6 +90,7 @@ $(document).on("click", ".movilNav", function(){
 function irPerfil(parametro) { 
 	$('#seccion').load('./modelos/perfil.html',function(){
     $("#MiPerfil").load('./modelos/componentes/miPerfil.html',function(){
+      top.location.href = '#top';
       startPerfil();
     });
     removerClaseNav();
@@ -121,4 +126,18 @@ function redirectRecuperada(){
 }
 function redirectCambiarContra(){
   $("#contenedorLogIn").load('./modelos/componentes/nuevaPassListo.html');
+}
+
+function clearGlobalData(){
+  global={};
+  global.data={}
+  global.data.cita={};
+  global.data.cita.Estudios=[];
+  global.clinicas=[];
+  global.estados=[];
+  global.dataClinica=[];
+  mastografia=null;
+  densitometria=null;
+  papanicolao=null;
+  global.perfil={};
 }

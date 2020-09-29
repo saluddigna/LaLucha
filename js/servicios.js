@@ -188,3 +188,25 @@ function cambiarContra(){
     return resp;
     
 }
+
+function ReagendarCita(body){
+    var resp = [];
+    $.ajax({
+        type: 'POST',
+        url: configUrl+'cita/reagendar',
+        contentType: 'application/json',
+        data: JSON.stringify(body),
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', sesion);
+        },
+        async: false,
+        success: function (response) {
+            resp=response;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR,textStatus,errorThrown)
+        }
+    });
+    return resp;
+}
