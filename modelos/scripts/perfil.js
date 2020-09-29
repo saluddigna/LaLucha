@@ -302,3 +302,13 @@ function getHorariosDisponibles(body,selector){
     }
     $(selector).empty().append(optionsAsString);
 }
+function agregarPKT(){
+    rutaAgregarPKT();
+    $("#sumarEstudios").addClass("sumarPKT");
+}
+function agregarPKT2(){
+    rutaPagarPKT();
+}
+function pagarPKT(){
+    rutaPagoCompletado();
+}
