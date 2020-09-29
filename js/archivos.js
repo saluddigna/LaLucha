@@ -95,6 +95,9 @@ function cerrarAgregarPKT(){
 function rutaPagarPKT(){
   $("#sumarEstudios").load('./modelos/componentes/agregarEstudio2.html', function () {});
 }
+function rutaPagoCompletado(){
+  $("#sumarEstudios").load('./modelos/componentes/agregarEstudio3.html', function () {});
+}
 // function cambioPaso_notSave(){
 //   if(paso == 1) {
 //     $("#citas").load('./modelos/componentes/citaPaquetes.html',function(){

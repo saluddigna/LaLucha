@@ -104,5 +104,5 @@ function agregarPKT2(){
     rutaPagarPKT();
 }
 function pagarPKT(){
-    rutaPagarPKT();
+    rutaPagoCompletado();
 }

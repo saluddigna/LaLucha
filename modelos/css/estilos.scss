@@ -880,6 +880,27 @@ input.error{
 .finalNav.pago {
   position: unset!important;
 }
+.PKTcomprado{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.foliosGenerados{
+  display: flex;
+  flex-direction: row;
+}
+.fPagado{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 16px;
+  margin: 0px 20px;
+  line-height: 24px;
+  p{
+    margin-bottom: 0px;
+  }
+}
 @media only screen and (min-width: 501px) {
   .sumarEstudios.sumarPKT{
     background: #FFFFFF 0% 0% no-repeat padding-box;
