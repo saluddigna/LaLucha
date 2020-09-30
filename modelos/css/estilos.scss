@@ -95,8 +95,8 @@
 }
 
 .cajas-texto input:focus{
-  border-color: #F05876;
-  color: #F05876;
+  border-color: #FF647D;
+  color: #FF647D;
 }
 
 .cajas-texto span.floating-label{
@@ -127,7 +127,7 @@
 .cajas-texto input:focus ~ .floating-label, .cajas-texto select:focus ~ .floating-label{
   top: 10px !important;
   opacity: 1 !important;
-  color: #F05876 !important;
+  color: #FF647D !important;
   background-color: #fff;
   padding: 0 3px;
   z-index: 2;
@@ -163,7 +163,7 @@ input.error{
 }
 /* Banner */
 .bannerPonElPecho{
-  background-image: url('../../images/banner-masto-en-150-web.png');
+  background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-masto-en-150-web.jpg');
   background-repeat: no-repeat;
   background-position-x: center;
   margin: 0px;
@@ -183,7 +183,7 @@ input.error{
 }
 /* Navbar */
 .barraNav{
-  background-color: #F05876;
+  background-color: #FF647D;
   display: flex;
   justify-content: center;
   
@@ -309,7 +309,7 @@ input.error{
   height: 20px;
   z-index: 0;
   border-radius: 4px;
-  border: 1px solid #F05876;
+  border: 1px solid #FF647D;
   transition: border-color .28s ease
 }
 .sd-group-check .sd-item .sd-helper::after,
@@ -329,7 +329,7 @@ input.error{
   top: 16px;
   left: 6px;
   transform: rotate(-135deg);
-  box-shadow: 0 0 0 .0625rem #F05876
+  box-shadow: 0 0 0 .0625rem #FF647D
 }
 .sd-group-check .sd-item .sd-helper::after {
   top: 13px;
@@ -337,13 +337,13 @@ input.error{
   transform: rotate(-45deg)
 }
 .sd-group-check .sd-item label:hover .sd-helper {
-  color: #F05876;
-  background-color: #F05876;
+  color: #FF647D;
+  background-color: #FF647D;
   border-radius: 3px;
 }
 .sd-group-check .sd-item input:checked~.sd-helper {
-  color: #F05876;
-  background-color: #F05876;
+  color: #FF647D;
+  background-color: #FF647D;
   border-radius: 3px;
 }
 .sd-group-check .sd-item input:checked~.sd-helper::after,
@@ -506,7 +506,7 @@ input.error{
   border-top: 20px solid #FAC2BF;
 }
 .masto-cita{
-  background: #F0BDBC 0% 0% no-repeat padding-box;
+  background:#DFA4A1 0% 0% no-repeat padding-box;
   box-shadow: 0px 0px 6px #6161613B;
   border-radius: 5px;
   height: 170px;
@@ -522,17 +522,18 @@ input.error{
     margin-bottom: 5px;
   }
   .text-bold{
-    line-height: 16px;
+    line-height: 24px;
   }
 }
 .masto-cita.active{
   background-color: #E45F7D;
+  border: 3px solid #B54B60;
 }
 .btn-pink-outline{
   width: 100%;
-  color: #F05876;
+  color: #FF647D;
   font-weight: bold;
-  border: 2px solid #F05876;
+  border: 2px solid #FF647D;
   height: 40px;
   margin-bottom: 10px;
 }
@@ -553,10 +554,13 @@ input.error{
     width: 100%;
     height: 40px;
   }
-  
+  input{
+    border: 1px solid #E2BBBA;
+    border-radius: 4px;
+  }
 }
 .linkPink, .linkPink:hover, .linkPink:focus{
-  color: #F05876;
+  color: #FF647D;
   text-decoration: none;
   outline: none;
   margin: 20px 0px;
@@ -720,7 +724,7 @@ input.error{
 }
 .btn-pink{
   color: #fff;
-  background-color: #F05876;
+  background-color: #FF647D;
   width: 100%;
   height: 50px;
   font-size: 18px;
@@ -1011,14 +1015,14 @@ input.error{
   height: 30px;
 }
 .btn-siguiente{
-  color: #F05876;
+  color: #FF647D;
   font-weight: bold;
   float: right;
   margin: 10px 20px;
   cursor: pointer
 }
 .btn-atras{
-  color: #F05876;
+  color: #FF647D;
   font-weight: bold;
   float: left;
   margin: 10px 0px;
@@ -1138,8 +1142,8 @@ input.error{
     flex-direction: column;
   }
   .bannerPonElPecho{
-    background-image: url('../../images/banner-masto-en-150-tablet.png');
-    background-color: #F0BDBD;
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-masto-en-150-tablet.jpg');
+    background-color: #FDCAC7;
   }
   .hazloEnLinea{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-tablet.png');
@@ -1155,7 +1159,7 @@ input.error{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F05876;
+    background-color: #FF647D;
     height: 52px;
     font-size: 16px;
     color: white;
@@ -1164,7 +1168,7 @@ input.error{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: #F05876;
+    background-color: #FF647D;
     font-size: 16px;
     color: white;
     font-weight: bold;
@@ -1205,8 +1209,8 @@ input.error{
     flex-direction: column;
   }
   .bannerPonElPecho{
-    background-image: url('../../images/banner-masto-en-150-movil.png');
-    background-color: #F0BDBD;
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-masto-en-150-movil.jpg');
+    background-color: #FDCAC7;
   }
   .hazloEnLinea{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-movil.png');
