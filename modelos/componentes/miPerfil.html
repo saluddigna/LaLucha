@@ -21,6 +21,8 @@
       <div class="d-flex justify-center align-center flex-column">
         <p id="perfil-paciente"></p>
         <div class="d-flex flex-row" id="folios">
+          <div class="d-flex justify-center align-center flex-column ma-10 text-20" id="cita_cancelada"></div>
+
           <div class="d-flex justify-center align-center flex-column ma-10" id="folios_masto">
             <b class="text-16 estudio" id="folio_nombre_masto"></b>
             <b class="folio" id="folio_masto"></b>
@@ -48,8 +50,10 @@
             <p class="text-16" id="perfil-clinica"></p>
           </div>
         </div>
-        <button class="btn btn-pink" >Descargar</button>
-        <p class="reagendar">Si no puedes asistir a tu cita, podrás <a class="linkPink" onclick="reagendarCita()">reagendar aquí</a></p>
+        <div id="acciones">
+          <button class="btn btn-pink" >Descargar</button>
+          <p class="reagendar">Si no puedes asistir a tu cita, podrás <a class="linkPink" onclick="reagendarCita()">reagendar aquí</a></p>  
+        </div>
       </div>
     </div>
     <div id="cancelarCita" class="d-none cancelarCita">
@@ -81,10 +85,10 @@
         <p class="text-center mx-20"><img class="" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/Check.svg" alt="palomita"><br></p>
         <button class="btn btn-pink" onclick="cerrarReagendar()">Aceptar</button>
       </div>
-      <div id="cancelarAceptar" class="d-none">
+      <div id="cancelarAceptar">
         <h4 class="text-center text-bold">Tu cita ha sido Cancelada</h4>
         <p class="text-center mx-20"><img class="" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/Check.svg" alt="palomita"><br></p>
-        <button class="btn btn-pink" onclick="cerrarReagendar()">Aceptar</button>
+        <button class="btn btn-pink" onclick="cerrarCancelar()">Aceptar</button>
       </div>
     </div>
     <div class="preparaciones" id="perfil-prep">

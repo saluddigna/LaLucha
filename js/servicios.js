@@ -211,3 +211,50 @@ function ReagendarCita(body){
     });
     return resp;
 }
+
+function agregarEstudiosService(body){
+    console.log(JSON.stringify(body))
+    var resp = [];
+    $.ajax({
+        type: 'POST',
+        url: configUrl+'estudios/registrar',
+        contentType: 'application/json',
+        data: JSON.stringify(body),
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', sesion);
+        },
+        async: false,
+        success: function (response) {
+            resp=response;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR,textStatus,errorThrown)
+        }
+    });
+    return resp;
+}
+
+function cancelarCitaService(body){
+    console.log(JSON.stringify(body))
+    var resp = [];
+    $.ajax({
+        type: 'POST',
+        url: configUrl+'cita/cancelar',
+        contentType: 'application/json',
+        data: JSON.stringify(body),
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', sesion);
+        },
+        async: false,
+        success: function (response) {
+            resp=response;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR,textStatus,errorThrown)
+        }
+    });
+    return resp;
+}
+

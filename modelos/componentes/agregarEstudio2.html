@@ -1,3 +1,4 @@
+<form id="form-pago-perfilP2">
 <i onclick="cerrarAgregarPKT()" class="tacha">X</i>
 <p class="precioEstudio">$250</p>
 <p>
@@ -8,29 +9,35 @@
 <div class="d-flex row no-wrap">
   <div class="inputCard">
     <p class="text-12 text-bold">Nombre del titular en la tarjeta</p>
-    <input class="nameCard" type="text" name="" id="nameCard" placeholder="Paul Soto Robles" size="20" data-conekta="card[name]" data-parsley-required="true">
+    <input class="nameCard" type="text" name="" id="nameCard" placeholder="Paul Soto Robles" size="20" data-conekta="card[name]" data-parsley-required="true" onkeyup="changeName(this.value)">
+    <div><span id="invalidName">Nombre solo puede contener letras y espacios</span></div>  
   </div>
   <div class="inputCard">
     <p class="text-12 text-bold">Número de tarjeta</p>
-    <input class="numCard" type="number" name="" id="numCard" placeholder="5212 3456 7890 1234" size="20" data-conekta="card[number]" data-parsley-required="true">
+    <input class="numCard" type="text" name="" id="numCard" placeholder="5212 3456 7890 1234" size="20" data-conekta="card[number]"  data-parsley-required="true" data-inputmask="'mask': '9999 9999 9999 9999'" onkeyup="changeCard(this.value)">
+    <div><span id="invalidCard">Tarjeta no válida</span></div>
   </div>
 </div>
 <div class="d-flex row no-wrap">
   <div class="inputCard">
     <p class="text-12 text-bold">Mes de vencimiento</p>
-    <input class="nCard" type="number" name="" id="mm" placeholder="09" size="4" data-conekta="card[exp_year]" data-parsley-required="true">
+    <input class="nCard" type="text" name="" id="mm" placeholder="09" size="2" data-conekta="card[exp_month]" data-inputmask="'mask': '99'" onkeyup="changeDate(this.value)">
   </div>
   <div class="inputCard">
     <p class="text-12 text-bold">Año de vencimiento</p>
-    <input class="nCard" type="number" name="" id="aaaa" placeholder="2020" size="2" data-conekta="card[exp_month]" data-parsley-required="true">
+    <input class="nCard" type="text" name="" id="aaaa" placeholder="2020" size="4" data-conekta="card[exp_year]" data-parsley-required="true" data-inputmask="'mask': '9999'" onkeyup="changeDate(this.value)">
   </div>
   <div class="inputCard">
     <p class="text-12 text-bold">Código de seguridad</p>
-    <input class="nCard" type="number" name="" id="ccv" placeholder="123" size="4" data-conekta="card[cvc]" data-parsley-required="true">
+    <input class="nCard" type="text" name="" id="ccv" placeholder="123" size="4" data-conekta="card[cvc]" data-parsley-required="true" max="9999" onkeyup="changeCCV(this.value)">
   </div>
 </div>
+<div><span id="invalidDate">Mes/año no válido</span></div>  
+<div><span id="invalidCCV">Código ccv no válido</span></div>
+
 <div class="finalNav pago">
   <span class="btn-atras" onclick="rutaAgregarPKT()">< Selecciona horario</span>
   <span class="btn-siguiente" onclick="pagarPKT()">Pagar ></span>
 </div>
+</form>
 <script type="text/javascript" src="https://cdn.conekta.io/js/latest/conekta.js"></script>

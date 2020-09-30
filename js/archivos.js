@@ -96,14 +96,26 @@ function cambioPaso(){
   }
 }
 function rutaAgregarPKT(){
-  $("#sumarEstudios").load('./modelos/componentes/agregarEstudio1.html', function () {});
+  $("#sumarEstudios").load('./modelos/componentes/agregarEstudio1.html', function () {
+    startAddPkt()
+  });
 }
 function cerrarAgregarPKT(){
-  $("#sumarEstudios").load('./modelos/componentes/agregarEstudio0.html');
+  $("#sumarEstudios").load('./modelos/componentes/agregarEstudio0.html',function(){
+    $('#lentes-agregar').hide();
+    $('#paquete-agregar').show();
+  });
   $("#sumarEstudios").removeClass("sumarPKT");
+  
 }
 function rutaPagarPKT(){
-  $("#sumarEstudios").load('./modelos/componentes/agregarEstudio2.html', function () {});
+  $("#sumarEstudios").load('./modelos/componentes/agregarEstudio2.html', function () {
+    $('#invalidCard').hide()
+    $('#invalidDate').hide()
+    $('#invalidCCV').hide()
+    $("#invalidName").hide()
+    $(":input").inputmask();
+  });
 }
 function rutaPagoCompletado(){
   $("#sumarEstudios").load('./modelos/componentes/agregarEstudio3.html', function () {});
