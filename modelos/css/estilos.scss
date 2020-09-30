@@ -60,6 +60,8 @@
 .totalP{
   width: 100%;
   text-align: right;
+}
+.totalP:nth-child(2){
   border-top:1px dashed #616161;
   padding-top: 10px;
   margin-top: 10px;
@@ -1003,6 +1005,13 @@ input.error{
     font-size: 14px;
   }
 }
+.bannerDeLentes{
+  height: 290px;
+  width: 100%;
+  background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/bannerLentes.png');
+  background-repeat: no-repeat;
+  background-position-x: center;
+}
 .precioEstudio{
   position: absolute;
   top: 55px;
@@ -1148,6 +1157,11 @@ input.error{
   .hazloEnLinea{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-tablet.png');
   }
+  .bannerDeLentes{
+    height: 150px;
+    width: 100%;
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-tablet-lentes.png');
+  }
 }
 
 /*----------------- MOVIL -----------------*/
@@ -1229,9 +1243,28 @@ input.error{
     margin: 15px 0px;
     padding: 20px;
   }
+  .tuFolio{
+    .d-flex .d-flex{
+      flex-wrap: wrap;
+    }
+    .d-flex .d-flex .d-flex:nth-child(4){
+      flex: 0 0 90%;
+    }
+  }
+  .cardMovil .flex-row{
+    flex-direction: column;
+    .w-50{
+      width: 100%;
+    }
+  }
   .sumarEstudios{
     padding: 15px;
     
+  }
+  .bannerDeLentes{
+    height: 150px;
+    width: 100%;
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner%20movil%20lp%20lentes.png');
   }
   .sumarEstudios.sumarPKT{
     background: #FFFFFF 0% 0% no-repeat padding-box;
