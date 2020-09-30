@@ -54,14 +54,12 @@ function validateConekta(){
   return false
 }
 function saveValuesPago(){
-  if(!validateConekta()){
-    return;
-  }
-
   mostrarLoading();
   $("#error-msg").text("");
   if(tPago==3){
-
+    if(!validateConekta()){
+      return;
+    }
     var tokenParams = {
       card: {
         number: $('#numCard').val(),
@@ -182,12 +180,16 @@ function clearGlobalData(){
 }
 
 function quitarLoading(){
-   $("#pago-loading").hide()
-   $("#pago-datos").show();
+  $("#paginador-registro").show()
+  $("#pago-loading").hide()
+  $("#pago-datos").show();
+  top.location.href = '#top';
 }
  function mostrarLoading(){
-   $("#pago-loading").show()
-   $("#pago-datos").hide()
+  $("#paginador-registro").hide()
+  $("#pago-loading").show()
+  $("#pago-datos").hide()
+  top.location.href = '#top';
 }
 
 function sonLetras(texto){

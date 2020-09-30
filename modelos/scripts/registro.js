@@ -1,6 +1,24 @@
 //Main
+function clearDataPaquetes(){
+    $("#fechaCita").val("")
+    $("#fechaCitaPapa_pkt1").val("")
+    $("#fechaCitaPapa_pkt2").val("")
+    $("#fechaCitaDensi_pkt2").val("")
 
+    clearSelects('#selectHorario');
+    clearSelects('#selectHorarioPapa_pkt1');
+    clearSelects('#selectHorarioPapa_pkt2');
+    clearSelects('#selectHorarioDensi_pkt2');
+}
+function clearSelects(selector){
+    var optionsAsString = "<option hidden selected>Selecciona una opción</option>";
+    $(selector).empty().append(optionsAsString);
+}
 function startCita(){
+        $("#selectClinica").prop('disabled',true) 
+        $("#fechaCita").prop('disabled',true) 
+        $("#selectHorario").prop('disabled',true) 
+
         var optionsAsString = "<option hidden selected>Selecciona una opción</option>";
         for(var i = 0; i < global.estados.length; i++) {
             optionsAsString += "<option value='"+global.estados[i].Id+"'>" + global.estados[i].Descripcion + "</option>";
@@ -11,15 +29,26 @@ function startCita(){
         });
 
         $("#selectEstado").change(function(){
+            $("#selectClinica").prop('disabled',false) 
+            $("#fechaCita").prop('disabled',true) 
+            $("#selectHorario").prop('disabled',true) 
+            clearDataPaquetes();
             getClinicasByEstado();
         });
-
-        $("#selectClinica").change(function(){
+        
+        $(document).on('change','#selectClinica',function(){
+            $("#fechaCita").prop('disabled',false) 
+            $("#selectHorario").prop('disabled',true)
             idSucursal=parseFloat($(this).val());
             mastografia=getEstudio(3,idSucursal);
             densitometria=getEstudio(1,idSucursal);
             papanicolao=getEstudio(4,idSucursal);
-        });
+            clearDataPaquetes();
+            
+       });
+        // $("#selectClinica").change(function(){
+            
+        // });
 
         var date = moment.utc().format();
         var minDate = moment.utc(date).local().format("YYYY-MM-DD");
@@ -121,6 +150,15 @@ function clickMas(){
     $('#cita_app').val(global.data.Paterno);
     $('#cita_apm').val(global.data.Materno);
     $('#cita_fechaNacimiento').val(global.data.FechaNacimiento);
+    if(global.data.IdSexo==2){
+        $("#fem").removeClass("active");
+        $("#mas").addClass("active");
+        
+    }else{
+        $("#fem").addClass("active");
+        $("#mas").removeClass("active");
+    }
+        
     // global.data.IdSexo=$("#fem").hasClass("active") ? 1 : 2;
     $('#cita_correo').val(global.data.CorreoElectronico);
     $('#cita_telefono').val(global.data.Telefono);
@@ -132,6 +170,9 @@ function clickMas(){
 
 
  function loadValuesPaquetes(){
+    $("#selectClinica").prop('disabled',false) 
+    $("#fechaCita").prop('disabled',false) 
+    $("#selectHorario").prop('disabled',false) 
     if(global.data.IdEstado && global.data.IdSucursal){
         $('#selectEstado').val(global.data.IdEstado);
         getClinicasByEstado();
@@ -452,7 +493,14 @@ function validacionesDatosPaciente(){
 
  function getHorariosDisponibles(body,selector){
     var horarios=getHorarios(body)
-    var optionsAsString = "<option hidden selected>Selecciona una opción</option>";
+    var optionsAsString="";
+    if(horarios.length==0){
+        optionsAsString = "<option hidden selected>Horarios agotados</option>";   
+        $(selector).prop('disabled',true) 
+    }else{
+        optionsAsString = "<option hidden selected>Selecciona una opción</option>";
+        $(selector).prop('disabled',false) 
+    }
     for(var i = 0; i < horarios.length; i++) {
         optionsAsString += "<option value='" + horarios[i].Id + "' data-hora='"+horarios[i].Hora+"'>" + horarios[i].Hora + "</option>";
     }

@@ -1,10 +1,23 @@
 function irOlvidar(tipo){
   olvidarContra(tipo);
 }
+
+
+function validateData(){
+  $('#form-login').parsley().validate();
+    if ($('#form-login').parsley().isValid()) {
+      return true
+    } else {
+        return false
+    }
+}
 function recuperada(){
-  data={correoElectronico:$('#recuperar-correo').val()}
-  var resp=recuperarContra(data)
-  redirectRecuperada();
+  var valida=validateData()
+  if(valida){
+    data={correoElectronico:$('#recuperar-correo').val()}
+    var resp=recuperarContra(data)
+    redirectRecuperada();
+  }
 }
 function Login(){
     // $('#form-login').parsley({
@@ -53,6 +66,8 @@ function cerrarSesion(){
 }
 
 function cambiarPass(){
+  var valida=validateData()
+  if(valida){
   data={
       id: getUrlParameter('recovery'),
       password: $('#recuperar-pass').val()
@@ -60,5 +75,6 @@ function cambiarPass(){
   var resp=cambiarContra(data)
   console.log(resp);
   redirectCambiarContra();
+}
 }
 

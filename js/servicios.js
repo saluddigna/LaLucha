@@ -68,7 +68,7 @@ function getHorarios(body) {
         return arrHorarios.horarios[0].Horarios;
     }
     else{
-        alert(arrHorarios.mensaje);
+        console.log(arrHorarios.mensaje);
         return [];
     }
 };

@@ -342,12 +342,20 @@ function cerrarReagendar(){
 
 function getHorariosDisponibles(body,selector){
     var horarios=getHorarios(body)
-    var optionsAsString = "<option hidden selected>Selecciona una opción</option>";
+    var optionsAsString="";
+    if(horarios.length==0){
+        optionsAsString = "<option hidden selected>Horarios agotados</option>";   
+        $(selector).prop('disabled',true) 
+    }else{
+        optionsAsString = "<option hidden selected>Selecciona una opción</option>";
+        $(selector).prop('disabled',false) 
+    }
     for(var i = 0; i < horarios.length; i++) {
         optionsAsString += "<option value='" + horarios[i].Id + "' data-hora='"+horarios[i].Hora+"'>" + horarios[i].Hora + "</option>";
     }
     $(selector).empty().append(optionsAsString);
 }
+
 function agregarPKT(){
     rutaAgregarPKT();
     $("#sumarEstudios").addClass("sumarPKT");

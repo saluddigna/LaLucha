@@ -118,7 +118,8 @@ function redirectLogin(){
 
 function olvidarContra(tipo){
   if(tipo){
-    $("#contenedorLogIn").load('./modelos/componentes/restablecer.html');
+    $("#contenedorLogIn").load('./modelos/componentes/restablecer.html',function(){
+    });
   }else{
     $("#ingresar").load('./modelos/componentes/ingresar.html');
   }
