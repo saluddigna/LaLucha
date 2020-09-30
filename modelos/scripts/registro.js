@@ -14,16 +14,70 @@ function clearSelects(selector){
     var optionsAsString = "<option hidden selected>Selecciona una opción</option>";
     $(selector).empty().append(optionsAsString);
 }
-function startCita(){
+
+async function startDatesPicker(){
+    $("#fechaCita").datepicker({
+        minDate: 0,
+        dateFormat: 'dd-mm-yy',
+        onSelect: function (a) {
+            var body={ListaHorarios:[{IdEstudio:3,IdSucursal:$("#selectClinica").val(),Fecha:$(this).val(),IdSubEstudioEncript:mastografia.data[0].Id}]}        
+            getHorariosDisponibles(body,'#selectHorario');
+            $("#fechaCita").addClass("valido");
+            $("#fechaCita").addClass("lleno")
+        },
+    });
+    // $("#fechaCita").prop('disabled', true);
+    // $( "#fechaCita" ).datepicker( "option", "disabled", true );
+    $('#fechaCitaPapa_pkt1').datepicker({
+        minDate: 0,
+        dateFormat: 'dd-mm-yy',
+        onSelect: function (a) {
+            var body={ListaHorarios:[{IdEstudio:4,IdSucursal:$("#selectClinica").val(),Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}        
+            getHorariosDisponibles(body,'#selectHorarioPapa_pkt1');
+            $("#fechaCitaPapa_pkt1").addClass("valido");
+            $("#fechaCitaPapa_pkt1").addClass("lleno")
+        },
+    })
+
+    $('#fechaCitaPapa_pkt2').datepicker({
+        minDate: 0,
+        dateFormat: 'dd-mm-yy',
+        onSelect: function (a) {
+            var body={ListaHorarios:[{IdEstudio:4,IdSucursal:$("#selectClinica").val(),Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}        
+            getHorariosDisponibles(body,'#selectHorarioPapa_pkt2');
+            $("#fechaCitaPapa_pkt2").addClass("valido");
+            $("#fechaCitaPapa_pkt2").addClass("lleno")
+        },
+    })
+
+    $('#fechaCitaDensi_pkt2').datepicker({
+        minDate: 0,
+        dateFormat: 'dd-mm-yy',
+        onSelect: function (a) {
+            var body={ListaHorarios:[{IdEstudio:1,IdSucursal:$("#selectClinica").val(),Fecha:$(this).val(),IdSubEstudioEncript:densitometria.data[0].Id}]}        
+            getHorariosDisponibles(body,'#selectHorarioDensi_pkt2');
+            $("#fechaCitaDensi_pkt2").addClass("valido");
+            $("#fechaCitaDensi_pkt2").addClass("lleno")
+        },
+    })
+}
+
+async function loadEstados(){
+    var optionsAsString = "<option hidden selected>Selecciona una opción</option>";
+        for(var i = 0; i < global.estados.length; i++) {
+            optionsAsString += "<option value='"+global.estados[i].Id+"'>" + global.estados[i].Descripcion + "</option>";
+        }
+    $('#selectEstado').empty().append(optionsAsString );
+}
+async function startCita(){
+        await startDatesPicker()
         $("#selectClinica").prop('disabled',true) 
         $("#fechaCita").prop('disabled',true) 
         $("#selectHorario").prop('disabled',true) 
 
-        var optionsAsString = "<option hidden selected>Selecciona una opción</option>";
-        for(var i = 0; i < global.estados.length; i++) {
-            optionsAsString += "<option value='"+global.estados[i].Id+"'>" + global.estados[i].Descripcion + "</option>";
-        }
-        $('#selectEstado').empty().append(optionsAsString );
+        await loadEstados();
+        
+        
         $('#btnObtenerUbicacion').click(function () {
             getUbicacion();
         });
@@ -32,7 +86,7 @@ function startCita(){
             $("#selectClinica").prop('disabled',false) 
             $("#fechaCita").prop('disabled',true) 
             $("#selectHorario").prop('disabled',true) 
-            clearDataPaquetes();
+            // clearDataPaquetes();
             getClinicasByEstado();
         });
         
@@ -43,37 +97,46 @@ function startCita(){
             mastografia=getEstudio(3,idSucursal);
             densitometria=getEstudio(1,idSucursal);
             papanicolao=getEstudio(4,idSucursal);
+            console.log(mastografia,densitometria,densitometria)
+
             clearDataPaquetes();
-            
-       });
-        // $("#selectClinica").change(function(){
-            
+           
+         });
+
+         $('#chk').change(function () {
+            $('#check-error').text("")
+             if(($('#chk').is(":checked"))){
+                if(togglePapa)
+                    quitarPKT(1);
+                else if (togglePkt)
+                    quitarPKT(2);      
+             }
+         });
+
+        // var date = moment.utc().format();
+        // var minDate = moment.utc(date).local().format("YYYY-MM-DD");
+
+        // $('#fechaCita').attr('min' , minDate);
+        // $('#fechaCitaPapa_pkt1').attr('min' , minDate);
+        // $('#fechaCitaPapa_pkt2').attr('min' , minDate);
+        // $('#fechaCitaDensi_pkt2').attr('min' , minDate);
+
+        // $("#fechaCita").change(function(){
+        //     var body={ListaHorarios:[{IdEstudio:3,IdSucursal:$("#selectClinica").val(),Fecha:$(this).val(),IdSubEstudioEncript:mastografia.data[0].Id}]}        
+        //     getHorariosDisponibles(body,'#selectHorario');
         // });
-
-        var date = moment.utc().format();
-        var minDate = moment.utc(date).local().format("YYYY-MM-DD");
-
-        $('#fechaCita').attr('min' , minDate);
-        $('#fechaCitaPapa_pkt1').attr('min' , minDate);
-        $('#fechaCitaPapa_pkt2').attr('min' , minDate);
-        $('#fechaCitaDensi_pkt2').attr('min' , minDate);
-
-        $("#fechaCita").change(function(){
-            var body={ListaHorarios:[{IdEstudio:3,IdSucursal:$("#selectClinica").val(),Fecha:$(this).val(),IdSubEstudioEncript:mastografia.data[0].Id}]}        
-            getHorariosDisponibles(body,'#selectHorario');
-        });
-        $("#fechaCitaPapa_pkt1").change(function(){
-            var body={ListaHorarios:[{IdEstudio:4,IdSucursal:$("#selectClinica").val(),Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}        
-            getHorariosDisponibles(body,'#selectHorarioPapa_pkt1');
-        });
-        $("#fechaCitaPapa_pkt2").change(function(){
-            var body={ListaHorarios:[{IdEstudio:4,IdSucursal:$("#selectClinica").val(),Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}        
-            getHorariosDisponibles(body,'#selectHorarioPapa_pkt2');
-        });
-        $("#fechaCitaDensi_pkt2").change(function(){
-            var body={ListaHorarios:[{IdEstudio:1,IdSucursal:$("#selectClinica").val(),Fecha:$(this).val(),IdSubEstudioEncript:densitometria.data[0].Id}]}        
-            getHorariosDisponibles(body,'#selectHorarioDensi_pkt2');
-        });
+        // $("#fechaCitaPapa_pkt1").change(function(){
+        //     var body={ListaHorarios:[{IdEstudio:4,IdSucursal:$("#selectClinica").val(),Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}        
+        //     getHorariosDisponibles(body,'#selectHorarioPapa_pkt1');
+        // });
+        // $("#fechaCitaPapa_pkt2").change(function(){
+        //     var body={ListaHorarios:[{IdEstudio:4,IdSucursal:$("#selectClinica").val(),Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}        
+        //     getHorariosDisponibles(body,'#selectHorarioPapa_pkt2');
+        // });
+        // $("#fechaCitaDensi_pkt2").change(function(){
+        //     var body={ListaHorarios:[{IdEstudio:1,IdSucursal:$("#selectClinica").val(),Fecha:$(this).val(),IdSubEstudioEncript:densitometria.data[0].Id}]}        
+        //     getHorariosDisponibles(body,'#selectHorarioDensi_pkt2');
+        // });
 
         //agregarPaquetes
 
@@ -102,21 +165,6 @@ function startCita(){
             startResumen();
         });
         
-
-
-
-        
-        // $('#fem').on('click',function(){ 
-            
-        // });
-       
-        // $('#mas').on('click',function(){ 
-        //     if (!$("#mas").hasClass("active")) {
-        //         $(this).addClass("active");
-        //         $("#fem").removeClass("active");
-        //     }
-        // }); 
-
         $('#tiempoRestante').empty().append(moment().endOf('2020-10-19T09:00:00-06:00').fromNow());
 
 }
@@ -145,11 +193,21 @@ function clickMas(){
 }
 
  function loadValuesPacientes(){
+    var date = moment.utc().format();
+    var minDate = moment.utc(date).local().format("DD-MM-YYYY");
     $(":input").inputmask();
     $('#cita_nombre').val(global.data.Nombre)
     $('#cita_app').val(global.data.Paterno);
     $('#cita_apm').val(global.data.Materno);
     $('#cita_fechaNacimiento').val(global.data.FechaNacimiento);
+    $("#cita_fechaNacimiento").datepicker({
+        maxDate: minDate,
+        dateFormat: 'dd-mm-yy',
+        onSelect: function (a) {
+            $("#cita_fechaNacimiento").addClass("valido");
+            $("#cita_fechaNacimiento").addClass("lleno")
+        },
+    });
     if(global.data.IdSexo==2){
         $("#fem").removeClass("active");
         $("#mas").addClass("active");
@@ -169,11 +227,13 @@ function clickMas(){
 }
 
 
- function loadValuesPaquetes(){
+ async function loadValuesPaquetes(){
     $("#selectClinica").prop('disabled',false) 
     $("#fechaCita").prop('disabled',false) 
     $("#selectHorario").prop('disabled',false) 
+    await loadEstados()
     if(global.data.IdEstado && global.data.IdSucursal){
+        console.log(global.data.IdEstado)
         $('#selectEstado').val(global.data.IdEstado);
         getClinicasByEstado();
         $('#selectClinica').val(global.data.IdSucursal);
@@ -251,18 +311,23 @@ function saveValuesPaciente(){
 }
 
 function validacionesPaquetes(){
+    console.log($('#chk').is(":checked"))
     if(!togglePapa && !togglePkt){
+        if((!$('#chk').is(":checked"))){
+            $('#check-error').text("por favor confirmanos que no deseas agregar algun paquete")
+            return false
+        }
         $('#form-registro').parsley({
             excluded: '.paquete1 input, .paquete1 select, .paquete2 input, .paquete2 select'//, .datos-paciente input, .datos-paciente select,.confirmacionDatos input,.confirmacionDatos select 
         });
     }else if(togglePapa){
         $('#form-registro').parsley({
-            excluded: '.paquete2 input, .paquete2 select'//, .datos-paciente input, .datos-paciente select,.confirmacionDatos input,.confirmacionDatos select 
+            excluded: '.paquete2 input, .paquete2 select '//, .datos-paciente input, .datos-paciente select,.confirmacionDatos input,.confirmacionDatos select 
         });
     }
     else{
         $('#form-registro').parsley({
-            excluded: '.paquete1 input, .paquete1 select'//, .datos-paciente input, .datos-paciente select,.confirmacionDatos input,.confirmacionDatos select 
+            excluded: '.paquete1 input, .paquete1 select '//, .datos-paciente input, .datos-paciente select,.confirmacionDatos input,.confirmacionDatos select 
         });
     }
     $('#form-registro').parsley().validate();

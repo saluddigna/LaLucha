@@ -58,7 +58,8 @@ function getHorarios(body) {
         error: function (jqXHR, textStatus, errorThrown) {
         }
     });
-    if(arrHorarios.estatus){
+    console.log(arrHorarios);
+    if(arrHorarios.estatusAPI && arrHorarios.estatus){
         arrHorarios.horarios[0].Horarios.map(x=>
         {
             var index=x.Hora.indexOf("-");

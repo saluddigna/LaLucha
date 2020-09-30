@@ -15,7 +15,7 @@ dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
 idSesion="1dnni3hgu9iggbdktdlpfb19u4";
 conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
 
-configUrl='https://la-lucha-sd-beta.herokuapp.com/';
+configUrl='https://fd4098b3076d.ngrok.io/';
 sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 
 
