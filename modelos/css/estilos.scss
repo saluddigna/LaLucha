@@ -172,6 +172,7 @@ input.error{
   height: 300px;
   display: flex;
   justify-content: center;
+  background-color: #FDCAC7;
 }
 .imgBanner{
   height: 300px;
@@ -934,6 +935,10 @@ input.error{
   right: 22px;
   top: 15px;
 }
+.sumarEstudios{
+  position: relative;
+  padding: 15px;
+}
 .cancelarCita{
   background: #FDF8F9 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 10px #00000026;
@@ -982,18 +987,20 @@ input.error{
 .hazloEnLinea{
   height: 105px;
   width: 100%;
-  background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-web.png');
+  background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-web.jpg');
   background-position: center;
   background-repeat: no-repeat;
 }
-.sumarEstudios{
-  background: #E2BBBA 0% 0% no-repeat padding-box;
+.imgUpSale{
+  background-image: url(https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner%20paquete%20web.jpg);
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 6px;
   height: 290px;
-  padding: 35px 32px 35px 33%;
   margin-bottom: 10px;
   position: relative;
+  background-color: #FCC9C6;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .agregarEstudio{
   display: flex;
@@ -1108,8 +1115,8 @@ input.error{
       }
       .elegirHR, .fechaYhora{
         position: relative;
-        left: 160px;
-        bottom: 75px;
+        left: 140px;
+        bottom: 55px;
         width: 100%;
       }
       .fechaYhora .d-flex .combobox{
@@ -1122,13 +1129,18 @@ input.error{
     }
   }
 }
+
 @media only screen and (min-width: 1200px) {
+  .imgUpSale{
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner%20paquete%20tablet.jpg');
+  }
   .sumarEstudios.sumarPKT{
     background: #FFFFFF 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 6px;
     height: 325px;
     padding: 15px;
+    position: relative;
     .d-flex{
       flex-wrap: wrap;
       p{
@@ -1138,8 +1150,8 @@ input.error{
       }
       .elegirHR, .fechaYhora{
         position: relative;
-        left: 160px;
-        bottom: 75px;
+        left: 139px;
+        bottom: 60px;
         width: 100%;
       }
       .fechaYhora .d-flex .combobox{
@@ -1166,12 +1178,15 @@ input.error{
     background-color: #FDCAC7;
   }
   .hazloEnLinea{
-    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-tablet.png');
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-tablet.jpg');
   }
   .bannerDeLentes{
     height: 150px;
     width: 100%;
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-tablet-lentes.png');
+  }
+  .imgUpSale{
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner%20paquete%20tablet.jpg');
   }
 }
 
@@ -1269,7 +1284,7 @@ input.error{
     background-color: #FDCAC7;
   }
   .hazloEnLinea{
-    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-movil.png');
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-movil.jpg');
   }
   .card.noCardMovil {
     background: none;
@@ -1366,9 +1381,11 @@ input.error{
       width: 100%;
     }
   }
-  .sumarEstudios{
+  .imgUpSale{
     padding: 15px;
-    
+    width: 330px;
+    margin: auto;
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner%20paquete%20movil.jpg');
   }
   .bannerDeLentes{
     height: 150px;
