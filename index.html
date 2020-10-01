@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <link rel="stylesheet" href="./modelos/css/saluddigna.css">
   <link rel="stylesheet" href="./modelos/css/estilos.css">
 </head>
 <body style="margin:0;background-color: #000">
@@ -17,6 +18,32 @@
     <div id="seccion" class="seccion">
       
     </div>
+  </div>
+
+  <!-- Modal Inactividad -->
+  <div class="modal fade modal-sd" id="modalInatividad" tabindex="-1" role="dialog" aria-labelledby="modalInatividad" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document" style="top:160px;">
+          <div class="modal-content" style="text-align:center;">
+
+              <div class="modal-body modal-sd-body">
+                  <div class="contenedor-pregunta">
+                      <i class="icono-pregunta"></i>
+                  </div>
+                  <div class="sd-modal-text">
+                      <div class="sd-titulo">¡Vaya! Ha pasado un tiempo y no recibimos tu confirmación de cita</div>
+                  </div>
+                  <div class="sd-modal-text">
+                      <div class="sd-text">Si cuentas con algún inconveniente para realizarla, solicita apoyo con uno de nuestros asesores.</div>
+                  </div>
+
+                  <div class="modal-botones">
+                    <button class="sd-boton-border" id="solicitarAyuda">Solicitar ayuda para agendar mi cita</button>
+                    <button class="sd-boton" data-dismiss="modal">Seguir con mi cita</button>
+                  </div>
+              </div>
+
+          </div>
+      </div>
   </div>
 </body>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
