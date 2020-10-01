@@ -755,6 +755,7 @@ function startDatesPickerPerfil(){
 function descargarTicket() {
     $("#acciones").hide();
     $(".cerrarSesion").hide()
+    $(".screenshotEscritorio").hide()
     let folio = document.getElementById("miPerfil")
     let ventana = window.open('', 'PRINT', 'height=400,width=600')
     //ventana.document.write('<html><head><title>' + document.title + '</title>')
@@ -770,6 +771,6 @@ function descargarTicket() {
     this.dialog = false
 
     $("#acciones").show();
-    $(".cerrarSesion").show()
-
+    $(".cerrarSesion").show();
+    $(".screenshotEscritorio").show();
 }
