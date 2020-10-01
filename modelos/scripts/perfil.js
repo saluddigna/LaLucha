@@ -10,7 +10,7 @@ var reag_masto=`<div id="reagendarMasto-name"><b>MASTOGRAFIA</b></div>
 <div class="d-flex row">
 <div class="combobox">
 <div class="cajas-texto">
-    <input type="text" class="input-sd valido" id="reagendarMasto-fecha" data-parsley-required="true">
+    <input type="text" class="input-sd valido" id="reagendarMasto-fecha" data-parsley-required="true" onkeypress="return disablekeys();">
     <span class="floating-label">Fecha de tu cita</span>
 </div>
 </div>
@@ -28,13 +28,13 @@ var reag_papa=`<div id="reagendarPapa-name"><b>PAPANICOLAOU</b></div>
  <div class="d-flex row">
 <div class="combobox">
 <div class="cajas-texto">
-    <input type="text" class="input-sd valido" id="reagendarPapa-fecha" data-parsley-required="true" >
+    <input type="text" class="input-sd valido" id="reagendarPapa-fecha" data-parsley-required="true" onkeypress="return disablekeys();">
     <span class="floating-label">Fecha de tu cita</span>
 </div>
 </div>
 <div class="combobox">
 <div class="cajas-texto">
-    <select id="reagendarPapa-Hora" class="input-sd valido" data-parsley-required="true" data-parsley-min = "1">
+    <select id="reagendarPapa-Hora" class="input-sd valido" data-parsley-required="true" data-parsley-min = "1" >
     <option hidden selected>Horarios disponibles</option>
     </select>
     <span class="floating-label">Hora de tu cita</span>
@@ -46,7 +46,7 @@ var reag_densi=`<div id="reagendarDensi-name"><b>DENSITOMETRIA</b></div>
  <div class="d-flex row">
 <div class="combobox">
 <div class="cajas-texto">
-    <input type="text" class="input-sd valido" id="reagendarDensi-fecha" data-parsley-required="true">
+    <input type="text" class="input-sd valido" id="reagendarDensi-fecha" data-parsley-required="true" onkeypress="return disablekeys();">
     <span class="floating-label">Fecha de tu cita</span>
 </div>
 </div>
@@ -786,4 +786,9 @@ function descargarTicket() {
     $("#acciones").show();
     $(".cerrarSesion").show();
     $(".screenshotEscritorio").show();
+}
+
+function disablekeys()
+{
+    return false;
 }
