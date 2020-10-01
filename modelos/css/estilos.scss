@@ -687,6 +687,9 @@ input.error{
 .tablaCita{
   width: 100%;
 }
+.paqueteMovil{
+  display: none;
+}
 .tipoPago.active{
   background: #FFE6EB 0% 0% no-repeat padding-box;
   border: 1px solid #E2BBBA;
@@ -1225,6 +1228,12 @@ input.error{
   #infoCita{
     order: 10;
   }
+  .paquete1{
+    display: none;
+  }
+  .paquete2{
+    display: none;
+  }
   .masto-cita{
     p{
       margin-bottom: 0px;
@@ -1255,6 +1264,70 @@ input.error{
     border-radius: 4px;
     margin: 15px 0px;
     padding: 20px;
+  }
+  .paqueteMovil{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .imagenPKTMovil{
+    width: 100%;
+    height: 87px;
+    border-radius: 6px 6px 0 0;
+  }
+  .descripcionPKTMovil{
+    padding: 15px;
+  }
+  .precioPKTMovil{
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .totalPKTMovil{
+    padding: 15px;
+    font-size: 11px;
+  }
+  .botonesPKT{
+    height: 55px;
+    button{
+      width: 120px; 
+      float: right;
+      margin: 0 15px 15px 0;
+    }
+  }
+  .avisoPKT{
+    position: absolute;
+    top: -46px;
+    background: #E6E6E6 0% 0% no-repeat padding-box;
+    border-radius: 6px;
+    width: 188px;
+    font-size: 10px;
+    left: 194px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    p{
+      padding: 7px;
+      margin-bottom: 0px;
+    }
+  }
+  .paqueteMovil .pktPapa{
+    padding: 15px 60px 15px 15px;
+    position: relative;
+  }
+  .paqueteMovil .pktMujer{
+    padding: 15px 60px 15px 15px;
+    position: relative;
+  }
+  .quitarPKTMovil{
+    position: absolute;
+    bottom: -26px;
+    left: 26px;
+    font-size: 14px;
+    font-weight: bold;
   }
   .tuFolio{
     .d-flex .d-flex{
