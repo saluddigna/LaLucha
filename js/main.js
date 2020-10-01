@@ -19,7 +19,7 @@ catch{
 
 
 idSesion="1dnni3hgu9iggbdktdlpfb19u4";
-conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
+conektaKey='key_fNdPxbPkqAt1xF1sYMgQF5w';
 
 configUrl='https://la-lucha-sd.herokuapp.com/';
 sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
