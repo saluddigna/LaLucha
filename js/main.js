@@ -43,9 +43,17 @@ getUrlParameter = function getUrlParameter(sParam) {
 
 
 $(document).ready(function () {
+  console.log('dataUser',dataUser)
   $('#banner').load('./modelos/banner.html');
   $('#nav').load('./modelos/navbar.html');
 
+  try{
+    dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
+  }
+  catch(e){
+    console.log(e);
+  }
+  console.log('dataUser',dataUser)
   if(getUrlParameter('recovery')!=null){
     redirectLogin();
   }else if(!dataUser){
