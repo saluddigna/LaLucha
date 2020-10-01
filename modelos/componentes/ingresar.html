@@ -1,4 +1,4 @@
-<form id='form-login'>
+<form id='form-login' autocomplete="off">
   <div class="card">
     <!-- <p class="text-center">ES TIEMPO DE MIRAR EN TU INTERIOR.svg</p> -->
     <div class="d-block logIn" id="contenedorLogIn">
@@ -17,6 +17,8 @@
           <span class="floating-label">Contraseña</span>
         </div>
         <button type="button" class="btn btn-link olvide" onclick="irOlvidar(1)">¿Has olvidado tu contraseña?</button>
+        <span class="login-error" id="login-error"></span>
+
       </div>
       <button type="button" class="btn btn-pink" onclick="Login()" value="validate" id="submit-form">Iniciar sesión</button>
     </div>

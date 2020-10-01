@@ -374,9 +374,9 @@ function reagendar(){
         Estudios : [
             {
                 IdCitaSisPrev: dataUser.datosCita.estudios[0].idCitaSisPrev,
-                Fecha: moment($("#reagendarMasto-fecha").val()).format('YYYY-DD-MM'),
+                Fecha: $("#reagendarMasto-fecha").val(),
                 HorarioText: $(':selected', '#reagendarMasto-Hora').attr("data-hora"),
-                IdHorario: parseInt($("#reagendarMasto-Hora").val())
+                IdHorario: $("#reagendarMasto-Hora").val()
             }
         ]
         }
@@ -387,13 +387,13 @@ function reagendar(){
             Estudios: [
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[0].idCitaSisPrev,
-                    Fecha: moment($("#reagendarMasto-fecha").val()).format('YYYY-DD-MM'),
+                    Fecha: $("#reagendarMasto-fecha").val(),
                     HorarioText: $(':selected', '#reagendarMasto-Hora').attr("data-hora"),
                     IdHorario: parseInt($("#reagendarMasto-Hora").val())
                 },
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[1].idCitaSisPrev,
-                    Fecha:moment($("#reagendarPapa-fecha").val()).format('YYYY-DD-MM'), 
+                    Fecha:$("#reagendarPapa-fecha").val(), 
                     HorarioText: $(':selected', '#reagendarPapa-Hora').attr("data-hora"),
                     IdHorario: parseInt($("#reagendarPapa-Hora").val())
                 }
@@ -457,17 +457,39 @@ function agregarPKT(){
 function startAddPkt(){
     var date = moment.utc().format();
     var minDate = moment.utc(date).local().format("YYYY-MM-DD");
-    $('#agregar-papa-fecha').attr('min' , minDate);
-    $('#agregar-densi-fecha').attr('min' , minDate);
+    $("#agregar-papa-fecha").datepicker({
+        minDate: 0,
+        dateFormat: 'dd-mm-yy',
+        onSelect: function (a) {
+            var body={ListaHorarios:[{IdEstudio:4,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}
+            getHorariosDisponibles(body,'#agregar-papa-hora');
+            $("#agregar-papa-fecha").addClass("valido");
+            $("#agregar-papa-fecha").addClass("lleno")
+        },
+    });
 
-    $("#agregar-papa-fecha").change(function(){
-        var body={ListaHorarios:[{IdEstudio:4,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}
-        getHorariosDisponibles(body,'#agregar-papa-hora');
+    $("#agregar-densi-fecha").datepicker({
+        minDate: 0,
+        dateFormat: 'dd-mm-yy',
+        onSelect: function (a) {
+            var body={ListaHorarios:[{IdEstudio:1,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:densitometria.data[0].Id}]}
+            getHorariosDisponibles(body,'#agregar-densi-hora');
+            $("#agregar-densi-fecha").addClass("valido");
+            $("#agregar-densi-fecha").addClass("lleno")
+        },
     });
-    $("#agregar-densi-fecha").change(function(){
-        var body={ListaHorarios:[{IdEstudio:1,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:densitometria.data[0].Id}]}
-        getHorariosDisponibles(body,'#agregar-densi-hora');
-    });
+
+    // $('#agregar-papa-fecha').attr('min' , minDate);
+    // $('#agregar-densi-fecha').attr('min' , minDate);
+
+    // $("#agregar-papa-fecha").change(function(){
+    //     var body={ListaHorarios:[{IdEstudio:4,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}
+    //     getHorariosDisponibles(body,'#agregar-papa-hora');
+    // });
+    // $("#agregar-densi-fecha").change(function(){
+    //     var body={ListaHorarios:[{IdEstudio:1,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:densitometria.data[0].Id}]}
+    //     getHorariosDisponibles(body,'#agregar-densi-hora');
+    // });
 }
 function agregarPKT2(){
     saveHorarios();
@@ -478,10 +500,12 @@ function agregarPKT2(){
     }
 }
 function pagarPKT(){
+    $("#btn-pagar").hide()
     validaAgregarPago()
     Conekta.setPublicKey(conektaKey);
     if(!validateConekta()){
         console.log('errorValidacionesConekta')
+        $("#btn-pagar").show()      
         return;
       }
     saveAndPay()
@@ -641,12 +665,17 @@ function quitarLoading(){
     // console.log(dataAgregar);
 
     var res=agregarEstudiosService(dataAgregar);
-    console.log('respuestaAgregar',res);
-    sessionStorage.clear()
-    sessionStorage.setItem('dataUser', JSON.stringify(res))
-    dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
-    rutaPagoCompletado();
-    startPerfil()
+    if(res.datosPaciente!=null){
+        console.log('respuestaAgregar',res);
+        sessionStorage.clear()
+        sessionStorage.setItem('dataUser', JSON.stringify(res))
+        dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
+        $("#btn-pagar").show()
+        rutaPagoCompletado();
+        startPerfil()
+    }else{
+        $("#btn-pagar").show()
+    }
     // setTimeout(function() { startPerfil(); }, 1000);
  }
 

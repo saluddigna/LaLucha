@@ -308,7 +308,7 @@ function saveValuesPaciente(){
     global.data.cita.TelefonoCelular=global.data.Telefono;
     global.data.cita.IdSession=idSesion;
     global.data.cita.IdUsuario=3373;
-    global.data.cita.OrigenCita=15;
+    global.data.cita.OrigenCita=30;
     global.data.cita.IdSucursal=parseInt(global.data.IdSucursal);
 
         // global.dataClinica=$('#selectClinica').attr('data-clinica');

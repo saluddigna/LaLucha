@@ -48,14 +48,15 @@ function iniciarSesion(){
   console.log(JSON.stringify(dataUser));
   sessionStorage.clear()
   if(dataUser.estatus==false || dataUser==null){
-    alert("Error Usuario o Contraseña Incorrectos");
+    $("#login-error").text("Error Usuario o Contraseña Incorrectos")
   }
   else if(dataUser.datosPaciente!=null){
     sessionStorage.setItem('dataUser', JSON.stringify(dataUser))
     irPerfil("perfil");
   }
   else{
-    alert("Error Usuario o Contraseña Incorrectos");
+    $("#login-error").text("Error Usuario o Contraseña Incorrectos")
+    // alert("Error Usuario o Contraseña Incorrectos");
   }
   
 }
