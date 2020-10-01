@@ -374,7 +374,7 @@ function reagendar(){
         Estudios : [
             {
                 IdCitaSisPrev: dataUser.datosCita.estudios[0].idCitaSisPrev,
-                Fecha: moment($("#reagendarMasto-fecha").val()).format('YYYY-MM-DD'),
+                Fecha: moment($("#reagendarMasto-fecha").val()).format('YYYY-DD-MM'),
                 HorarioText: $(':selected', '#reagendarMasto-Hora').attr("data-hora"),
                 IdHorario: parseInt($("#reagendarMasto-Hora").val())
             }
@@ -387,13 +387,13 @@ function reagendar(){
             Estudios: [
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[0].idCitaSisPrev,
-                    Fecha: moment($("#reagendarMasto-fecha").val()).format('YYYY-MM-DD'),
+                    Fecha: moment($("#reagendarMasto-fecha").val()).format('YYYY-DD-MM'),
                     HorarioText: $(':selected', '#reagendarMasto-Hora').attr("data-hora"),
                     IdHorario: parseInt($("#reagendarMasto-Hora").val())
                 },
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[1].idCitaSisPrev,
-                    Fecha:moment($("#reagendarPapa-fecha").val()).format('YYYY-MM-DD'), 
+                    Fecha:moment($("#reagendarPapa-fecha").val()).format('YYYY-DD-MM'), 
                     HorarioText: $(':selected', '#reagendarPapa-Hora').attr("data-hora"),
                     IdHorario: parseInt($("#reagendarPapa-Hora").val())
                 }
@@ -406,19 +406,19 @@ function reagendar(){
             Estudios: [
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[0].idCitaSisPrev,
-                    Fecha: $("#reagendarMasto-fecha").val(),
+                    Fecha: moment($("#reagendarMasto-fecha").val()).format('YYYY-DD-MM'),
                     HorarioText: $(':selected', '#reagendarMasto-Hora').attr("data-hora"),
                     IdHorario: parseInt($("#reagendarMasto-Hora").val())
                 },
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[1].idCitaSisPrev,
-                    Fecha: $("#reagendarPapa-fecha").val(),
+                    Fecha: moment($("#reagendarPapa-fecha").val()).format('YYYY-DD-MM'),
                     HorarioText: $(':selected', '#reagendarPapa-Hora').attr("data-hora"),
                     IdHorario: parseInt($("#reagendarPapa-Hora").val())
                 },
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[2].idCitaSisPrev,
-                    Fecha: $("#reagendarDensi-fecha").val(),
+                    Fecha: moment($("#reagendarDensi-fecha").val()).format('YYYY-DD-MM'),
                     HorarioText: $(':selected', '#reagendarDensi-Hora').attr("data-hora"),
                     IdHorario: parseInt($("#reagendarDensi-Hora").val())
                 }

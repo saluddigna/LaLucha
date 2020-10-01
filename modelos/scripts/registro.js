@@ -113,6 +113,10 @@ async function startCita(){
              }
          });
 
+         $('#chkTerminos').change(function () {
+            $('#check-error').text("")
+         });
+
         // var date = moment.utc().format();
         // var minDate = moment.utc(date).local().format("YYYY-MM-DD");
 
@@ -312,6 +316,7 @@ function saveValuesPaciente(){
 
 function validacionesPaquetes(){
     console.log($('#chk').is(":checked"))
+    console.log($('#chkTerminos').is(":checked"))
     if(!togglePapa && !togglePkt){
         if((!$('#chk').is(":checked"))){
             $('#check-error').text("por favor confirmanos que no deseas agregar algun paquete")
@@ -329,6 +334,10 @@ function validacionesPaquetes(){
         $('#form-registro').parsley({
             excluded: '.paquete1 input, .paquete1 select '//, .datos-paciente input, .datos-paciente select,.confirmacionDatos input,.confirmacionDatos select 
         });
+    }
+    if((!$('#chkTerminos').is(":checked"))){
+        $('#check-error').text("por favor acepta los terminos y condiciones para continuar.")
+        return false
     }
     $('#form-registro').parsley().validate();
     if ($('#form-registro').parsley().isValid()) {
