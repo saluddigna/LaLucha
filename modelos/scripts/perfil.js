@@ -80,7 +80,7 @@ function startPerfil(){
     
 
     $('#lentes-agregar').hide();
-    $('#paquete-agregar').hide();
+    $('#sumarEstudios').hide();
 
     $('#folios_masto').show();
     $('#folios_papa').show();
@@ -108,13 +108,13 @@ function startPerfil(){
         $('#folios_densi').hide();
         if(dataUser.datosCita.estatus){
             $('#lentes-agregar').hide();
-            $('#paquete-agregar').show();
+            $('#sumarEstudios').show();
             $('#folio_nombre_masto').text(dataUser.datosCita.estudios[0].nombre);
             $('#folio_masto').text(dataUser.datosCita.estudios[0].idCita);
             $('#perfil-fechaCita-masto').text(dataUser.datosCita.estudios[0].fecha+" "+dataUser.datosCita.estudios[0].hora);
         }else{
             $('#lentes-agregar').show();
-            $('#paquete-agregar').hide();
+            $('#sumarEstudios').hide();
             folio_cancelada()
         }
         $("#reagendar-inputs").empty();
@@ -137,7 +137,7 @@ function startPerfil(){
     }else if(dataUser.datosCita.estudios.length==2){
         $('#folios_densi').hide();
         $('#lentes-agregar').show();
-        $('#paquete-agregar').hide();
+        $('#sumarEstudios').hide();
         if(dataUser.datosCita.estatus){
             $('#folio_nombre_masto').text(dataUser.datosCita.estudios[0].nombre);
             $('#folio_masto').text(dataUser.datosCita.estudios[0].idCita);
@@ -587,4 +587,7 @@ function quitarLoading(){
     dataUser=getPerfil(body)
     sessionStorage.clear();
     sessionStorage.setItem('dataUser', JSON.stringify(dataUser))
+}
+function irLentes(){
+    top.location.href = 'https://lentes.salud-digna.org';
 }

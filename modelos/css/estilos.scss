@@ -504,6 +504,8 @@ input.error{
   color: #118c86;
 }
 /* Form Cita */
+.ui-datepicker{ z-index: 9999 !important;}
+.dis{pointer-events:none}
 .card.form{
   border-top: 20px solid #FAC2BF;
 }
@@ -1212,11 +1214,22 @@ input.error{
   .renglon:last-of-type{
     border-top: 1px solid white;
   }
-  .navegacionCitas{
+  .infoNavegacion span{
     display: none;
+  }
+  .navegacionCitas{
+    padding: 15px;
+    background: #ffffff00 0% 0% no-repeat padding-box;
+    box-shadow: none;
   }
   #infoCita{
     order: 10;
+  }
+  .masto-cita{
+    p{
+      margin-bottom: 0px;
+      font-size: 14px;
+    }
   }
   .movilOrden{
     display: flex;
@@ -1265,6 +1278,10 @@ input.error{
     height: 150px;
     width: 100%;
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner%20movil%20lp%20lentes.png');
+  }
+  #reagendar-inputs .row{
+    flex-direction: column;
+    padding-right: 15px;
   }
   .sumarEstudios.sumarPKT{
     background: #FFFFFF 0% 0% no-repeat padding-box;
