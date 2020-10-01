@@ -453,7 +453,7 @@ function saveValuesPaquetes(){
 function quitarPKT(pkt){
     clearPkts();
     if(pkt==1){
-        $(".pktPapa").toggle("d-none");
+        $("#pktPapa").toggle("d-none");
         $("#addPKT").prop("disabled", false);
         $("#addPapa").show()
 
@@ -461,7 +461,7 @@ function quitarPKT(pkt){
         saveValuesPaquetes();
         startResumen();
     }else{
-        $(".pktMujer").toggle("d-none");
+        $("#pktMujer").toggle("d-none");
         $("#addPapa").prop("disabled", false);
         $("#addPKT").show()
         togglePkt=false;
