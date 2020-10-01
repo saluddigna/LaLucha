@@ -854,6 +854,7 @@
 .icono-minus:before { content: '\eb54'; } /* '' */
 .icono-instagram-13:before { content: '\eb55'; } /* '' */
 .icono-trash-6:before { content: '\eb56'; } /* '' */
+.icono-mail-7:before { content: '\eb57'; } /* '' */
 .icono-rango-de-fechas:before { content: '\eb64'; } /* '' */
 .icono-filtro:before { content: '\eb65'; } /* '' */
 .icono-pago-en-linea:before { content: '\eb69'; } /* '' */
@@ -865,6 +866,8 @@
 .icono-covid-19:before { content: '\eb72'; } /* '' */
 .icono-accesibilidad:before { content: '\eb75'; } /* '' */
 .icono-pregunta:before { content: '\eb77'; } /* '' */
+.icono-perfil-mujer:before { content: '\eb78'; } /* '' */
+.icono-call:before { content: '\eb79'; } /* '' */
 .icono-cancer-prostata-hombre:before { content: '\ebfa'; } /* '' */
 .icono-download-3:before { content: '\f02e'; } /* '' */
 .icono-facebook-3:before { content: '\f052'; } /* '' */
@@ -884,5 +887,6 @@
 .icono-instagram-3:before { content: '\f16d'; } /* '' */
 .icono-history:before { content: '\f1da'; } /* '' */
 .icono-trash:before { content: '\f1f8'; } /* '' */
+.icono-sexo-mujer:before { content: '\f221'; } /* '' */
 .icono-whatsapp:before { content: '\f232'; } /* '' */
 .icono-instagram-2:before { content: '\f32d'; } /* '' */

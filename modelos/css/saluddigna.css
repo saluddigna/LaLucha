@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'saluddigna';
-  src: url('../font/saluddigna.eot?41160688');
-  src: url('../font/saluddigna.eot?41160688#iefix') format('embedded-opentype'),
-       url('../font/saluddigna.woff2?41160688') format('woff2'),
-       url('../font/saluddigna.woff?41160688') format('woff'),
-       url('../font/saluddigna.ttf?41160688') format('truetype'),
-       url('../font/saluddigna.svg?41160688#saluddigna') format('svg');
+  src: url('../font/saluddigna.eot?52578781');
+  src: url('../font/saluddigna.eot?52578781#iefix') format('embedded-opentype'),
+       url('../font/saluddigna.woff2?52578781') format('woff2'),
+       url('../font/saluddigna.woff?52578781') format('woff'),
+       url('../font/saluddigna.ttf?52578781') format('truetype'),
+       url('../font/saluddigna.svg?52578781#saluddigna') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'saluddigna';
-    src: url('../font/saluddigna.svg?41160688#saluddigna') format('svg');
+    src: url('../font/saluddigna.svg?52578781#saluddigna') format('svg');
   }
 }
 */
@@ -910,6 +910,7 @@
 .icono-minus:before { content: '\eb54'; } /* '' */
 .icono-instagram-13:before { content: '\eb55'; } /* '' */
 .icono-trash-6:before { content: '\eb56'; } /* '' */
+.icono-mail-7:before { content: '\eb57'; } /* '' */
 .icono-rango-de-fechas:before { content: '\eb64'; } /* '' */
 .icono-filtro:before { content: '\eb65'; } /* '' */
 .icono-pago-en-linea:before { content: '\eb69'; } /* '' */
@@ -921,6 +922,8 @@
 .icono-covid-19:before { content: '\eb72'; } /* '' */
 .icono-accesibilidad:before { content: '\eb75'; } /* '' */
 .icono-pregunta:before { content: '\eb77'; } /* '' */
+.icono-perfil-mujer:before { content: '\eb78'; } /* '' */
+.icono-call:before { content: '\eb79'; } /* '' */
 .icono-cancer-prostata-hombre:before { content: '\ebfa'; } /* '' */
 .icono-download-3:before { content: '\f02e'; } /* '' */
 .icono-facebook-3:before { content: '\f052'; } /* '' */
@@ -940,5 +943,6 @@
 .icono-instagram-3:before { content: '\f16d'; } /* '' */
 .icono-history:before { content: '\f1da'; } /* '' */
 .icono-trash:before { content: '\f1f8'; } /* '' */
+.icono-sexo-mujer:before { content: '\f221'; } /* '' */
 .icono-whatsapp:before { content: '\f232'; } /* '' */
 .icono-instagram-2:before { content: '\f32d'; } /* '' */

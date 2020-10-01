@@ -1511,3 +1511,10 @@ input.error{
   border: none;
   color: #fff;
 }
+.estudioSeleccionado i{
+  font-size: 45px;
+  color: #EAA6A6;
+}
+.estudioSeleccionado.active i{
+  color: #fff;
+}

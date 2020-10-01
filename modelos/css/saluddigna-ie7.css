@@ -865,6 +865,7 @@
 .icono-minus { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb54;&nbsp;'); }
 .icono-instagram-13 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb55;&nbsp;'); }
 .icono-trash-6 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb56;&nbsp;'); }
+.icono-mail-7 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb57;&nbsp;'); }
 .icono-rango-de-fechas { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb64;&nbsp;'); }
 .icono-filtro { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb65;&nbsp;'); }
 .icono-pago-en-linea { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb69;&nbsp;'); }
@@ -876,6 +877,8 @@
 .icono-covid-19 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb72;&nbsp;'); }
 .icono-accesibilidad { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb75;&nbsp;'); }
 .icono-pregunta { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb77;&nbsp;'); }
+.icono-perfil-mujer { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb78;&nbsp;'); }
+.icono-call { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xeb79;&nbsp;'); }
 .icono-cancer-prostata-hombre { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xebfa;&nbsp;'); }
 .icono-download-3 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf02e;&nbsp;'); }
 .icono-facebook-3 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf052;&nbsp;'); }
@@ -895,5 +898,6 @@
 .icono-instagram-3 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf16d;&nbsp;'); }
 .icono-history { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf1da;&nbsp;'); }
 .icono-trash { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf1f8;&nbsp;'); }
+.icono-sexo-mujer { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf221;&nbsp;'); }
 .icono-whatsapp { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf232;&nbsp;'); }
 .icono-instagram-2 { *zoom: expression( this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#xf32d;&nbsp;'); }
