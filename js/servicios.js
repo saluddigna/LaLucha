@@ -58,7 +58,8 @@ function getHorarios(body) {
         error: function (jqXHR, textStatus, errorThrown) {
         }
     });
-    if(arrHorarios.estatus){
+    console.log(arrHorarios);
+    if(arrHorarios.estatusAPI && arrHorarios.estatus){
         arrHorarios.horarios[0].Horarios.map(x=>
         {
             var index=x.Hora.indexOf("-");
@@ -241,6 +242,31 @@ function cancelarCitaService(body){
     $.ajax({
         type: 'POST',
         url: configUrl+'cita/cancelar',
+        contentType: 'application/json',
+        data: JSON.stringify(body),
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', sesion);
+        },
+        async: false,
+        success: function (response) {
+            resp=response;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR,textStatus,errorThrown)
+        }
+    });
+    return resp;
+}
+
+
+
+function getPerfil(body){
+    // console.log(JSON.stringify(body))
+    var resp = [];
+    $.ajax({
+        type: 'POST',
+        url: configUrl+'paciente/perfil',
         contentType: 'application/json',
         data: JSON.stringify(body),
         dataType: 'json',

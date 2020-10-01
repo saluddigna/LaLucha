@@ -1,6 +1,9 @@
 function startResumen(){
     $("#tuplas").empty();
     if(global.data.cita.Estudios.length==1){
+      $("#rayaHumano-masto").addClass("active");
+      $("#rayaHumano-papa").removeClass("active");
+      $("#rayaHumano-densi").removeClass("active");
       var estudio = $("<td width='33%'> -" +  global.data.cita.Estudios[0].Nombre + "</td>)");
       var fecha = $("<td width='33%' align='center'>" + global.data.cita.Estudios[0].Fecha + " " +global.data.cita.Estudios[0].Hora+ "</td>)");
       var precio = $("<td width='33%' align='right'> $ 220.00 </td>)");
@@ -14,6 +17,10 @@ function startResumen(){
   
     }
     else if (global.data.cita.Estudios.length==2){
+      $("#rayaHumano-masto").addClass("active");
+      $("#rayaHumano-papa").addClass("active");
+      $("#rayaHumano-densi").removeClass("active");
+
         var estudio = $("<td width='33%'> -" +  global.data.cita.Estudios[0].Nombre + "</td>)");
         var fecha = $("<td width='33%' align='center'>" + global.data.cita.Estudios[0].Fecha + " " +global.data.cita.Estudios[0].Hora+ "</td>)");
         var precio = $("<td width='33%' align='right'> $ 220.00 </td>)");
@@ -34,10 +41,15 @@ function startResumen(){
         $('#totalP').text("$ 300.00"); 
     }
     else if(global.data.cita.Estudios.length==3){
+
+      $("#rayaHumano-masto").addClass("active");
+      $("#rayaHumano-papa").addClass("active");
+      $("#rayaHumano-densi").addClass("active");
+
       $("#tuplas").append("<tr>");
       $("#tuplas").append("<td> Paquete Mujer: </td>)");
       $("#tuplas").append("<td></td>");
-      $("#tuplas").append($("<td width='33%' align='right'> $ 380.00 </td>)"));
+      $("#tuplas").append($("<td width='33%' align='right'> $ 420.00 </td>)"));
       $("#tuplas").append("</tr>");
   
       $.each(global.data.cita.Estudios, function(index, value) {       
@@ -50,7 +62,7 @@ function startResumen(){
             $("#tuplas").append("<td></td>");
             $("#tuplas").append("</tr>"); 
       })
-      $('#descuento').text("$ 70.00");  
+      $('#descuento').text("$ 40.00");  
       $('#totalP').text("$ 380.00");  
     }
   }

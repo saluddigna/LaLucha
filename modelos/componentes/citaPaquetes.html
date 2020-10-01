@@ -36,7 +36,7 @@
 <div class="d-flex row">
   <div class="combobox">
     <div class="cajas-texto">
-      <input type="date" class="input-sd valido" id="fechaCita" data-parsley-required="true" >
+      <input type="text" class="input-sd valido" id="fechaCita" data-parsley-required="true" >
       <span class="floating-label">Fecha</span>
     </div>
   </div>
@@ -73,7 +73,7 @@
         <div class="d-flex row">
           <div class="combobox">
             <div class="cajas-texto">
-              <input type="date" class="input-sd valido" id="fechaCitaPapa_pkt1" data-parsley-required="true">
+              <input type="text" class="input-sd valido" id="fechaCitaPapa_pkt1" data-parsley-required="true">
               <span class="floating-label">Fecha</span>
             </div>
           </div>
@@ -109,7 +109,7 @@
         <div class="d-flex row">
           <div class="combobox">
             <div class="cajas-texto">
-              <input type="date" class="input-sd valido" id="fechaCitaPapa_pkt2" data-parsley-required="true">
+              <input type="text" class="input-sd valido" id="fechaCitaPapa_pkt2" data-parsley-required="true">
               <span class="floating-label">Fecha</span>
             </div>
           </div>
@@ -126,7 +126,7 @@
         <div class="d-flex row">
           <div class="combobox">
             <div class="cajas-texto">
-              <input type="date" class="input-sd valido" id="fechaCitaDensi_pkt2" data-parsley-required="true">
+              <input type="text" class="input-sd valido" id="fechaCitaDensi_pkt2" data-parsley-required="true">
               <span class="floating-label">Fecha</span>
             </div>
           </div>
@@ -144,6 +144,7 @@
     </div>
   </div>
 </div>
+<div class="confirmPKT">
 <div class="d-flex justify-center align-center sd-group-check">
   <div class="sd-item">
     <input id="chk" type="checkbox" name="no-paquete">
@@ -155,7 +156,8 @@
     </label>
 </div>
 </div>
-
+<div class="d-flex justify-center align-center" id="check-error"></div>
+</div>
 <div id="resumen_cita">
     
 </div>

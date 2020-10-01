@@ -3,10 +3,60 @@ var densitometria=null;
 var papanicolao=null;
 var dataUser=null;
 var datosAgregar={};
-// $(document).ready(function () {
-//     if(Conekta)
-//       Conekta.setPublicKey(conektaKey);
-//   })
+var date = moment.utc().format();
+var minDate = moment.utc(date).local().format("YYYY-MM-DD");
+
+var reag_masto=` <div class="d-flex row">
+<div class="combobox">
+<div class="cajas-texto">
+    <input type="date" class="input-sd valido" id="reagendarMasto-fecha">
+    <span class="floating-label">Fecha de tu cita</span>
+</div>
+</div>
+<div class="combobox">
+<div class="cajas-texto">
+    <select id="reagendarMasto-Hora" class="input-sd valido" >
+    <option hidden selected>Horarios disponibles</option>
+    </select>
+    <span class="floating-label">Hora de tu cita</span>
+</div>
+</div>
+</div>`;
+
+var reag_papa=` <div class="d-flex row">
+<div class="combobox">
+<div class="cajas-texto">
+    <input type="date" class="input-sd valido" id="reagendarPapa-fecha">
+    <span class="floating-label">Fecha de tu cita</span>
+</div>
+</div>
+<div class="combobox">
+<div class="cajas-texto">
+    <select id="reagendarPapa-Hora" class="input-sd valido" >
+    <option hidden selected>Horarios disponibles</option>
+    </select>
+    <span class="floating-label">Hora de tu cita</span>
+</div>
+</div>
+</div>`;
+
+var reag_densi=` <div class="d-flex row">
+<div class="combobox">
+<div class="cajas-texto">
+    <input type="date" class="input-sd valido" id="reagendarDensi-fecha">
+    <span class="floating-label">Fecha de tu cita</span>
+</div>
+</div>
+<div class="combobox">
+<div class="cajas-texto">
+    <select id="reagendarDensi-Hora" class="input-sd valido" >
+    <option hidden selected>Horarios disponibles</option>
+    </select>
+    <span class="floating-label">Hora de tu cita</span>
+</div>
+</div>
+</div>`;
+
 function folio_cancelada(){
     $('#folios_papa').hide();
     $('#folios_masto').hide();
@@ -15,6 +65,7 @@ function folio_cancelada(){
     $('#cita_cancelada').text("CANCELADA");
 }
 function startPerfil(){
+    console.log('startPerfil');
     dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
     console.log(dataUser);
     if(!dataUser){
@@ -25,67 +76,19 @@ function startPerfil(){
         redirectLogin();
         return
     }
+    refreshDataPerfil();
+    
+
     $('#lentes-agregar').hide();
-    $('#paquete-agregar').hide();
+    $('#sumarEstudios').hide();
+
+    $('#folios_masto').show();
+    $('#folios_papa').show();
+    $('#folios_densi').show();
     
     mastografia=getEstudio(3,dataUser.datosCita.clinica.IdSucursal);
     densitometria=getEstudio(1,dataUser.datosCita.clinica.IdSucursal);
     papanicolao=getEstudio(4,dataUser.datosCita.clinica.IdSucursal);
-    var date = moment.utc().format();
-    var minDate = moment.utc(date).local().format("YYYY-MM-DD");
-
-    var reag_masto=` <div class="d-flex row">
-    <div class="combobox">
-    <div class="cajas-texto">
-        <input type="date" class="input-sd valido" id="reagendarMasto-fecha">
-        <span class="floating-label">Fecha de tu cita</span>
-    </div>
-    </div>
-    <div class="combobox">
-    <div class="cajas-texto">
-        <select id="reagendarMasto-Hora" class="input-sd valido" >
-        <option hidden selected>Horarios disponibles</option>
-        </select>
-        <span class="floating-label">Hora de tu cita</span>
-    </div>
-    </div>
-    </div>`;
-
-    var reag_papa=` <div class="d-flex row">
-    <div class="combobox">
-    <div class="cajas-texto">
-        <input type="date" class="input-sd valido" id="reagendarPapa-fecha">
-        <span class="floating-label">Fecha de tu cita</span>
-    </div>
-    </div>
-    <div class="combobox">
-    <div class="cajas-texto">
-        <select id="reagendarPapa-Hora" class="input-sd valido" >
-        <option hidden selected>Horarios disponibles</option>
-        </select>
-        <span class="floating-label">Hora de tu cita</span>
-    </div>
-    </div>
-    </div>`;
-
-    var reag_densi=` <div class="d-flex row">
-    <div class="combobox">
-    <div class="cajas-texto">
-        <input type="date" class="input-sd valido" id="reagendarDensi-fecha">
-        <span class="floating-label">Fecha de tu cita</span>
-    </div>
-    </div>
-    <div class="combobox">
-    <div class="cajas-texto">
-        <select id="reagendarDensi-Hora" class="input-sd valido" >
-        <option hidden selected>Horarios disponibles</option>
-        </select>
-        <span class="floating-label">Hora de tu cita</span>
-    </div>
-    </div>
-    </div>`;
-
-
 
 
     $('#perfil-nombre').text(dataUser.datosPaciente.Nombre +" "+dataUser.datosPaciente.Paterno+" "+dataUser.datosPaciente.Materno);
@@ -97,8 +100,7 @@ function startPerfil(){
 
     $('#perfil-clincaReagendar').text(dataUser.datosCita.clinica.Direccion);
 
-
-
+    console.log('LENGTH PERFIL',dataUser.datosCita.estudios.length)
     if(dataUser.datosCita.estudios.length==1){
         $('#reagendar-titulo').text("¿Cuándo deseas realizar tu Mastografía?");
 
@@ -106,13 +108,13 @@ function startPerfil(){
         $('#folios_densi').hide();
         if(dataUser.datosCita.estatus){
             $('#lentes-agregar').hide();
-            $('#paquete-agregar').show();
+            $('#sumarEstudios').show();
             $('#folio_nombre_masto').text(dataUser.datosCita.estudios[0].nombre);
-            $('#folio_masto').text(dataUser.datosCita.estudios[0].folio);
+            $('#folio_masto').text(dataUser.datosCita.estudios[0].idCita);
             $('#perfil-fechaCita-masto').text(dataUser.datosCita.estudios[0].fecha+" "+dataUser.datosCita.estudios[0].hora);
         }else{
             $('#lentes-agregar').show();
-            $('#paquete-agregar').hide();
+            $('#sumarEstudios').hide();
             folio_cancelada()
         }
         $("#reagendar-inputs").empty();
@@ -135,14 +137,14 @@ function startPerfil(){
     }else if(dataUser.datosCita.estudios.length==2){
         $('#folios_densi').hide();
         $('#lentes-agregar').show();
-        $('#paquete-agregar').hide();
+        $('#sumarEstudios').hide();
         if(dataUser.datosCita.estatus){
             $('#folio_nombre_masto').text(dataUser.datosCita.estudios[0].nombre);
-            $('#folio_masto').text(dataUser.datosCita.estudios[0].folio);
+            $('#folio_masto').text(dataUser.datosCita.estudios[0].idCita);
             $('#perfil-fechaCita-masto').text(dataUser.datosCita.estudios[0].fecha+" "+dataUser.datosCita.estudios[0].hora);
 
             $('#folio_nombre_papa').text(dataUser.datosCita.estudios[1].nombre);
-            $('#folio_papa').text(dataUser.datosCita.estudios[1].folio);
+            $('#folio_papa').text(dataUser.datosCita.estudios[1].idCita);
             $('#perfil-fechaCita-papa').text(dataUser.datosCita.estudios[1].fecha+" "+dataUser.datosCita.estudios[1].hora);
         }
         else{
@@ -170,17 +172,18 @@ function startPerfil(){
     }else if(dataUser.datosCita.estudios.length==3){
         $('#lentes-agregar').show();
         $('#paquete-agregar').hide();
+
         if(dataUser.datosCita.estatus){
             $('#folio_nombre_masto').text(dataUser.datosCita.estudios[0].nombre);
-            $('#folio_masto').text(dataUser.datosCita.estudios[0].folio);
+            $('#folio_masto').text(dataUser.datosCita.estudios[0].idCita);
             $('#perfil-fechaCita-masto').text(dataUser.datosCita.estudios[0].fecha+" "+dataUser.datosCita.estudios[0].hora);
 
             $('#folio_nombre_papa').text(dataUser.datosCita.estudios[1].nombre);
-            $('#folio_papa').text(dataUser.datosCita.estudios[1].folio);
+            $('#folio_papa').text(dataUser.datosCita.estudios[1].idCita);
             $('#perfil-fechaCita-papa').text(dataUser.datosCita.estudios[1].fecha+" "+dataUser.datosCita.estudios[1].hora);
 
             $('#folio_nombre_densi').text(dataUser.datosCita.estudios[2].nombre);
-            $('#folio_densi').text(dataUser.datosCita.estudios[2].folio);
+            $('#folio_densi').text(dataUser.datosCita.estudios[2].idCita);
             $('#perfil-fechaCita-densi').text(dataUser.datosCita.estudios[2].fecha+" "+dataUser.datosCita.estudios[2].hora);
         }else{
             folio_cancelada()
@@ -327,6 +330,7 @@ function reagendar(){
 
     sessionStorage.clear();
     sessionStorage.setItem('dataUser', JSON.stringify(result))
+    dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
     startPerfil();
 
     $("#reagendarFechas").addClass("d-none");
@@ -392,7 +396,7 @@ function pagarPKT(){
         return;
       }
     saveAndPay()
-    rutaPagoCompletado();
+    
 }
 
 function Cancelar(){
@@ -400,10 +404,10 @@ function Cancelar(){
         idCita:dataUser.datosCita.idCita
     }
     var res=cancelarCitaService(body)
+    console.log('repuestaCancelar:',res)
     sessionStorage.clear()
     sessionStorage.setItem('dataUser', JSON.stringify(res.perfil))
-    // startPerfil();
-    // console.log(res)
+    dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
     cerrarCancelar();
     startPerfil();
 }
@@ -541,10 +545,13 @@ function quitarLoading(){
     // console.log(dataAgregar);
 
     var res=agregarEstudiosService(dataAgregar);
-    console.log(res);
-    // sessionStorage.clear()
-    // sessionStorage.setItem('dataUser', JSON.stringify(res))
-    // startPerfil();
+    console.log('respuestaAgregar',res);
+    sessionStorage.clear()
+    sessionStorage.setItem('dataUser', JSON.stringify(res))
+    dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
+    rutaPagoCompletado();
+    startPerfil()
+    // setTimeout(function() { startPerfil(); }, 1000);
  }
 
  function validacionesHorarios(){
@@ -566,4 +573,21 @@ function quitarLoading(){
     }
  }
 
- 
+ function loadAgregarPagados(){
+    $('#folio_papa_pagada').text(dataUser.datosCita.estudios[1].idCita)
+    $('#fecha_papa_pagada').text(dataUser.datosCita.estudios[1].fecha+" "+dataUser.datosCita.estudios[1].hora)
+
+    $('#folio_densi_pagada').text(dataUser.datosCita.estudios[2].idCita)
+    $('#fecha_densi_pagada').text(dataUser.datosCita.estudios[2].fecha+" "+dataUser.datosCita.estudios[2].hora)
+ }
+
+ function refreshDataPerfil(){
+    body={correoElectronico:dataUser.datosPaciente.CorreoElectronico}
+    console.log(body)
+    dataUser=getPerfil(body)
+    sessionStorage.clear();
+    sessionStorage.setItem('dataUser', JSON.stringify(dataUser))
+}
+function irLentes(){
+    top.location.href = 'https://lentes.salud-digna.org';
+}
