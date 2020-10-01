@@ -13,6 +13,7 @@ $(document).ready(function () {
   $("#infoCita").load('./modelos/componentes/infoCita.html', function () {});
   $("#formCita").load('./modelos/componentes/formCita.html', function () {
     $("#cita_regresar").hide();
+     $(".overlay_loading").css("display", "flex")
     global.clinicas=getClinicas();
     global.estados=getEstados();
     paso = 1;
@@ -74,6 +75,7 @@ function anteriorPaso() {
 function setPaso() {
   var text = paso + " de 3";
   $("#pag").text(text);
+  $(".overlay_loading").css("display", "none")
 }
 
 function cambioPaso(){

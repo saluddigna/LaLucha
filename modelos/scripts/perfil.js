@@ -68,6 +68,7 @@ function folio_cancelada(){
     $('#cita_cancelada').text("CANCELADA");
 }
 function startPerfil(){
+    setTimeout(function() { quitarLoadingInputs(); }, 1500);
     console.log('startPerfil');
     dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
     console.log(dataUser);
@@ -362,11 +363,13 @@ function validaDatosReagendar(){
     // return true;
 }
 function reagendar(){
+
     var validacion = validaDatosReagendar()
     console.log(validacion)
     if(!validacion){
         return;
     }
+    agregarLoadingInputs()
     var body={}
     if(dataUser.datosCita.estudios.length==1){
     body={
@@ -429,7 +432,7 @@ function reagendar(){
     console.log(JSON.stringify(body));
     var result=ReagendarCita(body);
     console.log(result);
-
+    setTimeout(function() { quitarLoadingInputs(); }, 1500);
     // sessionStorage.clear();
     // sessionStorage.setItem('dataUser', JSON.stringify(result))
     // dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
@@ -502,10 +505,12 @@ function agregarPKT2(){
 function pagarPKT(){
     $("#btn-pagar").hide()
     validaAgregarPago()
+    agregarLoadingInputs();
     Conekta.setPublicKey(conektaKey);
     if(!validateConekta()){
         console.log('errorValidacionesConekta')
-        $("#btn-pagar").show()      
+        $("#btn-pagar").show()
+        setTimeout(function() { quitarLoadingInputs(); }, 1500);
         return;
       }
     saveAndPay()
@@ -513,33 +518,39 @@ function pagarPKT(){
 }
 
 function Cancelar(){
+    agregarLoadingInputs()
     body={
         idCita:dataUser.datosCita.idCita
     }
     var res=cancelarCitaService(body)
+    if(res!=null)
+        setTimeout(function() { quitarLoadingInputs(); }, 1500);
+
     console.log('repuestaCancelar:',res)
     sessionStorage.clear()
     sessionStorage.setItem('dataUser', JSON.stringify(res.perfil))
     dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
     cerrarCancelar();
     startPerfil();
+
 }
 
 function getHorariosDisponibles(body,selector){
-    var horarios=getHorarios(body)
-    var optionsAsString="";
-    console.log('RespuestaHorarios: '+horarios)
-    if(horarios.length==0){
-        optionsAsString = "<option hidden selected>Horarios agotados</option>";   
-        $(selector).prop('disabled',true) 
-    }else{
-        optionsAsString = "<option hidden selected>Selecciona una opción</option>";
-        $(selector).prop('disabled',false) 
-    }
-    for(var i = 0; i < horarios.length; i++) {
-        optionsAsString += "<option value='" + horarios[i].Id + "' data-hora='"+horarios[i].Hora+"'>" + horarios[i].Hora + "</option>";
-    }
-    $(selector).empty().append(optionsAsString);
+    agregarLoadingInputs()
+   var horarios=getHorarios(body)
+   var optionsAsString="";
+   if(horarios.length==0){
+       optionsAsString = "<option hidden selected>Horarios agotados</option>";   
+       $(selector).prop('disabled',true) 
+   }else{
+       optionsAsString = "<option hidden selected>Selecciona una opción</option>";
+       $(selector).prop('disabled',false) 
+   }
+   for(var i = 0; i < horarios.length; i++) {
+       optionsAsString += "<option value='" + horarios[i].Id + "' data-hora='"+horarios[i].Hora+"'>" + horarios[i].Hora + "</option>";
+   }
+   $(selector).empty().append(optionsAsString);
+   setTimeout(function() { quitarLoadingInputs(); }, 1000);
 }
 
 
@@ -671,10 +682,12 @@ function quitarLoading(){
         sessionStorage.setItem('dataUser', JSON.stringify(res))
         dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
         $("#btn-pagar").show()
+        setTimeout(function() { quitarLoadingInputs(); }, 1500);
         rutaPagoCompletado();
         startPerfil()
     }else{
         $("#btn-pagar").show()
+        setTimeout(function() { quitarLoadingInputs(); }, 1500);
     }
     // setTimeout(function() { startPerfil(); }, 1000);
  }

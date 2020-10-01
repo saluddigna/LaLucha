@@ -136,3 +136,11 @@ function redirectCambiarContra(){
   $("#contenedorLogIn").load('./modelos/componentes/nuevaPassListo.html');
 }
 
+
+function quitarLoadingInputs(){
+  $(".overlay_loading").css("display", "none")
+}
+
+function agregarLoadingInputs(){
+  $(".overlay_loading").css("display", "flex")
+}
