@@ -72,10 +72,12 @@
         
         <p class="text-18 text-bold" id="reagendar-titulo"></p>
         <p>Al reagendar tu cita debes acudir a <span id="perfil-clincaReagendar"></span></p>
-        <div id="reagendar-inputs">
+        <form id="form-reagendar"  autocomplete="off">
+          <div id="reagendar-inputs">
 
-        </div>      
-        <button class="btn btn-pink" onclick="reagendar()">Reagendar cita</button>
+          </div> 
+        </form>   
+        <button type="button" class="btn btn-pink" onclick="reagendar()">Reagendar cita</button>
       </div>
       <div id="reagendarAceptar" class="d-none">
         <h4 class="text-center text-bold">Tu cita ha sido confirmada</h4>

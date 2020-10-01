@@ -1,16 +1,22 @@
 global={};
-  global.data={}
-  global.data.cita={};
-  global.data.cita.Estudios=[];
-  global.clinicas=[];
-  global.estados=[];
-  global.dataClinica=[];
-  mastografia=null;
-  densitometria=null;
-  papanicolao=null;
-  global.perfil={};
+global.data={}
+global.data.cita={};
+global.data.cita.Estudios=[];
+global.clinicas=[];
+global.estados=[];
+global.dataClinica=[];
+mastografia=null;
+densitometria=null;
+papanicolao=null;
+global.perfil={};
+dataUser=null
+try{
+  dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
+}
+catch{
 
-dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
+}
+
 
 idSesion="1dnni3hgu9iggbdktdlpfb19u4";
 conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';

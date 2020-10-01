@@ -80,6 +80,12 @@ function cambioPaso(){
   top.location.href = '#top';
   if(paso == 1) {
     $("#citas").load('./modelos/componentes/citaPaquetes.html',function(){
+      if(window.innerWidth>500){
+        $("#info-paquetes").load('./modelos/componentes/pkt.html',function(){});
+      }
+      else{
+        $("#info-paquetes").load('./modelos/componentes/pktMovil.html',function(){});
+      }
       $("#resumen_cita").load('./modelos/componentes/resumenCita.html',function(){
         $("#content-paquetes").hide();
         $("#cita_regresar").hide();

@@ -69,7 +69,7 @@ function getHorarios(body) {
         return arrHorarios.horarios[0].Horarios;
     }
     else{
-        console.log(arrHorarios.mensaje);
+        // console.log(arrHorarios.mensaje);
         return [];
     }
 };
@@ -207,6 +207,7 @@ function ReagendarCita(body){
             resp=response;
         },
         error: function (jqXHR, textStatus, errorThrown) {
+            resp=null
             console.log(jqXHR,textStatus,errorThrown)
         }
     });

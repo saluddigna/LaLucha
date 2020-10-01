@@ -472,7 +472,7 @@ function agregarPapa(){
 
 var togglePkt=false;
 function agregarPKT(){
-    $(".pktMujer").toggle("d-none");
+    $("#pktMujer").toggle("d-none");
     $("#addPapa").prop("disabled", true);
     $("#addPKT").hide()
     togglePapa=false;

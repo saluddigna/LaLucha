@@ -1,0 +1,85 @@
+<div class="paqueteMovil paquete1">
+    <img class="imagenPKTMovil" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner%20movil%20lp%20lentes.png" alt="imagen paquete Papanicolaou">
+    <p class="descripcionPKTMovil">Por $150 más agrega el Papanicolaou</p>
+    <span class="totalPKTMovil">Total <br>
+    <b class="precioPKTMovil">$300</b></span>
+    <div class="pktPapa d-none">
+      <span class="quitarPKTMovil" onclick="quitarPKT(1)">Quitar paquete</span>
+      <div class="avisoPKT">
+        <i>ico-info</i>
+        <p>El paquete que seleccionaste es solamente pago EN LÍNEA.</p>
+      </div>
+      <b>Selecciona un horario:</b><br>
+      <b>Papanicolaou</b>
+      <div class="d-flex row flex-column">
+        <div class="combobox">
+          <div class="cajas-texto">
+            <input type="text" class="input-sd valido" id="fechaCitaPapa_pkt1" data-parsley-required="true">
+            <span class="floating-label">Fecha</span>
+          </div>
+        </div>
+        <div class="combobox">
+          <div class="cajas-texto">
+            <select id="selectHorarioPapa_pkt1" class="input-sd valido" data-parsley-min = "1">
+              <option hidden selected>Selecciona una opción</option>
+            </select>
+            <span class="floating-label">Hora</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="botonesPKT">
+      <button id="addPapa" type="button" class="btn btn-default btn-pink-outline" onclick="agregarPapa()">Agregar</button>
+    </div>
+  </div>
+  <div class="paqueteMovil paquete2">
+    <img class="imagenPKTMovil" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner%20movil%20lp%20lentes.png" alt="imagen paquete Papanicolaou">
+    <p class="descripcionPKTMovil">Por $230 más agrega el Papanicolaou + Densitometría</p>
+    <span class="totalPKTMovil">Total <br>
+    <b class="precioPKTMovil">$380</b></span>
+    <div class="pktMujer d-none" id="pktMujer">
+      <span class="quitarPKTMovil" onclick="quitarPKT(2)">Quitar paquete</span>
+      <div class="avisoPKT">
+        <i>ico-info</i>
+        <p>El paquete que seleccionaste es solamente pago EN LÍNEA.</p>
+      </div>
+      <b>Selecciona un horario:</b><br>
+      <b>Papanicolaou</b>
+      <div class="d-flex row flex-column">
+        <div class="combobox">
+          <div class="cajas-texto">
+            <input type="text" class="input-sd valido" id="fechaCitaPapa_pkt2" data-parsley-required="true">
+            <span class="floating-label">Fecha</span>
+          </div>
+        </div>
+        <div class="combobox">
+          <div class="cajas-texto">
+            <select id="selectHorarioPapa_pkt2" class="input-sd valido" data-parsley-min = "1">
+              <option hidden selected>Selecciona una opción</option>
+            </select>
+            <span class="floating-label">Hora</span>
+          </div>
+        </div>
+      </div>
+      <b>Densitometría</b>
+      <div class="d-flex row flex-column">
+        <div class="combobox">
+          <div class="cajas-texto">
+            <input type="text" class="input-sd valido" id="fechaCitaDensi_pkt2" data-parsley-required="true">
+            <span class="floating-label">Fecha</span>
+          </div>
+        </div>
+        <div class="combobox">
+          <div class="cajas-texto">
+            <select id="selectHorarioDensi_pkt2" class="input-sd valido" data-parsley-min = "1">
+              <option hidden selected>Selecciona una opción</option>
+            </select>
+            <span class="floating-label">Hora</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="botonesPKT">
+      <button id="addPKT" type="button" class="btn btn-default btn-pink-outline" onclick="agregarPKT()">Agregar</button>
+    </div>
+  </div>
