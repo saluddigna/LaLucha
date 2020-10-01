@@ -28,7 +28,7 @@ var reag_papa=`<div id="reagendarPapa-name"><b>PAPANICOLAOU</b></div>
  <div class="d-flex row">
 <div class="combobox">
 <div class="cajas-texto">
-    <input type="date" class="input-sd valido" id="reagendarPapa-fecha" data-parsley-required="true" >
+    <input type="text" class="input-sd valido" id="reagendarPapa-fecha" data-parsley-required="true" >
     <span class="floating-label">Fecha de tu cita</span>
 </div>
 </div>
@@ -46,7 +46,7 @@ var reag_densi=`<div id="reagendarDensi-name"><b>DENSITOMETRIA</b></div>
  <div class="d-flex row">
 <div class="combobox">
 <div class="cajas-texto">
-    <input type="date" class="input-sd valido" id="reagendarDensi-fecha" data-parsley-required="true">
+    <input type="text" class="input-sd valido" id="reagendarDensi-fecha" data-parsley-required="true">
     <span class="floating-label">Fecha de tu cita</span>
 </div>
 </div>
@@ -374,7 +374,7 @@ function reagendar(){
         Estudios : [
             {
                 IdCitaSisPrev: dataUser.datosCita.estudios[0].idCitaSisPrev,
-                Fecha: $("#reagendarMasto-fecha").val(),
+                Fecha: moment($("#reagendarMasto-fecha").val()).format('YYYY-MM-DD'),
                 HorarioText: $(':selected', '#reagendarMasto-Hora').attr("data-hora"),
                 IdHorario: parseInt($("#reagendarMasto-Hora").val())
             }
@@ -387,13 +387,13 @@ function reagendar(){
             Estudios: [
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[0].idCitaSisPrev,
-                    Fecha: $("#reagendarMasto-fecha").val(),
+                    Fecha: moment($("#reagendarMasto-fecha").val()).format('YYYY-MM-DD'),
                     HorarioText: $(':selected', '#reagendarMasto-Hora').attr("data-hora"),
                     IdHorario: parseInt($("#reagendarMasto-Hora").val())
                 },
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[1].idCitaSisPrev,
-                    Fecha: $("#reagendarPapa-fecha").val(),
+                    Fecha:moment($("#reagendarPapa-fecha").val()).format('YYYY-MM-DD'), 
                     HorarioText: $(':selected', '#reagendarPapa-Hora').attr("data-hora"),
                     IdHorario: parseInt($("#reagendarPapa-Hora").val())
                 }
@@ -426,6 +426,7 @@ function reagendar(){
         }
     }
     console.log(body);
+    console.log(JSON.stringify(body));
     var result=ReagendarCita(body);
     console.log(result);
 
@@ -721,4 +722,25 @@ function startDatesPickerPerfil(){
             $("#reagendarDensi-fecha").addClass("lleno")
         },
     })
+}
+function descargarTicket() {
+    $("#acciones").hide();
+    $(".cerrarSesion").hide()
+    let folio = document.getElementById("miPerfil")
+    let ventana = window.open('', 'PRINT', 'height=400,width=600')
+    //ventana.document.write('<html><head><title>' + document.title + '</title>')
+    ventana.document.write('<link rel="stylesheet" href="./modelos/css/estilos.css">')
+    ventana.document.write('</head><body >')
+    ventana.document.write(folio.innerHTML)
+    ventana.document.write('</body></html>')
+    ventana.document.close()
+    ventana.focus()
+    setTimeout(() => {
+        ventana.print()
+    }, 2000)
+    this.dialog = false
+
+    $("#acciones").show();
+    $(".cerrarSesion").show()
+
 }
