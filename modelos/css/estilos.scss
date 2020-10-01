@@ -917,6 +917,9 @@ input.error{
   width: 100%;
   text-align: end;
 }
+.abrirPreparacion{
+  display: none;
+}
 .infoPerfil{
   ul{
     line-height: 30px;
@@ -1321,6 +1324,17 @@ input.error{
     padding: 15px;
     background: #ffffff00 0% 0% no-repeat padding-box;
     box-shadow: none;
+  }
+  .abrirPreparacion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    b{
+      flex: 1;
+    }
+    i{
+      font-size: 30px;
+    }
   }
   #infoCita{
     order: 10;
