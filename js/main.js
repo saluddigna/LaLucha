@@ -15,7 +15,7 @@ dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
 idSesion="1dnni3hgu9iggbdktdlpfb19u4";
 conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
 
-configUrl='https://fd4098b3076d.ngrok.io/';
+configUrl='https://la-lucha-sd-beta.herokuapp.com/';
 sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 
 
@@ -88,6 +88,7 @@ $(document).on("click", ".movilNav", function(){
 })
 
 function irPerfil(parametro) { 
+  $("#navCita4").addClass('active');
 	$('#seccion').load('./modelos/perfil.html',function(){
     $("#MiPerfil").load('./modelos/componentes/miPerfil.html',function(){
       $("#sumarEstudios").load('./modelos/componentes/agregarEstudio0.html',function(){

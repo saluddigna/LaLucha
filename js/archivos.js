@@ -30,6 +30,7 @@ function seguientePaso() {
       $("#cita_regresar").show();
       saveValuesPaquetes()
       paso++;
+      $("#navCita2").addClass('active');
       setPaso();
       cambioPaso();
     }
@@ -40,6 +41,7 @@ function seguientePaso() {
     if (result){
       $("#cita_regresar").show();
       paso++;
+      $("#navCita3").addClass('active');
       setPaso();
       cambioPaso();
     }
@@ -55,6 +57,11 @@ function seguientePaso() {
 
 function anteriorPaso() {
   if(paso>1){
+    if(paso==3){
+      $("#navCita3").removeClass('active');
+    }else if (paso==2){
+      $("#navCita2").removeClass('active');
+    }
     paso--;
     setPaso();
     cambioPaso();

@@ -332,6 +332,12 @@ function validacionesPaquetes(){
     }
     $('#form-registro').parsley().validate();
     if ($('#form-registro').parsley().isValid()) {
+        // if(!togglePapa && !togglePkt){
+        //     if((!$('#chk').is(":checked"))){
+        //         $('#check-error').text("por favor confirmanos que no deseas agregar algun paquete")
+        //         return false
+        //     }
+        // }
       return true
     } else {
         console.log('not valid registro');

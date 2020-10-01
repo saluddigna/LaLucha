@@ -76,6 +76,8 @@ function startPerfil(){
         redirectLogin();
         return
     }
+    refreshDataPerfil();
+    
 
     $('#lentes-agregar').hide();
     $('#paquete-agregar').hide();
@@ -579,3 +581,10 @@ function quitarLoading(){
     $('#fecha_densi_pagada').text(dataUser.datosCita.estudios[2].fecha+" "+dataUser.datosCita.estudios[2].hora)
  }
 
+ function refreshDataPerfil(){
+    body={correoElectronico:dataUser.datosPaciente.CorreoElectronico}
+    console.log(body)
+    dataUser=getPerfil(body)
+    sessionStorage.clear();
+    sessionStorage.setItem('dataUser', JSON.stringify(dataUser))
+}
