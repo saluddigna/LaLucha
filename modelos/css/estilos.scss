@@ -752,6 +752,9 @@ input.error{
   align-items: center;
   padding: 20px;
 }
+.cargando div img{
+  margin: 10px;
+}
 /* ----------Ingresar-------- */
 /*---- LogIn-----*/
 .regresar{
@@ -1120,7 +1123,13 @@ input.error{
   p{
     margin-left: 0px!important;
   }
+  .emisores{
+    right: 21px;
+    margin-top: -31px;
+    width: 96px;
+  }
 }
+
 .nameCard, .numCard{
   width: 216px;
 }
@@ -1150,6 +1159,15 @@ input.error{
   p{
     margin-bottom: 0px;
   }
+}
+.parsley-errors-list{
+  position: absolute;
+  padding-left: 10px;
+  list-style: none;
+}
+.invalidCard, .parsley-required{
+  color: #FDCAC7;
+  font-size: 10px;
 }
 @media only screen and (min-width: 501px) {
   .sumarEstudios.sumarPKT{
@@ -1239,6 +1257,12 @@ input.error{
   }
   .imgUpSale{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner%20paquete%20tablet.jpg');
+  }
+  .nameCard, .numCard {
+    width: 300px;
+  }
+  .nCard{
+    width: 188px;
   }
 }
 
@@ -1497,6 +1521,17 @@ input.error{
   }
 
 }
+.inputCard .emisores {
+  right: -24px;
+  margin-top: -41px;
+  width: 96px;
+}
+.nameCard, .numCard{
+  width: 190px;
+}
+.nCard{
+  width: 100%;
+}
 .spinner {
   margin: 100px auto 80px;
   width: 80px;
@@ -1600,4 +1635,25 @@ input.error{
 }
 .estudioSeleccionado.active i{
   color: #fff;
+}
+.overlay_loading {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.6);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+.overlay_loading p {
+  font-size: 34px;
+  color: #fff;
+  background: rgba(0,0,0,.5);
+  border-radius: 4px;
+  margin: 0;
+  padding: 15px;
+  text-align: center;
 }
