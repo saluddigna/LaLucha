@@ -637,6 +637,10 @@ input.error{
 .rayas{
   border-color: #c0c0c0;
 }
+.btn-sexo i{
+  font-size: 34px;
+  margin-left: -20px;
+}
 /* Pagar */
 .pkts{
   background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -675,6 +679,11 @@ input.error{
 .imgPKT{
   border-radius: 5px;
   height: 120px;
+}
+.emisores{
+  position: absolute;
+  right: 34px;
+  margin-top: -41px;
 }
 .quitarPKT{
   font-weight: bold;
@@ -715,6 +724,18 @@ input.error{
   width: 50%;
   margin:15px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.tipoPago i{
+  font-size: 36px;
+  color: #CF787D;
+}
+.icono-pago-en-linea{
+  position: relative;
+  right: 10px;
 }
 .cargando{
   display: flex;

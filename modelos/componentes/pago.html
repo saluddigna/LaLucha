@@ -25,9 +25,11 @@
   <hr class="rayas" size=1 width="95%">
   <div class="d-flex row">
     <div id="pagoLinea" class="tipoPago active" onclick="tipoPago(3)">
+      <i class="icono-pago-en-linea"></i>
       <p class="text-center text-16">Pago en linea</p>
     </div>
     <div id="pagoClinica" class="tipoPago" onclick="tipoPago(2)">
+      <i class="icono-pago-en-clinica"></i>
       <p class="text-center text-16">Pago en clínica</p>
     </div>
   </div>
@@ -43,8 +45,8 @@
     </div>
     <div class="d-flex row">
       <div class="combobox">
-        <img class="emisores" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/logos-tarjeta-visa-mastercard.svg" alt="emisores de tarjeta">
         <p class="text-14 text-bold">Número de tarjeta</p>
+        <img class="emisores" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/logos-tarjeta-visa-mastercard.svg" alt="emisores de tarjeta">
         <input class="" type="text" name="" id="numCard" placeholder="5212 3456 7890 1234" size="20" data-conekta="card[number]" data-parsley-required="true" data-inputmask="'mask': '9999 9999 9999 9999'" onkeyup="changeCard(this.value)">
         <div><span id="invalidCard">Tarjeta no válida</span></div>
     </div>
