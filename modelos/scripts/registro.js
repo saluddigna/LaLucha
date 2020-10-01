@@ -308,7 +308,7 @@ function saveValuesPaciente(){
     global.data.cita.TelefonoCelular=global.data.Telefono;
     global.data.cita.IdSession=idSesion;
     global.data.cita.IdUsuario=3373;
-    global.data.cita.OrigenCita=15;
+    global.data.cita.OrigenCita=30;
     global.data.cita.IdSucursal=parseInt(global.data.IdSucursal);
 
         // global.dataClinica=$('#selectClinica').attr('data-clinica');
@@ -453,7 +453,7 @@ function saveValuesPaquetes(){
 function quitarPKT(pkt){
     clearPkts();
     if(pkt==1){
-        $(".pktPapa").toggle("d-none");
+        $("#pktPapa").toggle("d-none");
         $("#addPKT").prop("disabled", false);
         $("#addPapa").show()
 
@@ -461,7 +461,7 @@ function quitarPKT(pkt){
         saveValuesPaquetes();
         startResumen();
     }else{
-        $(".pktMujer").toggle("d-none");
+        $("#pktMujer").toggle("d-none");
         $("#addPapa").prop("disabled", false);
         $("#addPKT").show()
         togglePkt=false;
