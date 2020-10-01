@@ -116,7 +116,7 @@ function startPerfil(){
 
             $('#reagendarMasto-name').text(dataUser.datosCita.estudios[0].nombre);
             $('#folio_nombre_masto').text(dataUser.datosCita.estudios[0].nombre);
-            $('#folio_masto').text(dataUser.datosCita.estudios[0].idCita);
+            $('#folio_masto').text(dataUser.datosCita.estudios[0].idCitaSisPrev);
             $('#perfil-fechaCita-masto').text(dataUser.datosCita.estudios[0].fecha+" "+dataUser.datosCita.estudios[0].hora);
         }else{
             $('#lentes-agregar').show();
@@ -157,12 +157,12 @@ function startPerfil(){
         if(dataUser.datosCita.estatus){
             $('#reagendarMasto-name').text(dataUser.datosCita.estudios[0].nombre);
             $('#folio_nombre_masto').text(dataUser.datosCita.estudios[0].nombre);
-            $('#folio_masto').text(dataUser.datosCita.estudios[0].idCita);
+            $('#folio_masto').text(dataUser.datosCita.estudios[0].idCitaSisPrev);
             $('#perfil-fechaCita-masto').text(dataUser.datosCita.estudios[0].fecha+" "+dataUser.datosCita.estudios[0].hora);
 
             $('#reagendarPapa-name').text(dataUser.datosCita.estudios[1].nombre);
             $('#folio_nombre_papa').text(dataUser.datosCita.estudios[1].nombre);
-            $('#folio_papa').text(dataUser.datosCita.estudios[1].idCita);
+            $('#folio_papa').text(dataUser.datosCita.estudios[1].idCitaSisPrev);
             $('#perfil-fechaCita-papa').text(dataUser.datosCita.estudios[1].fecha+" "+dataUser.datosCita.estudios[1].hora);
         }
         else{
@@ -216,17 +216,17 @@ function startPerfil(){
         if(dataUser.datosCita.estatus){
             $('#reagendarMasto-name').text(dataUser.datosCita.estudios[0].nombre);
             $('#folio_nombre_masto').text(dataUser.datosCita.estudios[0].nombre);
-            $('#folio_masto').text(dataUser.datosCita.estudios[0].idCita);
+            $('#folio_masto').text(dataUser.datosCita.estudios[0].idCitaSisPrev);
             $('#perfil-fechaCita-masto').text(dataUser.datosCita.estudios[0].fecha+" "+dataUser.datosCita.estudios[0].hora);
 
             $('#reagendarPapa-name').text(dataUser.datosCita.estudios[1].nombre);
             $('#folio_nombre_papa').text(dataUser.datosCita.estudios[1].nombre);
-            $('#folio_papa').text(dataUser.datosCita.estudios[1].idCita);
+            $('#folio_papa').text(dataUser.datosCita.estudios[1].idCitaSisPrev);
             $('#perfil-fechaCita-papa').text(dataUser.datosCita.estudios[1].fecha+" "+dataUser.datosCita.estudios[1].hora);
 
             $('#reagendarDensi-name').text(dataUser.datosCita.estudios[2].nombre);
             $('#folio_nombre_densi').text(dataUser.datosCita.estudios[2].nombre);
-            $('#folio_densi').text(dataUser.datosCita.estudios[2].idCita);
+            $('#folio_densi').text(dataUser.datosCita.estudios[2].idCitaSisPrev);
             $('#perfil-fechaCita-densi').text(dataUser.datosCita.estudios[2].fecha+" "+dataUser.datosCita.estudios[2].hora);
         }else{
             folio_cancelada()
@@ -712,10 +712,10 @@ function quitarLoading(){
  }
 
  function loadAgregarPagados(){
-    $('#folio_papa_pagada').text(dataUser.datosCita.estudios[1].idCita)
+    $('#folio_papa_pagada').text(dataUser.datosCita.estudios[1].idCitaSisPrev)
     $('#fecha_papa_pagada').text(dataUser.datosCita.estudios[1].fecha+" "+dataUser.datosCita.estudios[1].hora)
 
-    $('#folio_densi_pagada').text(dataUser.datosCita.estudios[2].idCita)
+    $('#folio_densi_pagada').text(dataUser.datosCita.estudios[2].idCitaSisPrev)
     $('#fecha_densi_pagada').text(dataUser.datosCita.estudios[2].fecha+" "+dataUser.datosCita.estudios[2].hora)
  }
 
