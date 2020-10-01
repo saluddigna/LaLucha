@@ -144,6 +144,9 @@ function rutaPagoCompletado(){
     refreshDataPerfil()
   });
 }
+$(".preguntas-titulo").click(function () {
+  $(this).find("i").toggleClass("icono-right-open"), $(this).find("i").toggleClass("icono-down-open");
+})
 // function cambioPaso_notSave(){
 //   if(paso == 1) {
 //     $("#citas").load('./modelos/componentes/citaPaquetes.html',function(){
