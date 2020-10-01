@@ -14,8 +14,13 @@ function clearSelects(selector){
     var optionsAsString = "<option hidden selected>Selecciona una opción</option>";
     $(selector).empty().append(optionsAsString);
 }
-
+function disablekeys()
+{
+    console.log('false')
+return false;
+}
 async function startDatesPicker(){
+    $('#dialog_link, ul#icons li').hover( function() { $(this).addClass('ui-state-hover'); }, function() { $(this).removeClass('ui-state-hover'); } );
     $("#fechaCita").datepicker({
         minDate: 0,
         dateFormat: 'dd-mm-yy',
@@ -26,6 +31,19 @@ async function startDatesPicker(){
             $("#fechaCita").addClass("lleno")
         },
     });
+
+    // $(document).on('click', '#fechaCita', function () { 
+    //     var me = $("#fechaCita");   
+    //     me.datepicker({
+    //         showOn: 'focus',
+    //         altFormat: "dd/mm/yy",
+    //         dateFormat: "dd-mm/yy",
+    //         minDate: 0,
+    //     }).focus();
+    // }).on('focus', '#fechaCita', function () {
+    //     var me = $("#fechaCita");
+    //     me.inputmask();
+    // });
     // $("#fechaCita").prop('disabled', true);
     // $( "#fechaCita" ).datepicker( "option", "disabled", true );
     $('#fechaCitaPapa_pkt1').datepicker({
@@ -38,6 +56,7 @@ async function startDatesPicker(){
             $("#fechaCitaPapa_pkt1").addClass("lleno")
         },
     })
+    
 
     $('#fechaCitaPapa_pkt2').datepicker({
         minDate: 0,
@@ -198,6 +217,8 @@ function clickMas(){
     $('#cita_app').val(global.data.Paterno);
     $('#cita_apm').val(global.data.Materno);
     $('#cita_fechaNacimiento').val(global.data.FechaNacimiento);
+    
+
     $("#cita_fechaNacimiento").datepicker({
         maxDate: minDate,
         dateFormat: 'dd-mm-yy',
@@ -206,6 +227,19 @@ function clickMas(){
             $("#cita_fechaNacimiento").addClass("lleno")
         },
     });
+    $(document).on('click', '#cita_fechaNacimiento', function () { 
+        var me = $("#cita_fechaNacimiento");   
+        me.datepicker({
+            showOn: 'focus',
+            altFormat: "dd-mm-yy",
+            dateFormat: "dd-mm-yy",
+            maxDate: minDate
+        }).focus();
+    }).on('focus', '#cita_fechaNacimiento', function () {
+        var me = $("#cita_fechaNacimiento");
+        me.inputmask();
+    });
+
     if(global.data.IdSexo==2){
         $("#fem").removeClass("active");
         $("#mas").addClass("active");
@@ -313,7 +347,7 @@ function validacionesPaquetes(){
     console.log($('#chkTerminos').is(":checked"))
     if(!togglePapa && !togglePkt){
         if((!$('#chk').is(":checked"))){
-            $('#check-error').text("por favor confirmanos que no deseas agregar algun paquete")
+            $('#check-error').text("Para continuar, confirma que no deseas agregar algún Paquete")
             return false
         }
         $('#form-registro').parsley({
@@ -330,7 +364,7 @@ function validacionesPaquetes(){
         });
     }
     if((!$('#chkTerminos').is(":checked"))){
-        $('#check-error').text("por favor acepta los terminos y condiciones para continuar.")
+        $('#check-error').text("Para continuar, acepta nuestro Aviso de Privacidad junto con Términos y Condiciones.")
         return false
     }
     $('#form-registro').parsley().validate();
