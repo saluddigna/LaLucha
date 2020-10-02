@@ -248,13 +248,7 @@ async function startCita(){
 
 
 
-        $("#cita_nombre").on('keydown input change', function(){validacionesDatosPaciente()})
-        $("#cita_app").on('keydown input change', function(){validacionesDatosPaciente()})
-        $("#cita_fechaNacimiento").on('keyup input change', function(){validacionesDatosPaciente()})
-        $("#cita_telefono").on('keydown input change', function(){validacionesDatosPaciente()})
-        $("#cita_telefono_confirm").on('keydown input change', function(){validacionesDatosPaciente()})
-        $("#cita_correo").on('keydown input change', function(){validacionesDatosPaciente()})
-
+        
 
 
 }
@@ -283,6 +277,25 @@ function clickMas(){
 }
 
  function loadValuesPacientes(){
+    $("#cita_nombre").on('keydown input change', function(){
+        validacionesDatosPaciente()
+    })
+    $("#cita_app").on('keydown input change', function(){
+        validacionesDatosPaciente()
+    })
+    $("#cita_fechaNacimiento").on('keydown input change', function(){
+        validacionesDatosPaciente()
+    })
+    $("#cita_telefono").on('keydown input change', function(){
+        validacionesDatosPaciente()
+    })
+    $("#cita_telefono_confirm").on('keydown input change', function(){
+        validacionesDatosPaciente()
+    })
+    $("#cita_correo").on('keydown input change', function(){
+        validacionesDatosPaciente()
+    })
+
     var date = moment.utc().format();
     var minDate = moment.utc(date).local().format("DD-MM-YYYY");
     $(":input").inputmask();
