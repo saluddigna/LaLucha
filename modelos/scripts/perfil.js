@@ -5,6 +5,7 @@ var dataUser=null;
 var datosAgregar={};
 var date = moment.utc().format();
 var minDate = moment.utc(date).local().format("YYYY-MM-DD");
+var fechaFinOctubre = new Date("2020-10-31 00:00:00");
 
 var reag_masto=`<div id="reagendarMasto-name"><b>MASTOGRAFIA</b></div>
 <div class="d-flex row">
@@ -129,6 +130,7 @@ function startPerfil(){
         );
         $("#reagendarMasto-fecha").datepicker({
             minDate: 0,
+            maxDate: fechaFinOctubre,
             dateFormat: 'dd-mm-yy',
             onSelect: function (a) {
                 var body={ListaHorarios:[{IdEstudio:3,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:mastografia.data[0].Id}]}
@@ -176,6 +178,7 @@ function startPerfil(){
 
         $("#reagendarMasto-fecha").datepicker({
             minDate: 0,
+            maxDate: fechaFinOctubre,
             dateFormat: 'dd-mm-yy',
             onSelect: function (a) {
                 var body={ListaHorarios:[{IdEstudio:3,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:mastografia.data[0].Id}]}
@@ -237,6 +240,7 @@ function startPerfil(){
         $("#reagendar-inputs").append(reag_masto);
         $("#reagendarMasto-fecha").datepicker({
             minDate: 0,
+            maxDate: fechaFinOctubre,
             dateFormat: 'dd-mm-yy',
             onSelect: function (a) {
                 var body={ListaHorarios:[{IdEstudio:3,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:mastografia.data[0].Id}]}
@@ -733,6 +737,7 @@ function irLentes(){
 function startDatesPickerPerfil(){
     $("#reagendarMasto-fecha").datepicker({
         minDate: 0,
+        maxDate: fechaFinOctubre,
         dateFormat: 'dd-mm-yy',
         onSelect: function (a) {
             var body={ListaHorarios:[{IdEstudio:3,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:mastografia.data[0].Id}]}
@@ -772,7 +777,7 @@ function descargarTicket() {
     let folio = document.getElementById("miPerfil")
     let ventana = window.open('', 'PRINT', 'height=400,width=600')
     //ventana.document.write('<html><head><title>' + document.title + '</title>')
-    ventana.document.write('<link rel="stylesheet" href="./modelos/css/estilos.css">')
+    ventana.document.write('<link rel="stylesheet" href="https://www.salud-digna.org/wp-content/themes/SaludDigna/lalucha2020/modelos/css/estilos.css">')
     ventana.document.write('</head><body >')
     ventana.document.write(folio.innerHTML)
     ventana.document.write('</body></html>')
