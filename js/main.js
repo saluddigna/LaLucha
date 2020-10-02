@@ -76,7 +76,15 @@ $(document).ready(function () {
   console.log('dataUser',dataUser)
   if(getUrlParameter('recovery')!=null){
     redirectLogin();
-  }else if(!dataUser){
+  }else if(getUrlParameter('token')!=null){
+    body={idCita:getUrlParameter('token')}
+    // console.log(body)
+    dataUser=loginFromUrlService(body);
+    sessionStorage.clear();  
+    sessionStorage.setItem('dataUser', JSON.stringify(dataUser));
+    irPerfil();
+  }
+  else if(!dataUser){
     seccion(1);
     }
     else{
