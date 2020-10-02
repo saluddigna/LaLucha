@@ -125,8 +125,9 @@ function irPerfil(parametro) {
   $("#navCita4").addClass('active');
 	$('#seccion').load('./modelos/perfil.html',function(){
     $("#MiPerfil").load('./modelos/componentes/miPerfil.html',function(){
-      
+      $("#sumarEstudios").load('./modelos/componentes/agregarEstudioImg.html',function(){
       startPerfil();
+      });
     });
     removerClaseNav();
     $("#btnLogIn").addClass("active");

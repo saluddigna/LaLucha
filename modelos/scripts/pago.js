@@ -29,6 +29,12 @@ function llenarInfo(){
 function startPago(){
   startResumen();
   llenarInfo();
+  $( "#cita_siguiente" ).prop( "disabled", true );
+  $("#nameCard").on('keydown input change', function(){validacionesDatosPago()})
+  $("#numCard").on('keydown input change', function(){validacionesDatosPago()})
+  $("#mm").on('keydown input change', function(){validacionesDatosPago()})
+  $("#aaaa").on('keydown input change', function(){validacionesDatosPago()})
+  $("#ccv").on('keydown input change', function(){validacionesDatosPago()})
 }
 
 var tarjeta=false;
@@ -96,11 +102,13 @@ function tipoPago(tipo){
     $("#pagoLinea").removeClass("active");
     $("#pagoClinica").addClass("active");
     $("#datosPagar").addClass("d-none");
+    validacionesDatosPago();
   }else{
     tPago=tipo;
     $("#pagoLinea").addClass("active");
     $("#pagoClinica").removeClass("active");
     $("#datosPagar").removeClass("d-none");
+    validacionesDatosPago();
   }
 };
 
@@ -154,13 +162,22 @@ function validacionesDatosPago(){
         excluded: '.pagar input'//, .datos-paciente input, .datos-paciente select,.confirmacionDatos input,.confirmacionDatos select 
     });
   }else{
-    validateConekta();
+    if(!changeName($("#nameCard").val())){
+      return
+    }
+    if(!validateConekta()){
+      $( "#cita_siguiente" ).prop( "disabled", true );
+      return
+    }
   }
-  $('#form-registro').parsley().validate();
+  // $('#form-registro').parsley().validate();
   if ($('#form-registro').parsley().isValid()) {
+    $( "#cita_siguiente" ).prop( "disabled", false );
     return true
+    
   } else {
       console.log('not valid registro');
+      $( "#cita_siguiente" ).prop( "disabled", true );
       return false
   }
 }
@@ -197,10 +214,14 @@ function sonLetras(texto){
   return regex.test(texto);
 }  
 function changeName(value){
-  if(!sonLetras(value))
+  if(!sonLetras(value)){
+    $( "#cita_siguiente" ).prop( "disabled", true );
     $("#invalidName").show()
+    return false;
+  }
   else
     $("#invalidName").hide()
+    return true;
 }
 
 function changeCard(value){

@@ -124,13 +124,15 @@ function cerrarAgregarPKTFinish(){
   $("#sumarEstudios").removeClass("sumarPKT");
 }
 function cerrarAgregarPKT(){
-  $("#sumarEstudios").load('./modelos/componentes/agregarEstudio0.html',function(){
+  $("#sumarEstudios").empty()
+  $("#sumarEstudios").load('./modelos/componentes/agregarEstudioImg.html',function(){
     $('#lentes-agregar').hide();
     $('#paquete-agregar').show();
   });
-  $("#sumarEstudios").removeClass("sumarPKT");
-  
+  // $("#sumarEstudios").removeClass("sumarPKT");
+
 }
+
 function rutaPagarPKT(){
   $("#sumarEstudios").load('./modelos/componentes/agregarEstudio2.html', function () {
     $('#invalidCard').hide()

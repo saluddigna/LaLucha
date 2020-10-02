@@ -452,7 +452,7 @@ function cerrarReagendar(){
 }
 
 
-function agregarPKT(){
+function agregarPKTPerfil(){
     rutaAgregarPKT();
     $("#sumarEstudios").addClass("sumarPKT");
 
