@@ -4,19 +4,19 @@
   <div class="form" id="form-citaPaciente">
     <div class="row datos-px">
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_nombre" data-parsley-required="true" onkeydown="validacionesDatosPaciente()">
+        <input type="text" class="input-sd" id="cita_nombre" data-parsley-required="true">
         <span class="floating-label">Nombre</span>
       </div>
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_app" data-parsley-required="true" onkeydown="validacionesDatosPaciente()">
+        <input type="text" class="input-sd" id="cita_app" data-parsley-required="true" >
         <span class="floating-label">Apellido paterno</span>
       </div>
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_apm" onkeydown="validacionesDatosPaciente()">
+        <input type="text" class="input-sd" id="cita_apm" >
         <span class="floating-label">Apellido materno</span>
       </div>
       <div class="cajas-texto">
-        <input type="text" class="input-sd valido" id="cita_fechaNacimiento" data-parsley-required="true" data-inputmask="'alias': 'datetime', 'inputFormat': 'dd-mm-yyyy'" onkeydown="validacionesDatosPaciente()">
+        <input type="text" class="input-sd valido" id="cita_fechaNacimiento" data-parsley-required="true" data-inputmask="'alias': 'datetime', 'inputFormat': 'dd-mm-yyyy'">
         <span class="floating-label" >Fecha de nacimiento</span>
       </div>
     </div>
@@ -26,16 +26,16 @@
     </div>
     <div class="row datos-px">
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_telefono" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono_confirm" onkeydown="validacionesDatosPaciente()">
+        <input type="text" class="input-sd" id="cita_telefono" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono_confirm" >
         <span class="floating-label">Número de WhatsApp</span>
       </div>
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_telefono_confirm" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono" onkeydown="validacionesDatosPaciente()">
+        <input type="text" class="input-sd" id="cita_telefono_confirm" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono" >
         <span class="floating-label">Confirmar número de WhatsApp</span>
       </div>
 
       <div class="cajas-texto">
-        <input type="email" class="input-sd" id="cita_correo" data-parsley-required="true" onkeydown="validacionesDatosPaciente()">
+        <input type="email" class="input-sd" id="cita_correo" data-parsley-required="true" >
         <span class="floating-label">Correo electrónico</span>
       </div>
     </div>
