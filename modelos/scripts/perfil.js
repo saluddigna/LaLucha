@@ -597,7 +597,7 @@ function saveAndPay(){
           }
         };
         dataAgregar.DatosPago.Nombre=$('#nameCard').val();
-        Conekta.Token.create(tokenParams, successResponseHandler, errorResponseHandler);
+        Conekta.Token.create(tokenParams, successResponseHandlerPerfil, errorResponseHandlerPerfil);
 }
 
 var tarjeta=false;
@@ -624,14 +624,14 @@ function validateConekta(){
   return false
 }
 
-var successResponseHandler = function(token) {
+var successResponseHandlerPerfil = function(token) {
     console.log(token)
     agregarEstudiosCita(token.id);
   };
 
 
 
-var errorResponseHandler = function(error) {
+var errorResponseHandlerPerfil = function(error) {
   $("#error-msg").text(error.message_to_purchaser);
   // setTimeout(function() { quitarLoading(); }, 1500);
   console.log(error,'error')

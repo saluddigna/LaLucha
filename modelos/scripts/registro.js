@@ -99,6 +99,7 @@ async function loadEstados(){
     $('#selectEstado').empty().append(optionsAsString );
 }
 async function startCita(){
+        global.data.cita.TipoPago=3;
         $("#selectEstado").on('keydown input change', function(){
             console.log('Estado')
             $("#selectClinica").prop('disabled',false) 

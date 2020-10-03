@@ -1,6 +1,39 @@
 function startResumen(){
     $("#tuplas").empty();
+    console.log(global.data);
     if(global.data.cita.Estudios.length==1){
+      if(global.data.IdSucursal=="1" && global.data.cita.TipoPago!=3){
+        $("#rayaHumano-masto").addClass("active");
+        $("#rayaHumano-papa").removeClass("active");
+        $("#rayaHumano-densi").removeClass("active");
+        var estudio = $("<td width='33%'> -" +  global.data.cita.Estudios[0].Nombre + "</td>)");
+        var fecha = $("<td width='33%' align='center'>" + global.data.cita.Estudios[0].Fecha + " " +global.data.cita.Estudios[0].Hora+ "</td>)");
+        var precio = $("<td width='33%' align='right'> $ 210.00 </td>)");
+        $("#tuplas").append("<tr>");
+        $("#tuplas").append(estudio);
+        $("#tuplas").append(fecha);
+        $("#tuplas").append(precio);
+        $("#tuplas").append("</tr>");  
+        $('#descuento').text("$ 0.00");  
+        $('#totalP').text("$ 210.00"); 
+        return;
+      }
+      else if(global.data.IdSucursal!="1" && global.data.cita.TipoPago!=3){
+        $("#rayaHumano-masto").addClass("active");
+        $("#rayaHumano-papa").removeClass("active");
+        $("#rayaHumano-densi").removeClass("active");
+        var estudio = $("<td width='33%'> -" +  global.data.cita.Estudios[0].Nombre + "</td>)");
+        var fecha = $("<td width='33%' align='center'>" + global.data.cita.Estudios[0].Fecha + " " +global.data.cita.Estudios[0].Hora+ "</td>)");
+        var precio = $("<td width='33%' align='right'> $ 220.00 </td>)");
+        $("#tuplas").append("<tr>");
+        $("#tuplas").append(estudio);
+        $("#tuplas").append(fecha);
+        $("#tuplas").append(precio);
+        $("#tuplas").append("</tr>");  
+        $('#descuento').text("$ 0.00");  
+        $('#totalP').text("$ 220.00"); 
+        return;
+      }
       $("#rayaHumano-masto").addClass("active");
       $("#rayaHumano-papa").removeClass("active");
       $("#rayaHumano-densi").removeClass("active");
@@ -14,7 +47,7 @@ function startResumen(){
       $("#tuplas").append("</tr>");  
       $('#descuento').text("$ 70.00");  
       $('#totalP').text("$ 150.00");   
-  
+      return;
     }
     else if (global.data.cita.Estudios.length==2){
       $("#rayaHumano-masto").addClass("active");
