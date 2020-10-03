@@ -167,13 +167,16 @@ input.error{
   padding: 0 3px;
   z-index: 2;
 }
+.icono-mas-1, .icono-down-open, .icono-right-open, .icono-minus{
+
+}
 /* Banner */
 .bannerPonElPecho{
-  background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-masto-en-150-web.jpg');
+  background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-masto-en-150-reducido-web.jpg');
   background-repeat: no-repeat;
   background-position-x: center;
   margin: 0px;
-  height: 300px;
+  height: 200px;
   display: flex;
   justify-content: center;
   background-color: #FDCAC7;
@@ -201,7 +204,7 @@ input.error{
 
 .opcNav{
   flex: 0 1 auto;
-  height: 80px;
+  height: 55px;
   width: 17%;
   display: flex;
   justify-content: center;
@@ -448,7 +451,7 @@ input.error{
   position: absolute;
   right: 5px;
   top: 10px;
-  color: #118c86;
+  color: #616161;
 }
 .preguntas-cuerpo{
   padding: 10px 10px 10px 0;
@@ -506,7 +509,7 @@ input.error{
 }
 .protocolo ul li i {
   font-size: 20px;
-  color: #118c86;
+  color: #616161;
 }
 .video{
   width: 100%;
@@ -1251,8 +1254,9 @@ input.error{
     flex-direction: column;
   }
   .bannerPonElPecho{
-    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-masto-en-150-tablet.jpg');
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-masto-en-150-reducido-tablet.jpg');
     background-color: #FDCAC7;
+    height: 150px;
   }
   .hazloEnLinea{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-tablet.jpg');
@@ -1374,8 +1378,9 @@ input.error{
     width: 109px;
   }
   .bannerPonElPecho{
-    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-masto-en-150-movil.jpg');
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-masto-en-150-movil-reducido.jpg');
     background-color: #FDCAC7;
+    height: 150px;
   }
   .hazloEnLinea{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-movil.jpg');
@@ -1433,7 +1438,7 @@ input.error{
     border-radius: 6px;
     width: 188px;
     font-size: 10px;
-    left: 194px;
+    left: 66px;
     display: flex;
     flex-direction: row;
     justify-content: center;
