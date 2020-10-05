@@ -19,9 +19,11 @@ catch{
 
 
 idSesion="1dnni3hgu9iggbdktdlpfb19u4";
-conektaKey='key_fNdPxbPkqAt1xF1sYMgQF5w';
+//conektaKey='key_fNdPxbPkqAt1xF1sYMgQF5w';
+conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
 
 configUrl='https://la-lucha-sd.herokuapp.com/';
+//configUrl='https://b903340e29bc.ngrok.io/';
 sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 
 
@@ -63,6 +65,12 @@ $(function (a) {
 });
 
 $(document).ready(function () {
+  $(document).on("click", ".preguntas-titulo", function(){
+    $(this).find("i").toggleClass("icono-right-open icono-down-open");
+  })
+  $(document).on("click", ".item-protocolo", function(){
+    $(this).find("i").toggleClass("icono-mas-1 icono-minus");
+  })
   console.log('dataUser',dataUser)
   $('#banner').load('./modelos/banner.html');
   $('#nav').load('./modelos/navbar.html');
