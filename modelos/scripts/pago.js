@@ -1,8 +1,8 @@
 
-$(document).ready(function () {
-  if (Conekta)
-    Conekta.setPublicKey(conektaKey);
-})
+// $(document).ready(function () {
+//   // if (Conekta)
+//   //   Conekta.setPublicKey(conektaKey);
+// })
 function llenarInfo() {
   // $("#error-msg").text("");
   quitarLoading();
@@ -15,7 +15,7 @@ function llenarInfo() {
 
   //
   var dataConfirmacion = global.data;
-  console.log(global.data)
+  //console.log(global.data)
   $('#nombrePX').text(dataConfirmacion.Nombre + ' ' + dataConfirmacion.Paterno + ' ' + dataConfirmacion.Materno);
   $('#fechaNacPX').text(dataConfirmacion.FechaNacimiento);
   $('#telefonoPX').text(dataConfirmacion.Telefono);
@@ -29,12 +29,13 @@ function llenarInfo() {
 function startPago() {
   startResumen();
   llenarInfo();
+  Conekta.setPublicKey(conektaKey);
   $("#cita_siguiente").prop("disabled", true);
-  $("#nameCard").on('keydown input change', function () { validacionesDatosPago() })
-  $("#numCard").on('keydown input change', function () { validacionesDatosPago() })
-  $("#mm").on('keydown input change', function () { validacionesDatosPago() })
-  $("#aaaa").on('keydown input change', function () { validacionesDatosPago() })
-  $("#ccv").on('keydown input change', function () { validacionesDatosPago() })
+  $("#nameCard").on('keydown input change', function () { validacionesDatosPago("#nameCard") })
+  $("#numCard").on('keydown input change', function () { validacionesDatosPago("#numCard") })
+  $("#mm").on('keydown input change', function () { validacionesDatosPago("#mm") })
+  $("#aaaa").on('keydown input change', function () { validacionesDatosPago("#aaaa") })
+  $("#ccv").on('keydown input change', function () { validacionesDatosPago("#ccv") })
 }
 
 var tarjeta = false;
@@ -44,7 +45,7 @@ function validateConekta() {
   tarjeta = Conekta.card.validateNumber($('#numCard').val());
   expirationDate = Conekta.card.validateExpirationDate($('#mm').val(), $('#aaaa').val());
   validateCCV = Conekta.card.validateCVC($('#ccv').val());
-  console.log(tarjeta, expirationDate, validateCCV)
+  //console.log(tarjeta, expirationDate, validateCCV)
   if (!tarjeta)
     $('#invalidCard').show()
   else if (!expirationDate)
@@ -59,31 +60,66 @@ function validateConekta() {
   }
   return false
 }
-function saveValuesPago() {
-  mostrarLoading();
-  $("#error-msg").text("");
-  if (tPago == 3) {
-    if (!validateConekta()) {
-      return;
+
+function validateConektaBySelector(selector) {
+  if(selector=='#numCard'){
+    if (!Conekta.card.validateNumber($('#numCard').val())){
+      $('#invalidCard').show()
+      return false;
     }
-    var tokenParams = {
-      card: {
-        number: $('#numCard').val(),
-        name: $('#nameCard').val(),
-        exp_year: $('#aaaa').val(),
-        exp_month: $('#mm').val(),
-        cvc: $('#ccv').val(),
-      }
-    };
-    Conekta.Token.create(tokenParams, successResponseHandlerRegistro, errorResponseHandlerRegistro);
-  } else {
-    registrarCita();
+    else{
+      $('#invalidCard').hide()
+      return true;
+    }
   }
+  else if(selector=='#mm' || selector=='#aaaa'){
+    if (!Conekta.card.validateExpirationDate($('#mm').val(), $('#aaaa').val())){
+      $('#invalidDate').show();
+      return false;
+    }
+    else{
+      $('#invalidDate').hide()
+      return true;
+    }
+  }
+  else if(selector=="#ccv"){
+    if (!Conekta.card.validateCVC($('#ccv').val())){
+      $('#invalidCCV').show()
+      return false
+    }
+    else{
+      $('#invalidCCV').hide()
+      return true
+    }
+  }
+}
+
+function saveValuesPago() {
+  $.when( mostrarLoading() ).then(x=>{   
+    $("#error-msg").text("");
+    if (tPago == 3) {
+      if (!validateConekta()) {
+        return;
+      }
+      var tokenParams = {
+        card: {
+          number: $('#numCard').val(),
+          name: $('#nameCard').val(),
+          exp_year: $('#aaaa').val(),
+          exp_month: $('#mm').val(),
+          cvc: $('#ccv').val(),
+        }
+      };
+      Conekta.Token.create(tokenParams, successResponseHandlerRegistro, errorResponseHandlerRegistro);
+    } else {
+      registrarCita();
+    }
+  });
 }
 
 
 var successResponseHandlerRegistro = function (token) {
-  console.log(token)
+  //console.log(token)
   registrarCita(token.id);
 };
 
@@ -92,7 +128,7 @@ var successResponseHandlerRegistro = function (token) {
 var errorResponseHandlerRegistro = function (error) {
   $("#error-msg").text(error.message_to_purchaser);
   // setTimeout(function() { quitarLoading(); }, 1500);
-  console.log(error, 'error')
+  //console.log(error, 'error')
 };
 
 var tPago = 3;
@@ -160,46 +196,88 @@ function registrarCita(token) {
       conektaTokenId: null
     }
   }
+  //console.log("DATOS-REGISTRO",global.data)
+  //console.log(JSON.stringify(global.data));
   global.perfil = Registro(global.data)
-  console.log(JSON.stringify(global.data));
   if (global.perfil.datosPaciente != null) {
 
-    console.log(JSON.stringify(global.perfil));
+    // //console.log(JSON.stringify(global.perfil));
     sessionStorage.clear()
     sessionStorage.setItem('dataUser', JSON.stringify(global.perfil))
     clearGlobalData();
-    setTimeout(function () { irPerfil("perfil"); }, 2500);
-
+    setTimeout(function () { quitarLoading(); }, 1500);
+    irPerfil("perfil");
   } else {
     setTimeout(function () { quitarLoading(); }, 1500);
     $("#error-msg").text(global.perfil);
   }
 }
 
-function validacionesDatosPago() {
-  if (tPago == 2) {
-    $('#form-registro').parsley({
-      excluded: '.pagar input'//, .datos-paciente input, .datos-paciente select,.confirmacionDatos input,.confirmacionDatos select 
-    });
-  } else {
-    if (!changeName($("#nameCard").val())) {
-      return
+function validacionesDatosPago(selector) {
+  if(selector){
+    if(tPago == 3){
+      if(selector=="#nameCard"){
+        if (!changeName($("#nameCard").val())) {
+          //console.log(!changeName($("#nameCard").val()))
+          return
+        }
+      }
+      else{
+        if(!validateConektaBySelector(selector)){
+          $("#cita_siguiente").prop("disabled", true);
+          return
+        }
+      }
     }
-    if (!validateConekta()) {
+    else if (tPago == 2) {
+      $('#form-registro').parsley({
+        excluded: '.pagar input'//, .datos-paciente input, .datos-paciente select,.confirmacionDatos input,.confirmacionDatos select 
+      });
+    } 
+    $(selector).parsley().validate();
+    if ($('#form-registro').parsley().isValid()) {
+        $("#cita_siguiente").prop("disabled", false);
+        return true
+      } else {
+        //console.log('not valid registro');
+        $("#cita_siguiente").prop("disabled", true);
+        return false
+      }
+  }else{
+    if(tPago == 3){
+        if (!changeName($("#nameCard").val())) 
+          return
+        if(!validateConekta()){
+          $("#cita_siguiente").prop("disabled", true);
+          return
+        }
+    }
+    else if (tPago == 2) {
+      $('#form-registro').parsley({
+        excluded: '.pagar input'//, .datos-paciente input, .datos-paciente select,.confirmacionDatos input,.confirmacionDatos select 
+      });
+    } 
+    $('#form-registro').parsley().validate();
+    if ($('#form-registro').parsley().isValid()) {
+      $("#cita_siguiente").prop("disabled", false);
+      return true
+    } else {
+      //console.log('not valid registro');
       $("#cita_siguiente").prop("disabled", true);
-      return
+      return false
     }
   }
-  // $('#form-registro').parsley().validate();
-  if ($('#form-registro').parsley().isValid()) {
-    $("#cita_siguiente").prop("disabled", false);
-    return true
 
-  } else {
-    console.log('not valid registro');
-    $("#cita_siguiente").prop("disabled", true);
-    return false
-  }
+  // $('#form-registro').parsley().validate();
+  // if ($('#form-registro').parsley().isValid()) {
+  //   $("#cita_siguiente").prop("disabled", false);
+  //   return true
+
+  // } else {
+  //   //console.log('not valid registro');
+  //   $("#cita_siguiente").prop("disabled", true);
+  //   return false
+  // }
 }
 
 function clearGlobalData() {
@@ -216,17 +294,22 @@ function clearGlobalData() {
   global.perfil = {};
 }
 
-function quitarLoading() {
-  $("#paginador-registro").show()
-  $("#pago-loading").hide()
-  $("#pago-datos").show();
-  top.location.href = '#top';
+async function quitarLoading() {
+  await $("#paginador-registro").show()
+  await $("#pago-loading").hide()
+  await $("#pago-datos").show();
+  // top.location.href = '#top';
+  scrollTop("#formCita");
+  return true
+
 }
-function mostrarLoading() {
-  $("#paginador-registro").hide()
-  $("#pago-loading").show()
-  $("#pago-datos").hide()
-  top.location.href = '#top';
+async function mostrarLoading() {
+  await $("#paginador-registro").hide()
+  await $("#pago-loading").show()
+  await $("#pago-datos").hide()
+  // top.location.href = '#top';
+  scrollTop("#formCita");
+  return true
 }
 
 function sonLetras(texto) {

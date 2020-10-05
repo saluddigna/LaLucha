@@ -69,7 +69,6 @@ function folio_cancelada(){
     $('#cita_cancelada').text("CANCELADA");
 }
 function startPerfil(){
-    setTimeout(function() { quitarLoadingInputs(); }, 1500);
     console.log('startPerfil');
     dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
     console.log(dataUser);
@@ -80,6 +79,9 @@ function startPerfil(){
     {
         redirectLogin();
         return
+    }
+    if(getUrlParameter('token')!=null){
+        agregarPKTPerfil();
     }
     refreshDataPerfil();
     
@@ -132,13 +134,15 @@ function startPerfil(){
             minDate: 0,
             maxDate: fechaFinOctubre,
             dateFormat: 'dd-mm-yy',
-            onSelect: function (a) {
-                var body={ListaHorarios:[{IdEstudio:3,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:mastografia.data[0].Id}]}
+        });
+        $("#reagendarMasto-fecha").on('change', function(){
+            $.when( agregarLoadingInputs() ).then(x=>{
+                var body={ListaHorarios:[{IdEstudio:3,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$("#reagendarMasto-fecha").val(),IdSubEstudioEncript:mastografia.data[0].Id}]}
                 getHorariosDisponibles(body,'#reagendarMasto-Hora');
-    
                 $("#reagendarMasto-fecha").addClass("valido");
                 $("#reagendarMasto-fecha").addClass("lleno")
-            },
+                setTimeout(function() { quitarLoadingInputs(); }, 1000);
+            });
         });
 
         // $('#reagendarMasto-fecha').attr('min' , minDate);
@@ -180,14 +184,18 @@ function startPerfil(){
             minDate: 0,
             maxDate: fechaFinOctubre,
             dateFormat: 'dd-mm-yy',
-            onSelect: function (a) {
-                var body={ListaHorarios:[{IdEstudio:3,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:mastografia.data[0].Id}]}
+        });
+        $("#reagendarMasto-fecha").on('change', function(){
+            $.when( agregarLoadingInputs() ).then(x=>{
+                var body={ListaHorarios:[{IdEstudio:3,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$("#reagendarMasto-fecha").val(),IdSubEstudioEncript:mastografia.data[0].Id}]}
                 getHorariosDisponibles(body,'#reagendarMasto-Hora');
     
                 $("#reagendarMasto-fecha").addClass("valido");
                 $("#reagendarMasto-fecha").addClass("lleno")
-            },
-        });
+                setTimeout(function() { quitarLoadingInputs(); }, 1000);
+
+            })
+        })
         // $('#reagendarMasto-fecha').attr('min' , minDate);
         // $("#reagendarMasto-fecha").change(function(){
         //     var body={ListaHorarios:[{IdEstudio:3,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:mastografia.data[0].Id}]}
@@ -199,13 +207,18 @@ function startPerfil(){
         $('#reagendarPapa-fecha').datepicker({
             minDate: 0,
             dateFormat: 'dd-mm-yy',
-            onSelect: function (a) {
-                var body={ListaHorarios:[{IdEstudio:4,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}
+            maxDate: fechaFinOctubre,
+        })
+        $("#reagendarPapa-fecha").on('change', function(){
+            $.when( agregarLoadingInputs() ).then(x=>{
+                var body={ListaHorarios:[{IdEstudio:4,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$("#reagendarPapa-fecha").val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}
                 getHorariosDisponibles(body,'#reagendarPapa-Hora');
                 $("#reagendarPapa-fecha").addClass("valido");
                 $("#reagendarPapa-fecha").addClass("lleno")
-            },
+                setTimeout(function() { quitarLoadingInputs(); }, 1000);
+            })
         })
+
         // $('#reagendarPapa-fecha').attr('min' , minDate);
         // $("#reagendarPapa-fecha").change(function(){
         //     var body={ListaHorarios:[{IdEstudio:4,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}
@@ -242,49 +255,51 @@ function startPerfil(){
             minDate: 0,
             maxDate: fechaFinOctubre,
             dateFormat: 'dd-mm-yy',
-            onSelect: function (a) {
-                var body={ListaHorarios:[{IdEstudio:3,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:mastografia.data[0].Id}]}
+        });
+        $("#reagendarMasto-fecha").on('change', function(){
+            $.when( agregarLoadingInputs() ).then(x=>{
+                var body={ListaHorarios:[{IdEstudio:3,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$("#reagendarMasto-fecha").val(),IdSubEstudioEncript:mastografia.data[0].Id}]}
                 getHorariosDisponibles(body,'#reagendarMasto-Hora');
     
                 $("#reagendarMasto-fecha").addClass("valido");
                 $("#reagendarMasto-fecha").addClass("lleno")
-            },
-        });
-        // $('#reagendarMasto-fecha').attr('min' , minDate);
-        // $("#reagendarMasto-fecha").change(function(){
-        //     var body={ListaHorarios:[{IdEstudio:3,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:mastografia.data[0].Id}]}
-        //     getHorariosDisponibles(body,'#reagendarMasto-Hora');
-        // });
-
+                setTimeout(function() { quitarLoadingInputs(); }, 1000);
+            })
+        })
 
         $("#reagendar-inputs").append(reag_papa);
         $('#reagendarPapa-fecha').datepicker({
             minDate: 0,
             dateFormat: 'dd-mm-yy',
-            onSelect: function (a) {
-                var body={ListaHorarios:[{IdEstudio:4,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}
+        })
+
+        $("#reagendarPapa-fecha").on('change', function(){
+            $.when( agregarLoadingInputs() ).then(x=>{
+                var body={ListaHorarios:[{IdEstudio:4,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$("#reagendarPapa-fecha").val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}
                 getHorariosDisponibles(body,'#reagendarPapa-Hora');
                 $("#reagendarPapa-fecha").addClass("valido");
                 $("#reagendarPapa-fecha").addClass("lleno")
-            },
+                setTimeout(function() { quitarLoadingInputs(); }, 1000);
+            })
         })
-        // $('#reagendarPapa-fecha').attr('min' , minDate);
-        // $("#reagendarPapa-fecha").change(function(){
-        //     var body={ListaHorarios:[{IdEstudio:4,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}
-        //     getHorariosDisponibles(body,'#reagendarPapa-Hora');
-        // });
+
 
         $("#reagendar-inputs").append(reag_densi);
         $('#reagendarDensi-fecha').datepicker({
             minDate: 0,
             dateFormat: 'dd-mm-yy',
-            onSelect: function (a) {
-                var body={ListaHorarios:[{IdEstudio:1,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:densitometria.data[0].Id}]}
+        })
+
+        $("#reagendarDensi-fecha").on('change', function(){
+            $.when( agregarLoadingInputs() ).then(x=>{
+                var body={ListaHorarios:[{IdEstudio:1,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$("#reagendarDensi-fecha").val(),IdSubEstudioEncript:densitometria.data[0].Id}]}
                 getHorariosDisponibles(body,'#reagendarDensi-Hora');
                 $("#reagendarDensi-fecha").addClass("valido");
                 $("#reagendarDensi-fecha").addClass("lleno")
-            },
+                setTimeout(function() { quitarLoadingInputs(); }, 1000);
+            })
         })
+
         // $('#reagendarDensi-fecha').attr('min' , minDate);
         // $("#reagendarDensi-fecha").change(function(){
         //     var body={ListaHorarios:[{IdEstudio:1,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:densitometria.data[0].Id}]}
@@ -303,14 +318,10 @@ function startPerfil(){
 
     $("#cancelarAceptar").hide();
 
-    // $("#perfil-prep").empty();
-    // $("#perfil-prep").append(`<b class="text-18">Preparación:</b><br><br>`)
-    // $.each( dataUser.datosCita.estudios, function( key, value ) {
-    //     var item=`<p class="text-16"><b>`+value.descripcion+`:</b> `+value.preparacion+`</p>`
-    //     $("#perfil-prep").append(item)
-    //   });
 
     showPreparaciones(dataUser);
+    // scrollTop("#headerPerfil")
+    setTimeout(function() { quitarLoadingInputs(); }, 500);
 }
 function showPreparaciones(dataUser){
     if(dataUser.datosCita.estudios.length==1)
@@ -328,7 +339,8 @@ function showPreparaciones(dataUser){
     }
 }
 function cancelarCita(){
-    $(this).scrollTop(300);
+    scrollTop("#tuFolio")
+    // $(this).scrollTop(300);
     $("#tuFolio").addClass("d-none");
     $("#cancelarCita").removeClass("d-none");
 
@@ -352,28 +364,15 @@ function validaDatosReagendar(){
             console.log('not valid registro');
             return false
         }
-    // if($("#reagendarMasto-fecha").val()=="" && $("#reagendarMasto-Hora").val()==""){
-    //     console.log('fecha y hora masto es requerida')
-    //     return false;
-    // }
-    // else if($("#reagendarPapa-fecha").val()=="" && $("#reagendarPapa-Hora").val()==""){
-    //     console.log('fecha y hora papa es requerida')
-    //     return false;
-    // }
-    // else if($("#reagendarDensi-fecha").val()=="" && $("#reagendarDensi-Hora").val()==null){
-    //     console.log('fecha y hora desi es requerida')
-    //     return false;
-    // }
-    // return true;
 }
 function reagendar(){
-
+    $.when( agregarLoadingInputs() ).then(x=>{    
     var validacion = validaDatosReagendar()
     console.log(validacion)
     if(!validacion){
+        setTimeout(function() { quitarLoadingInputs(); }, 1000);
         return;
     }
-    agregarLoadingInputs()
     var body={}
     if(dataUser.datosCita.estudios.length==1){
     body={
@@ -413,19 +412,19 @@ function reagendar(){
             Estudios: [
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[0].idCitaSisPrev,
-                    Fecha: moment($("#reagendarMasto-fecha").val()).format('YYYY-DD-MM'),
+                    Fecha: $("#reagendarMasto-fecha").val(),
                     HorarioText: $(':selected', '#reagendarMasto-Hora').attr("data-hora"),
                     IdHorario: parseInt($("#reagendarMasto-Hora").val())
                 },
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[1].idCitaSisPrev,
-                    Fecha: moment($("#reagendarPapa-fecha").val()).format('YYYY-DD-MM'),
+                    Fecha: $("#reagendarPapa-fecha").val(),
                     HorarioText: $(':selected', '#reagendarPapa-Hora').attr("data-hora"),
                     IdHorario: parseInt($("#reagendarPapa-Hora").val())
                 },
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[2].idCitaSisPrev,
-                    Fecha: moment($("#reagendarDensi-fecha").val()).format('YYYY-DD-MM'),
+                    Fecha: $("#reagendarDensi-fecha").val(),
                     HorarioText: $(':selected', '#reagendarDensi-Hora').attr("data-hora"),
                     IdHorario: parseInt($("#reagendarDensi-Hora").val())
                 }
@@ -435,8 +434,8 @@ function reagendar(){
     console.log(body);
     console.log(JSON.stringify(body));
     var result=ReagendarCita(body);
-    console.log(result);
-    setTimeout(function() { quitarLoadingInputs(); }, 1500);
+    console.log("result-reagendar: "+result);
+    setTimeout(function() { quitarLoadingInputs(); }, 1000);
     // sessionStorage.clear();
     // sessionStorage.setItem('dataUser', JSON.stringify(result))
     // dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
@@ -446,6 +445,7 @@ function reagendar(){
         $("#reagendarFechas").removeClass("d-flex");
         $("#reagendarAceptar").removeClass("d-none");
     }
+});
 }
 
 function cerrarReagendar(){
@@ -467,23 +467,30 @@ function startAddPkt(){
     $("#agregar-papa-fecha").datepicker({
         minDate: 0,
         dateFormat: 'dd-mm-yy',
-        onSelect: function (a) {
-            var body={ListaHorarios:[{IdEstudio:4,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}
+    });
+
+    $("#agregar-papa-fecha").on('change', function(){
+        $.when( agregarLoadingInputs() ).then(x=>{
+            var body={ListaHorarios:[{IdEstudio:4,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$("#agregar-papa-fecha").val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}
             getHorariosDisponibles(body,'#agregar-papa-hora');
             $("#agregar-papa-fecha").addClass("valido");
             $("#agregar-papa-fecha").addClass("lleno")
-        },
-    });
+            setTimeout(function() { quitarLoadingInputs(); }, 1000);
+        })
+    })
 
     $("#agregar-densi-fecha").datepicker({
         minDate: 0,
         dateFormat: 'dd-mm-yy',
-        onSelect: function (a) {
-            var body={ListaHorarios:[{IdEstudio:1,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:densitometria.data[0].Id}]}
+    });
+    $("#agregar-densi-fecha").on('change', function(){
+        $.when( agregarLoadingInputs() ).then(x=>{
+            var body={ListaHorarios:[{IdEstudio:1,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$("#agregar-densi-fecha").val(),IdSubEstudioEncript:densitometria.data[0].Id}]}
             getHorariosDisponibles(body,'#agregar-densi-hora');
             $("#agregar-densi-fecha").addClass("valido");
             $("#agregar-densi-fecha").addClass("lleno")
-        },
+            setTimeout(function() { quitarLoadingInputs(); }, 1000);
+        })
     });
 
     // $('#agregar-papa-fecha').attr('min' , minDate);
@@ -499,48 +506,48 @@ function startAddPkt(){
     // });
 }
 function agregarPKT2(){
-    saveHorarios();
-    var valida=validacionesHorarios()
-    console.log(dataAgregar);
-    if(valida){
-        rutaPagarPKT();
-    }
+    $.when( agregarLoadingInputs() ).then(x=>{
+        saveHorarios();
+        var valida=validacionesHorarios()
+        console.log(dataAgregar);
+        if(valida){
+            rutaPagarPKT();
+        }
+        setTimeout(function() { quitarLoadingInputs(); }, 1000);
+    });
 }
 function pagarPKT(){
-    $("#btn-pagar").hide()
-    validaAgregarPago()
-    agregarLoadingInputs();
-    Conekta.setPublicKey(conektaKey);
-    if(!validateConekta()){
-        console.log('errorValidacionesConekta')
-        $("#btn-pagar").show()
-        setTimeout(function() { quitarLoadingInputs(); }, 1500);
-        return;
-      }
-    saveAndPay()
+    $.when( agregarLoadingInputs() ).then(x=>{
+        $("#btn-pagar").hide()
+        validaAgregarPago()
+        Conekta.setPublicKey(conektaKey);
+        if(!validateConekta()){
+            console.log('errorValidacionesConekta')
+            $("#btn-pagar").show()
+            setTimeout(function() { quitarLoadingInputs(); }, 1000);
+            return;
+        }
+        saveAndPay()
+    });
     
 }
 
 function Cancelar(){
-    agregarLoadingInputs()
-    body={
-        idCita:dataUser.datosCita.idCita
-    }
-    var res=cancelarCitaService(body)
-    if(res!=null)
-        setTimeout(function() { quitarLoadingInputs(); }, 1500);
-
-    console.log('repuestaCancelar:',res)
-    sessionStorage.clear()
-    sessionStorage.setItem('dataUser', JSON.stringify(res.perfil))
-    dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
-    cerrarCancelar();
-    startPerfil();
-
+    $.when( agregarLoadingInputs() ).then(x=>{  
+        body={
+            idCita:dataUser.datosCita.idCita
+        }
+        var res=cancelarCitaService(body)    
+        console.log('repuestaCancelar:',res)
+        sessionStorage.clear()
+        sessionStorage.setItem('dataUser', JSON.stringify(res.perfil))
+        dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
+        cerrarCancelar();
+        startPerfil();
+     });
 }
 
 function getHorariosDisponibles(body,selector){
-    agregarLoadingInputs()
    var horarios=getHorarios(body)
    var optionsAsString="";
    if(horarios.length==0){
@@ -554,7 +561,6 @@ function getHorariosDisponibles(body,selector){
        optionsAsString += "<option value='" + horarios[i].Id + "' data-hora='"+horarios[i].Hora+"'>" + horarios[i].Hora + "</option>";
    }
    $(selector).empty().append(optionsAsString);
-   setTimeout(function() { quitarLoadingInputs(); }, 1000);
 }
 
 
@@ -686,12 +692,12 @@ function quitarLoading(){
         sessionStorage.setItem('dataUser', JSON.stringify(res))
         dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
         $("#btn-pagar").show()
-        setTimeout(function() { quitarLoadingInputs(); }, 1500);
+        // setTimeout(function() { quitarLoadingInputs(); }, 1500);
         rutaPagoCompletado();
         startPerfil()
     }else{
         $("#btn-pagar").show()
-        setTimeout(function() { quitarLoadingInputs(); }, 1500);
+        setTimeout(function() { quitarLoadingInputs(); }, 1000);
     }
     // setTimeout(function() { startPerfil(); }, 1000);
  }

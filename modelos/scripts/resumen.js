@@ -1,6 +1,6 @@
 function startResumen(){
     $("#tuplas").empty();
-    console.log(global.data);
+    //console.log(global.data);
     if(global.data.cita.Estudios.length==1){
       if(global.data.IdSucursal=="1" && global.data.cita.TipoPago!=3){
         $("#rayaHumano-masto").addClass("active");

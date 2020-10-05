@@ -48,11 +48,11 @@ function seguientePaso() {
     }
   }
   else if(paso==3){
-    var result=validacionesDatosPago();
-    if(result){
+    // var result=validacionesDatosPago();
+    // if(result){
       saveValuesPago();
       $("#cita_regresar").show();
-    }
+    // }
   } 
 }
 
@@ -79,21 +79,31 @@ function setPaso() {
 }
 
 function cambioPaso(){
-  top.location.href = '#top';
+  // top.location.href = '#top';
+  if(paso==1)
+    scrollTop("#bannerPrincipal");
+  else
+    scrollTop("#formCita");
   if(paso == 1) {
     $("#citas").load('./modelos/componentes/citaPaquetes.html',function(){
       if(window.innerWidth>500){
-        $("#info-paquetes").load('./modelos/componentes/pkt.html',function(){});
+        $("#info-paquetes").load('./modelos/componentes/pkt.html',function(){
+        });
       }
       else{
-        $("#info-paquetes").load('./modelos/componentes/pktMovil.html',function(){});
+        $("#info-paquetes").load('./modelos/componentes/pktMovil.html',function(){
+        });
       }
       $("#resumen_cita").load('./modelos/componentes/resumenCita.html',function(){
-        $("#content-paquetes").hide();
-        $("#cita_regresar").hide();
-        startCita();
-        loadValuesPaquetes();
-        startResumen()
+        $.when( agregarLoadingInputs() ).then(x=>{    
+          $("#content-paquetes").hide();
+          $("#cita_regresar").hide();
+          startCita();
+          loadValuesPaquetes();
+          startResumen()
+          setTimeout(function() { quitarLoadingInputs(); }, 1000);
+        });
+        
     });
   });
   } 
@@ -111,9 +121,12 @@ function cambioPaso(){
   }
 }
 function rutaAgregarPKT(){
+  $.when( agregarLoadingInputs() ).then(x=>{    
   $("#sumarEstudios").load('./modelos/componentes/agregarEstudio1.html', function () {
     startAddPkt()
+    setTimeout(function() { quitarLoadingInputs(); }, 1000);
   });
+});
 }
 
 function cerrarAgregarPKTFinish(){
@@ -149,7 +162,7 @@ function rutaPagoCompletado(){
   });
 }
 $(".preguntas-titulo").on("click", function(){
-  console.log(this)
+  // //console.log(this)
     $(this).find("i").toggleClass("icono-right-open");
     $(this).find("i").toggleClass("icono-down-open");
 })

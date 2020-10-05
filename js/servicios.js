@@ -15,6 +15,7 @@ function getClinicas() {
         error: function (jqXHR, textStatus, errorThrown) {
         }
     });
+    console.log("respuesta getclincas:",arrClinicas)
     return arrClinicas;
 };
 
@@ -35,7 +36,7 @@ function getEstados() {
         error: function (jqXHR, textStatus, errorThrown) {
         }
     });
-
+    console.log("respuesta getEstados:",arrEstados)
     return arrEstados;
 };
 
@@ -58,7 +59,7 @@ function getHorarios(body) {
         error: function (jqXHR, textStatus, errorThrown) {
         }
     });
-    console.log(arrHorarios);
+    //console.log(arrHorarios);
     if(arrHorarios.estatusAPI && arrHorarios.estatus){
         arrHorarios.horarios[0].Horarios.map(x=>
         {
@@ -69,7 +70,7 @@ function getHorarios(body) {
         return arrHorarios.horarios[0].Horarios;
     }
     else{
-        // console.log(arrHorarios.mensaje);
+        console.log(arrHorarios.mensaje);
         return [];
     }
 };
@@ -90,9 +91,10 @@ function getEstudio(idEstudio,idSucursal) {
             arrEstudio = response;
         },
         error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
         }
     });
-
+    console.log("respuesta getEstudios:",arrEstudio)
     return arrEstudio;
 };
 
@@ -117,6 +119,7 @@ function Registro(data) {
             console.log(jqXHR);
         }
     });
+    console.log("respuesta Registro:",resp)
     return resp;
 };
 
@@ -141,6 +144,7 @@ function LoginService(data) {
             console.log(jqXHR,textStatus,errorThrown)
         }
     });
+    console.log("respuesta Login:",resp)
     return resp;
 };
 
@@ -164,6 +168,7 @@ function recuperarContra(){
             console.log(jqXHR,textStatus,errorThrown)
         }
     });
+    console.log("respuesta recuperarContra:",resp)
     return resp;
     
 }
@@ -187,6 +192,7 @@ function cambiarContra(){
             console.log(jqXHR,textStatus,errorThrown)
         }
     });
+    console.log("respuesta cambiar contra:",resp)
     return resp;
     
 }
@@ -211,11 +217,12 @@ function ReagendarCita(body){
             console.log(jqXHR,textStatus,errorThrown)
         }
     });
+    console.log("respuesta Reagendar:",resp)
     return resp;
 }
 
 function agregarEstudiosService(body){
-    console.log(JSON.stringify(body))
+    //console.log(JSON.stringify(body))
     var resp = [];
     $.ajax({
         type: 'POST',
@@ -234,11 +241,12 @@ function agregarEstudiosService(body){
             console.log(jqXHR,textStatus,errorThrown)
         }
     });
+    console.log("respuesta AgregarEstudios:",resp)
     return resp;
 }
 
 function cancelarCitaService(body){
-    console.log(JSON.stringify(body))
+    //console.log(JSON.stringify(body))
     var resp = [];
     $.ajax({
         type: 'POST',
@@ -257,13 +265,14 @@ function cancelarCitaService(body){
             console.log(jqXHR,textStatus,errorThrown)
         }
     });
+    console.log("respuesta cancelarCitaService:",resp)
     return resp;
 }
 
 
 
 function getPerfil(body){
-    // console.log(JSON.stringify(body))
+    // //console.log(JSON.stringify(body))
     var resp = [];
     $.ajax({
         type: 'POST',
@@ -282,11 +291,12 @@ function getPerfil(body){
             console.log(jqXHR,textStatus,errorThrown)
         }
     });
+    console.log("respuesta getPerfil:",resp)
     return resp;
 }
 
 function loginFromUrlService(body){
-    // console.log(JSON.stringify(body))
+    // //console.log(JSON.stringify(body))
     var resp = [];
     $.ajax({
         type: 'POST',
@@ -305,6 +315,7 @@ function loginFromUrlService(body){
             console.log(jqXHR,textStatus,errorThrown)
         }
     });
+    console.log("respuesta loginFromUrlService:",resp)
     return resp;
 }
 

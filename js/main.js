@@ -19,9 +19,9 @@ catch{
 
 
 idSesion="1dnni3hgu9iggbdktdlpfb19u4";
-conektaKey='key_fNdPxbPkqAt1xF1sYMgQF5w';
+conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
 
-configUrl='https://la-lucha-sd.herokuapp.com/';
+configUrl='https://5db4052c3932.ngrok.io/';
 sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 
 
@@ -63,7 +63,7 @@ $(function (a) {
 });
 
 $(document).ready(function () {
-  console.log('dataUser',dataUser)
+  //console.log('dataUser',dataUser)
   $('#banner').load('./modelos/banner.html');
   $('#nav').load('./modelos/navbar.html');
 
@@ -71,14 +71,14 @@ $(document).ready(function () {
     dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
   }
   catch(e){
-    console.log(e);
+    //console.log(e);
   }
-  console.log('dataUser',dataUser)
+  //console.log('dataUser',dataUser)
   if(getUrlParameter('recovery')!=null){
     redirectLogin();
   }else if(getUrlParameter('token')!=null){
     body={idCita:getUrlParameter('token')}
-    // console.log(body)
+    // //console.log(body)
     dataUser=loginFromUrlService(body);
     sessionStorage.clear();  
     sessionStorage.setItem('dataUser', JSON.stringify(dataUser));
@@ -129,27 +129,30 @@ $(document).on("click", ".movilNav", function(){
   $("#movilNav").toggleClass("d-flex");
 })
 
-function irPerfil(parametro) { 
-  $("#navCita4").addClass('active');
-	$('#seccion').load('./modelos/perfil.html',function(){
-    $("#MiPerfil").load('./modelos/componentes/miPerfil.html',function(){
-      $("#sumarEstudios").load('./modelos/componentes/agregarEstudioImg.html',function(){
-      startPerfil();
+async function irPerfil(parametro) { 
+  $.when( agregarLoadingInputs() ).then(x=>{  
+    $("#navCita4").addClass('active');
+    $('#seccion').load('./modelos/perfil.html',function(){
+      $("#MiPerfil").load('./modelos/componentes/miPerfil.html',function(){
+        $("#sumarEstudios").load('./modelos/componentes/agregarEstudioImg.html',function(){
+            startPerfil();
+        });
       });
+      removerClaseNav();
+      $("#btnLogIn").addClass("active");
     });
-    removerClaseNav();
-    $("#btnLogIn").addClass("active");
   });
 }
 function redirectLogin(){
+  setTimeout(function() { quitarLoadingInputs(); }, 1000);
   $('#seccion').load('./modelos/logIn.html',function(){
     $("#ingresar").load('./modelos/componentes/ingresar.html',function(){
-      console.log(getUrlParameter('recovery'));
+      //console.log(getUrlParameter('recovery'));
       if(getUrlParameter('recovery')!=null){
           removerClaseNav();
           $("#btnLogIn").addClass("active");
           $("#contenedorLogIn").load('./modelos/componentes/nuevaPass.html',function(){
-            console.log('hola')
+            //console.log('hola')
           });
         }
       });
@@ -174,10 +177,20 @@ function redirectCambiarContra(){
 }
 
 
-function quitarLoadingInputs(){
-  $(".overlay_loading").css("display", "none")
+async function quitarLoadingInputs(){
+  await $(".overlay_loading").css("display", "none")
+  return true
 }
 
-function agregarLoadingInputs(){
-  $(".overlay_loading").css("display", "flex")
+async function agregarLoadingInputs(){
+  await $(".overlay_loading").css("display", "flex")
+  return true
+}
+
+function scrollTop(element){
+    if(element){
+      $([document.documentElement, document.body]).animate({
+        scrollTop: $(element).offset().top-150
+      }, 500);
+    }
 }

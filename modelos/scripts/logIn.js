@@ -27,7 +27,7 @@ function Login(){
     if ($('#form-login').parsley().isValid()) {
       iniciarSesion()
     } else {
-        console.log('not valid login');
+        //console.log('not valid login');
     }
 
   // $('#login-form').parsley().on('field:validated', function() {
@@ -45,7 +45,7 @@ function iniciarSesion(){
   
   var dataUser=[];
   dataUser= LoginService(data);
-  console.log(JSON.stringify(dataUser));
+  //console.log(JSON.stringify(dataUser));
   sessionStorage.clear()
   if(dataUser.estatus==false || dataUser==null){
     $("#login-error").text("Error Usuario o Contraseña Incorrectos")
@@ -74,7 +74,7 @@ function cambiarPass(){
       password: $('#recuperar-pass').val()
   }
   var resp=cambiarContra(data)
-  console.log(resp);
+  //console.log(resp);
   redirectCambiarContra();
 }
 }
