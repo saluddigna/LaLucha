@@ -476,7 +476,8 @@ function saveValuesPaquetes(){
 function quitarPKT(pkt){
     clearPkts();
     if(pkt==1){
-        $("#pktPapa").toggle("d-none");
+        $(".displayPKT .pktSoloEnLinea.papa").css("display", "none");
+        $("#pktPapa, .quitarPKT_papa").toggle("d-none");
         $("#addPKT").prop("disabled", false);
         $("#addPapa").show()
 
@@ -484,7 +485,8 @@ function quitarPKT(pkt){
         saveValuesPaquetes();
         startResumen();
     }else{
-        $("#pktMujer").toggle("d-none");
+        $(".displayPKT .pktSoloEnLinea.densi").css("display", "none");
+        $("#pktMujer, .quitarPKT_densi").toggle("d-none");
         $("#addPapa").prop("disabled", false);
         $("#addPKT").show()
         togglePkt=false;
@@ -497,7 +499,8 @@ var togglePapa=false;
 function agregarPapa(){
     $('#chk').prop('checked',false)
     $("#addPapa").hide()
-    $(".pktPapa").toggle("d-none");
+    $(".pktPapa, .quitarPKT_papa").toggle("d-none");
+    $(".displayPKT .pktSoloEnLinea.papa").css("display", "flex");
     $("#addPKT").prop("disabled", true);
     togglePapa=true;
     togglePkt=false;
@@ -507,7 +510,8 @@ function agregarPapa(){
 var togglePkt=false;
 function agregarPKT(){
     $('#chk').prop('checked',false)
-    $("#pktMujer").toggle("d-none");
+    $("#pktMujer, .quitarPKT_densi").toggle("d-none");
+    $(".displayPKT .pktSoloEnLinea.densi").css("display", "flex");
     $("#addPapa").prop("disabled", true);
     $("#addPKT").hide()
     togglePapa=false;

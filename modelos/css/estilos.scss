@@ -172,7 +172,7 @@ input.error{
 }
 /* Banner */
 .bannerPonElPecho{
-  background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-masto-en-150-reducido-web.jpg');
+  background-image: url('https://salud-digna.com/pon-el-pecho/banner-masto-en-150-web.jpg');
   background-repeat: no-repeat;
   background-position-x: center;
   margin: 0px;
@@ -451,7 +451,7 @@ input.error{
   position: absolute;
   right: 5px;
   top: 10px;
-  color: #616161;
+  color: #F05876;
 }
 .preguntas-cuerpo{
   padding: 10px 10px 10px 0;
@@ -658,6 +658,26 @@ input.error{
   margin: 15px 0;
   height: fit-content;
 }
+.displayPKT{
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.displayPKT .pktSoloEnLinea{
+  display: none;
+  background-color: #E6E6E6;
+  border-radius: 6px;
+  padding: 8px;
+  margin-top: 10px;
+  color: #616161;
+}
+.displayPKT .pktSoloEnLinea i{
+  font-size: 17px;
+}
+.displayPKT .pktSoloEnLinea span{
+  font-size: 10px;
+}
 .precioPKT{
   position: absolute;
     right: 4px;
@@ -692,13 +712,12 @@ input.error{
   right: 34px;
   margin-top: -41px;
 }
-.quitarPKT{
+.quitarPKT_papa, .quitarPKT_densi{
   font-weight: bold;
   font-size: 14px;
-  position: absolute;
-  bottom: 18px;
-  left: -116px;
   cursor: pointer;
+  margin-top: 10px;
+  display: none;
 }
 .resumenCita{
   background: #FAFAFA 0% 0% no-repeat padding-box;
@@ -792,7 +811,7 @@ input.error{
   background-color: #E5e5e5;
 }
 .logIn{
-  height: 50vh;
+  height: auto;
 }
 .infoRecuperar{
   color: #AFAFAF;
@@ -1254,7 +1273,7 @@ input.error{
     flex-direction: column;
   }
   .bannerPonElPecho{
-    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-masto-en-150-reducido-tablet.jpg');
+    background-image: url('https://salud-digna.com/pon-el-pecho/banner-masto-en-150-tablet.jpg');
     background-color: #FDCAC7;
     height: 150px;
   }
@@ -1331,7 +1350,7 @@ input.error{
   }
   .navegacionCitas{
     padding: 15px;
-    background: #ffffff00 0% 0% no-repeat padding-box;
+    background: #ffffff 0% 0% no-repeat padding-box;
     box-shadow: none;
   }
   .abrirPreparacion{
@@ -1379,7 +1398,7 @@ input.error{
     width: 109px;
   }
   .bannerPonElPecho{
-    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-masto-en-150-movil-reducido.jpg');
+    background-image: url('https://salud-digna.com/pon-el-pecho/banner-masto-en-150-movil.jpg');
     background-color: #FDCAC7;
     height: 150px;
   }
