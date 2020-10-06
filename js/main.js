@@ -10,6 +10,9 @@ densitometria=null;
 papanicolao=null;
 global.perfil={};
 dataUser=null
+modalInactividad=null;
+intervaloMilisegundosInactividad=360000;
+
 try{
   dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
 }
@@ -143,6 +146,7 @@ async function irPerfil(parametro) {
     $('#seccion').load('./modelos/perfil.html',function(){
       $("#MiPerfil").load('./modelos/componentes/miPerfil.html',function(){
         $("#sumarEstudios").load('./modelos/componentes/agregarEstudioImg.html',function(){
+            clearInterval(modalInactividad);
             startPerfil();
         });
       });
@@ -155,6 +159,7 @@ function redirectLogin(){
   setTimeout(function() { quitarLoadingInputs(); }, 1000);
   $('#seccion').load('./modelos/logIn.html',function(){
     $("#ingresar").load('./modelos/componentes/ingresar.html',function(){
+      clearInterval(modalInactividad);
       //console.log(getUrlParameter('recovery'));
       if(getUrlParameter('recovery')!=null){
           removerClaseNav();
@@ -170,6 +175,7 @@ function redirectLogin(){
 }
 
 function olvidarContra(tipo){
+  clearInterval(modalInactividad);
   if(tipo){
     $("#contenedorLogIn").load('./modelos/componentes/restablecer.html',function(){
     });
@@ -178,9 +184,11 @@ function olvidarContra(tipo){
   }
 }
 function redirectRecuperada(){
+  clearInterval(modalInactividad);
   $("#contenedorLogIn").load('./modelos/componentes/recuperada.html');
 }
 function redirectCambiarContra(){
+  clearInterval(modalInactividad);
   $("#contenedorLogIn").load('./modelos/componentes/nuevaPassListo.html');
 }
 
@@ -201,4 +209,19 @@ function scrollTop(element){
         scrollTop: $(element).offset().top-150
       }, 500);
     }
+}
+
+function showModalSesion(){
+  clearInterval(modalInactividad);
+  $('#modalInatividad').modal({
+    show: 'false'
+  }); 
+}
+function inactividadSeguir(){
+  modalInactividad = setInterval(showModalSesion, intervaloMilisegundosInactividad);
+}
+
+function inactividadAyuda(){
+  clearInterval(modalInactividad);
+  window.location.href='https://salud-digna.site/AyudaMasto';
 }

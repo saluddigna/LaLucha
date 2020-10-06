@@ -319,3 +319,28 @@ function loginFromUrlService(body){
     return resp;
 }
 
+
+function validaCorreo(body){
+    // //console.log(JSON.stringify(body))
+    var resp = [];
+    $.ajax({
+        type: 'POST',
+        url: configUrl+'paciente/verificar/correo',
+        contentType: 'application/json',
+        data: JSON.stringify(body),
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', sesion);
+        },
+        async: false,
+        success: function (response) {
+            resp=response;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR,textStatus,errorThrown)
+        }
+    });
+    console.log("respuesta validaCorreo:",resp)
+    return resp;
+}
+

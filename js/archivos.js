@@ -95,7 +95,8 @@ function cambioPaso(){
         });
       }
       $("#resumen_cita").load('./modelos/componentes/resumenCita.html',function(){
-        $.when( agregarLoadingInputs() ).then(x=>{    
+        $.when( agregarLoadingInputs() ).then(x=>{
+          modalInactividad = setInterval(showModalSesion, intervaloMilisegundosInactividad);    
           $("#content-paquetes").hide();
           $("#cita_regresar").hide();
           startCita();
@@ -190,3 +191,4 @@ $(".preguntas-titulo").on("click", function(){
 //     });
 //   }
 // }
+
