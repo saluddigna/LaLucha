@@ -364,7 +364,7 @@ function validacionesPaquetes(){
     //console.log('entre validaciones paquetes>>>')
     if(!togglePapa && !togglePkt){
         if((!$('#chk').is(":checked"))){
-            $('#check-error').text("Para continuar, confirma que no deseas agregar algún Paquete")
+            $('#check-error').text("Para continuar, debes indicar si deseas agregar uno de los beneficios extras.")
             $( "#cita_siguiente" ).prop( "disabled", true );
             return false
         }
@@ -612,4 +612,7 @@ function changeSelectClinica(idSucursal){
     papanicolao=getEstudio(4,idSucursal)
     // //console.log(mastografia,densitometria,densitometria)
     clearDataPaquetes();
+}
+function verInstrucciones(){
+    $('#datosTelefono').toggleClass("d-none");
 }

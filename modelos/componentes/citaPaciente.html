@@ -16,7 +16,7 @@
         <span class="floating-label">Apellido materno</span>
       </div>
       <div class="cajas-texto">
-        <input type="text" class="input-sd valido" id="cita_fechaNacimiento" data-parsley-required="true" data-inputmask="'alias': 'datetime', 'inputFormat': 'dd-mm-yyyy'">
+        <input type="text" class="input-sd valido" id="cita_fechaNacimiento" data-parsley-required="true" data-inputmask="'alias': 'datetime', 'inputFormat': 'dd-mm-yyyy', 'placeholder': 'dd-mm-aaaa'">
         <span class="floating-label" >Fecha de nacimiento</span>
       </div>
     </div>
@@ -25,6 +25,14 @@
       <div id="mas" class="btn-sexo" onclick="clickMas()"><i class="icono-genero_hombre"></i> Hombre</div>
     </div>
     <div class="row datos-px">
+      <div class="infoTelefono" onclick="verInstrucciones()">
+        <i class="icono-attention-circled"></i>
+        <div class="d-none" id="datosTelefono">
+          Si no cuentas con WhatsApp, ingresa tu número de celular.
+        </div>
+      </div>
+      <p class="text-bold text-16">Datos de contacto</p>
+      
       <div class="cajas-texto">
         <input type="text" class="input-sd" id="cita_telefono" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono_confirm" >
         <span class="floating-label">Número de WhatsApp</span>
@@ -38,6 +46,7 @@
         <input type="email" class="input-sd" id="cita_correo" data-parsley-required="true" >
         <span class="floating-label">Correo electrónico</span>
       </div>
+      <p class="correoNecesario">Es necesario ingresar tu correo electrónico, ya que ese será tu nombre de usuario para ingresar a tu perfil.</p>
     </div>
   </div>
 </div>

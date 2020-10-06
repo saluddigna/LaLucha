@@ -522,7 +522,7 @@ input.error{
   border-top: 20px solid #FAC2BF;
 }
 .masto-cita{
-  background:#e5e5e5 0% 0% no-repeat padding-box;
+  background:#a8a7a7 0% 0% no-repeat padding-box;
   box-shadow: 0px 0px 6px #6161613B;
   border-radius: 5px;
   height: 170px;
@@ -546,6 +546,12 @@ input.error{
 .masto-cita.active{
   background-color: #E45F7D;
   border: 3px solid #B54B60;
+}
+.octubre, .este19{
+  display: none;
+}
+.proximamente{
+  display: block;
 }
 .btn-pink-outline{
   width: 100%;
@@ -582,6 +588,7 @@ input.error{
   text-decoration: none;
   outline: none;
   margin: 20px 0px;
+  cursor: pointer;
 }
 .my-10{
   margin: 20px 0;
@@ -647,6 +654,32 @@ input.error{
 .btn-sexo i{
   font-size: 34px;
   margin-left: -20px;
+}
+.infoTelefono{
+  cursor: pointer;
+  i{
+    color: #FAC2BF;
+    font-size: 20px;
+    float: right;
+  }
+  #datosTelefono{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #F0BCBB;
+    font-size: 10px;
+    width: 150px;
+    position: absolute;
+    right: 38px;
+    margin-top: 26px;
+    z-index: 10;
+    padding: 5px;
+    border-radius: 4px;
+  }
+} 
+.correoNecesario{
+  font-size: 12px;
+  padding: 0 5px;
+  margin-top: -8px;
 }
 /* Pagar */
 .pkts{
@@ -740,13 +773,13 @@ input.error{
   width: 50%;
   margin:15px;
   cursor: inherit;;
-  p{
-    color:#CF787D
+  p, i{
+    color:#CF787D;
+    font-size: 36px;
   }
 }
 .tipoPago{
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  border: 1px solid #E2BBBA;
+  background: #a8a7a7 0% 0% no-repeat padding-box;
   border-radius: 4px;
   width: 50%;
   margin:15px;
@@ -755,16 +788,20 @@ input.error{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  p, i{
+    color: #8e8e8e;
+    font-size: 36px;
+  }
 }
-.tipoPago i{
-  font-size: 36px;
-  color: #CF787D;
-}
+// .tipoPago i{
+//   font-size: 36px;
+//   color: #CF787D;
+// }
 .icono-pago-en-linea{
   position: relative;
   right: 10px;
 }
-.icono-iconos-clinica-SD, .icono-datos{
+.icono-datos{
   font-size: 18px;
   color: #CF787D;
 }
@@ -1193,10 +1230,18 @@ input.error{
 .parsley-errors-list{
   padding-left: 10px;
   list-style: none;
+  color: #FF5C17;
+  background-color: #FBE1D6;
+  width: fit-content;
+  border-radius: 2px;
+  font-size: 11px;
 }
 .invalidCard, .parsley-required{
   color: #FDCAC7;
   font-size: 10px;
+  color: #FF5C17;
+  background-color: #FBE1D6;
+  width: fit-content;
 }
 @media only screen and (min-width: 501px) {
   .sumarEstudios.sumarPKT{
@@ -1393,9 +1438,15 @@ input.error{
     transform: rotateZ(45deg);
     right: -24px;
     top: 18px;
-    
+    display: block;
     height: 19px;
     width: 109px;
+  }
+  .este19{
+    display: block;
+  }
+  .proximamente{
+    display: none;
   }
   .bannerPonElPecho{
     background-image: url('https://salud-digna.com/pon-el-pecho/banner-masto-en-150-movil.jpg');
