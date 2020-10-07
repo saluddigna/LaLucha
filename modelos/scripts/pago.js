@@ -31,11 +31,11 @@ function startPago() {
   llenarInfo();
   Conekta.setPublicKey(conektaKey);
   $("#cita_siguiente").prop("disabled", true);
-  $("#nameCard").on('keydown input change', function () { validacionesDatosPago("#nameCard") })
-  $("#numCard").on('keydown input change', function () { validacionesDatosPago("#numCard") })
-  $("#mm").on('keydown input change', function () { validacionesDatosPago("#mm") })
-  $("#aaaa").on('keydown input change', function () { validacionesDatosPago("#aaaa") })
-  $("#ccv").on('keydown input change', function () { validacionesDatosPago("#ccv") })
+  $("#nameCard").on('input', function () { validacionesDatosPago("#nameCard") })
+  $("#numCard").on('input', function () { validacionesDatosPago("#numCard") })
+  $("#mm").on('input', function () { validacionesDatosPago("#mm") })
+  $("#aaaa").on('input', function () { validacionesDatosPago("#aaaa") })
+  $("#ccv").on('input', function () { validacionesDatosPago("#ccv") })
 }
 
 var tarjeta = false;

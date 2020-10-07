@@ -34,11 +34,11 @@
       <p class="text-bold text-16">Datos de contacto</p>
       
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_telefono" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono_confirm" >
+        <input type="text" class="input-sd" id="cita_telefono" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono_confirm" data-parsley-required-message="Ingresa un número válido" data-parsley-equalto-message="Ingresa un número válido">
         <span class="floating-label">Número de WhatsApp</span>
       </div>
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_telefono_confirm" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono" >
+        <input type="text" class="input-sd" id="cita_telefono_confirm" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono" data-parsley-equalto-message="Los números deben coincidir">
         <span class="floating-label">Confirmar número de WhatsApp</span>
       </div>
 
@@ -46,6 +46,7 @@
         <input type="email" class="input-sd" id="cita_correo" data-parsley-required="true" >
         <span class="floating-label">Correo electrónico</span>
       </div>
+      <p class="parsley-errors-list" id="correoExistente"> </p>
       <p class="correoNecesario">Es necesario ingresar tu correo electrónico, ya que ese será tu nombre de usuario para ingresar a tu perfil.</p>
     </div>
   </div>

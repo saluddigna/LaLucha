@@ -320,8 +320,8 @@ function loginFromUrlService(body){
 }
 
 
-function validaCorreo(body){
-    // //console.log(JSON.stringify(body))
+function validaCorreoService(body){
+    console.log(JSON.stringify(body))
     var resp = [];
     $.ajax({
         type: 'POST',

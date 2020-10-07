@@ -208,25 +208,30 @@ function clickMas(){
 }
 
  function loadValuesPacientes(){
-    $("#cita_nombre").on('keydown input change', function(){
+    $("#cita_nombre").on('input', function(){
         validacionesDatosPaciente("#cita_nombre")
     })
-    $("#cita_app").on('keydown input change', function(){
+    $("#cita_app").on('input', function(){
         validacionesDatosPaciente("#cita_app")
     })
-    $("#cita_fechaNacimiento").on('keydown input change', function(){
+    $("#cita_fechaNacimiento").on('input', function(){
         validacionesDatosPaciente("#cita_fechaNacimiento")
     })
-    $("#cita_telefono").on('keydown input change', function(){
+    $("#cita_telefono").on('input', function(){
         validacionesDatosPaciente("#cita_telefono")
     })
-    $("#cita_telefono_confirm").on('keydown input change', function(){
+    $("#cita_telefono_confirm").on('input', function(){
         validacionesDatosPaciente("#cita_telefono_confirm")
     })
-    $("#cita_correo").on('keydown input change', function(){
+    $("#cita_correo").on('input', function(){
         validacionesDatosPaciente("#cita_correo")
     })
 
+    // $("#cita_correo").on("blur", function(){
+        
+    // })
+    
+    
     var date = moment.utc().format();
     var minDate = moment.utc(date).local().format("DD-MM-YYYY");
     $(":input").inputmask();
@@ -526,12 +531,32 @@ function alerta(msg){
 }
 
 function validacionesDatosPaciente(selector){
+    console.log("form-paciente",$('#form-registro').parsley().isValid())
     if(selector){
         if(selector=="#cita_telefono" || selector=="#cita_telefono_confirm"){
             $("#cita_telefono_confirm").parsley().validate();
             $("#cita_telefono").parsley().validate();
-        }else
+        }
+        else
             $(selector).parsley().validate();
+            
+        if ($('#form-registro').parsley().isValid()) {
+            // if(selector=="#cita_correo"){
+                param={correoElectronico: $("#cita_correo").val()}
+                result=validaCorreoService(param)
+                console.log(result);
+                if(result==true){
+                    $("#correoExistente").text("El correo que nos proporcionaste ya ha sido utilizado.")
+                    $( "#cita_siguiente" ).prop( "disabled", true );
+                    return
+                }
+                else{
+                    $("#correoExistente").empty()
+                    // $( "#cita_siguiente" ).prop( "disabled", false );
+
+                }
+            // }
+        }
     }
     if ($('#form-registro').parsley().isValid()) {
       $( "#cita_siguiente" ).prop( "disabled", false );
