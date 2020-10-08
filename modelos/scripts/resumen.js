@@ -39,13 +39,13 @@ function startResumen(){
       $("#rayaHumano-densi").removeClass("active");
       var estudio = $("<td width='33%'> -" +  global.data.cita.Estudios[0].Nombre + "</td>)");
       var fecha = $("<td width='33%' align='center'>" + global.data.cita.Estudios[0].Fecha + " " +global.data.cita.Estudios[0].Hora+ "</td>)");
-      var precio = $("<td width='33%' align='right'> $ 220.00 </td>)");
+      var precio = (global.data.IdSucursal=="1") ? $("<td width='33%' align='right'> $ 210.00 </td>)") : $("<td width='33%' align='right'> $ 220.00 </td>)");
       $("#tuplas").append("<tr>");
       $("#tuplas").append(estudio);
       $("#tuplas").append(fecha);
       $("#tuplas").append(precio);
       $("#tuplas").append("</tr>");  
-      $('#descuento').text("$ 70.00");  
+      (global.data.IdSucursal=="1") ? $('#descuento').text("$ 60.00") : $('#descuento').text("$ 70.00")
       $('#totalP').text("$ 150.00");   
       return;
     }

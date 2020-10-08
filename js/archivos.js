@@ -10,8 +10,8 @@ $(document).ready(function () {
     }
   });
   
-  $("#infoCita").load('./modelos/componentes/infoCita.html', function () {});
-  $("#formCita").load('./modelos/componentes/formCita.html', function () {
+  $("#infoCita").load('../modelos/componentes/infoCita.html', function () {});
+  $("#formCita").load('../modelos/componentes/formCita.html', function () {
     $("#cita_regresar").hide();
      $(".overlay_loading").css("display", "flex")
     global.clinicas=getClinicas();
@@ -28,6 +28,7 @@ function seguientePaso() {
   if(paso==1){
     var result=validacionesPaquetes();
     if (result){
+      history.pushState(null, null, 'datos-personales');
       $("#cita_regresar").show();
       saveValuesPaquetes()
       paso++;
@@ -40,6 +41,7 @@ function seguientePaso() {
     saveValuesPaciente()
     var result=validacionesDatosPaciente();
     if (result){
+      history.pushState(null, null, 'verifica-paga');
       $("#cita_regresar").show();
       paso++;
       $("#navCita3").addClass('active');
@@ -59,8 +61,10 @@ function seguientePaso() {
 function anteriorPaso() {
   if(paso>1){
     if(paso==3){
+      history.pushState(null, null, 'datos-personales');
       $("#navCita3").removeClass('active');
     }else if (paso==2){
+      history.pushState(null, null, '/pon-el-pecho/');
       $("#navCita2").removeClass('active');
     }
     paso--;
@@ -85,16 +89,16 @@ function cambioPaso(){
   else
     scrollTop("#formCita");
   if(paso == 1) {
-    $("#citas").load('./modelos/componentes/citaPaquetes.html',function(){
+    $("#citas").load('../modelos/componentes/citaPaquetes.html',function(){
       if(window.innerWidth>500){
-        $("#info-paquetes").load('./modelos/componentes/pkt.html',function(){
+        $("#info-paquetes").load('../modelos/componentes/pkt.html',function(){
         });
       }
       else{
-        $("#info-paquetes").load('./modelos/componentes/pktMovil.html',function(){
+        $("#info-paquetes").load('../modelos/componentes/pktMovil.html',function(){
         });
       }
-      $("#resumen_cita").load('./modelos/componentes/resumenCita.html',function(){
+      $("#resumen_cita").load('../modelos/componentes/resumenCita.html',function(){
         $.when( agregarLoadingInputs() ).then(x=>{
           modalInactividad = setInterval(showModalSesion, intervaloMilisegundosInactividad);    
           $("#content-paquetes").hide();
@@ -109,12 +113,12 @@ function cambioPaso(){
   });
   } 
   else if (paso == 2) {
-    $("#citas").load('./modelos/componentes/citaPaciente.html',function(){
+    $("#citas").load('../modelos/componentes/citaPaciente.html',function(){
       loadValuesPacientes();
     });
   } else if (paso == 3) {
     saveValuesPaciente();
-    $("#citas").load('./modelos/componentes/pago.html',function(){
+    $("#citas").load('../modelos/componentes/pago.html',function(){
       $("#resumen_cita").load('./modelos/componentes/resumenCita.html',function(){
       startPago();
     });
@@ -123,7 +127,7 @@ function cambioPaso(){
 }
 function rutaAgregarPKT(){
   $.when( agregarLoadingInputs() ).then(x=>{    
-  $("#sumarEstudios").load('./modelos/componentes/agregarEstudio1.html', function () {
+  $("#sumarEstudios").load('../modelos/componentes/agregarEstudio1.html', function () {
     startAddPkt()
     setTimeout(function() { quitarLoadingInputs(); }, 1000);
   });
@@ -131,7 +135,7 @@ function rutaAgregarPKT(){
 }
 
 function cerrarAgregarPKTFinish(){
-  $("#sumarEstudios").load('./modelos/componentes/agregarEstudio0.html',function(){
+  $("#sumarEstudios").load('../modelos/componentes/agregarEstudio0.html',function(){
     $('#lentes-agregar').show();
     $('#paquete-agregar').hide();
   });
@@ -139,7 +143,7 @@ function cerrarAgregarPKTFinish(){
 }
 function cerrarAgregarPKT(){
   $("#sumarEstudios").empty()
-  $("#sumarEstudios").load('./modelos/componentes/agregarEstudioImg.html',function(){
+  $("#sumarEstudios").load('../modelos/componentes/agregarEstudioImg.html',function(){
     $('#lentes-agregar').hide();
     $('#paquete-agregar').show();
   });
@@ -148,7 +152,7 @@ function cerrarAgregarPKT(){
 }
 
 function rutaPagarPKT(){
-  $("#sumarEstudios").load('./modelos/componentes/agregarEstudio2.html', function () {
+  $("#sumarEstudios").load('../modelos/componentes/agregarEstudio2.html', function () {
     $('#invalidCard').hide()
     $('#invalidDate').hide()
     $('#invalidCCV').hide()
@@ -157,7 +161,7 @@ function rutaPagarPKT(){
   });
 }
 function rutaPagoCompletado(){
-    $("#sumarEstudios").load('./modelos/componentes/agregarEstudio3.html', function () {
+    $("#sumarEstudios").load('../modelos/componentes/agregarEstudio3.html', function () {
     loadAgregarPagados();
     refreshDataPerfil()
   });

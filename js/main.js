@@ -68,6 +68,10 @@ $(function (a) {
 });
 
 $(document).ready(function () {
+  $(document).on("click", ".masto-cita.active", function(){
+    var destino = $('#btnObtenerUbicacion');
+    $('html, body').animate({ scrollTop: (destino.offset().top - 65) }, 500);
+  });
   $(document).on("click", ".preguntas-titulo", function(){
     $(this).find("i").toggleClass("icono-right-open icono-down-open");
   })
@@ -148,6 +152,7 @@ async function irPerfil(parametro) {
         $("#sumarEstudios").load('./modelos/componentes/agregarEstudioImg.html',function(){
             clearInterval(modalInactividad);
             startPerfil();
+            history.pushState(null, null, 'perfil');
         });
       });
       removerClaseNav();
@@ -160,6 +165,10 @@ function redirectLogin(){
   $('#seccion').load('./modelos/logIn.html',function(){
     $("#ingresar").load('./modelos/componentes/ingresar.html',function(){
       clearInterval(modalInactividad);
+      if(localStorage.getItem("cita_creada") == 1){
+        localStorage.removeItem("cita_creada");
+        history.pushState(null, null, 'perfil/cita-confirmada');
+      }
       //console.log(getUrlParameter('recovery'));
       if(getUrlParameter('recovery')!=null){
           removerClaseNav();

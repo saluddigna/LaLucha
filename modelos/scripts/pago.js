@@ -206,6 +206,7 @@ function registrarCita(token) {
     sessionStorage.setItem('dataUser', JSON.stringify(global.perfil))
     clearGlobalData();
     setTimeout(function () { quitarLoading(); }, 1500);
+    localStorage.setItem("cita_creada", 1);
     irPerfil("perfil");
   } else {
     setTimeout(function () { quitarLoading(); }, 1500);
