@@ -115,6 +115,7 @@ function startPerfil(){
         $('#folios_densi').hide();
         if(dataUser.datosCita.estatus){
             $('#lentes-agregar').hide();
+            $('.bl').show();
             $('#sumarEstudios').show();
 
             $('#reagendarMasto-name').text(dataUser.datosCita.estudios[0].nombre);
@@ -123,6 +124,7 @@ function startPerfil(){
             $('#perfil-fechaCita-masto').text(dataUser.datosCita.estudios[0].fecha+" "+dataUser.datosCita.estudios[0].hora);
         }else{
             $('#lentes-agregar').show();
+            $('.bl').hide();
             $('#sumarEstudios').hide();
             folio_cancelada()
         }
