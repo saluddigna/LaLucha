@@ -1153,6 +1153,11 @@ input.error{
   background-repeat: no-repeat;
   background-position-x: center;
 }
+.bannerLentes{
+  background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/bannerParaLentesWeb.jpg');
+  background-repeat: no-repeat;
+  background-position: inherit;
+}
 .precioEstudio{
   position: absolute;
   top: 55px;
@@ -1332,6 +1337,11 @@ input.error{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-lentes%20desactivado-tablet.jpg');
     //background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-tablet-lentes.png');
   }
+  .bannerLentes{
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/bannerParaLentesTablet.jpg');
+    height: 290px;
+    background-position: center;
+  }
   .imgUpSale{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner%20paquete%20tablet.jpg');
   }
@@ -1456,6 +1466,11 @@ input.error{
   }
   .hazloEnLinea{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-movil.jpg');
+  }
+  .bannerLentes{
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/bannerParaLentesMovil.jpg');
+    height: 290px;
+    background-position: center;
   }
   .card.noCardMovil {
     background: none;
