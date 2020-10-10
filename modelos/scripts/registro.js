@@ -100,6 +100,11 @@ async function startCita(){
             validacionesPaquetes()
          });
 
+         $('#chkEdad').on('change', function(){
+            $('#check-error').text("")
+            validacionesPaquetes()
+         });
+
 
         //agregarPaquetes
 
