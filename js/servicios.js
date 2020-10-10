@@ -88,6 +88,19 @@ function getEstudio(idEstudio,idSucursal) {
         },
         async: false,
         success: function (response) {
+            // Papanicolaou
+            if(response.data[0].EstudioID == 4){
+                var arreglo_papa = [];
+                response.data.forEach(function(value, index){
+                    var subestudio = value.Descripcion.toUpperCase();
+                    if(subestudio.indexOf("LIQUIDA") > 0){
+                        arreglo_papa.push(value);
+                    }
+                })
+
+                response.data = arreglo_papa;
+            }
+
             arrEstudio = response;
         },
         error: function (jqXHR, textStatus, errorThrown) {

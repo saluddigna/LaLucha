@@ -115,13 +115,13 @@ async function startCita(){
         })
         $("#fechaCitaPapa_pkt1").on('change', function(){
             $.when( agregarLoadingInputs() ).then(x=>{
-            var body={ListaHorarios:[{IdEstudio:4,IdSucursal:$("#selectClinica").val(),Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}        
-            getHorariosDisponibles(body,'#selectHorarioPapa_pkt1');
-            $("#fechaCitaPapa_pkt1").addClass("valido");
-            $("#fechaCitaPapa_pkt1").addClass("lleno")
-            validacionesPaquetes()
-            setTimeout(function() { quitarLoadingInputs(); }, 1000);
-        });
+                var body={ListaHorarios:[{IdEstudio:4,IdSucursal:$("#selectClinica").val(),Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}        
+                getHorariosDisponibles(body,'#selectHorarioPapa_pkt1');
+                $("#fechaCitaPapa_pkt1").addClass("valido");
+                $("#fechaCitaPapa_pkt1").addClass("lleno")
+                validacionesPaquetes()
+                setTimeout(function() { quitarLoadingInputs(); }, 1000);
+            });
         })
         $("#fechaCitaPapa_pkt2").on('change', function(){
             $.when( agregarLoadingInputs() ).then(x=>{
@@ -388,6 +388,12 @@ function validacionesPaquetes(){
     }
     if((!$('#chkTerminos').is(":checked"))){
         $('#check-error').text("Para continuar, acepta nuestro Aviso de Privacidad junto con Términos y Condiciones.")
+        $( "#cita_siguiente" ).prop( "disabled", true );
+        return false
+    }
+
+    if((!$('#chkEdad').is(":checked"))){
+        $('#check-error').text("Para continuar, debes aceptar que conoces la edad en la que se realiza este estudio.")
         $( "#cita_siguiente" ).prop( "disabled", true );
         return false
     }
