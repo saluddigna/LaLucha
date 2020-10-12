@@ -109,23 +109,28 @@ $(document).ready(function () {
 
 function seccion(nav){
   if(nav==1){
-    $('#seccion').load('./modelos/cita.html'); 
+    $('#seccion').load('./modelos/cita.html');
+    saveAnalytics('entrarPagina','citas','entrarEnCitas');
     removerClaseNav();
     $("#btnRegistro").addClass("active");
   }else if(nav==2){
     $('#seccion').load('./modelos/revista.html');
+    saveAnalytics('entrarPagina','revista','entrarEnRevista');
     removerClaseNav();
     $("#btnRevista").addClass("active");
   }else if(nav==3){
     $('#seccion').load('./modelos/beneficiados.html');
+    saveAnalytics('entrarPagina','beneficiarios','entrarEnBeneficiados');
     removerClaseNav();
     $("#btnPxBeneficiados").addClass("active");
   }else if(nav==4){
     if(!dataUser){
       redirectLogin();
+      saveAnalytics('entrarPagina','logIn','irInicioSesion');
     }
     else{
       irPerfil();
+      saveAnalytics('entrarPagina','perfil','volverPerfil');
     }
   }
   else{
@@ -188,6 +193,7 @@ function olvidarContra(tipo){
   if(tipo){
     $("#contenedorLogIn").load('./modelos/componentes/restablecer.html',function(){
     });
+    saveAnalytics('entrarPagina','logIn','Clic Olvidé mi contraseña');
   }else{
     $("#ingresar").load('./modelos/componentes/ingresar.html');
   }
@@ -195,10 +201,12 @@ function olvidarContra(tipo){
 function redirectRecuperada(){
   clearInterval(modalInactividad);
   $("#contenedorLogIn").load('./modelos/componentes/recuperada.html');
+  saveAnalytics('entrarPagina','logIn','Clic Recuperar Contraseña');
 }
 function redirectCambiarContra(){
   clearInterval(modalInactividad);
   $("#contenedorLogIn").load('./modelos/componentes/nuevaPassListo.html');
+  saveAnalytics('entrarPagina','logIn','cambiarContraseña');
 }
 
 
@@ -222,6 +230,7 @@ function scrollTop(element){
 
 function showModalSesion(){
   clearInterval(modalInactividad);
+  saveAnalytics('aparecerModal','modal','tardoEnHacerCita');
   $('#modalInatividad').modal({
     show: 'false'
   }); 
