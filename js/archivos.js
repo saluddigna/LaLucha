@@ -1,17 +1,35 @@
 var cita = 0;
 var paso = 0;
 
+function saveAnalytics(event,category,label,value){
+  try{
+    gtag('event', event, {
+      'event_category': category,
+      'event_label': label,
+      'value':value
+    }); 
+  }
+  catch(e){
+    console.log(e)
+  }
+}
 $(document).ready(function () {
   $(document).on("blur", ".cajas-texto .input-sd", function () {
     if ($(this).val() != "") {
+      // console.log($(this).attr('id'));
+      saveAnalytics('input','entrada-texto',$(this).attr('id'));
       $(this).addClass("valido");
     } else {
       $(this).removeClass("valido");
     }
   });
+
   
-  $("#infoCita").load('../modelos/componentes/infoCita.html', function () {});
+  $("#infoCita").load('../modelos/componentes/infoCita.html', function () {
+
+  });
   $("#formCita").load('../modelos/componentes/formCita.html', function () {
+    saveAnalytics('load','cita','paso 1');
     $("#cita_regresar").hide();
      $(".overlay_loading").css("display", "flex")
     global.clinicas=getClinicas();
@@ -26,6 +44,7 @@ $(document).ready(function () {
 
 function seguientePaso() {
   if(paso==1){
+    saveAnalytics('click','cita','paso 2');
     var result=validacionesPaquetes();
     if (result){
       history.pushState(null, null, 'datos-personales');
@@ -38,6 +57,7 @@ function seguientePaso() {
     }
   }
   else if(paso==2){
+    saveAnalytics('click','cita','paso 3');
     saveValuesPaciente()
     var result=validacionesDatosPaciente();
     if (result){
@@ -50,6 +70,8 @@ function seguientePaso() {
     }
   }
   else if(paso==3){
+    saveAnalytics('click','cita','paga y verifica');
+
     // var result=validacionesDatosPago();
     // if(result){
       saveValuesPago();
