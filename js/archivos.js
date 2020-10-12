@@ -29,7 +29,7 @@ $(document).ready(function () {
 
   });
   $("#formCita").load('../modelos/componentes/formCita.html', function () {
-    saveAnalytics('entrarPagina','cita','Empezar cita');
+    saveAnalytics('entrarPagina','PonElPecho','Empezar cita');
     $("#cita_regresar").hide();
      $(".overlay_loading").css("display", "flex")
     global.clinicas=getClinicas();
@@ -44,7 +44,7 @@ $(document).ready(function () {
 
 function seguientePaso() {
   if(paso==1){
-    saveAnalytics('formulario-cita','cita','1-Escoge día y hora');
+    saveAnalytics('formulario-cita','PonElPecho','1-Escoge día y hora');
     var result=validacionesPaquetes();
     if (result){
       history.pushState(null, null, 'datos-personales');
@@ -57,7 +57,7 @@ function seguientePaso() {
     }
   }
   else if(paso==2){
-    saveAnalytics('formulario-cita','cita','2-Ingresa tus datos');
+    saveAnalytics('formulario-cita','PonElPecho','2-Ingresa tus datos');
     saveValuesPaciente()
     var result=validacionesDatosPaciente();
     if (result){
@@ -70,7 +70,7 @@ function seguientePaso() {
     }
   }
   else if(paso==3){
-    saveAnalytics('formulario-cita','cita','3-Verifica y paga');
+    saveAnalytics('formulario-cita','PonElPecho','3-Verifica y paga');
 
     // var result=validacionesDatosPago();
     // if(result){

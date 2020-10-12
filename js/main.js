@@ -110,27 +110,27 @@ $(document).ready(function () {
 function seccion(nav){
   if(nav==1){
     $('#seccion').load('./modelos/cita.html');
-    saveAnalytics('entrarPagina','citas','entrarEnCitas');
+    saveAnalytics('entrarPagina','PonElPecho','entrarEnCitas');
     removerClaseNav();
     $("#btnRegistro").addClass("active");
   }else if(nav==2){
     $('#seccion').load('./modelos/revista.html');
-    saveAnalytics('entrarPagina','revista','entrarEnRevista');
+    saveAnalytics('entrarPagina','PonElPecho','entrarEnRevista');
     removerClaseNav();
     $("#btnRevista").addClass("active");
   }else if(nav==3){
     $('#seccion').load('./modelos/beneficiados.html');
-    saveAnalytics('entrarPagina','beneficiarios','entrarEnBeneficiados');
+    saveAnalytics('entrarPagina','PonElPecho','entrarEnBeneficiados');
     removerClaseNav();
     $("#btnPxBeneficiados").addClass("active");
   }else if(nav==4){
     if(!dataUser){
       redirectLogin();
-      saveAnalytics('entrarPagina','logIn','irInicioSesion');
+      saveAnalytics('entrarPagina','PonElPecho','irInicioSesion');
     }
     else{
       irPerfil();
-      saveAnalytics('entrarPagina','perfil','volverPerfil');
+      saveAnalytics('entrarPagina','PonElPecho','volverPerfil');
     }
   }
   else{
@@ -193,7 +193,7 @@ function olvidarContra(tipo){
   if(tipo){
     $("#contenedorLogIn").load('./modelos/componentes/restablecer.html',function(){
     });
-    saveAnalytics('entrarPagina','logIn','Clic Olvidé mi contraseña');
+    saveAnalytics('entrarPagina','PonElPecho','Clic Olvidé mi contraseña');
   }else{
     $("#ingresar").load('./modelos/componentes/ingresar.html');
   }
@@ -201,12 +201,12 @@ function olvidarContra(tipo){
 function redirectRecuperada(){
   clearInterval(modalInactividad);
   $("#contenedorLogIn").load('./modelos/componentes/recuperada.html');
-  saveAnalytics('entrarPagina','logIn','Clic Recuperar Contraseña');
+  saveAnalytics('entrarPagina','PonElPecho','Clic Recuperar Contraseña');
 }
 function redirectCambiarContra(){
   clearInterval(modalInactividad);
   $("#contenedorLogIn").load('./modelos/componentes/nuevaPassListo.html');
-  saveAnalytics('entrarPagina','logIn','cambiarContraseña');
+  saveAnalytics('entrarPagina','PonElPecho','cambiarContraseña');
 }
 
 
@@ -230,7 +230,7 @@ function scrollTop(element){
 
 function showModalSesion(){
   clearInterval(modalInactividad);
-  saveAnalytics('aparecerModal','modal','tardoEnHacerCita');
+  saveAnalytics('aparecerModal','PonElPecho','ModalInactividad');
   $('#modalInatividad').modal({
     show: 'false'
   }); 
