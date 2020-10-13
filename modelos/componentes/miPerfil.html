@@ -18,7 +18,7 @@
       <p class="txtScreen">(No olvides presentar tu folio ya sea impreso o en tu celular)</p>
     </div>
     <div class="salir">
-      <a href="#" class="linkPink text-16 text-bold cerrarSesion"  onclick="cerrarSesion()">Cerrar sesión</a>
+      <a href="#" class="linkPink text-16 text-bold cerrarSesion"  onclick="cerrarSesion(), saveAnalytics('cerrarSesion','PonElPecho','irLogIn')">Cerrar sesión</a>
     </div>
     <div id="tuFolio" class="tuFolio">
       <p class="text-18 text-bold p-l-1">Tu folio</p>
@@ -144,7 +144,7 @@
           -Acude con la preparación indicada para poder realizar tu estudio o paquete. <br>
           -Te recomendamos acudir 15 minutos antes de tu cita. <br>
           -Te agradecemos cancelar tu cita en caso de no poder asistir. <a type="button" class="linkPink" onclick="cancelarCita()">Cancelar aquí.</a> <br>
-          -Si deseas la devolución de tu dinero, puedes solicitarla ingresando <a href="https://salud-digna.org/devoluciones" target="_blank" rel="noopener noreferrer" class="linkPink">aquí</a>.
+          -Si deseas la devolución de tu dinero, puedes solicitarla ingresando <a href="https://salud-digna.org/devoluciones" target="_blank" rel="noopener noreferrer" class="linkPink" onclick="saveAnalytics('irDevoluciones','PonElPecho','clic Devoluciones')">aquí</a>.
         </p>
         <div class="hazloEnLinea"></div>
       </div>

@@ -4,19 +4,19 @@
   <div class="form" id="form-citaPaciente">
     <div class="row datos-px">
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_nombre" data-parsley-required="true">
+        <input type="text" class="input-sd" name="Paso 1: Nombre del paciente" id="cita_nombre" data-parsley-required="true">
         <span class="floating-label">Nombre</span>
       </div>
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_app" data-parsley-required="true" >
+        <input type="text" class="input-sd" name="Paso 2: Apellido paterno" id="cita_app" data-parsley-required="true" >
         <span class="floating-label">Apellido paterno</span>
       </div>
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_apm" >
+        <input type="text" class="input-sd" name="Paso 3: Apellido materno" id="cita_apm" >
         <span class="floating-label">Apellido materno</span>
       </div>
       <div class="cajas-texto">
-        <input type="text" class="input-sd valido" id="cita_fechaNacimiento" data-parsley-required="true" data-inputmask="'alias': 'datetime', 'inputFormat': 'dd-mm-yyyy', 'placeholder': 'dd-mm-aaaa'">
+        <input type="text" class="input-sd valido" name="Paso 4: Fecha de nacimiento" id="cita_fechaNacimiento" data-parsley-required="true" data-inputmask="'alias': 'datetime', 'inputFormat': 'dd-mm-yyyy', 'placeholder': 'dd-mm-aaaa'">
         <span class="floating-label" >Fecha de nacimiento</span>
       </div>
     </div>
@@ -34,16 +34,16 @@
       <p class="text-bold text-16">Datos de contacto</p>
       
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_telefono" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono_confirm" data-parsley-required-message="Ingresa un número válido" data-parsley-equalto-message="Ingresa un número válido">
+        <input type="text" class="input-sd" name="Paso 6: Numero de Whatsapp" id="cita_telefono" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono_confirm" data-parsley-required-message="Ingresa un número válido" data-parsley-equalto-message="Ingresa un número válido">
         <span class="floating-label">Número de WhatsApp</span>
       </div>
       <div class="cajas-texto">
-        <input type="text" class="input-sd" id="cita_telefono_confirm" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono" data-parsley-equalto-message="Los números deben coincidir">
+        <input type="text" class="input-sd" name="Paso 7: Confirmar celular" id="cita_telefono_confirm" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono" data-parsley-equalto-message="Los números deben coincidir">
         <span class="floating-label">Confirmar número de WhatsApp</span>
       </div>
 
       <div class="cajas-texto">
-        <input type="email" class="input-sd" id="cita_correo" data-parsley-required="true" >
+        <input type="email" class="input-sd" name="Paso 8: Ingresar correo electrónico" id="cita_correo" data-parsley-required="true" >
         <span class="floating-label">Correo electrónico</span>
       </div>
       <p class="parsley-errors-list" id="correoExistente"> </p>

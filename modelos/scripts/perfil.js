@@ -438,6 +438,7 @@ function reagendar(){
     var result=ReagendarCita(body);
     console.log("result-reagendar: "+result);
     setTimeout(function() { quitarLoadingInputs(); }, 1000);
+    saveAnalytics('reagendarCita','PonElPecho','citaReagendada')
     // sessionStorage.clear();
     // sessionStorage.setItem('dataUser', JSON.stringify(result))
     // dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
@@ -539,7 +540,8 @@ function Cancelar(){
         body={
             idCita:dataUser.datosCita.idCita
         }
-        var res=cancelarCitaService(body)    
+        var res=cancelarCitaService(body)
+        saveAnalytics('cancelarCita','PonElPecho','citaCancelada') 
         console.log('repuestaCancelar:',res)
         sessionStorage.clear()
         sessionStorage.setItem('dataUser', JSON.stringify(res.perfil))
@@ -696,6 +698,7 @@ function quitarLoading(){
         $("#btn-pagar").show()
         // setTimeout(function() { quitarLoadingInputs(); }, 1500);
         rutaPagoCompletado();
+        saveAnalytics('pagarPerfil','PonElPecho','agregarPaqueteMujer', 250)
         startPerfil()
     }else{
         $("#btn-pagar").show()
@@ -740,6 +743,7 @@ function quitarLoading(){
 }
 function irLentes(){
     top.location.href = 'https://lentes.salud-digna.org';
+    saveAnalytics('irSitioLentes','PonElPecho','irSitioLentes')
 }
 
 function startDatesPickerPerfil(){
@@ -795,7 +799,7 @@ function descargarTicket() {
         ventana.print()
     }, 2000)
     this.dialog = false
-
+    saveAnalytics('descargarFolio','PonElPecho','folioDescargado')
     $("#acciones").show();
     $(".cerrarSesion").show();
     $(".screenshotEscritorio").show();

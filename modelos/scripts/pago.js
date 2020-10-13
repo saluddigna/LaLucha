@@ -201,9 +201,9 @@ function registrarCita(token) {
   global.perfil = Registro(global.data)
   if (global.perfil.datosPaciente != null) {
     if(tPago==3)
-      saveAnalytics('click','pago','pago-acreditado',precio)
+      saveAnalytics('citaRealizada','PonElPecho','pago-acreditado',precio)
     else
-      saveAnalytics('click','pago','pago-clinica')
+      saveAnalytics('citaRealizada','PonElPecho','pago-clinica')
 
     // //console.log(JSON.stringify(global.perfil));
     sessionStorage.clear()
@@ -214,7 +214,7 @@ function registrarCita(token) {
     irPerfil("perfil");
   } else {
     setTimeout(function () { quitarLoading(); }, 1500);
-    saveAnalytics('click','error-pago',global.perfil)
+    saveAnalytics('error-pago','PonElPecho',global.perfil)
     $("#error-msg").text(global.perfil);
   }
 }

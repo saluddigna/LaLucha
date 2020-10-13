@@ -199,6 +199,7 @@ function clearPkts(){
 
 }
 function clickFem(){
+    saveAnalytics('cambioDeCampo','entrada-texto','Paso 5: Elegir Sexo');
     if (!$("#fem").hasClass("active")) {
         $("#fem").addClass("active");
         $("#mas").removeClass("active");
@@ -206,6 +207,7 @@ function clickFem(){
 }
 
 function clickMas(){
+    saveAnalytics('cambioDeCampo','entrada-texto','Paso 5: Elegir Sexo');
     if (!$("#mas").hasClass("active")) {
         $("#mas").addClass("active");
         $("#fem").removeClass("active");
