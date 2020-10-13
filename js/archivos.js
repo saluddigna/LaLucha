@@ -17,7 +17,7 @@ $(document).ready(function () {
   $(document).on("blur", ".cajas-texto .input-sd", function () {
     if ($(this).val() != "") {
       // console.log($(this).attr('id'));
-      saveAnalytics('cambioDeCampo','entrada-texto',$(this).attr('name'));
+      saveAnalytics('cambioDeCampo','PonElPecho',$(this).attr('name'));
       $(this).addClass("valido");
     } else {
       $(this).removeClass("valido");
