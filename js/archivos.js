@@ -99,7 +99,7 @@ function anteriorPaso() {
 
 
 function setPaso() {
-  var text = paso + " de 3";
+  var text = paso + " de 2";
   $("#pag").text(text);
   $(".overlay_loading").css("display", "none")
 }
@@ -111,7 +111,7 @@ function cambioPaso(){
   else
     scrollTop("#formCita");
   if(paso == 1) {
-    $("#citas").load('../modelos/componentes/citaPaquetes.html',function(){
+    $("#citas").load('../modelos/componentes/citaGratis.html',function(){
       if(window.innerWidth>500){
         $("#info-paquetes").load('../modelos/componentes/pkt.html',function(){
         });
@@ -135,7 +135,7 @@ function cambioPaso(){
   });
   } 
   else if (paso == 2) {
-    $("#citas").load('../modelos/componentes/citaPaciente.html',function(){
+    $("#citas").load('../modelos/componentes/citaConfirmacion.html',function(){
       loadValuesPacientes();
     });
   } else if (paso == 3) {

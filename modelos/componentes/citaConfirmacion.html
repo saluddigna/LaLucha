@@ -1,0 +1,41 @@
+<div id="pago-datos" class="confirmacionDatos">
+  <h1 class="tConfirmacion">
+    Ahora <b>revisemos tu información</b> para confirmar tu cita:
+  </h1>
+  <p>Es importante que los datos coincidan con la identificación personal</p>
+  <div class="d-flex">
+    <i class="icono-datos"></i>
+    <p class="text-16">
+      <b>Datos paciente</b><br>
+      <b>Nombre: </b><span id="nombrePX"></span><br>
+      <b>Fecha de nacimiento: </b><span id="fechaNacPX"></span><br>
+      <b>Número de Whatsapp: </b><span id="telefonoPX"></span><br>
+      <b>Correo: </b><span id="correoPX"></span>
+    </p>
+  </div>
+  <div class="d-flex">
+    <i class="icono-iconos-clinica-SD"></i>
+    <p class="text-16">
+      <b>Clínica seleccionada para realizar el estudio: </b><br><b id="clinicaPX"></b><br>
+      <span id="dirClinicaPX"></span><br>
+      ¿Deseas cambiar algo de tu cita? 
+      <a onclick="anteriorPaso()" class="linkPink">Modificar ahora</a>
+    </p>
+  </div>
+
+  <div><span id="error-msg"></span></div>
+
+</div>
+<div id="pago-loading" class="cargando">
+  <div class="spinner">
+    <div class="bounce1" style="background-color:#FAC2BF;"></div>
+    <div class="bounce2" style="background-color:#F0BDBC;"></div>
+    <div class="bounce3" style="background-color:#F05876;"></div>
+  </div>
+  <b class="text-center text-26">Recuerda que tenemos paquetes para la prevención de la mujer</b>
+  <div class="d-flex justify-center aling-center">
+    <img class="imgPKT" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/paquete-mujer.jpg" alt="paquete mujer">
+    <img class="imgPKT" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/imagen-paquete-papanicolaou.jpg" alt="dos muchachas">
+  </div>
+  <b class="text-center text-26">Estamos registrando y procesando los datos proporcionados para la confirmación de tu cita.</b>
+</div>

@@ -1,0 +1,184 @@
+<h1 class="text-bold">¡Regístrate aquí!</h1>
+<p class="text-16">¿Olvidaste los detalles de tu cita?  <span onclick="seccion(4)" class="linkPink">Ingresa ahora</span></p>
+<p class="text-16">En este mes de octubre nos sumamos a la lucha contra el cáncer de mama. <b>Precio especial de $150 pagando tu cita EN LÍNEA.</b></p>
+<div class="row d-none">
+  <div class="masto-cita active">
+    <p class="text-center"><img src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/mastografia-en-150.svg" alt=""></p>
+    <p class="text-center text-bold text-20">Obtener mi Mastografía ahora</p>
+    <!-- <p class="text-center text-bold text-20">Mastografía <br> a solo</p>
+    <p class="text-center text-26 text-bold">$150</p> -->
+  </div>
+  <div class="masto-cita">
+    <p class="text-center"><img src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/mastografia-en-150.svg" alt=""></p>
+    <p class="text-center text-16 octubre">Próximamente</p>
+    <p class="text-center text-16 este19">Este 19 de octubre</p>
+    <p class="text-center text-16 proximamente">Próximamente este <br> 19 de Octubre</p>
+    <p class="text-center text-18 text-bold">Obtén una de las 10,000 Mastografías sin costo</p>
+  </div>
+</div>
+<p class="text-bold text-16 mx-20">Elige la clínica más cercana para ti</p>
+<button type="button" class="btn btn-default btn-pink-outline " id="btnObtenerUbicacion"><i class="icono-ubicar-clinica"></i> Ubicar automáticamente</button>
+<div class="d-flex row">
+  <div class="combobox">
+    <div class="cajas-texto">
+      <select id="selectEstado" class="input-sd valido" data-parsley-min = "1"  >
+        <option hidden selected>Selecciona una opción</option>
+      </select>
+      <span class="floating-label">Estado</span>
+    </div>
+  </div>
+  <div class="combobox">
+    <div class="cajas-texto">
+      <select id="selectClinica" class="input-sd valido" data-parsley-min = "1"  >
+        <option hidden selected>Selecciona una opción</option>
+      </select>
+      <span class="floating-label">Clínica</span>
+    </div>
+  </div>
+</div>
+<p class="text-bold text-16">¿Cuándo deseas realizar tu Mastografía?</p>
+<div class="d-flex row">
+  <div class="combobox">
+    <div class="cajas-texto">
+      <input type="text" class="input-sd valido" readonly="readonly" id="fechaCita" data-parsley-required="true" data-inputmask="'alias': 'datetime', 'inputFormat': 'dd-mm-yyyy'" onkeypress="return disablekeys();" >
+      <span class="floating-label">Fecha</span>
+    </div>
+  </div>
+  <div class="combobox">
+    <div class="cajas-texto">
+      <select id="selectHorario" class="input-sd valido" data-parsley-min = "1" >
+        <option hidden selected>Selecciona una opción</option>
+      </select>
+      <span class="floating-label">Hora</span>
+    </div>
+  </div>
+</div>
+<!-- <div class="my-10">
+  <a class="linkPink" href="https://salud-digna.site/lalucha" target="_blank" rel="noopener noreferrer">Avísenme cuando tengan horarios disponibles.</a>
+</div> -->
+
+<p class="text-bold text-16">Datos del paciente (Idénticos a tu identificación oficial)</p>
+  <div class="form" id="form-citaPaciente">
+    <div class="row datos-px">
+      <div class="cajas-texto">
+        <input type="text" class="input-sd" name="Paso 1: Nombre del paciente" id="cita_nombre" data-parsley-required="true">
+        <span class="floating-label">Nombre</span>
+      </div>
+      <div class="cajas-texto">
+        <input type="text" class="input-sd" name="Paso 2: Apellido paterno" id="cita_app" data-parsley-required="true" >
+        <span class="floating-label">Apellido paterno</span>
+      </div>
+      <div class="cajas-texto">
+        <input type="text" class="input-sd" name="Paso 3: Apellido materno" id="cita_apm" >
+        <span class="floating-label">Apellido materno</span>
+      </div>
+      <div class="cajas-texto">
+        <input type="text" class="input-sd valido" name="Paso 4: Fecha de nacimiento" id="cita_fechaNacimiento" data-parsley-required="true" data-inputmask="'alias': 'datetime', 'inputFormat': 'dd-mm-yyyy', 'placeholder': 'dd-mm-aaaa'">
+        <span class="floating-label" >Fecha de nacimiento</span>
+      </div>
+    </div>
+    <div class="d-flex row doble">
+      <div id="fem" class="btn-sexo active" onclick="clickFem()"><i class="icono-genero_mujer"></i> Mujer</div>
+      <div id="mas" class="btn-sexo" onclick="clickMas()"><i class="icono-genero_hombre"></i> Hombre</div>
+    </div>
+    <div class="row datos-px">
+      <div class="infoTelefono" onclick="verInstrucciones()">
+        <i class="icono-attention-circled"></i>
+        <div class="d-none" id="datosTelefono">
+          Si no cuentas con WhatsApp, ingresa tu número de celular.
+        </div>
+      </div>
+      <p class="text-bold text-16">Datos de contacto</p>
+      
+      <div class="cajas-texto">
+        <input type="text" class="input-sd" name="Paso 6: Numero de Whatsapp" id="cita_telefono" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono_confirm" data-parsley-required-message="Ingresa un número válido" data-parsley-equalto-message="Ingresa un número válido">
+        <span class="floating-label">Número de WhatsApp</span>
+      </div>
+      <div class="cajas-texto">
+        <input type="text" class="input-sd" name="Paso 7: Confirmar celular" id="cita_telefono_confirm" data-parsley-required="true" data-inputmask="'mask': '(999) 999-9999'" data-parsley-equalto="#cita_telefono" data-parsley-equalto-message="Los números deben coincidir">
+        <span class="floating-label">Confirmar número de WhatsApp</span>
+      </div>
+
+      <div class="cajas-texto">
+        <input type="email" class="input-sd" name="Paso 8: Ingresar correo electrónico" id="cita_correo" data-parsley-required="true" >
+        <span class="floating-label">Correo electrónico</span>
+      </div>
+      <p class="parsley-errors-list" id="correoExistente"> </p>
+      <p class="correoNecesario">Es necesario ingresar tu correo electrónico, ya que ese será tu nombre de usuario para ingresar a tu perfil.</p>
+    </div>
+  </div>
+  <p class="text-bold text-16">¿Dónde te enteraste de este beneficio?</p>
+  <div class="row d-flex">
+    <div class="combobox">
+      <div class="cajas-texto">
+        <select id="selectEstado" class="input-sd" data-parsley-min = "1"  >
+          <option value="0" hidden></option>
+          <option value="1">Facebook</option>
+        </select>
+        <span class="floating-label">Elige una opción</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="confirmPKT">
+    <div class="d-flex justify-center sd-group-check flex-column ">
+      <div class="sd-item">
+        <input id="chkPromo" type="checkbox" name="no-paquete">
+        <i class="sd-helper"></i>
+        <label for="chkPromo">
+            <p class="">
+              ¡Sí! Deseo recibir novedades y promociones.
+            </p>
+        </label>
+      </div>
+    </div>
+<!-- <div id="resumen_cita">
+        
+    </div> -->
+    <div class="confirmPKT">
+      <div class="d-flex justify-center sd-group-check flex-column">
+        <div class="sd-item">
+          <input id="chkBeneficiarios" type="checkbox" name="no-paquete">
+          <i class="sd-helper"></i>
+          <label for="chkBeneficiarios">
+            <p class="">
+              Estoy de acuerdo que mi nombre aparezca dentro de la lista de personas que ha obtenido una mastografía sin costo.
+            </p>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="confirmPKT">
+      <div class="d-flex justify-center sd-group-check flex-column">
+        <div class="sd-item">
+          <input id="chkEdad" type="checkbox" name="no-paquete">
+          <i class="sd-helper"></i>
+          <label for="chkEdad">
+            <p class="">
+              Acepto que este estudio se realiza a partir de los 40 años. En caso de ser menor de esta edad, deberé presentar orden médica de un especialista.
+            </p>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-center align-center" id="check-error"></div>
+  </div>
+</div>
+
+<!-- <div class="d-flex row doble">
+      <div class="combobox">
+        <div class="cajas-texto">
+          <input type="text" class="input-sd" >
+          <span class="floating-label">Contraseña</span>
+        </div>
+      </div>
+      <div class="combobox">
+        <div class="cajas-texto">
+          <input type="text" class="input-sd" >
+          <span class="floating-label">Repetir contraseña</span>
+        </div>
+      </div>
+    </div> -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js" integrity="sha512-Izh34nqeeR7/nwthfeE0SI3c8uhFSnqxV0sI9TvTcXiFJkMd6fB644O64BRq2P/LA/+7eRvCw4GmLsXksyTHBg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/locale/es-mx.min.js" integrity="sha512-Qy4cmZ6v7vnVEc0cn/BIj9q15eB98do4hMvu8xtc/H+v+YYpdpDrB35flHS3NPLbZUpe1npSYY/u+Gi3UB61vw==" crossorigin="anonymous"></script> -->
+<!-- <script src="http://beta.salud-digna.site/wp-content/themes/SaludDigna/LaLucha/modelos/scripts/resumen.js"></script> -->
