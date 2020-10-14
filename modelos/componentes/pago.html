@@ -39,7 +39,7 @@
     <div class="d-flex row">
       <div class="combobox">
         <p class="text-14 text-bold">Nombre del titular en la tarjeta</p>
-        <input  class="" type="text" name="" id="nameCard" placeholder="" size="20" data-conekta="card[name]" data-parsley-required="true">
+        <input  class="" type="text" name="Paso 9: Titular de tarjeta" id="nameCard" placeholder="" size="20" data-conekta="card[name]" data-parsley-required="true">
         <div><span id="invalidName">Nombre solo puede contener letras y espacios</span></div>  
 
       </div>
@@ -48,28 +48,30 @@
       <div class="combobox">
         <p class="text-14 text-bold">Número de tarjeta</p>
         <img class="emisores" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/logos-tarjeta-visa-mastercard.svg" alt="emisores de tarjeta">
-        <input class="" type="text" name="" id="numCard" placeholder="" size="20" data-conekta="card[number]" data-parsley-required="true" data-inputmask="'mask': '9999 9999 9999 9999'">
+        <input class="" type="text" name="Paso 10: Número de tarjeta bancaria" id="numCard" placeholder="" size="20" data-conekta="card[number]" data-parsley-required="true" data-inputmask="'mask': '9999 9999 9999 9999'">
         <div><span id="invalidCard">Tarjeta no válida</span></div>
     </div>
       </div>
     <div class="d-flex row">
       <div class="combobox">
         <p class="text-14 text-bold">Mes de vencimiento</p>
-        <input class="" type="text" name="" id="mm" placeholder="MM" size="4" data-parsley-required="true" data-inputmask="'mask': '99'" >
+        <input class="" type="text" name="Paso 11: Mes de vencimiento" id="mm" placeholder="MM" size="4" data-parsley-required="true" data-inputmask="'mask': '99'" >
       </div>
       <div class="combobox">
         <p class="text-14 text-bold">Año de vencimiento</p>
-        <input class="" type="text" name="" id="aaaa" placeholder="AAAA" size="2" data-parsley-required="true" data-inputmask="'mask': '9999'">
+        <input class="" type="text" name="Paso 12: Año de vencimiento" id="aaaa" placeholder="AAAA" size="2" data-parsley-required="true" data-inputmask="'mask': '9999'">
       </div>
       <div class="combobox">
         <p class="text-14 text-bold">Código de seguridad</p>
-        <input class="" type="text" name="" id="ccv" placeholder="CCV" size="4" data-parsley-required="true" max="9999" >
+        <input class="" type="text" name="Paso 13: CCV" id="ccv" placeholder="CCV" size="4" data-parsley-required="true" max="9999" >
       </div>
     </div>
     <div><span id="invalidDate">Mes/año no válido</span></div>  
     <div><span id="invalidCCV">Código ccv no válido</span></div>
   </div>
-
+  <div class="pagarClinica d-none" id="datosPagarClinica">
+    ¡Todavía estás a tiempo de cambiar tu forma de pago y aprovechar este beneficio en 150 pesos! Aceptamos tarjeta de débito y crédito.
+  </div>
     <div id="resumen_cita"></div>
   </div>
 

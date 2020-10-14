@@ -140,6 +140,7 @@ function tipoPago(tipo) {
     $("#pagoLinea").removeClass("active");
     $("#pagoClinica").addClass("active");
     $("#datosPagar").addClass("d-none");
+    $("#datosPagarClinica").removeClass("d-none");
     validacionesDatosPago();
   } else {
     tPago = tipo;
@@ -147,6 +148,7 @@ function tipoPago(tipo) {
     $("#pagoLinea").addClass("active");
     $("#pagoClinica").removeClass("active");
     $("#datosPagar").removeClass("d-none");
+    $("#datosPagarClinica").addClass("d-none");
     validacionesDatosPago();
   }
 };
