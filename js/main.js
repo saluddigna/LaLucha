@@ -241,5 +241,4 @@ function inactividadSeguir(){
 
 function inactividadAyuda(){
   clearInterval(modalInactividad);
-  window.location.href='https://salud-digna.site/AyudaMasto';
 }

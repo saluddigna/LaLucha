@@ -209,10 +209,10 @@ function registrarCita(token) {
   if (global.perfil.datosPaciente != null) {
     if(tPago==3){
       saveAnalytics('citaRealizada','PonElPecho','pago-acreditado',precio);
-      saveAnalytics('formulario-cita','PonElPecho','4 - Pago completado || Mi perfil')
+      saveAnalytics('formulario-cita','PonElPecho','4 - Pago completado || Mi perfil', precio)
     }else{
       saveAnalytics('citaRealizada','PonElPecho','pago-clinica');
-      saveAnalytics('formulario-cita','PonElPecho','4 - Pago completado || Mi perfil')
+      saveAnalytics('formulario-cita','PonElPecho','4 - Pago completado || Mi perfil', precio)
     }
     // //console.log(JSON.stringify(global.perfil));
     sessionStorage.clear()
