@@ -40,6 +40,27 @@ function getEstados() {
     return arrEstados;
 };
 
+
+function getBeneficiados() {
+    var result = [];
+    $.ajax({
+        type: 'GET',
+        url: configUrl+'paciente/beneficiados',
+        dataType: 'json',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('Authorization', sesion);
+        },
+        async: false,
+        success: function (response) {
+            result = response;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+        }
+    });
+    console.log("respuesta getBeneficiados:",arrEstados)
+    return result;
+};
+
 function getHorarios(body) {
     var arrHorarios = [];
 
