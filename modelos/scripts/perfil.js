@@ -69,7 +69,7 @@ function folio_cancelada(){
     $('#cita_cancelada').text("CANCELADA");
 }
 function startPerfil(){
-    console.log('startPerfil');
+    saveAnalytics('entrarPagina','PonElPecho','Mi Perfil');
     dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
     console.log(dataUser);
     if(!dataUser){

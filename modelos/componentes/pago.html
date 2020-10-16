@@ -56,15 +56,15 @@
     <div class="d-flex row">
       <div class="combobox">
         <p class="text-14 text-bold">Mes de vencimiento</p>
-        <input class="" type="text" name="Paso 11: Mes de vencimiento" id="mm" placeholder="MM" size="4" data-parsley-required="true" data-inputmask="'mask': '99'" >
+        <input class="" type="text" name="Paso 11: Mes de vencimiento" id="mm" placeholder="MM" data-conekta="card[exp_month]" size="4" data-parsley-required="true" data-inputmask="'mask': '99'" >
       </div>
       <div class="combobox">
         <p class="text-14 text-bold">Año de vencimiento</p>
-        <input class="" type="text" name="Paso 12: Año de vencimiento" id="aaaa" placeholder="AAAA" size="2" data-parsley-required="true" data-inputmask="'mask': '9999'">
+        <input class="" type="text" name="Paso 12: Año de vencimiento" id="aaaa" placeholder="AAAA" size="2" data-conekta="card[exp_year]" data-parsley-required="true" data-inputmask="'mask': '9999'">
       </div>
       <div class="combobox">
         <p class="text-14 text-bold">Código de seguridad</p>
-        <input class="" type="text" name="Paso 13: CCV" id="ccv" placeholder="CCV" size="4" data-parsley-required="true" max="9999" >
+        <input class="" type="text" name="Paso 13: CCV" id="ccv" placeholder="CCV" size="4" data-conekta="card[cvc]" data-parsley-required="true" max="9999" >
       </div>
     </div>
     <div><span id="invalidDate">Ingresa una fecha válida.</span></div>  
@@ -93,3 +93,4 @@ contribuyendo a garantizar un espacio más seguro para todos nuestros pacientes.
   </div>
   <b class="text-center text-26">Estamos registrando y procesando los datos proporcionados para la confirmación de tu cita.</b>
 </div>
+<script type="text/javascript" src="https://cdn.conekta.io/js/latest/conekta.js"></script>

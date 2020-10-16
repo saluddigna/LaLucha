@@ -45,7 +45,7 @@ function startResumen(){
       $("#tuplas").append(fecha);
       $("#tuplas").append(precio);
       $("#tuplas").append("</tr>");  
-      (global.data.IdSucursal=="1") ? $('#descuento').text("$ 60.00") : $('#descuento').text("$ 70.00")
+      (global.data.IdSucursal=="1") ? $('#descuento').text("$ -60.00") : $('#descuento').text("$ -70.00")
       $('#totalP').text("$ 150.00");   
       return;
     }
@@ -70,7 +70,7 @@ function startResumen(){
         $("#tuplas").append(fecha);
         $("#tuplas").append(precio);
         $("#tuplas").append("</tr>");  
-        $('#descuento').text("$ 70.00");  
+        $('#descuento').text("$ -70.00");  
         $('#totalP').text("$ 300.00"); 
     }
     else if(global.data.cita.Estudios.length==3){
@@ -95,7 +95,7 @@ function startResumen(){
             $("#tuplas").append("<td></td>");
             $("#tuplas").append("</tr>"); 
       })
-      $('#descuento').text("$ 40.00");  
+      $('#descuento').text("$ -40.00");  
       $('#totalP').text("$ 380.00");  
     }
   }

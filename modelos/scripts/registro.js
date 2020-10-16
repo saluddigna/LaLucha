@@ -87,7 +87,7 @@ async function startCita(){
         });
 
          $('#chk').on('change', function(){
-            $('#check-error').text("")
+            $('#check-errorBeneficios').text("")
              if(($('#chk').is(":checked"))){
                 saveAnalytics('cambioDeCampo','PonElPecho','Eligió no llevar Paquetes')
                 if(togglePapa)
@@ -99,7 +99,7 @@ async function startCita(){
          });
 
          $('#chkTerminos').on('change', function(){
-            $('#check-error').text("")
+            $('#check-errorTerminos').text("")
             validacionesPaquetes()
          });
 
@@ -383,7 +383,7 @@ function validacionesPaquetes(){
     //console.log('entre validaciones paquetes>>>')
     if(!togglePapa && !togglePkt){
         if((!$('#chk').is(":checked"))){
-            $('#check-error').text("Para continuar, debes indicar si deseas agregar uno de los beneficios extras.")
+            $('#check-errorBeneficios').text("Para continuar, debes indicar si deseas agregar uno de los beneficios extras.")
             $( "#cita_siguiente" ).prop( "disabled", true );
             return false
         }
@@ -401,7 +401,7 @@ function validacionesPaquetes(){
         });
     }
     if((!$('#chkTerminos').is(":checked"))){
-        $('#check-error').text("Para continuar, acepta nuestro Aviso de Privacidad junto con Términos y Condiciones.")
+        $('#check-errorTerminos').text("Para continuar, acepta nuestro Aviso de Privacidad junto con Términos y Condiciones.")
         $( "#cita_siguiente" ).prop( "disabled", true );
         return false
     }
@@ -631,6 +631,7 @@ function getClinicasByEstado(){
                 }
             });
             $('#selectEstado').val(clinicaCercana.IdEstado.toString()).change();
+            $('#selectClinica').val(clinicaCercana.IdSucursal.toString()).change();
         }
         function error(err) {
             //console.log(err)
