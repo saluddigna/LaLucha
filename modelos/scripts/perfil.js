@@ -83,6 +83,11 @@ function startPerfil(){
     if(getUrlParameter('token')!=null){
         agregarPKTPerfil();
     }
+    if(getUrlParameter('reagendar')!=null){
+        reagendarCita();
+        scrollTop("#reagendarCita")
+    }
+
     refreshDataPerfil();
     
 
