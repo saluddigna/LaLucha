@@ -622,12 +622,20 @@ function clickMas() {
         $("#fem").removeClass("active");
     }
 }
+
+var date = moment.utc().format();
+var minDate = moment.utc(date).local().format("DD-MM-YYYY");
+
 function isValidDate(s) {
     var re = new RegExp("[0-9-]+$");
     if (re.test(s)) {
         var bits = s.split('-');
         if (bits[2] < 1900) {
             $("#invalidDate").text("Fecha Invalida, el año no puede ser menor a 1900")
+            return false
+        }
+        else if (s > minDate) {
+            $("#invalidDate").text("Fecha Invalida, la fecha de nacimiento no puede ser mayor a la fecha actual")
             return false
         }
         else {
