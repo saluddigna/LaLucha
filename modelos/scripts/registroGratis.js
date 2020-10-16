@@ -271,7 +271,7 @@ async function startDatesPicker() {
     var fechaFinOctubre = new Date("2020-10-31 00:00:00");
     $("#fechaCita").datepicker({
         minDate: 0,
-        maxDate: fechaFinOctubre,
+        // maxDate: fechaFinOctubre,
         dateFormat: 'dd-mm-yy',
     });
 
