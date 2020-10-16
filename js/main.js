@@ -241,10 +241,4 @@ function inactividadSeguir(){
 
 function inactividadAyuda(){
   clearInterval(modalInactividad);
-  var win = window.open('https://salud-digna.site/AyudaMasto', '_blank');
-  if (win) {
-      win.focus();
-  } else {
-      alert('por favor permite popups para este sitio');
-}
 }
