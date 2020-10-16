@@ -1250,6 +1250,7 @@ input.error{
   width: fit-content;
   border-radius: 2px;
   font-size: 11px;
+  margin-bottom: 8px!important;
 }
 .invalidCard, .parsley-required{
   color: #FDCAC7;
@@ -1258,6 +1259,7 @@ input.error{
   background-color: #FBE1D6;
   width: fit-content;
 }
+
 @media only screen and (min-width: 501px) {
   .sumarEstudios.sumarPKT{
     background: #FFFFFF 0% 0% no-repeat padding-box;
