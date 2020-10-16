@@ -7,7 +7,7 @@
 }
 /* Flex */
 .d-none{
-  display: none;
+  display: none!important;
 }
 .d-block{
   display: inherit;
@@ -171,6 +171,9 @@ input.error{
 
 }
 /* Banner */
+#nav{
+  //display: none !important;
+}
 .bannerPonElPecho{
   background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-masto-en-150-web.jpg');
   background-repeat: no-repeat;
@@ -514,6 +517,32 @@ input.error{
 .video{
   width: 100%;
   height: 290px;
+}
+.bgFondo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1{
+    color:#FF647D;
+    font-weight: bold;
+    font-size: 65px;
+  }
+  p{
+    align-self: flex-start;
+    margin: 10px 0 0 80px;
+  }
+  div{
+    align-self: flex-start;
+    margin-left: 30px;
+    display: flex;
+    p{
+      margin: 0px 75px 10px;
+    }
+  }
+}
+.irBeneficiados{
+  margin: 10px 0px!important;
 }
 /* Form Cita */
 .ui-datepicker{ z-index: 9999 !important;}
@@ -1773,7 +1802,4 @@ input.error{
   margin: 0;
   padding: 15px;
   text-align: center;
-}
-#nav{
-  display: none !important;
 }
