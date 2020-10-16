@@ -80,8 +80,8 @@ $(document).ready(function () {
     $(this).find("i").toggleClass("icono-mas-1 icono-minus");
   })
   console.log('dataUser',dataUser)
-  $('#banner').load('./modelos/banner.html');
-  $('#nav').load('./modelos/navbar.html');
+  $('#banner').load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/banner.html');
+  $('#nav').load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/navbar.html');
 
   try{
     dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
@@ -110,17 +110,17 @@ $(document).ready(function () {
 
 function seccion(nav){
   if(nav==1){
-    $('#seccion').load('./modelos/cita.html');
+    $('#seccion').load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/cita.html');
     saveAnalytics('entrarPagina','PonElPecho','entrarEnCitas');
     removerClaseNav();
     $("#btnRegistro").addClass("active");
   }else if(nav==2){
-    $('#seccion').load('./modelos/revista.html');
+    $('#seccion').load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/revista.html');
     saveAnalytics('entrarPagina','PonElPecho','entrarEnRevista');
     removerClaseNav();
     $("#btnRevista").addClass("active");
   }else if(nav==3){
-    $('#seccion').load('./modelos/beneficiados.html');
+    $('#seccion').load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/beneficiados.html');
     saveAnalytics('entrarPagina','PonElPecho','entrarEnBeneficiados');
     removerClaseNav();
     $("#btnPxBeneficiados").addClass("active");
@@ -153,9 +153,9 @@ $(document).on("click", ".movilNav", function(){
 async function irPerfil(parametro) { 
   $.when( agregarLoadingInputs() ).then(x=>{  
     $("#navCita4").addClass('active');
-    $('#seccion').load('./modelos/perfil.html',function(){
-      $("#MiPerfil").load('./modelos/componentes/miPerfil.html',function(){
-        $("#sumarEstudios").load('./modelos/componentes/agregarEstudioImg.html',function(){
+    $('#seccion').load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/perfil.html',function(){
+      $("#MiPerfil").load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/componentes/miPerfil.html',function(){
+        $("#sumarEstudios").load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/componentes/agregarEstudioImg.html',function(){
             clearInterval(modalInactividad);
             startPerfil();
             history.pushState(null, null, 'perfil');
@@ -168,8 +168,8 @@ async function irPerfil(parametro) {
 }
 function redirectLogin(){
   setTimeout(function() { quitarLoadingInputs(); }, 1000);
-  $('#seccion').load('./modelos/logIn.html',function(){
-    $("#ingresar").load('./modelos/componentes/ingresar.html',function(){
+  $('#seccion').load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/logIn.html',function(){
+    $("#ingresar").load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/componentes/ingresar.html',function(){
       clearInterval(modalInactividad);
       if(localStorage.getItem("cita_creada") == 1){
         localStorage.removeItem("cita_creada");
@@ -179,7 +179,7 @@ function redirectLogin(){
       if(getUrlParameter('recovery')!=null){
           removerClaseNav();
           $("#btnLogIn").addClass("active");
-          $("#contenedorLogIn").load('./modelos/componentes/nuevaPass.html',function(){
+          $("#contenedorLogIn").load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/componentes/nuevaPass.html',function(){
             //console.log('hola')
           });
         }
@@ -192,21 +192,21 @@ function redirectLogin(){
 function olvidarContra(tipo){
   clearInterval(modalInactividad);
   if(tipo){
-    $("#contenedorLogIn").load('./modelos/componentes/restablecer.html',function(){
+    $("#contenedorLogIn").load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/componentes/restablecer.html',function(){
     });
     saveAnalytics('entrarPagina','PonElPecho','Clic Olvidé mi contraseña');
   }else{
-    $("#ingresar").load('./modelos/componentes/ingresar.html');
+    $("#ingresar").load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/componentes/ingresar.html');
   }
 }
 function redirectRecuperada(){
   clearInterval(modalInactividad);
-  $("#contenedorLogIn").load('./modelos/componentes/recuperada.html');
+  $("#contenedorLogIn").load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/componentes/recuperada.html');
   saveAnalytics('entrarPagina','PonElPecho','Clic Recuperar Contraseña');
 }
 function redirectCambiarContra(){
   clearInterval(modalInactividad);
-  $("#contenedorLogIn").load('./modelos/componentes/nuevaPassListo.html');
+  $("#contenedorLogIn").load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/componentes/nuevaPassListo.html');
   saveAnalytics('entrarPagina','PonElPecho','cambiarContraseña');
 }
 
