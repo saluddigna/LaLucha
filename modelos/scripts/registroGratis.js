@@ -321,10 +321,10 @@ function registrarCitaGratis() {
         }
         console.log("Data-Registro: " + JSON.stringify(global.data));
         global.perfil = Registro(global.data)
-        if (global.perfil != null) {
+        if (global.perfil.datosPaciente != null) {
             console.log("Data-Perfil: " + JSON.stringify(global.perfil));
             sessionStorage.clear()
-            sessionStorage.setItem('dataUser', JSON.stringify(global.data))
+            sessionStorage.setItem('dataUser', JSON.stringify(global.perfil))
             clearGlobalData();
             setTimeout(function () { quitarLoading(); }, 1000);
             localStorage.setItem("cita_creada", 1);
