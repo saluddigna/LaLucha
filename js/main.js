@@ -12,6 +12,7 @@ global.perfil={};
 dataUser=null
 modalInactividad=null;
 intervaloMilisegundosInactividad=360000;
+citasGratis=true;
 
 try{
   dataUser=JSON.parse(sessionStorage.getItem('dataUser'));

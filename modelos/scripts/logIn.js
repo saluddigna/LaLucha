@@ -63,8 +63,8 @@ function iniciarSesion(){
 
 function cerrarSesion(){
   sessionStorage.clear();
-  history.pushState(null, null, '/pon-el-pecho/');
   redirectLogin();
+  history.pushState(null, null, '/pon-el-pecho/');
 }
 
 function cambiarPass(){
