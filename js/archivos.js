@@ -28,8 +28,9 @@ $(document).ready(function () {
   
   
   $("#infoCita").load('../modelos/componentes/infoCita.html', function () {
-
-  });
+    if(citasGratis)
+      $("#faq").load('../modelos/componentes/preguntas.html');
+    });
   $("#formCita").load('../modelos/componentes/formCita.html', function () {
     $("#cita_regresar").hide();
     $(".overlay_loading").css("display", "flex")

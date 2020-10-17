@@ -67,6 +67,7 @@ function folio_cancelada(){
     $('#folios_densi').hide();
     $('#acciones').hide();    
     $('#cita_cancelada').text("CANCELADA");
+    $('#fValido').hide();
 }
 function startPerfil(){
     saveAnalytics('entrarPagina','PonElPecho','Mi Perfil');
@@ -84,9 +85,16 @@ function startPerfil(){
         agregarPKTPerfil();
     }
     if(getUrlParameter('reagendar')!=null){
-        reagendarCita();
-        scrollTop("#reagendarCita")
+        if(dataUser.datosCita.mastoGratis != true){
+            reagendarCita();
+            scrollTop("#reagendarCita")
+        }
     }
+
+    if(dataUser.datosCita.mastoGratis){
+        $('#btnReagendar').hide();     
+    }
+
 
     refreshDataPerfil();
     
