@@ -1704,6 +1704,19 @@ div.dataTables_wrapper div.dataTables_paginate {float:none; text-align:center}
       padding-left: 50%;
     }
   }
+  .bgFondo{
+    div p {
+      margin: 0px 30px 10px;
+    }
+    p{
+      margin: 10px 0 0 0;
+      align-self: center;
+    }
+    h1{
+      font-size: 50px;
+      margin-top: 10px;
+    }
+  } 
 
 }
 .inputCard .emisores {
