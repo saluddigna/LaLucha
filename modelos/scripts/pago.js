@@ -140,6 +140,7 @@ function tipoPago(tipo) {
     $("#pagoLinea").removeClass("active");
     $("#pagoClinica").addClass("active");
     $("#datosPagar").addClass("d-none");
+    $("#datosPagarClinica").removeClass("d-none");
     validacionesDatosPago();
   } else {
     tPago = tipo;
@@ -147,6 +148,7 @@ function tipoPago(tipo) {
     $("#pagoLinea").addClass("active");
     $("#pagoClinica").removeClass("active");
     $("#datosPagar").removeClass("d-none");
+    $("#datosPagarClinica").addClass("d-none");
     validacionesDatosPago();
   }
 };
@@ -158,19 +160,24 @@ function registrarCita(token) {
   var precio=0;
   if(global.data.cita.Estudios.length==1){
     if(global.data.IdSucursal=="1" && global.data.cita.TipoPago!=3){
-      precio=210.00;    
+      precio=210.00;  
+      saveAnalytics('citaRealizadaDesgloce','PonElPecho','En clínica')  
     }
     else if(global.data.IdSucursal!="1" && global.data.cita.TipoPago!=3){
       precio=220.00;
+      saveAnalytics('citaRealizadaDesgloce','PonElPecho','En clínica')
     }
     else if(global.data.cita.TipoPago==3)
-      precio=150.00
+      precio=150.00;
+      saveAnalytics('citaRealizadaDesgloce','PonElPecho','En linea: Mastográfia')
   }
   else if(global.data.cita.Estudios.length==2){
       precio=300.00;
+      saveAnalytics('citaRealizadaDesgloce','PonElPecho','En linea: Masto + Papa')
   }
   else if(global.data.cita.Estudios.length==3){
-    precio=380.00
+    precio=380.00;
+    saveAnalytics('citaRealizadaDesgloce','PonElPecho','En linea: Paquete Mujer')
   }
   // var precio =  ? 150.00 : global.data.cita.Estudios.length == 2 ? 300.00 : 380.00;
   if (tPago == 3) {
@@ -200,11 +207,13 @@ function registrarCita(token) {
   //console.log(JSON.stringify(global.data));
   global.perfil = Registro(global.data)
   if (global.perfil.datosPaciente != null) {
-    if(tPago==3)
-      saveAnalytics('citaRealizada','PonElPecho','pago-acreditado',precio)
-    else
-      saveAnalytics('citaRealizada','PonElPecho','pago-clinica')
-
+    if(tPago==3){
+      saveAnalytics('citaRealizada','PonElPecho','pago-acreditado',precio);
+      saveAnalytics('formulario-cita','PonElPecho','4 - Pago completado || Mi perfil', precio)
+    }else{
+      saveAnalytics('citaRealizada','PonElPecho','pago-clinica');
+      saveAnalytics('formulario-cita','PonElPecho','4 - Pago completado || Mi perfil', precio)
+    }
     // //console.log(JSON.stringify(global.perfil));
     sessionStorage.clear()
     sessionStorage.setItem('dataUser', JSON.stringify(global.perfil))

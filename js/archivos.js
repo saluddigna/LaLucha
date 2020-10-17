@@ -14,6 +14,7 @@ function saveAnalytics(event, category, label, value) {
   }
 }
 $(document).ready(function () {
+  saveAnalytics('entrarPagina','PonElPecho','Empezar cita');
   $(document).on("blur", ".cajas-texto .input-sd", function () {
     if ($(this).val() != "") {
       // console.log($(this).attr('id'));
@@ -30,7 +31,6 @@ $(document).ready(function () {
 
   });
   $("#formCita").load('../modelos/componentes/formCita.html', function () {
-    saveAnalytics('entrarPagina', 'PonElPecho', 'Empezar cita');
     $("#cita_regresar").hide();
     $(".overlay_loading").css("display", "flex")
     global.clinicas = getClinicas();
