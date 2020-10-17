@@ -95,6 +95,14 @@ function startPerfil(){
         $('#btnReagendar').hide();     
     }
 
+    if(dataUser.datosPaciente.IdSexo=="2"){
+        $('#avatarHombre').removeClass('d-none');
+        $('#avatarMujer').addClass('d-none');
+    }
+    else{
+        $('#avatarHombre').addClass('d-none');
+        $('#avatarMujer').removeClass('d-none');
+    }
 
     refreshDataPerfil();
     
