@@ -354,3 +354,14 @@ function changeDate(value) {
 function changeCCV(value) {
   $("#invalidCCV").hide()
 }
+
+$(document).on("focusin", "#ccv", function() {
+  $('.tarjetaBack').removeClass('d-none');
+  $('.tarjetaFront').addClass('d-none');
+});
+$(document).on("blur", ".combobox input", function () {
+  if ($(this).attr('name') != "ccv") {
+    $('.tarjetaBack').addClass('d-none');
+    $('.tarjetaFront').removeClass('d-none');
+  }
+});

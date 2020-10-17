@@ -24,7 +24,7 @@ $(document).ready(function () {
       $(this).removeClass("valido");
     }
   });
-
+  
   
   $("#infoCita").load('../modelos/componentes/infoCita.html', function () {
 

@@ -37,9 +37,13 @@
   <div id="datosPagar" class="pagar">
     <p class="text-bold text-16">Ingrese los datos de su tarjeta de débito o crédito.</p>
     <p class="text-16">Por favor verifica que la información de tu tarjeta sea correcta.</p>
+    <div class="imgTarjeta">
+      <img class="tarjetaFront" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/frente.svg" alt="Tarjeta de frente">
+      <img class="tarjetaBack d-none" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/reverso.svg" alt="Tarjeta parte trasera">
+    </div>
     <div class="d-flex row">
       <div class="combobox">
-        <p class="text-14 text-bold">Nombre del titular en la tarjeta</p>
+        <p class="text-14 text-bold">Nombre del titular en la tarjeta (1)</p>
         <input  class="" type="text" name="Paso 9: Titular de tarjeta" id="nameCard" placeholder="" size="20" data-conekta="card[name]" data-parsley-required="true">
         <div><span id="invalidName">Ingresa un nombre válido.</span></div>  
 
@@ -47,7 +51,7 @@
     </div>
     <div class="d-flex row">
       <div class="combobox">
-        <p class="text-14 text-bold">Número de tarjeta</p>
+        <p class="text-14 text-bold">Número de tarjeta (2)</p>
         <img class="emisores" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/logos-tarjeta-visa-mastercard.svg" alt="emisores de tarjeta">
         <input class="" type="text" name="Paso 10: Número de tarjeta bancaria" id="numCard" placeholder="" size="20" data-conekta="card[number]" data-parsley-required="true" data-inputmask="'mask': '9999 9999 9999 9999'">
         <div><span id="invalidCard">Ingresa un número de tarjeta válido.</span></div>
@@ -55,16 +59,16 @@
       </div>
     <div class="d-flex row">
       <div class="combobox">
-        <p class="text-14 text-bold">Mes de vencimiento</p>
+        <p class="text-14 text-bold">Mes de vencimiento (3)</p>
         <input class="" type="text" name="Paso 11: Mes de vencimiento" id="mm" placeholder="MM" data-conekta="card[exp_month]" size="4" data-parsley-required="true" data-inputmask="'mask': '99'" >
       </div>
       <div class="combobox">
-        <p class="text-14 text-bold">Año de vencimiento</p>
+        <p class="text-14 text-bold">Año de vencimiento (4)</p>
         <input class="" type="text" name="Paso 12: Año de vencimiento" id="aaaa" placeholder="AAAA" size="2" data-conekta="card[exp_year]" data-parsley-required="true" data-inputmask="'mask': '9999'">
       </div>
       <div class="combobox">
         <p class="text-14 text-bold">Código de seguridad</p>
-        <input class="" type="text" name="Paso 13: CCV" id="ccv" placeholder="CCV" size="4" data-conekta="card[cvc]" data-parsley-required="true" max="9999" >
+        <input class="" type="text" name="Paso 13: CCV" id="ccv" placeholder="CVV" size="4" data-conekta="card[cvc]" data-parsley-required="true" max="9999" >
       </div>
     </div>
     <div><span id="invalidDate">Ingresa una fecha válida.</span></div>  

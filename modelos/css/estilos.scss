@@ -574,7 +574,7 @@ input.error{
 }
 .combobox{
   width: 100%;
-  margin: 10px 15px;
+  margin: 10px 13px;
   input, select{
     width: 100%;
     height: 40px;
@@ -820,6 +820,11 @@ input.error{
 }
 .cargando div img{
   margin: 10px;
+}
+.imgTarjeta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* ----------Ingresar-------- */
 /*---- LogIn-----*/
@@ -1259,7 +1264,9 @@ input.error{
   background-color: #FBE1D6;
   width: fit-content;
 }
-
+#check-error, #check-errorBeneficios, #check-errorTerminos{
+  color: #FF5C17;
+}
 @media only screen and (min-width: 501px) {
   .sumarEstudios.sumarPKT{
     background: #FFFFFF 0% 0% no-repeat padding-box;
