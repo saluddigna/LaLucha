@@ -2,7 +2,8 @@
   <div class="card" class="card" id="miPerfil">
     <p class="text-18 text-bold">Tu perfil</p>
     <div class="miPerfil">
-      <img class="avatar" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/avatar-mujer.svg" alt="Perfil mujer">
+      <img id="avatarMujer" class="avatar d-none" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/avatar-mujer.svg" alt="Perfil mujer">
+      <img id="avatarHombre" class="avatar d-none" src="https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/avatar-hombre.svg" alt="Perfil mujer">
       <div class="infoPerfil">
         <ul>
           <li class="text-18"><i class="icono-perfil-mujer"></i><span id="perfil-nombre"></span></li>
@@ -25,7 +26,7 @@
       <div class="d-flex justify-center align-center flex-column">
         <p id="perfil-paciente"></p>
         <div class="d-flex flex-row" id="folios">
-          <div class="d-flex justify-center align-center flex-column ma-10 text-20" id="cita_cancelada"></div>
+          <div class="d-flex justify-center align-center flex-column ma-10 text-20 folio"  id="cita_cancelada"></div>
 
           <div class="d-flex justify-center align-center flex-column ma-10" id="folios_masto">
             <b class="text-16 estudio" id="folio_nombre_masto"></b>
@@ -43,7 +44,7 @@
             <p class="text-12 estudio" id="perfil-fechaCita-densi"></p>
           </div>
         </div>
-        <p class="fValido">El folio solo podrá hacerse válido el día de tu cita.</p>
+        <p class="fValido" id="fValido">El folio solo podrá hacerse válido el día de tu cita.</p>
         <div class="d-flex justify-center align-center flex-row">
           <!-- <div class="d-flex justify-center align-center flex-column ma-10">
             <b class="text-18">Tu cita:</b>
@@ -56,7 +57,7 @@
         </div>
         <div id="acciones">
           <button class="btn btn-pink" type="button" onclick="descargarTicket()">Descargar</button>
-          <p class="reagendar">Si no puedes asistir a tu cita, podrás <a class="linkPink" onclick="reagendarCita()">reagendar aquí</a></p>  
+          <p class="reagendar" id="btnReagendar">Si no puedes asistir a tu cita, podrás <a class="linkPink" onclick="reagendarCita()">reagendar aquí</a></p>  
         </div>
       </div>
     </div>

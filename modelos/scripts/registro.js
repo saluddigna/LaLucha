@@ -60,7 +60,8 @@ async function startCita(){
             $("#fechaCita").prop('disabled',true) 
             $("#selectHorario").prop('disabled',true) 
             getClinicasByEstado();
-            validacionesPaquetes()
+            validacionesPaquetes();
+            saveAnalytics('cambioDeCampo','PonElPecho','1-Se eligió estado')
         });
         
         await startDatesPicker()
@@ -74,19 +75,21 @@ async function startCita(){
         
         $('#btnObtenerUbicacion').click(function () {
             getUbicacion();
+            saveAnalytics('cambioDeCampo','PonElPecho','0-Obtener ubicación')
         });
 
         $("#selectClinica").bind('change',function(){
             $.when( agregarLoadingInputs() ).then(x=>{
                 changeSelectClinica(parseFloat($("#selectClinica").val()));
                 validacionesPaquetes();
-                quitarLoadingInputs()
+                quitarLoadingInputs();
               });    
         });
 
          $('#chk').on('change', function(){
-            $('#check-error').text("")
+            $('#check-errorBeneficios').text("")
              if(($('#chk').is(":checked"))){
+                saveAnalytics('cambioDeCampo','PonElPecho','Eligió no llevar Paquetes')
                 if(togglePapa)
                     quitarPKT(1);
                 else if (togglePkt)
@@ -96,7 +99,7 @@ async function startCita(){
          });
 
          $('#chkTerminos').on('change', function(){
-            $('#check-error').text("")
+            $('#check-errorTerminos').text("")
             validacionesPaquetes()
          });
 
@@ -114,7 +117,8 @@ async function startCita(){
                 getHorariosDisponibles(body,'#selectHorario');
                 $("#fechaCita").addClass("valido");
                 $("#fechaCita").addClass("lleno")
-                validacionesPaquetes()
+                validacionesPaquetes();
+                saveAnalytics('cambioDeCampo','PonElPecho','3-Se eligió horario')
                 setTimeout(function() { quitarLoadingInputs(); }, 1000);
             });
         })
@@ -155,7 +159,8 @@ async function startCita(){
             saveValuesPaquetes();
             startResumen();
             $("#content-paquetes").show();
-            validacionesPaquetes()
+            validacionesPaquetes();
+            saveAnalytics('cambioDeCampo','PonElPecho','4-Se eligió horario')
             scrollTop("#paquetes-top");
         });
 
@@ -163,7 +168,8 @@ async function startCita(){
             // //console.log('selectHorario')
             saveValuesPaquetes();
             startResumen();
-            validacionesPaquetes()
+            validacionesPaquetes();
+            saveAnalytics('cambioDeCampo','PonElPecho','Confirmó Papanicolaou')
         });
 
         $("#selectHorarioPapa_pkt2").on('change', function(){
@@ -177,7 +183,8 @@ async function startCita(){
             // //console.log('selectHorario')
             saveValuesPaquetes();
             startResumen();
-            validacionesPaquetes()
+            validacionesPaquetes();
+            saveAnalytics('cambioDeCampo','PonElPecho','Confirmó PaqueteMujer')
         });
         
         $('#tiempoRestante').empty().append(moment().endOf('2020-10-19T09:00:00-06:00').fromNow());
@@ -376,7 +383,7 @@ function validacionesPaquetes(){
     //console.log('entre validaciones paquetes>>>')
     if(!togglePapa && !togglePkt){
         if((!$('#chk').is(":checked"))){
-            $('#check-error').text("Para continuar, debes indicar si deseas agregar uno de los beneficios extras.")
+            $('#check-errorBeneficios').text("Para continuar, debes indicar si deseas agregar uno de los beneficios extras.")
             $( "#cita_siguiente" ).prop( "disabled", true );
             return false
         }
@@ -394,7 +401,7 @@ function validacionesPaquetes(){
         });
     }
     if((!$('#chkTerminos').is(":checked"))){
-        $('#check-error').text("Para continuar, acepta nuestro Aviso de Privacidad junto con Términos y Condiciones.")
+        $('#check-errorTerminos').text("Para continuar, acepta nuestro Aviso de Privacidad junto con Términos y Condiciones.")
         $( "#cita_siguiente" ).prop( "disabled", true );
         return false
     }
@@ -498,7 +505,7 @@ function quitarPKT(pkt){
         $("#pktPapa, .quitarPKT_papa").toggle("d-none");
         $("#addPKT").prop("disabled", false);
         $("#addPapa").show()
-
+        saveAnalytics('cambioDeCampo','PonElPecho','Quitó Papanicolaou')
         togglePapa=false;
         saveValuesPaquetes();
         startResumen();
@@ -510,7 +517,7 @@ function quitarPKT(pkt){
         togglePkt=false;
         saveValuesPaquetes();
         startResumen();
-
+        saveAnalytics('cambioDeCampo','PonElPecho','Quitó PaqueteMujer')
     }
 };
 var togglePapa=false;
@@ -522,7 +529,8 @@ function agregarPapa(){
     $("#addPKT").prop("disabled", true);
     togglePapa=true;
     togglePkt=false;
-    validacionesPaquetes()
+    validacionesPaquetes();
+    saveAnalytics('cambioDeCampo','PonElPecho','Agregó Papanicolaou')
 };
 
 var togglePkt=false;
@@ -534,8 +542,8 @@ function agregarPKT(){
     $("#addPKT").hide()
     togglePapa=false;
     togglePkt=true;
-    validacionesPaquetes()
-
+    validacionesPaquetes();
+    saveAnalytics('cambioDeCampo','PonElPecho','Agregó PaqueteMujer')
 };
 
 
@@ -561,6 +569,7 @@ function validacionesDatosPaciente(selector){
                 if(result==true){
                     $("#correoExistente").text("El correo que nos proporcionaste ya ha sido utilizado.")
                     $( "#cita_siguiente" ).prop( "disabled", true );
+                    saveAnalytics('errorCampo','PonElPecho','Correo repetido')
                     return
                 }
                 else{
@@ -622,6 +631,7 @@ function getClinicasByEstado(){
                 }
             });
             $('#selectEstado').val(clinicaCercana.IdEstado.toString()).change();
+            $('#selectClinica').val(clinicaCercana.IdSucursal.toString()).change();
         }
         function error(err) {
             //console.log(err)
@@ -647,7 +657,8 @@ function changeSelectClinica(idSucursal){
     idSucursal=idSucursal;
     mastografia=getEstudio(3,idSucursal);
     densitometria=getEstudio(1,idSucursal);
-    papanicolao=getEstudio(4,idSucursal)
+    papanicolao=getEstudio(4,idSucursal);
+    saveAnalytics('cambioDeCampo','PonElPecho','2-Se eligió clínica')
     // //console.log(mastografia,densitometria,densitometria)
     clearDataPaquetes();
 }

@@ -67,9 +67,10 @@ function folio_cancelada(){
     $('#folios_densi').hide();
     $('#acciones').hide();    
     $('#cita_cancelada').text("CANCELADA");
+    $('#fValido').hide();
 }
 function startPerfil(){
-    console.log('startPerfil');
+    saveAnalytics('entrarPagina','PonElPecho','Mi Perfil');
     dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
     console.log(dataUser);
     if(!dataUser){
@@ -83,6 +84,26 @@ function startPerfil(){
     if(getUrlParameter('token')!=null){
         agregarPKTPerfil();
     }
+    if(getUrlParameter('reagendar')!=null){
+        if(dataUser.datosCita.mastoGratis != true){
+            reagendarCita();
+            scrollTop("#reagendarCita")
+        }
+    }
+
+    if(dataUser.datosCita.mastoGratis){
+        $('#btnReagendar').hide();     
+    }
+
+    if(dataUser.datosPaciente.IdSexo=="2"){
+        $('#avatarHombre').removeClass('d-none');
+        $('#avatarMujer').addClass('d-none');
+    }
+    else{
+        $('#avatarHombre').addClass('d-none');
+        $('#avatarMujer').removeClass('d-none');
+    }
+
     refreshDataPerfil();
     
 

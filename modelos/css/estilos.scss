@@ -195,6 +195,9 @@ input.error{
   }
 }
 /* Navbar */
+#nav{
+  //display: none !important;
+}
 .barraNav{
   background-color: #FF647D;
   display: flex;
@@ -603,7 +606,7 @@ input.error{
 }
 .combobox{
   width: 100%;
-  margin: 10px 15px;
+  margin: 10px 10px;
   input, select{
     width: 100%;
     height: 40px;
@@ -823,6 +826,11 @@ input.error{
     font-size: 36px;
   }
 }
+.pagarClinica{
+    background-color: #FFE6EB;
+    padding: 15px;
+    font-size: 12px;
+}
 // .tipoPago i{
 //   font-size: 36px;
 //   color: #CF787D;
@@ -844,6 +852,11 @@ input.error{
 }
 .cargando div img{
   margin: 10px;
+}
+.imgTarjeta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* ----------Ingresar-------- */
 /*---- LogIn-----*/
@@ -1274,6 +1287,7 @@ input.error{
   width: fit-content;
   border-radius: 2px;
   font-size: 11px;
+  margin-bottom: 8px!important;
 }
 .invalidCard, .parsley-required{
   color: #FDCAC7;
@@ -1281,6 +1295,31 @@ input.error{
   color: #FF5C17;
   background-color: #FBE1D6;
   width: fit-content;
+}
+#check-error, #check-errorBeneficios, #check-errorTerminos{
+  color: #FF5C17;
+}
+input {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  height: 30px;
+  padding: 10px;
+}
+input.loading {
+  background: url(http://www.xiconeditor.com/image/icons/loading.gif) no-repeat right center;
+}
+#tablaBeneficiarios.dataTable thead th {
+  border-bottom: 0;
+}
+div.dataTables_info {position:absolute}
+div.dataTables_wrapper div.dataTables_paginate {float:none; text-align:center}
+
+#tablaBeneficiarios.dataTable tfoot th {
+  border-top: 0;
+}
+
+#tablaBeneficiarios.dataTable tfoot th {
+  border-top: 0;
 }
 @media only screen and (min-width: 501px) {
   .sumarEstudios.sumarPKT{
@@ -1665,6 +1704,19 @@ input.error{
       padding-left: 50%;
     }
   }
+  .bgFondo{
+    div p {
+      margin: 0px 30px 10px;
+    }
+    p{
+      margin: 10px 0 0 0;
+      align-self: center;
+    }
+    h1{
+      font-size: 50px;
+      margin-top: 10px;
+    }
+  } 
 
 }
 .inputCard .emisores {
@@ -1802,13 +1854,4 @@ input.error{
   margin: 0;
   padding: 15px;
   text-align: center;
-}
-input {
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  height: 30px;
-  padding: 10px;
-}
-input.loading {
-  background: url(http://www.xiconeditor.com/image/icons/loading.gif) no-repeat right center;
 }

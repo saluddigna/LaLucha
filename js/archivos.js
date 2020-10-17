@@ -14,6 +14,7 @@ function saveAnalytics(event, category, label, value) {
   }
 }
 $(document).ready(function () {
+  saveAnalytics('entrarPagina','PonElPecho','Empezar cita');
   $(document).on("blur", ".cajas-texto .input-sd", function () {
     if ($(this).val() != "") {
       // console.log($(this).attr('id'));
@@ -24,13 +25,13 @@ $(document).ready(function () {
         $(this).removeClass("valido");
     }
   });
-
-
+  
+  
   $("#infoCita").load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/componentes/infoCita.html', function () {
-
-  });
+    if(citasGratis)
+      $("#faq").load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/componentes/preguntas.html');
+    });
   $("#formCita").load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/componentes/formCita.html', function () {
-    saveAnalytics('entrarPagina', 'PonElPecho', 'Empezar cita');
     $("#cita_regresar").hide();
     $(".overlay_loading").css("display", "flex")
     global.clinicas = getClinicas();

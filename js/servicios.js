@@ -57,7 +57,7 @@ function getBeneficiados() {
         error: function (jqXHR, textStatus, errorThrown) {
         }
     });
-    console.log("respuesta getBeneficiados:",arrEstados)
+    console.log("respuesta getBeneficiados:",result)
     return result;
 };
 

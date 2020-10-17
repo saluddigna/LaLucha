@@ -14,11 +14,15 @@
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>La Lucha</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="author" content="@HiperEmmanuel">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
   <link rel="stylesheet" href="http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/css/saluddigna.css">
   <link rel="stylesheet" href="http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/css/estilos.css">
   <link href="http://beta.salud-digna.site/wp-content/themes/SaludDigna/Landing-vacantes/css/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body style="margin:0;background-color: #000">
   <div id="principal">
@@ -54,7 +58,7 @@
                   </div>
 
                   <div class="modal-botones">
-                    <button class="sd-boton-border" id="solicitarAyuda" onclick="inactividadAyuda()">Solicitar ayuda para agendar mi cita</button>
+                    <a class="sd-boton-border linkPink" id="solicitarAyuda" onclick="inactividadAyuda()" target="_blank" rel="noopener noreferrer" href="https://salud-digna.site/AyudaMasto">Solicitar ayuda para agendar mi cita</a>
                     <button class="sd-boton" data-dismiss="modal" onclick="inactividadSeguir()">Seguir con mi cita</button>
                   </div>
               </div>
@@ -81,4 +85,5 @@
   <script src="http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/js/archivos.js"></script>
   <script src="http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/scripts/perfil.js"></script>
   <script src="http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/scripts/logIn.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 </html>

@@ -26,7 +26,7 @@ idSesion="1dnni3hgu9iggbdktdlpfb19u4";
 //conektaKey='key_fNdPxbPkqAt1xF1sYMgQF5w';
 conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
 
-configUrl='https://la-lucha-sd.herokuapp.com/';
+configUrl='https://la-lucha-sd-staging.herokuapp.com/';
 //configUrl='https://b903340e29bc.ngrok.io/';
 sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 
@@ -120,7 +120,9 @@ function seccion(nav){
     removerClaseNav();
     $("#btnRevista").addClass("active");
   }else if(nav==3){
-    $('#seccion').load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/beneficiados.html');
+    $('#seccion').load('http://beta.salud-digna.site/wp-content/themes/SaludDigna/lalucha2020/modelos/beneficiados.html',function(){
+      startBeneficiados();
+    });
     saveAnalytics('entrarPagina','PonElPecho','entrarEnBeneficiados');
     removerClaseNav();
     $("#btnPxBeneficiados").addClass("active");
@@ -242,5 +244,4 @@ function inactividadSeguir(){
 
 function inactividadAyuda(){
   clearInterval(modalInactividad);
-  window.location.href='https://salud-digna.site/AyudaMasto';
 }
