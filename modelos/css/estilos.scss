@@ -195,6 +195,9 @@ input.error{
   }
 }
 /* Navbar */
+#nav{
+  //display: none !important;
+}
 .barraNav{
   background-color: #FF647D;
   display: flex;
@@ -603,7 +606,7 @@ input.error{
 }
 .combobox{
   width: 100%;
-  margin: 10px 15px;
+  margin: 10px 10px;
   input, select{
     width: 100%;
     height: 40px;
@@ -849,6 +852,11 @@ input.error{
 }
 .cargando div img{
   margin: 10px;
+}
+.imgTarjeta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* ----------Ingresar-------- */
 /*---- LogIn-----*/
@@ -1288,11 +1296,27 @@ input.error{
   background-color: #FBE1D6;
   width: fit-content;
 }
+#check-error, #check-errorBeneficios, #check-errorTerminos{
+  color: #FF5C17;
+}
+input {
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  height: 30px;
+  padding: 10px;
+}
+input.loading {
+  background: url(http://www.xiconeditor.com/image/icons/loading.gif) no-repeat right center;
+}
 #tablaBeneficiarios.dataTable thead th {
   border-bottom: 0;
 }
 div.dataTables_info {position:absolute}
 div.dataTables_wrapper div.dataTables_paginate {float:none; text-align:center}
+
+#tablaBeneficiarios.dataTable tfoot th {
+  border-top: 0;
+}
 
 #tablaBeneficiarios.dataTable tfoot th {
   border-top: 0;
@@ -1817,13 +1841,4 @@ div.dataTables_wrapper div.dataTables_paginate {float:none; text-align:center}
   margin: 0;
   padding: 15px;
   text-align: center;
-}
-input {
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  height: 30px;
-  padding: 10px;
-}
-input.loading {
-  background: url(http://www.xiconeditor.com/image/icons/loading.gif) no-repeat right center;
 }
