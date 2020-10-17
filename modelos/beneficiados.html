@@ -3,35 +3,28 @@
     <b class="text-20">#PonElPecho</b>
     <br>
     <br>
-    <p class="text-20">Estos son los pacientes que han sido beneficiados con una Mastografía sin costo, con la cual tendrán la oportunidad de la detección oportuna en la batalla contra el cáncer de mama.</p>
+    <p class="text-20">Estos son los pacientes que han sido beneficiados con una Mastografía sin costo, con la cual
+      tendrán la oportunidad de la detección oportuna en la batalla contra el cáncer de mama.</p>
     <div class="buscador">
       <input class="buscar" type="search" name="" placeholder="Buscar" id="buscarPx">
       <span class="lupa">🔍</span>
     </div>
-    <table class="tablaBeneficiarios">
+    <table id="tablaBeneficiarios" class="tablaBeneficiarios row-border">
       <thead class="titulos">
         <tr class="border-bottom">
-          <td></td>
-          <td class="text-bold text-16 p-l-1">Nombre</td>
-          <td class="text-bold text-16">Clínica</td>
-          <td class="text-bold text-16">Fecha</td>
+          <th></th>
+          <th class="text-bold text-16 p-l-1">Nombre</th>
+          <th class="text-bold text-16">Clínica</th>
         </tr>
       </thead>
-      <tbody id="tuplasBeneficiarios">
-        <tr class="border-bottom">
-          <td width="50px"><div class="pxBeneficiado"><img src="images\icono-en lista-paciente-beneficiada.svg" alt="icono paciente"></div></td>
-          <td class="text-14 text-bold p-l-1">Ernesto Alonso</td>
-          <td >Los Mochis</td>
-          <td >31.12.2020</td>
+      <tfoot>
+        <tr>
         </tr>
-      </tbody>
+      </tfoot> 
     </table>
-    <div class="contenedorTablaBeneficiarios">
-      <div class="paginador">
-        <i><</i>
-        <p><span id="paginaActual">1</span> de <span id="paginasTotales">1</span></p>
-        <i>></i>
-      </div>
-    </div>
   </div>
 </div>
+
+
+<script src="./modelos/scripts/beneficiados.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
