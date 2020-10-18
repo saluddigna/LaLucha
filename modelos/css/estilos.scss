@@ -184,6 +184,12 @@ input.error{
   justify-content: center;
   background-color: #FDCAC7;
 }
+.bannerPonElPecho.entregadas10k{
+  background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/10k-web.webp');
+}
+.bannerPonElPecho.entregadas12k{
+  background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/12k-web.webp');
+}
 .imgBanner{
   height: 300px;
   background-color: hotpink;
@@ -1413,6 +1419,12 @@ div.dataTables_wrapper div.dataTables_paginate {float:none; text-align:center}
     background-color: #FDCAC7;
     height: 150px;
   }
+  .bannerPonElPecho.entregadas10k{
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/10k-tablet.webp');
+  }
+  .bannerPonElPecho.entregadas12k{
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/12k-tablet.webp');
+  }
   .hazloEnLinea{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-tablet.jpg');
   }
@@ -1559,6 +1571,12 @@ div.dataTables_wrapper div.dataTables_paginate {float:none; text-align:center}
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/banner-masto-en-150-movil.jpg');
     background-color: #FDCAC7;
     height: 150px;
+  }
+  .bannerPonElPecho.entregadas10k{
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/10k-movil.webp');
+  }
+  .bannerPonElPecho.entregadas12k{
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/12k-movil.webp');
   }
   .hazloEnLinea{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-movil.jpg');
