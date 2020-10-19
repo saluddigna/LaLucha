@@ -1360,6 +1360,9 @@ div.dataTables_wrapper div.dataTables_paginate {float:none; text-align:center}
 #tablaBeneficiarios.dataTable tfoot th {
   border-top: 0;
 }
+.even td, .odd td{
+  text-transform: uppercase;
+}
 @media only screen and (min-width: 501px) {
   .sumarEstudios.sumarPKT{
     background: #FFFFFF 0% 0% no-repeat padding-box;
