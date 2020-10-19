@@ -15,7 +15,6 @@ intervaloMilisegundosInactividad=360000;
 dataDisponibles=getExistMasto();
 citasGratis=dataDisponibles.disponibles;
 
-
 startSocket()
 
 

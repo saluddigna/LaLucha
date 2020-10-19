@@ -2,6 +2,18 @@ var wto;
 var delay = 1000
 
 async function startCitaGratis() {
+    console.log(global.clinicas)
+    console.log(global.estados)
+
+    if(global.clinicas.length==0){
+        $("#errorSitio").show();
+    }
+    else if(global.estados.length==0){
+        $("#errorSitio").show();
+    }
+    else{
+        $("#errorSitio").hide();
+    }
     $("#fechaCita").addClass("valido");
     $("#selectReferencia").addClass("valido");
 

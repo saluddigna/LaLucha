@@ -1,4 +1,17 @@
 //request
+function showError(){
+    try{
+        $("#errorSitio").show();
+    }catch(e){}
+}
+
+function hideError(){
+    try{
+        $("#errorSitio").hide();
+    }
+    catch(e){}
+}
+
 function getClinicas() {
     var arrClinicas = [];
     $.ajax({
@@ -11,8 +24,10 @@ function getClinicas() {
         async: false,
         success: function (response) {
             arrClinicas = response;
+            hideError();
         },
         error: function (jqXHR, textStatus, errorThrown) {
+            showError();
         }
     });
     console.log("respuesta getclincas:",arrClinicas)
@@ -36,8 +51,10 @@ function getEstados() {
         async: false,
         success: function (response) {
             arrEstados = response;
+            hideError();
         },
         error: function (jqXHR, textStatus, errorThrown) {
+            showError();
         }
     });
     console.log("respuesta getEstados:",arrEstados)
@@ -57,8 +74,10 @@ function getBeneficiados() {
         async: false,
         success: function (response) {
             result = response;
+            hideError();
         },
         error: function (jqXHR, textStatus, errorThrown) {
+            showError();
         }
     });
     console.log("respuesta getBeneficiados:",result)
@@ -80,8 +99,10 @@ function getHorarios(body) {
         async: false,
         success: function (response) {
             arrHorarios = response;
+            hideError();
         },
         error: function (jqXHR, textStatus, errorThrown) {
+            showError();
         }
     });
     //console.log(arrHorarios);
@@ -127,9 +148,11 @@ function getEstudio(idEstudio,idSucursal) {
             }
 
             arrEstudio = response;
+            hideError();
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(jqXHR);
+            showError();
         }
     });
     console.log("respuesta getEstudios:",arrEstudio)
@@ -150,11 +173,14 @@ function Registro(data) {
         async: false,
         success: function (response) {
             resp=response;
+            hideError();
             // arrEstudio = response;
         },
         error: function (jqXHR, textStatus, errorThrown) {
             resp=jqXHR.responseJSON.msj;
             console.log(jqXHR);
+            showError();
+
         }
     });
     console.log("respuesta Registro:",resp)
