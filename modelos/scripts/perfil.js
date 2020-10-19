@@ -4,8 +4,8 @@ var papanicolao=null;
 var dataUser=null;
 var datosAgregar={};
 var date = moment.utc().format();
-var minDate = moment.utc(date).local().format("YYYY-MM-DD");
-var fechaFinOctubre = new Date("2020-10-31 00:00:00");
+var fechaFinOctubre = new Date("2020-12-31 00:00:00");
+var minDate = new Date("2020-10-20 00:00:00");
 
 var reag_masto=`<div id="reagendarMasto-name"><b>MASTOGRAFIA</b></div>
 <div class="reagendarMastoParsley">
@@ -180,7 +180,7 @@ function startPerfil(){
         }  
 
         $("#reagendarMasto-fecha").datepicker({
-            minDate: 0,
+            minDate: minDate,
             maxDate: fechaFinOctubre,
             dateFormat: 'dd-mm-yy',
         });
@@ -236,7 +236,7 @@ function startPerfil(){
         } 
 
         $("#reagendarMasto-fecha").datepicker({
-            minDate: 0,
+            minDate: minDate,
             maxDate: fechaFinOctubre,
             dateFormat: 'dd-mm-yy',
         });
@@ -260,7 +260,7 @@ function startPerfil(){
 
         $("#reagendar-inputs").append(reag_papa);
         $('#reagendarPapa-fecha').datepicker({
-            minDate: 0,
+            minDate: minDate,
             dateFormat: 'dd-mm-yy',
             maxDate: fechaFinOctubre,
         })
@@ -319,7 +319,7 @@ function startPerfil(){
 
 
         $("#reagendarMasto-fecha").datepicker({
-            minDate: 0,
+            minDate: minDate,
             maxDate: fechaFinOctubre,
             dateFormat: 'dd-mm-yy',
         });
@@ -353,7 +353,8 @@ function startPerfil(){
 
         $("#reagendar-inputs").append(reag_densi);
         $('#reagendarDensi-fecha').datepicker({
-            minDate: 0,
+            minDate: minDate,
+            maxDate: fechaFinOctubre,
             dateFormat: 'dd-mm-yy',
         })
 
@@ -546,10 +547,11 @@ function agregarPKTPerfil(){
 
 }
 function startAddPkt(){
-    var date = moment.utc().format();
-    var minDate = moment.utc(date).local().format("YYYY-MM-DD");
+    // var date = moment.utc().format();
+    // var minDate = moment.utc(date).local().format("YYYY-MM-DD");
     $("#agregar-papa-fecha").datepicker({
-        minDate: 0,
+        minDate: minDate,
+        maxDate: fechaFinOctubre,
         dateFormat: 'dd-mm-yy',
     });
 
@@ -564,7 +566,8 @@ function startAddPkt(){
     })
 
     $("#agregar-densi-fecha").datepicker({
-        minDate: 0,
+        minDate: minDate,
+        maxDate: fechaFinOctubre,
         dateFormat: 'dd-mm-yy',
     });
     $("#agregar-densi-fecha").on('change', function(){
@@ -829,7 +832,7 @@ function irLentes(){
 
 function startDatesPickerPerfil(){
     $("#reagendarMasto-fecha").datepicker({
-        minDate: 0,
+        minDate: minDate,
         maxDate: fechaFinOctubre,
         dateFormat: 'dd-mm-yy',
         onSelect: function (a) {
@@ -843,7 +846,8 @@ function startDatesPickerPerfil(){
     // $("#fechaCita").prop('disabled', true);
     // $( "#fechaCita" ).datepicker( "option", "disabled", true );
     $('#reagendarPapa-fecha').datepicker({
-        minDate: 0,
+        minDate: minDate,
+        maxDate: fechaFinOctubre,
         dateFormat: 'dd-mm-yy',
         onSelect: function (a) {
             var body={ListaHorarios:[{IdEstudio:4,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:papanicolao.data[0].Id}]}
@@ -853,7 +857,8 @@ function startDatesPickerPerfil(){
         },
     })
     $('#reagendarDensi-fecha').datepicker({
-        minDate: 0,
+        minDate: minDate,
+        maxDate: fechaFinOctubre,
         dateFormat: 'dd-mm-yy',
         onSelect: function (a) {
             var body={ListaHorarios:[{IdEstudio:1,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:densitometria.data[0].Id}]}
