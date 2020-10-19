@@ -126,6 +126,7 @@ async function startCitaGratis() {
 }
 
 var formValid = true;
+var correoValido=true;
 //validaciones
 async function validaCitaGratis(selector) {
     if (selector) {
@@ -137,11 +138,11 @@ async function validaCitaGratis(selector) {
                 if (result == true) {
                     $("#correoExistente").text("El correo que nos proporcionaste ya ha sido utilizado.")
                     $("#cita_siguiente").prop("disabled", true);
-                    formValid = false;
+                    correoValido = false;
                     return
                 }
                 else {
-                    formValid = true;
+                    correoValido = true;
                     $("#correoExistente").empty()
                 }
             }
@@ -189,7 +190,7 @@ async function validaCitaGratis(selector) {
         formValid = true;
 
 
-    if ($('#form-registro').parsley().isValid() && formValid) {
+    if ($('#form-registro').parsley().isValid() && formValid && correoValido) {
         $("#cita_siguiente").prop("disabled", false);
         return true
     } else {
@@ -346,6 +347,7 @@ function registrarCitaGratis() {
         } else {
             paso--;
             setPaso();
+            // cambioPaso();
             setTimeout(function () { quitarLoading(); }, 1000);
             //   saveAnalytics('error-pago','PonElPecho',global.perfil)
             $("#error-msg").text("Ha ocurrido un error al agendar tu cita - " + global.perfil);
