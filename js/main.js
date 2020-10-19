@@ -12,7 +12,11 @@ global.perfil={};
 dataUser=null
 modalInactividad=null;
 intervaloMilisegundosInactividad=360000;
-citasGratis=true;
+citasGratis=false;
+// console.log(citasGratis)
+startSocket();
+// console.log(citasGratis)
+console.log("bandera citas gratis: ",citasGratis)
 
 try{
   dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
@@ -67,7 +71,6 @@ $(function (a) {
   }),
       a.datepicker.setDefaults(a.datepicker.regional.es);
 });
-
 $(document).ready(function () {
   $(document).on("click", ".masto-cita.active", function(){
     var destino = $('#btnObtenerUbicacion');

@@ -27,8 +27,14 @@ $(document).ready(function () {
   });
 
   $("#infoCita").load('../modelos/componentes/infoCita.html', function () {
-    if(citasGratis)
+    if(citasGratis){
       $("#faq").load('../modelos/componentes/preguntas.html');
+      $("#navegacionFree").removeClass('d-none');
+      $("#navegacionCitas").addClass('d-none');
+    }else {
+      $("#navegacionFree").addClass('d-none');
+      $("#navegacionCitas").removeClass('d-none');
+    }
     });
   $("#formCita").load('../modelos/componentes/formCita.html', function () {
     saveAnalytics('entrarPagina', 'PonElPecho', 'Empezar cita');    
