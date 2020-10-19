@@ -7,7 +7,7 @@
 }
 /* Flex */
 .d-none{
-  display: none!important;
+  display: none;
 }
 .d-block{
   display: inherit;
@@ -189,6 +189,9 @@ input.error{
 }
 .bannerPonElPecho.entregadas12k{
   background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/12k-web.webp');
+}
+.bannerPonElPecho.sinCosto{
+  background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/sincosto-web.webp');
 }
 .imgBanner{
   height: 300px;
@@ -577,9 +580,11 @@ input.error{
   text-align: justify;
   p{
     margin-bottom: 5px;
+    cursor: pointer;
     img{
       height: 60px;
       margin: 15px;
+      cursor: pointer;
     }
   }
   .text-bold{
@@ -1440,6 +1445,9 @@ div.dataTables_wrapper div.dataTables_paginate {float:none; text-align:center}
   .bannerPonElPecho.entregadas12k{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/12k-tablet.webp');
   }
+  .bannerPonElPecho.sinCosto{
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/sincosto-tablet.webp');
+  }
   .hazloEnLinea{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-tablet.jpg');
   }
@@ -1592,6 +1600,9 @@ div.dataTables_wrapper div.dataTables_paginate {float:none; text-align:center}
   }
   .bannerPonElPecho.entregadas12k{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/12k-movil.webp');
+  }
+  .bannerPonElPecho.sinCosto{
+    background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/sincosto-movil.webp');
   }
   .hazloEnLinea{
     background-image: url('https://sd-storage.sfo2.digitaloceanspaces.com/LA-LUCHA/images/HEL-movil.jpg');
