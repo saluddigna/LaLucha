@@ -57,7 +57,7 @@
         </div>
         <div id="acciones">
           <button class="btn btn-pink" type="button" onclick="descargarTicket()">Descargar</button>
-          <p class="reagendar" id="btnReagendar">Si no puedes asistir a tu cita, podrás <a class="linkPink" onclick="reagendarCita()">reagendar aquí</a></p>  
+          <p class="reagendar d-none" id="btnReagendar">Si no puedes asistir a tu cita, podrás <a class="linkPink" onclick="reagendarCita()">reagendar aquí</a></p>  
         </div>
       </div>
     </div>
@@ -144,8 +144,9 @@
           -Es necesario mencionar tu folio en Recepción el día de tu cita. <br>
           -Acude con la preparación indicada para poder realizar tu estudio o paquete. <br>
           -Te recomendamos acudir 15 minutos antes de tu cita. <br>
-          -Te agradecemos cancelar tu cita en caso de no poder asistir. <a type="button" class="linkPink" onclick="cancelarCita()">Cancelar aquí.</a> <br>
-          -Si deseas la devolución de tu dinero, puedes solicitarla ingresando <a href="https://salud-digna.org/devoluciones" target="_blank" rel="noopener noreferrer" class="linkPink" onclick="saveAnalytics('irDevoluciones','PonElPecho','clic Devoluciones')">aquí</a>.
+          
+          <p class="text-16" id="cancelarC">-Te agradecemos cancelar tu cita en caso de no poder asistir. <a type="button" class="linkPink" onclick="cancelarCita()">Cancelar aquí.</a> <br></p>
+          <p class="text-16" id="devolcion">-Si deseas la devolución de tu dinero, puedes solicitarla ingresando <a href="https://salud-digna.org/devoluciones" target="_blank" rel="noopener noreferrer" class="linkPink" onclick="saveAnalytics('irDevoluciones','PonElPecho','clic Devoluciones')">aquí</a>.</p>
         </p>
         <div class="hazloEnLinea"></div>
       </div>

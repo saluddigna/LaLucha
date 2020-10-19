@@ -8,6 +8,7 @@ var minDate = moment.utc(date).local().format("YYYY-MM-DD");
 var fechaFinOctubre = new Date("2020-10-31 00:00:00");
 
 var reag_masto=`<div id="reagendarMasto-name"><b>MASTOGRAFIA</b></div>
+<div class="reagendarMastoParsley">
 <div class="d-flex row">
 <div class="combobox">
 <div class="cajas-texto">
@@ -23,7 +24,10 @@ var reag_masto=`<div id="reagendarMasto-name"><b>MASTOGRAFIA</b></div>
     <span class="floating-label">Hora de tu cita</span>
 </div>
 </div>
-</div>`;
+</div>
+<p class="parsley-errors-list" id="reagendarMastoFreeError"> Lo sentimos, para el estudio de mastografía no es posible cambiar la fecha de tu cita. </p>
+</div>
+`;
 
 var reag_papa=`<div id="reagendarPapa-name"><b>PAPANICOLAOU</b></div> 
  <div class="d-flex row">
@@ -67,6 +71,7 @@ function folio_cancelada(){
     $('#folios_densi').hide();
     $('#acciones').hide();    
     $('#cita_cancelada').text("CANCELADA");
+    $('#cancelarC').addClass('d-none'); 
     $('#fValido').hide();
 }
 function startPerfil(){
@@ -90,11 +95,23 @@ function startPerfil(){
             scrollTop("#reagendarCita")
         }
     }
+    refreshDataPerfil();
 
-    if(dataUser.datosCita.mastoGratis){
-        $('#btnReagendar').hide();     
+
+    //Logica Reagendar
+    if(dataUser.datosCita.reagendacion==false)
+        $('#btnReagendar').addClass('d-none');  
+    else if(dataUser.datosCita.mastoGratis && dataUser.datosCita.estudios.length==1){  
+        $('#btnReagendar').addClass('d-none');  
+        $('#devolcion').addClass('d-none'); 
     }
+    else 
+        $('#btnReagendar').removeClass('d-none');  
+    
+   
 
+
+    //avatar genero
     if(dataUser.datosPaciente.IdSexo=="2"){
         $('#avatarHombre').removeClass('d-none');
         $('#avatarMujer').addClass('d-none');
@@ -104,7 +121,6 @@ function startPerfil(){
         $('#avatarMujer').removeClass('d-none');
     }
 
-    refreshDataPerfil();
     
 
     $('#lentes-agregar').hide();
@@ -150,9 +166,19 @@ function startPerfil(){
             folio_cancelada()
         }
         $("#reagendar-inputs").empty();
-        $("#reagendar-inputs").append(
-            reag_masto
-        );
+
+        $("#reagendar-inputs").append(reag_masto);
+        if(dataUser.datosCita.mastoGratis){
+            $("#reagendarMastoFreeError").show();
+            $('#reagendarMasto-fecha').addClass("dis");
+            $('#reagendarMasto-Hora').addClass("dis");   
+        }
+        else{
+            $("#reagendarMastoFreeError").hide(); 
+            $('#reagendarMasto-fecha').removeClass("dis");
+            $('#reagendarMasto-Hora').removeClass("dis");
+        }  
+
         $("#reagendarMasto-fecha").datepicker({
             minDate: 0,
             maxDate: fechaFinOctubre,
@@ -174,10 +200,6 @@ function startPerfil(){
         //     var body={ListaHorarios:[{IdEstudio:3,IdSucursal:dataUser.datosCita.clinica.IdSucursal,Fecha:$(this).val(),IdSubEstudioEncript:mastografia.data[0].Id}]}
         //     getHorariosDisponibles(body,'#reagendarMasto-Hora');
         // });
-
-
-
-
 
     }else if(dataUser.datosCita.estudios.length==2){
         $('#folios_densi').hide();
@@ -202,6 +224,16 @@ function startPerfil(){
 
         $("#reagendar-inputs").empty();
         $("#reagendar-inputs").append(reag_masto);
+        if(dataUser.datosCita.mastoGratis){
+            $("#reagendarMastoFreeError").show();
+            $('#reagendarMasto-fecha').addClass("dis");
+            $('#reagendarMasto-Hora').addClass("dis");   
+        }
+        else{
+            $("#reagendarMastoFreeError").hide(); 
+            $('#reagendarMasto-fecha').removeClass("dis");
+            $('#reagendarMasto-Hora').removeClass("dis");
+        } 
 
         $("#reagendarMasto-fecha").datepicker({
             minDate: 0,
@@ -274,6 +306,18 @@ function startPerfil(){
 
         $("#reagendar-inputs").empty();
         $("#reagendar-inputs").append(reag_masto);
+        if(dataUser.datosCita.mastoGratis){
+            $("#reagendarMastoFreeError").show();
+            $('#reagendarMasto-fecha').addClass("dis");
+            $('#reagendarMasto-Hora').addClass("dis");   
+        }
+        else{
+            $("#reagendarMastoFreeError").hide(); 
+            $('#reagendarMasto-fecha').removeClass("dis");
+            $('#reagendarMasto-Hora').removeClass("dis");
+        } 
+
+
         $("#reagendarMasto-fecha").datepicker({
             minDate: 0,
             maxDate: fechaFinOctubre,
@@ -380,6 +424,13 @@ function reagendarCita(){
 }
 
 function validaDatosReagendar(){
+    if(dataUser.datosCita.mastoGratis){
+        $('#form-reagendar').parsley({
+            excluded: '.reagendarMastoParsley input, .reagendarMastoParsley select'
+        });
+    }
+
+
         $('#form-reagendar').parsley().validate();
         if ($('#form-reagendar').parsley().isValid()) {
           return true
@@ -390,6 +441,11 @@ function validaDatosReagendar(){
 }
 function reagendar(){
     $.when( agregarLoadingInputs() ).then(x=>{    
+    if(!dataUser.datosCita.reagendacion){
+        setTimeout(function() { quitarLoadingInputs(); }, 500);
+        console.log("error al reagendar")
+        return
+    }
     var validacion = validaDatosReagendar()
     console.log(validacion)
     if(!validacion){
@@ -397,7 +453,7 @@ function reagendar(){
         return;
     }
     var body={}
-    if(dataUser.datosCita.estudios.length==1){
+    if(dataUser.datosCita.estudios.length==1 && !dataUser.datosCita.mastoGratis){
     body={
         idCita:dataUser.datosCita.idCita,
         Estudios : [
@@ -468,6 +524,10 @@ function reagendar(){
         $("#reagendarFechas").addClass("d-none");
         $("#reagendarFechas").removeClass("d-flex");
         $("#reagendarAceptar").removeClass("d-none");
+    }
+    else{
+        setTimeout(function() { quitarLoadingInputs(); }, 500);
+        console.log("error al reagendar api")
     }
 });
 }
