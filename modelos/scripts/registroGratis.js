@@ -218,7 +218,7 @@ function getHorariosDisponibles(body, selector) {
 
 function getClinicasByEstadoGratis() {
     var filter = $('#selectEstado').val();
-    // console.log(global.clinicas.filter(x => x.mastoGratis==true));
+    console.log(global.clinicas.filter(x => x.mastoGratis==true));
     var clinicasFilter = global.clinicas.filter(x => x.IdEstado == filter && x.mastoGratis==true);
     // console.log("clinicas Filtradas: "+JSON.parse(clinicasFilter));
     var optionsAsString = "<option hidden selected>Selecciona una opción</option>";
@@ -282,13 +282,13 @@ function disablekeys() {
 }
 async function startDatesPicker() {
     $('#dialog_link, ul#icons li').hover(function () { $(this).addClass('ui-state-hover'); }, function () { $(this).removeClass('ui-state-hover'); });
-    var fechaFinOctubre = new Date("2020-10-31 00:00:00");
+    var fechaFinOctubre = new Date("2020-12-31 00:00:00");
+    var minDate = new Date("2020-10-20 00:00:00");
     $("#fechaCita").datepicker({
-        minDate: 0,
-        // maxDate: fechaFinOctubre,
+        minDate: minDate,
+        maxDate: fechaFinOctubre,
         dateFormat: 'dd-mm-yy',
     });
-
 }
 
 async function loadEstados() {
@@ -413,16 +413,6 @@ function saveDataCitaGratis() {
     $("#cita_siguiente").prop("disabled", true);
 }
 
-
-async function startDatesPicker() {
-    $('#dialog_link, ul#icons li').hover(function () { $(this).addClass('ui-state-hover'); }, function () { $(this).removeClass('ui-state-hover'); });
-    var fechaFinOctubre = new Date("2020-10-31 00:00:00");
-    $("#fechaCita").datepicker({
-        minDate: 0,
-        maxDate: fechaFinOctubre,
-        dateFormat: 'dd-mm-yy',
-    });
-}
 
 async function loadValuesCitaGratis() {
     $("#selectClinica").prop('disabled', false)
