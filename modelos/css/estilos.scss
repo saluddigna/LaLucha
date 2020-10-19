@@ -563,7 +563,7 @@ input.error{
   background:#a8a7a7 0% 0% no-repeat padding-box;
   box-shadow: 0px 0px 6px #6161613B;
   border-radius: 5px;
-  height: 100px;
+  //height: 100px;
   flex: 1 1 auto;
   color: white;
   margin: 10px 15px;
@@ -573,6 +573,8 @@ input.error{
   justify-content: center;
   align-items: center;
   position: relative;
+  cursor: pointer;
+  text-align: justify;
   p{
     margin-bottom: 5px;
     img{
@@ -596,8 +598,21 @@ input.error{
 }
 .masto-cita.active{
   background-color: #E45F7D;
-  //border: 3px solid #B54B60;
+  border: 3px solid #B54B60;
   //cursor: pointer;
+}
+.errorSitio{
+  background: #FCEFEF 0% 0% no-repeat padding-box;
+  border: 2px solid #F0577B;
+  border-radius: 4px;
+  display: flex;
+  img{
+    align-self: flex-start;
+    padding: 10px;
+  }
+  p{
+    padding: 10px;
+  }
 }
 .octubre, .este19{
   display: none;
