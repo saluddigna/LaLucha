@@ -98,7 +98,7 @@ function seguientePaso() {
         $("#cita_regresar").show();
         saveDataCitaGratis()
         paso++;
-        $("#navCita2").addClass('active');
+        $("#navCitaFree2").addClass('active');
         setPaso();
         cambioPaso();
       }
@@ -108,7 +108,7 @@ function seguientePaso() {
       // var result = validaCitaGratis();
         history.pushState(null, null, 'registrar');
         $("#cita_regresar").show();
-        $("#navCita3").addClass('active');
+        $("#navCitaFree3").addClass('active');
         paso++;
         setPaso();
         cambioPaso();

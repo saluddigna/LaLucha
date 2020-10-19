@@ -30,7 +30,7 @@ idSesion="1dnni3hgu9iggbdktdlpfb19u4";
 //conektaKey='key_fNdPxbPkqAt1xF1sYMgQF5w';
 conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
 
-configUrl='https://la-lucha-sd-staging.herokuapp.com/';
+configUrl='https://b4f05a32b77f.ngrok.io/';
 //configUrl='https://b903340e29bc.ngrok.io/';
 sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 
