@@ -133,7 +133,8 @@ function seccion(nav){
     removerClaseNav();
     $("#btnRegistro").addClass("active");
   }else if(nav==2){
-    $('#seccion').load('./modelos/revista.html');
+    window.open('https://bit.ly/34a9D7P', '_blank');
+    
     saveAnalytics('entrarPagina','PonElPecho','entrarEnRevista');
     removerClaseNav();
     $("#btnRevista").addClass("active");
