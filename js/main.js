@@ -12,12 +12,22 @@ global.perfil={};
 dataUser=null
 modalInactividad=null;
 intervaloMilisegundosInactividad=360000;
-citasGratis=false;
-// console.log(citasGratis)
-agregarLoadingInputs();
-$.when(  startSocket()).then(x => {
-// console.log(citasGratis)
-console.log("bandera citas gratis: ",citasGratis)
+dataDisponibles=getExistMasto();
+citasGratis=dataDisponibles.disponibles;
+if(citasGratis){
+  console.log("citasGratis:" +citasGratis)
+  $("bannerPrincipal").addClass('sinCosto')
+}
+console.log("Numero Mastos: "+dataDisponibles.numeroMasto)
+if(dataDisponibles.numeroMasto>=12000){
+  $("bannerPrincipal").removeClass('sinCosto')
+  $("bannerPrincipal").addClass('entregadas12k')
+}else if(dataDisponibles.numeroMasto>=10000){
+  $("bannerPrincipal").addClass('entregadas10k')
+}
+
+startSocket()
+
 
 try{
   dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
@@ -110,7 +120,6 @@ $(document).ready(function () {
     else{
       irPerfil()
     }
-});
 });
 
 
@@ -253,3 +262,21 @@ function inactividadSeguir(){
 function inactividadAyuda(){
   clearInterval(modalInactividad);
 }
+
+function getExistMasto() {
+  var resp = [];
+  $.ajax({
+      type: 'GET',
+      url: 'https://socket-lucha.herokuapp.com/datos',
+      dataType: 'json',
+      async: false,
+      success: function (response) {
+          resp = response;
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR, textStatus, errorThrown)
+      }
+  });
+  console.log("respuesta existMasto:",resp)
+  return resp;
+};

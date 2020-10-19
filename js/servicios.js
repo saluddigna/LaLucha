@@ -19,6 +19,10 @@ function getClinicas() {
     return arrClinicas;
 };
 
+
+
+
+
 function getEstados() {
     var arrEstados = [];
 

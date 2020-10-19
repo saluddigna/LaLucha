@@ -28,12 +28,14 @@ $(document).ready(function () {
 
   $("#infoCita").load('../modelos/componentes/infoCita.html', function () {
     if(citasGratis){
+      console.log('barr'+citasGratis)
       $("#faq").load('../modelos/componentes/preguntas.html');
-      $("#navegacionFree").removeClass('d-none');
-      $("#navegacionCitas").addClass('d-none');
+      $("#navegacionFree").show()
+      $("#navegacionCitas").hide()
     }else {
-      $("#navegacionFree").addClass('d-none');
-      $("#navegacionCitas").removeClass('d-none');
+      console.log('barr'+citasGratis)
+      $("#navegacionFree").hide();
+      $("#navegacionCitas").show();
     }
     });
   $("#formCita").load('../modelos/componentes/formCita.html', function () {
