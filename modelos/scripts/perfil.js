@@ -336,7 +336,8 @@ function startPerfil(){
 
         $("#reagendar-inputs").append(reag_papa);
         $('#reagendarPapa-fecha').datepicker({
-            minDate: 0,
+            minDate: minDate,
+            maxDate: fechaFinOctubre,
             dateFormat: 'dd-mm-yy',
         })
 
