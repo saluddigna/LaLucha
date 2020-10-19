@@ -21,7 +21,7 @@ async function startCitaGratis() {
         $("#selectClinica").prop('disabled', false)
         $("#fechaCita").prop('disabled', true)
         $("#selectHorario").prop('disabled', true)
-        getClinicasByEstado();
+        getClinicasByEstadoGratis()
     });
 
     await startDatesPicker()
@@ -216,9 +216,11 @@ function getHorariosDisponibles(body, selector) {
     $(selector).empty().append(optionsAsString);
 }
 
-function getClinicasByEstado() {
+function getClinicasByEstadoGratis() {
     var filter = $('#selectEstado').val();
-    var clinicasFilter = global.clinicas.filter(x => x.IdEstado == filter);
+    // console.log(global.clinicas.filter(x => x.mastoGratis==true));
+    var clinicasFilter = global.clinicas.filter(x => x.IdEstado == filter && x.mastoGratis==true);
+    // console.log("clinicas Filtradas: "+JSON.parse(clinicasFilter));
     var optionsAsString = "<option hidden selected>Selecciona una opción</option>";
     for (var i = 0; i < clinicasFilter.length; i++) {
         optionsAsString += "<option value='" + clinicasFilter[i].IdSucursal + "' data-clinica-name='" + clinicasFilter[i].Nombre + "'>" + clinicasFilter[i].Nombre + "</option>";
@@ -429,7 +431,7 @@ async function loadValuesCitaGratis() {
     await loadEstados()
     if (global.data.IdEstado && global.data.IdSucursal) {
         $('#selectEstado').val(global.data.IdEstado);
-        getClinicasByEstado();
+        getClinicasByEstadoGratis();
         $('#selectClinica').val(global.data.IdSucursal);
         idSucursal = global.data.IdSucursal;
     }
