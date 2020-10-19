@@ -9,4 +9,5 @@ function startSocket(bandera) {
         $("#mastosEntregadas").text((payload.numeroMasto).toString())
         $("#mastoEntregar").text((payload.MastosAEntregar).toString())
     })
+    setTimeout(function () { quitarLoadingInputs(); }, 1500);
 }

@@ -14,7 +14,8 @@ modalInactividad=null;
 intervaloMilisegundosInactividad=360000;
 citasGratis=false;
 // console.log(citasGratis)
-startSocket();
+agregarLoadingInputs();
+$.when(  startSocket()).then(x => {
 // console.log(citasGratis)
 console.log("bandera citas gratis: ",citasGratis)
 
@@ -30,7 +31,7 @@ idSesion="1dnni3hgu9iggbdktdlpfb19u4";
 //conektaKey='key_fNdPxbPkqAt1xF1sYMgQF5w';
 conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
 
-configUrl='https://b4f05a32b77f.ngrok.io/';
+configUrl='https://la-lucha-sd-staging.herokuapp.com/';
 //configUrl='https://b903340e29bc.ngrok.io/';
 sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 
@@ -110,6 +111,10 @@ $(document).ready(function () {
       irPerfil()
     }
 });
+});
+
+
+
 
 function seccion(nav){
   if(nav==1){
