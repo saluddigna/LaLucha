@@ -670,7 +670,7 @@ function saveHorarios(){
                 Fecha: $("#agregar-densi-fecha").val(),
                 Hora: $(':selected', '#agregar-densi-hora').attr("data-hora"),
                 IdHora: parseInt($("#agregar-densi-hora").val()),
-                Id: parseInt(papanicolao.data[0].Id),
+                Id: parseInt(densitometria.data[0].Id),
                 IdEstudio: 1
             }
         ],
