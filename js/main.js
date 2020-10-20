@@ -11,9 +11,10 @@ papanicolao=null;
 global.perfil={};
 dataUser=null
 modalInactividad=null;
+idSucursal=null;
 intervaloMilisegundosInactividad=360000;
-dataDisponibles=getExistMasto();
-citasGratis=dataDisponibles.disponibles;
+// dataDisponibles=getExistMasto();
+citasGratis=false
 
 startSocket()
 
@@ -84,17 +85,7 @@ $(document).ready(function () {
   })
   console.log('dataUser',dataUser)
   $('#banner').load('./modelos/banner.html',function(){
-    if(citasGratis){
-      console.log("citasGratis:" +citasGratis)
-      $("#bannerPrincipal").addClass('sinCosto')
-    }
-    console.log("Numero Mastos: "+dataDisponibles.numeroMasto)
-    if(dataDisponibles.numeroMasto>=12000){
-      $("#bannerPrincipal").removeClass('sinCosto')
-      $("#bannerPrincipal").addClass('entregadas12k')
-    }else if(dataDisponibles.numeroMasto>=10000){
       $("#bannerPrincipal").addClass('entregadas10k')
-    }
   });
   $('#nav').load('./modelos/navbar.html');
 
