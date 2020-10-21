@@ -39,7 +39,8 @@ $(document).ready(function () {
     }
     });
   $("#formCita").load('../modelos/componentes/formCita.html', function () {
-    saveAnalytics('entrarPagina', 'PonElPecho', 'Empezar cita');    
+    saveAnalytics('entrarPagina', 'PonElPecho', 'Empezar cita');
+    $("#navRegistro").addClass("active");   
     $("#cita_regresar").hide();
     $(".overlay_loading").css("display", "flex")
     global.clinicas = getClinicas();

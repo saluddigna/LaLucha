@@ -27,11 +27,11 @@ catch{
 }
 
 
-idSesion="1dnni3hgu9iggbdktdlpfb19u4";
 //conektaKey='key_fNdPxbPkqAt1xF1sYMgQF5w';
-conektaKey='key_MpzazUMfWjk6XKS55qnEnNQ';
+idSesion="1dnni3hgu9iggbdktdlpfb19u4";
+conektaKey='key_fNdPxbPkqAt1xF1sYMgQF5w';
 
-configUrl='https://la-lucha-sd-staging.herokuapp.com/';
+configUrl='https://la-lucha-sd.herokuapp.com/';
 //configUrl='https://b903340e29bc.ngrok.io/';
 sesion='Basic bGFsdWNoYXNkOll2RF4mSGlCNmQ4N2FeWlh4d0Vo';
 
@@ -123,12 +123,14 @@ function seccion(nav){
     saveAnalytics('entrarPagina','PonElPecho','entrarEnCitas');
     removerClaseNav();
     $("#btnRegistro").addClass("active");
+    $("#navRegistro").addClass("active");
   }else if(nav==2){
     window.open('https://bit.ly/34a9D7P', '_blank');
     
     saveAnalytics('entrarPagina','PonElPecho','entrarEnRevista');
     removerClaseNav();
     $("#btnRevista").addClass("active");
+    $("#navRevista").addClass("active");
   }else if(nav==3){
     $('#seccion').load('./modelos/beneficiados.html',function(){
       startBeneficiados();
@@ -136,6 +138,7 @@ function seccion(nav){
     saveAnalytics('entrarPagina','PonElPecho','entrarEnBeneficiados');
     removerClaseNav();
     $("#btnPxBeneficiados").addClass("active");
+    $("#navPxBeneficiados").addClass("active");
   }else if(nav==4){
     if(!dataUser){
       redirectLogin();
@@ -155,6 +158,10 @@ function removerClaseNav(){
   $("#btnRevista").removeClass("active");
   $("#btnPxBeneficiados").removeClass("active");
   $("#btnLogIn").removeClass("active");
+  $("#navRegistro").removeClass("active");
+  $("#navRevista").removeClass("active");
+  $("#navPxBeneficiados").removeClass("active");
+  $("#navLogIn").removeClass("active");
 
 }
 
@@ -175,6 +182,7 @@ async function irPerfil(parametro) {
       });
       removerClaseNav();
       $("#btnLogIn").addClass("active");
+      $("#navLogIn").addClass("active");
     });
   });
 }
@@ -198,6 +206,7 @@ function redirectLogin(){
       });
     removerClaseNav();
     $("#btnLogIn").addClass("active");
+    $("#navLogIn").addClass("active");
   });
 }
 

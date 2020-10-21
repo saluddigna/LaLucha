@@ -240,7 +240,9 @@ input.error{
 .icoNav{
   margin: 10px;
 }
-
+.opcMovil.active {
+  background-color: #B54B60;
+}
 .navegacionCitas{
   display: flex;
   background: #FFFFFF 0% 0% no-repeat padding-box;
