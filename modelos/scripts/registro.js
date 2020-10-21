@@ -23,7 +23,7 @@ function disablekeys() {
 }
 async function startDatesPicker() {
     $('#dialog_link, ul#icons li').hover(function () { $(this).addClass('ui-state-hover'); }, function () { $(this).removeClass('ui-state-hover'); });
-    var fechaFinOctubre = new Date("2020-10-31 00:00:00");
+    var fechaFinOctubre = new Date("2020-12-31 00:00:00");
     $("#fechaCita").datepicker({
         minDate: 0,
         maxDate: fechaFinOctubre,
