@@ -76,6 +76,7 @@ function folio_cancelada(){
 }
 function startPerfil(){
     saveAnalytics('entrarPagina','PonElPecho','Mi Perfil');
+    console.log('entre start perfil');
     dataUser=JSON.parse(sessionStorage.getItem('dataUser'));
     console.log(dataUser);
     if(!dataUser){
@@ -458,12 +459,17 @@ function reagendar(){
     if(dataUser.datosCita.estudios.length==1 && !dataUser.datosCita.mastoGratis){
     body={
         idCita:dataUser.datosCita.idCita,
+        IdSucursal:dataUser.datosCita.clinica.IdSucursal,
+        mastoGratis:dataUser.datosCita.mastoGratis,
         Estudios : [
             {
                 IdCitaSisPrev: dataUser.datosCita.estudios[0].idCitaSisPrev,
                 Fecha: $("#reagendarMasto-fecha").val(),
                 HorarioText: $(':selected', '#reagendarMasto-Hora').attr("data-hora"),
-                IdHorario: $("#reagendarMasto-Hora").val()
+                IdHorario: $("#reagendarMasto-Hora").val(),
+                IdHora: $("#reagendarMasto-Hora").val(),
+                Id: parseInt(mastografia.data[0].Id),
+                IdEstudio: 3
             }
         ]
         }
@@ -471,18 +477,26 @@ function reagendar(){
     else if(dataUser.datosCita.estudios.length==2){
         body={
             idCita:dataUser.datosCita.idCita,
+            IdSucursal:dataUser.datosCita.clinica.IdSucursal,
+            mastoGratis:dataUser.datosCita.mastoGratis,
             Estudios: [
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[0].idCitaSisPrev,
                     Fecha: $("#reagendarMasto-fecha").val(),
                     HorarioText: $(':selected', '#reagendarMasto-Hora').attr("data-hora"),
-                    IdHorario: parseInt($("#reagendarMasto-Hora").val())
+                    IdHorario: parseInt($("#reagendarMasto-Hora").val()),
+                    IdHora: $("#reagendarMasto-Hora").val(),
+                    Id: parseInt(mastografia.data[0].Id),
+                    IdEstudio: 3
                 },
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[1].idCitaSisPrev,
                     Fecha:$("#reagendarPapa-fecha").val(), 
                     HorarioText: $(':selected', '#reagendarPapa-Hora').attr("data-hora"),
-                    IdHorario: parseInt($("#reagendarPapa-Hora").val())
+                    IdHorario: parseInt($("#reagendarPapa-Hora").val()),
+                    IdHora: parseInt($("#reagendarPapa-Hora").val()),
+                    Id: parseInt(papanicolao.data[0].Id),
+                    IdEstudio: 4
                 }
             ]
         }
@@ -490,24 +504,35 @@ function reagendar(){
     else{
         body={
             idCita:dataUser.datosCita.idCita,
+            IdSucursal:dataUser.datosCita.clinica.IdSucursal,
+            mastoGratis:dataUser.datosCita.mastoGratis,
             Estudios: [
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[0].idCitaSisPrev,
                     Fecha: $("#reagendarMasto-fecha").val(),
                     HorarioText: $(':selected', '#reagendarMasto-Hora').attr("data-hora"),
-                    IdHorario: parseInt($("#reagendarMasto-Hora").val())
+                    IdHorario: parseInt($("#reagendarMasto-Hora").val()),
+                    IdHora: $("#reagendarMasto-Hora").val(),
+                    Id: parseInt(mastografia.data[0].Id),
+                    IdEstudio: 3
                 },
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[1].idCitaSisPrev,
                     Fecha: $("#reagendarPapa-fecha").val(),
                     HorarioText: $(':selected', '#reagendarPapa-Hora').attr("data-hora"),
-                    IdHorario: parseInt($("#reagendarPapa-Hora").val())
+                    IdHorario: parseInt($("#reagendarPapa-Hora").val()),
+                    IdHora: parseInt($("#reagendarPapa-Hora").val()),
+                    Id: parseInt(papanicolao.data[0].Id),
+                    IdEstudio: 4
                 },
                 {
                     IdCitaSisPrev: dataUser.datosCita.estudios[2].idCitaSisPrev,
                     Fecha: $("#reagendarDensi-fecha").val(),
                     HorarioText: $(':selected', '#reagendarDensi-Hora').attr("data-hora"),
-                    IdHorario: parseInt($("#reagendarDensi-Hora").val())
+                    IdHorario: parseInt($("#reagendarDensi-Hora").val()),
+                    IdHora: parseInt($("#reagendarDensi-Hora").val()),
+                    Id: parseInt(densitometria.data[0].Id),
+                    IdEstudio: 1
                 }
             ]
         }
@@ -657,6 +682,7 @@ function saveHorarios(){
     dataAgregar=
     {
         idCita:dataUser.datosCita.idCita,
+        IdSucursal:dataUser.datosCita.clinica.IdSucursal,
         TipoPago: 3,
         Estudios: [
             {
@@ -664,14 +690,14 @@ function saveHorarios(){
                 Hora: $(':selected', '#agregar-papa-hora').attr("data-hora"),
                 IdHora: parseInt($("#agregar-papa-hora").val()),
                 Id: parseInt(papanicolao.data[0].Id),
-                IdEstudio: 4
+                IdEstudio: 4,
             },
             {
                 Fecha: $("#agregar-densi-fecha").val(),
                 Hora: $(':selected', '#agregar-densi-hora').attr("data-hora"),
                 IdHora: parseInt($("#agregar-densi-hora").val()),
                 Id: parseInt(densitometria.data[0].Id),
-                IdEstudio: 1
+                IdEstudio: 1,
             }
         ],
         DatosPago: {
