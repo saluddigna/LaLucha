@@ -38,19 +38,25 @@ $(document).ready(function () {
       $("#navegacionCitas").show();
     }
     });
-  $("#formCita").load('../modelos/componentes/formCita.html', function () {
-    saveAnalytics('entrarPagina', 'PonElPecho', 'Empezar cita');
-    $("#navRegistro").addClass("active");   
-    $("#cita_regresar").hide();
-    $(".overlay_loading").css("display", "flex")
-    global.clinicas = getClinicas();
-    global.estados = getEstados();
-    paso = 1;
-    setPaso();
-    cambioPaso();
-  });
+  var mes_actual_campana = new Date().getMonth();
 
-
+  if(mes_actual_campana > 9){
+    $("#formCita").load('../modelos/componentes/cierreCampana.html', function () {
+      $("#navRegistro").addClass("active");
+    });
+  }else{
+    $("#formCita").load('../modelos/componentes/formCita.html', function () {
+      saveAnalytics('entrarPagina', 'PonElPecho', 'Empezar cita');
+      $("#navRegistro").addClass("active");   
+      $("#cita_regresar").hide();
+      $(".overlay_loading").css("display", "flex")
+      global.clinicas = getClinicas();
+      global.estados = getEstados();
+      paso = 1;
+      setPaso();
+      cambioPaso();
+    });
+  }
 });
 
 function seguientePaso() {

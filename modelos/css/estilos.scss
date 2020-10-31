@@ -2,6 +2,16 @@
 *{
     font-family: 'Open Sans', sans-serif;
 }
+.cierreCampana{
+  padding: 0 !important;
+  margin: 15px 0;
+}
+.cierreCampana img{
+  box-shadow: 0px 3px 6px #00000029;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
 #principal{
   height: auto;
 }
@@ -1393,6 +1403,13 @@ div.dataTables_wrapper div.dataTables_paginate {float:none; text-align:center}
       position: relative;
       bottom: 74px;
     }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .movilOrden{
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
 
